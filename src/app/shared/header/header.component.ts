@@ -6,7 +6,8 @@ import { OverlayContainer } from '@angular/cdk/overlay';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private overlayContainer: OverlayContainer) {}
+  constructor() {}
 
+  links = ['about', 'projects', 'contact'];
   ngOnInit() {}
 }
