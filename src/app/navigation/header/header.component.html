@@ -1,0 +1,29 @@
+<mat-toolbar class="toolbar" id="top">
+  <div>
+    <button
+      mat-icon-button
+      (click)="onToggleSidenav()"
+      color="primary"
+      class="menu"
+      aria-label="menu"
+    >
+      <div class="menu-row"></div>
+      <div class="menu-row"></div>
+      <div class="menu-row"></div>
+    </button>
+  </div>
+  <div>
+    <a routerLink="/"><div>Home</div></a>
+  </div>
+  <div>
+    <ul class="navigation-items">
+      <li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
+      <li>
+        <a routerLink="/projects" routerLinkActive="active-link">Projects</a>
+      </li>
+      <li>
+        <a routerLink="/contact" routerLinkActive="active-link">Contact</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
