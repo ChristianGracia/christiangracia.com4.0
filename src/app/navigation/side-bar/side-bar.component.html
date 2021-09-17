@@ -1,0 +1,29 @@
+<mat-nav-list class="side-nav-bar">
+  <div class="site-navigation-header">
+    <span class="site-navigation-text">Navigation</span>
+  </div>
+  <a mat-list-item routerLink="/">
+    <span
+      class="nav-caption"
+      (click)="onClose()"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home
+    </span>
+  </a>
+  <a mat-list-item routerLink="/about">
+    <span class="nav-caption" (click)="onClose()" routerLinkActive="active-link"
+      >About
+    </span>
+  </a>
+  <a mat-list-item routerLink="/projects">
+    <span class="nav-caption" (click)="onClose()" routerLinkActive="active-link"
+      >Projects
+    </span>
+  </a>
+  <a mat-list-item routerLink="/contact">
+    <span class="nav-caption" (click)="onClose()" routerLinkActive="active-link"
+      >Contact
+    </span>
+  </a>
+</mat-nav-list>
