@@ -1,7 +1,10 @@
-.example-spacer {
+.nav-spacer {
   flex: 1 1 auto;
 }
 .nav-items {
   display: flex;
   flex-direction: row;
+  .nav-item {
+    text-transform: capitalize;
+  }
 }

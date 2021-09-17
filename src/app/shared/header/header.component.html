@@ -1,44 +1,22 @@
 <mat-toolbar ng-cloak layout="row">
-  <button
+  <a
     hide-gt-xs
     mat-icon-button
-    class="example-icon"
+    color="accent"
     aria-label="Home button with menu icon"
     href="/"
   >
     <mat-icon>menu</mat-icon>
-  </button>
-  <span class="example-spacer"></span>
-  <mat-nav-list class="nav-items">
+  </a>
+  <span class="nav-spacer"></span>
+  <div class="nav-items">
     <a
-      mat-list-item
-      href="{{ link }}"
-      color="accent"
+      class="nav-item"
       *ngFor="let link of links"
+      mat-button
+      color="accent"
+      href="{{ link }}"
+      >{{ link }}</a
     >
-      {{ link }}
-    </a>
-  </mat-nav-list>
-  <!-- <button
-    mat-button
-    color="accent"
-    routerLink="/about"
-    routerLinkActive="active-link"
-  ></button>
-  <button
-    mat-button
-    color="accent"
-    routerLink="/projects"
-    routerLinkActive="active-link"
-  >
-    Projects
-  </button>
-  <button
-    mat-button
-    color="accent"
-    routerLink="/contact"
-    routerLinkActive="active-link"
-  >
-    Contact
-  </button> -->
+  </div>
 </mat-toolbar>
