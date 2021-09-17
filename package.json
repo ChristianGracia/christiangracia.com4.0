@@ -10,7 +10,8 @@
     "dev:ssr": "ng run christiangracia-ssr:serve-ssr",
     "serve:ssr": "node dist/christiangracia-ssr/server/main.js",
     "build:ssr": "ng build && ng run christiangracia-ssr:server",
-    "prerender": "ng run christiangracia-ssr:prerender"
+    "prerender": "ng run christiangracia-ssr:prerender",
+    "heroku-postbuild": " ng build --prod --configuration production"
   },
   "private": true,
   "dependencies": {
