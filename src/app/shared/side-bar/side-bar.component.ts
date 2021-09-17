@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { OverlayContainer } from '@angular/cdk/overlay';
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
@@ -8,18 +8,6 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 export class SideBarComponent implements OnInit {
   themeColor: 'primary' | 'accent' | 'warn' = 'primary';
   isDark = false;
-  constructor(private overlayContainer: OverlayContainer) {}
-
+  constructor() {}
   ngOnInit(): void {}
-
-  toggleTheme(): void {
-    this.isDark = !this.isDark;
-    if (this.isDark) {
-      this.overlayContainer.getContainerElement().classList.add('dark-theme');
-    } else {
-      this.overlayContainer
-        .getContainerElement()
-        .classList.remove('dark-theme');
-    }
-  }
 }
