@@ -1,61 +1,60 @@
 <section class="contact-form" *ngIf="!emailReceived">
-  <form
-    fxLayout="column"
-    fxLayoutGap="10px"
-    fxLayoutAlign="center center"
-    #contactForm="ngForm"
-    (ngSubmit)="submit(contactForm)"
-  >
-    <mat-form-field color="accent">
-      <input
-        type="text"
-        matInput
-        placeholder="Name"
-        ngModel
-        name="name"
-        required
-        minLength="4"
-        #nameInput="ngModel"
-      />
-      <mat-error *ngIf="nameInput.hasError('required')"
-        >Field must not be empty.</mat-error
-      >
-    </mat-form-field>
-    <mat-form-field color="accent">
-      <input
-        type="email"
-        matInput
-        placeholder="Email"
-        ngModel
-        name="email"
-        required
-        email
-        #emailInput="ngModel"
-      />
-      <mat-error *ngIf="!emailInput.hasError('required')"
-        >Must be a valid email address.</mat-error
-      >
-      <mat-error *ngIf="emailInput.hasError('required')"
-        >Field must not be empty.</mat-error
-      >
-    </mat-form-field>
-
-    <mat-form-field color="accent">
-      <textarea
-        cdkTextareaAutosize
-        cdkAutosizeMinRows="2"
-        cdkAutosizeMaxRows="10"
-        matInput
-        placeholder="Leave a message"
-        ngModel
-        name="message"
-        #messageInput="ngModel"
-        required
-      ></textarea>
-      <mat-error *ngIf="messageInput.hasError('required')"
-        >Field must not be empty.</mat-error
-      >
-    </mat-form-field>
+  <form #contactForm="ngForm" (ngSubmit)="submit(contactForm)">
+    <div>
+      <mat-form-field color="accent">
+        <input
+          type="text"
+          matInput
+          placeholder="Name"
+          ngModel
+          name="name"
+          required
+          minLength="4"
+          #nameInput="ngModel"
+        />
+        <mat-error *ngIf="nameInput.hasError('required')"
+          >Field must not be empty.</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field color="accent">
+        <input
+          type="email"
+          matInput
+          placeholder="Email"
+          ngModel
+          name="email"
+          required
+          email
+          #emailInput="ngModel"
+        />
+        <mat-error *ngIf="!emailInput.hasError('required')"
+          >Must be a valid email address.</mat-error
+        >
+        <mat-error *ngIf="emailInput.hasError('required')"
+          >Field must not be empty.</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field color="accent">
+        <textarea
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="2"
+          cdkAutosizeMaxRows="10"
+          matInput
+          placeholder="Leave a message"
+          ngModel
+          name="message"
+          #messageInput="ngModel"
+          required
+        ></textarea>
+        <mat-error *ngIf="messageInput.hasError('required')"
+          >Field must not be empty.</mat-error
+        >
+      </mat-form-field>
+    </div>
 
     <div class="submit-button-container">
       <button
@@ -70,12 +69,7 @@
     </div>
   </form>
 </section>
-<section
-  *ngIf="emailReceived"
-  fxLayout="column"
-  fxLayoutAlign="center center"
-  class="email-received-container"
->
+<section *ngIf="emailReceived" class="email-received-container">
   <h1>I have received your email!</h1>
   <button
     aria-label="back"
