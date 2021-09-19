@@ -9,23 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
-import { ProjectsComponent } from './pages/projects/projects.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { FormsModule } from '@angular/forms';
-import { GithubReposComponent } from './pages/projects/github-repos/github-repos.component';
-import { WebsitesComponent } from './pages/projects/websites/websites.component';
-import { SiteComponent } from './pages/projects/websites/site/site.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactComponent,
     AboutComponent,
-    ProjectsComponent,
     ContactFormComponent,
-    GithubReposComponent,
-    WebsitesComponent,
-    SiteComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
