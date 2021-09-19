@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatFormFieldModule,
     MatMenuModule,
+    MatSlideToggleModule,
   ],
   exports: [
     MatButtonModule,
@@ -33,6 +35,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatFormFieldModule,
     MatMenuModule,
+    MatSlideToggleModule,
   ],
 })
 export class MaterialModule {}

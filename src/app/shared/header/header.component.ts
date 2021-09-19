@@ -7,12 +7,18 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 })
 export class HeaderComponent implements OnInit {
   @Output()
-  sidenavToggle = new EventEmitter<void>();
+  public sidenavToggle = new EventEmitter<void>();
+  @Output()
+  public changeTheme = new EventEmitter<boolean>();
   public links: string[] = ['about', 'projects', 'contact'];
   constructor() {}
 
   ngOnInit() {}
-  public onToggleSidenav() {
+  public onToggleSidenav(): void {
     this.sidenavToggle.emit();
+  }
+  public toggleTheme(event: any): void {
+    console.log(event);
+    this.changeTheme.emit(event);
   }
 }

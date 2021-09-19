@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'christiangracia-ssr';
   constructor() {}
+  public isLightTheme: boolean = false;
+
+  changeTheme(event: any): void {
+    this.isLightTheme = event;
+  }
+  @HostListener('window:unload', ['$event'])
+  unloadHandler(event: any) {
+    if (this.isLightTheme) {
+      window.localStorage.setItem('selectedTheme', 'true');
+    }
+  }
+
+  ngOnInit() {
+    var theme = window.localStorage.getItem('selectedTheme');
+    if (theme) {
+      this.isLightTheme = true;
+    }
+  }
 }

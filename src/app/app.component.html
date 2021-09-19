@@ -1,9 +1,12 @@
-<mat-sidenav-container>
+<mat-sidenav-container [class.theme-alternate]="isLightTheme">
   <mat-sidenav #sidenav role="navigation">
     <app-side-bar (closeSidenavEvent)="sidenav.close()"></app-side-bar>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+    <app-header
+      (sidenavToggle)="sidenav.toggle()"
+      (changeTheme)="changeTheme($event)"
+    ></app-header>
     <main>
       <router-outlet></router-outlet>
     </main>
