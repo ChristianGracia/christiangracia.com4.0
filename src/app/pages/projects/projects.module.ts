@@ -7,6 +7,9 @@ import { SiteComponent } from './websites/site/site.component';
 import { WebsitesComponent } from './websites/websites.component';
 import { MaterialModule } from '../../material/material.module';
 
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
   declarations: [
     GithubReposComponent,
@@ -14,6 +17,12 @@ import { MaterialModule } from '../../material/material.module';
     SiteComponent,
     ProjectsComponent,
   ],
-  imports: [CommonModule, MaterialModule, ProjectsRoutingModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    ProjectsRoutingModule,
+    MatPaginatorModule,
+    MatTableModule,
+  ],
 })
 export class ProjectsModule {}

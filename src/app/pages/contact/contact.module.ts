@@ -7,8 +7,18 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material/material.module';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
   declarations: [ContactComponent, ContactFormComponent],
-  imports: [CommonModule, MaterialModule, ContactRoutingModule, FormsModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    ContactRoutingModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
 })
 export class ContactModule {}

@@ -24,6 +24,10 @@
       transform: scale(1.07);
     }
   }
+  .bottom-text {
+    // position: absolute;
+    // bottom: 0;
+  }
 
   .repo-language-container {
     margin-top: -6px;
@@ -73,7 +77,4 @@
   display: flex;
   justify-content: center;
   margin-top: 60px;
-  // .repo-loader {
-  //   color: black;
-  // }
 }
