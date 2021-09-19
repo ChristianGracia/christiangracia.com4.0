@@ -2,7 +2,7 @@
 
 # Features
 
-**Server Side Rendered, Angular 12, Material**
+**Server side rendered, Angular 12, Material, modularized routes, lazy loading**
 
 This repo contains the code for my personal website reritten from scratch for the fourth time.
 
