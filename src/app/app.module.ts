@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
+import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ProjectsComponent } from './pages/projects/projects.component';
     ContactComponent,
     AboutComponent,
     ProjectsComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
