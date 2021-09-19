@@ -1,14 +1,7 @@
 <mat-toolbar class="nav-container">
   <div class="dark-mode-switch">
-    <mat-icon>dark_mode</mat-icon>
-    <mat-slide-toggle
-      [checked]="isLightTheme"
-      (change)="toggleTheme($event)"
-    ></mat-slide-toggle>
-    <mat-icon>light_mode</mat-icon>
-  </div>
-  <!-- <div>
     <a
+      class="hide-mobile"
       mat-button
       color="accent"
       aria-label="Home button with menu icon"
@@ -16,7 +9,13 @@
     >
       christiangracia.com
     </a>
-  </div> -->
+    <mat-icon>dark_mode</mat-icon>
+    <mat-slide-toggle
+      [checked]="isLightTheme"
+      (change)="toggleTheme($event)"
+    ></mat-slide-toggle>
+    <mat-icon>light_mode</mat-icon>
+  </div>
   <div class="nav-items hide-mobile">
     <a
       class="nav-item"
