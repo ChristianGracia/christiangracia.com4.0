@@ -1,22 +1,28 @@
 @import "../../../styles.scss";
-.nav-spacer {
-  flex: 1 1 auto;
-}
-.nav-items {
+.nav-container {
   display: flex;
-  flex-direction: row;
-  .nav-item {
-    text-transform: capitalize;
+  justify-content: space-between;
+  align-items: center;
+  .dark-mode-switch {
+    display: flex;
+    align-items: center;
   }
-}
-@media only screen and (max-width: 500px) {
-  .hide-mobile {
-    display: none;
+  .nav-items {
+    display: flex;
+    flex-direction: row;
+    .nav-item {
+      text-transform: capitalize;
+    }
   }
-}
+  @media only screen and (max-width: 500px) {
+    .hide-mobile {
+      display: none;
+    }
+  }
 
-@media only screen and (min-width: 500px) {
-  .hide-desktop {
-    display: none;
+  @media only screen and (min-width: 500px) {
+    .hide-desktop {
+      display: none;
+    }
   }
 }

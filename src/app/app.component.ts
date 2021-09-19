@@ -20,10 +20,8 @@ export class AppComponent {
 
   ngOnInit() {
     const theme = window.localStorage.getItem('selectedTheme');
-
     if (theme) {
       this.isLightTheme = true;
-      localStorage.removeItem('selectedTheme');
     }
   }
 }
