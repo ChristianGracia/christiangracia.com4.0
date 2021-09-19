@@ -1,22 +1,10 @@
-<div
-  *ngIf="loadingRepos"
-  fxLayout="column"
-  fxLayoutAlign="center center"
-  class="repo-loader-container"
->
-  <mat-spinner></mat-spinner>
+<div *ngIf="loadingRepos" class="repo-loader-container">
+  <mat-spinner color="accent"></mat-spinner>
 </div>
 
-<div
-  fxLayout="row wrap"
-  fxLayoutAlign="center center"
-  class="github-container"
-  *ngIf="!loadingRepos"
->
+<div class="github-container" *ngIf="!loadingRepos">
   <mat-card
     *ngFor="let repo of data"
-    fxLayout="column"
-    fxLayoutAlign="center"
     class="repo-card mat-elevation-z6 clickable fade-in-left"
     (click)="openRepoCommitModal(repo.name, repo.url)"
   >
@@ -48,7 +36,7 @@
     </div>
   </mat-card>
 </div>
-<div class="paginator-container">
+<div class="paginator-container" *ngIf="!loadingRepos">
   <mat-paginator
     [length]="gitRepos.length"
     [pageSize]="size"
@@ -58,7 +46,7 @@
   >
   </mat-paginator>
 </div>
-<div class="api-description-container" *ngIf="data.length">
+<!-- <div class="api-description-container" *ngIf="data.length">
   <div class="api-description-text">
     This data was server side rendered from my API
     <a
@@ -69,4 +57,4 @@
       >Here</a
     >
   </div>
-</div>
+</div> -->

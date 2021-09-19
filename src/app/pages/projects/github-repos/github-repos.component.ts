@@ -13,7 +13,7 @@ export class GithubReposComponent implements OnInit {
   public gitRepos: Repo[] = [];
   public data: Repo[] = [];
   public page = 0;
-  public size = 5;
+  public size = 4;
 
   constructor(private githubService: GithubService, public dialog: MatDialog) {}
 
