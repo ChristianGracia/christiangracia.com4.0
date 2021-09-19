@@ -217,18 +217,37 @@ $mat-warn: (
     ),
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
-$theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
-$altTheme: mat-light-theme(
+
+$dark-theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
+
+$light-theme: mat-light-theme(
   $light-theme-primary,
   $light-theme-accent,
   $theme-warn
 );
 
+// customize light theme further
+$background: map-get($light-theme, background);
+$bg-color: #ffffff;
+$background: map_merge(
+  $background,
+  (
+    background: $bg-color,
+    app-bar: $bg-color,
+  )
+);
+$custom-light-theme: map_merge(
+  $light-theme,
+  (
+    background: $background,
+  )
+);
+
 .dark-theme {
-  @include angular-material-theme($theme);
+  @include angular-material-theme($dark-theme);
 }
 .light-theme {
-  @include angular-material-theme($altTheme);
+  @include angular-material-theme($custom-light-theme);
 }
 // $accent: mat-color($theme-accent);
 
