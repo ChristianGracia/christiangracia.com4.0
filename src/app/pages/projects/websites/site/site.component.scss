@@ -1,0 +1,14 @@
+@import "../../../../../styles.scss";
+
+.site-card {
+  max-width: 80vw;
+
+  &:hover {
+    transform: scale(1.07);
+    // background-color: black;
+    // color: white;
+    .site-title {
+      // color: yellow;
+    }
+  }
+}

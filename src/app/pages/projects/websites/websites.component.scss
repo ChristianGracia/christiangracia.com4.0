@@ -1,0 +1,14 @@
+@import "../../../../styles.scss";
+.site-container {
+  max-width: 500px;
+  padding: 10px;
+}
+
+.header-container {
+  text-align: center;
+  margin-bottom: 20px;
+
+  .header-text {
+    font-size: 40px;
+  }
+}

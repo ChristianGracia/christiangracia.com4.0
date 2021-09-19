@@ -14,6 +14,7 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
 import { FormsModule } from '@angular/forms';
 import { GithubReposComponent } from './pages/projects/github-repos/github-repos.component';
 import { WebsitesComponent } from './pages/projects/websites/websites.component';
+import { SiteComponent } from './pages/projects/websites/site/site.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { WebsitesComponent } from './pages/projects/websites/websites.component'
     ContactFormComponent,
     GithubReposComponent,
     WebsitesComponent,
+    SiteComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

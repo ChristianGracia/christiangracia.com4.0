@@ -1,0 +1,26 @@
+<mat-card
+  class="site-card mat-elevation-z6 clickable"
+  (click)="viewSite(site.url)"
+  *ngIf="site"
+>
+  <mat-card-title class="site-title">
+    {{ site.title }}
+  </mat-card-title>
+  <mat-card-content>
+    <!-- <slideshow
+      [height]="'350px'"
+      [minHeight]="'325px'"
+      [autoPlay]="true"
+      [showArrows]="false"
+      [imageUrls]="site.imageUrls"
+      [lazyLoad]="site.imageUrls?.length > 1"
+      [autoPlayWaitForLazyLoad]="true"
+      [showDots]="true"
+      dotColor="black"
+    >
+    </slideshow> -->
+  </mat-card-content>
+  <mat-card-content>
+    <p>{{ site.bottomText }}</p>
+  </mat-card-content>
+</mat-card>

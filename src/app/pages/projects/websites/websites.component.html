@@ -1,1 +1,7 @@
-<p>websites works!</p>
+<div>
+  <div *ngFor="let site of sites; let i = index">
+    <div class="site-container">
+      <app-site [site]="site"></app-site>
+    </div>
+  </div>
+</div>
