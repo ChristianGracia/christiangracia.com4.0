@@ -11,7 +11,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -27,7 +30,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatMenuModule,
     MatSlideToggleModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
     MatPaginatorModule,
+    MatTableModule,
+    MatRippleModule,
   ],
   exports: [
     MatButtonModule,
@@ -41,7 +47,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatMenuModule,
     MatSlideToggleModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
     MatPaginatorModule,
+    MatTableModule,
+    MatRippleModule,
   ],
 })
 export class MaterialModule {}
