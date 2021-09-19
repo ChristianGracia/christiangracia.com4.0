@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-header',
@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   public sidenavToggle = new EventEmitter<void>();
   @Output()
   public changeTheme = new EventEmitter<boolean>();
+  @Input() public isLightTheme: boolean = false;
   public links: string[] = ['about', 'projects', 'contact'];
   constructor() {}
 
@@ -18,7 +19,6 @@ export class HeaderComponent implements OnInit {
     this.sidenavToggle.emit();
   }
   public toggleTheme(event: any): void {
-    console.log(event);
     this.changeTheme.emit(event);
   }
 }

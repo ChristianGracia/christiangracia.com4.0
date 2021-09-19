@@ -4,6 +4,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <app-header
+      [isLightTheme]="isLightTheme"
       (sidenavToggle)="sidenav.toggle()"
       (changeTheme)="changeTheme($event)"
     ></app-header>
