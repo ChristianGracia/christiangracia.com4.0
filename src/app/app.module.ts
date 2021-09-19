@@ -11,7 +11,13 @@ import { AboutComponent } from './pages/about/about.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ContactComponent, AboutComponent, ProjectsComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ContactComponent,
+    AboutComponent,
+    ProjectsComponent,
+  ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
