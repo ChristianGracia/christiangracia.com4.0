@@ -1,15 +1,17 @@
-<mat-toolbar layout="row">
-  <a
-    hide-gt-xs
-    mat-icon-button
-    color="accent"
-    aria-label="Home button with menu icon"
-    href="/"
-  >
-    <mat-icon>menu</mat-icon>
-  </a>
+<mat-toolbar>
+  <div>
+    <a
+      mat-icon-button
+      color="accent"
+      aria-label="Home button with menu icon"
+      href="/"
+    >
+      CG
+    </a>
+  </div>
+
   <span class="nav-spacer"></span>
-  <div class="nav-items">
+  <div class="nav-items hide-mobile">
     <a
       class="nav-item"
       *ngFor="let link of links"
@@ -18,5 +20,15 @@
       href="{{ link }}"
       >{{ link }}</a
     >
+  </div>
+  <div class="hide-desktop">
+    <button
+      mat-icon-button
+      color="accent"
+      aria-label="Home button with menu icon"
+      (click)="onToggleSidenav()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
 </mat-toolbar>

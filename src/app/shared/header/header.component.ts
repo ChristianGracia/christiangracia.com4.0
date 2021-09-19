@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-header',
@@ -6,8 +6,13 @@ import { OverlayContainer } from '@angular/cdk/overlay';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Output()
+  sidenavToggle = new EventEmitter<void>();
+  public links: string[] = ['about', 'projects', 'contact'];
   constructor() {}
 
-  links = ['about', 'projects', 'contact'];
   ngOnInit() {}
+  public onToggleSidenav() {
+    this.sidenavToggle.emit();
+  }
 }

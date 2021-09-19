@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
-  themeColor: 'primary' | 'accent' | 'warn' = 'primary';
-  isDark = false;
+  @Output() private closeSidenavEvent = new EventEmitter<void>();
   constructor() {}
   ngOnInit(): void {}
+
+  public onClose() {
+    this.closeSidenavEvent.emit();
+  }
 }

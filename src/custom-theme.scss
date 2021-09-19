@@ -155,13 +155,11 @@ $mat-primary: (
   lighter: #ebdbfe,
   darker: #a469fb,
   200: #bb86fc,
-  // For slide toggle,
-  contrast:
-    (
-      main: $dark-primary-text,
-      lighter: $dark-primary-text,
-      darker: $dark-primary-text,
-    ),
+  contrast: (
+    main: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $dark-primary-text,
+  ),
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
@@ -178,13 +176,11 @@ $mat-accent: (
   lighter: #c7faef,
   darker: #2de8b8,
   200: #44efcb,
-  // For slide toggle,
-  contrast:
-    (
-      main: $dark-primary-text,
-      lighter: $dark-primary-text,
-      darker: $dark-primary-text,
-    ),
+  contrast: (
+    main: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $dark-primary-text,
+  ),
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
@@ -213,13 +209,12 @@ $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
-// Theme Init
 @include angular-material-theme($theme);
 
 .theme-alternate {
   @include angular-material-theme($altTheme);
 }
-
+$accent: mat-color($theme-accent);
 // Specific component overrides, pieces that are not in line with the general theming
 
 // Handle buttons appropriately, with respect to line-height
