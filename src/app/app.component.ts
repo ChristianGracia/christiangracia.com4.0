@@ -13,14 +13,14 @@ export class AppComponent {
   public changeTheme(event: any): void {
     this.isLightTheme = event.checked;
     if (this.isLightTheme) {
-      window.localStorage.setItem('selectedTheme', 'true');
+      window.localStorage.setItem('lightTheme', 'true');
     } else {
-      localStorage.removeItem('selectedTheme');
+      localStorage.removeItem('lightTheme');
     }
   }
 
   ngOnInit() {
-    const theme = window.localStorage.getItem('selectedTheme');
+    const theme = window.localStorage.getItem('lightTheme');
     if (theme) {
       this.isLightTheme = true;
     }

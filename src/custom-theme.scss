@@ -224,9 +224,10 @@ $altTheme: mat-light-theme(
   $theme-warn
 );
 
-@include angular-material-theme($theme);
-
-.theme-alternate {
+.dark-theme {
+  @include angular-material-theme($theme);
+}
+.light-theme {
   @include angular-material-theme($altTheme);
 }
 // $accent: mat-color($theme-accent);
