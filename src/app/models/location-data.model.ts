@@ -7,7 +7,7 @@ export class LocationData {
     public zip?: string
   ) {}
 
-  static fromJSON(data) {
+  static fromJSON(data: any) {
     return {
       country: data.country_name,
       region: data.region,
