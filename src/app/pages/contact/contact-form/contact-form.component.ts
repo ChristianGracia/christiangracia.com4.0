@@ -22,7 +22,7 @@ export class ContactFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-  public submit(form: NgForm) {
+  public submit(form: NgForm): void {
     const { name, email, message } = form.value;
     const messageParams = new EmailMessage(name, email, message);
     this.locationService
@@ -38,7 +38,7 @@ export class ContactFormComponent implements OnInit {
     });
   }
 
-  public goToSite() {
+  public goToSite(): void {
     this.routingService.navigateToHomePage();
   }
 }
