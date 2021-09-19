@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +11,10 @@ export class AppComponent {
 
   public changeTheme(event: any): void {
     this.isLightTheme = event.checked;
-  }
-  @HostListener('window:unload', ['$event'])
-  private unloadHandler(): void {
     if (this.isLightTheme) {
       window.localStorage.setItem('selectedTheme', 'true');
+    } else {
+      localStorage.removeItem('selectedTheme');
     }
   }
 
