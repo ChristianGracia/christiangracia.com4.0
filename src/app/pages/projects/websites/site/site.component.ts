@@ -14,7 +14,7 @@ export class SiteComponent implements OnInit {
 
   ngOnInit() {}
 
-  viewSite(siteUrl: string) {
+  public viewSite(siteUrl: string) {
     let config = new MatDialogConfig();
     config = {
       maxWidth: '100vw',
