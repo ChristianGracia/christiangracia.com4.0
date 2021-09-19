@@ -20,7 +20,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule,
     MatMenuModule,
     MatSlideToggleModule,
     MatDialogModule,
