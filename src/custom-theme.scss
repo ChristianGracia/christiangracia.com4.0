@@ -148,6 +148,19 @@ $mat-primary: (
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
+$light-mat-primary: (
+  main: #bb86fc,
+  lighter: #ebdbfe,
+  darker: #a469fb,
+  200: #bb86fc,
+  contrast: (
+    main: $light-primary-text,
+    lighter: $light-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+$light-theme-primary: mat-palette($light-mat-primary, main, lighter, darker);
+
 body {
   --accent-color: #44efcb;
   --accent-lighter-color: #c7faef;
@@ -168,6 +181,19 @@ $mat-accent: (
   ),
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
+
+$light-mat-accent: (
+  main: #3700b3,
+  lighter: #2b54f8,
+  darker: #1a0efa,
+  200: #2f19f0,
+  contrast: (
+    main: $light-primary-text,
+    lighter: $light-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+$light-theme-accent: mat-palette($light-mat-accent, main, lighter, darker);
 
 body {
   --warn-color: #ff0000;
@@ -192,7 +218,11 @@ $mat-warn: (
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
-$altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+$altTheme: mat-light-theme(
+  $light-theme-primary,
+  $light-theme-accent,
+  $theme-warn
+);
 
 @include angular-material-theme($theme);
 
