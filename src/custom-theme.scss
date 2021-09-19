@@ -245,6 +245,7 @@ $custom-light-theme: map_merge(
 
 .dark-theme {
   @include angular-material-theme($dark-theme);
+  font-color: white;
 }
 .light-theme {
   @include angular-material-theme($custom-light-theme);
