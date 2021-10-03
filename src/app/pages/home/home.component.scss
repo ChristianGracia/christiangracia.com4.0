@@ -6,26 +6,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 10px;
   .icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     .icon {
       font-size: 80px;
     }
   }
-  .name-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
 
+  .learn-more-container {
+    margin: 30px;
+  }
   .info-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 20px;
     .line {
+      margin: 10px;
       height: 2px;
     }
+    .name {
+      margin: 5px;
+    }
     .description {
+      margin: 10px;
       max-width: 85vw;
     }
   }

@@ -2,7 +2,7 @@
 
 .site-card {
   max-width: 80vw;
-
+  cursor: pointer;
   &:hover {
     transform: scale(1.07);
     // background-color: black;

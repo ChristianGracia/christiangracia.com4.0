@@ -5,7 +5,7 @@
 <div class="github-container" *ngIf="!loadingRepos">
   <mat-card
     *ngFor="let repo of data"
-    class="repo-card mat-elevation-z6 clickable fade-in-left"
+    class="repo-card mat-elevation-z6"
     (click)="openRepoCommitModal(repo.name, repo.url)"
   >
     <mat-card-title class="repo-title">

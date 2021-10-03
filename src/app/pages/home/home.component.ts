@@ -1808,7 +1808,7 @@ const ICONS = [
 export class HomeComponent implements OnInit, OnDestroy {
   public icons: string[] = ICONS;
   public activeIconIndex = Math.random() * (this.icons.length - 1);
-  private timer!: number;
+  public timer!: number;
 
   constructor(private routingService: RoutingService) {}
 
@@ -1825,10 +1825,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private renderIcon() {
-    this.timer = window.setInterval(() => {
-      this.activeIconIndex = Math.floor(
-        Math.random() * (this.icons.length - 1)
-      );
-    }, 2000);
+    setTimeout(() => {
+      this.timer = window.setInterval(() => {
+        this.activeIconIndex = Math.floor(
+          Math.random() * (this.icons.length - 1)
+        );
+      }, 2000)
+    }, 1500);
   }
 }

@@ -1,24 +1,27 @@
-<div class="container m-10">
-  <div class="icon-container">
-    <mat-icon inline class="icon" color="accent">{{
-      icons[activeIconIndex]
-    }}</mat-icon>
+<div class="container">
+  <div class="icon-container" *ngIf="timer">
+    <div>
+      <mat-icon inline class="icon" color="accent">{{
+        icons[activeIconIndex]
+      }}</mat-icon>
+    </div>
+    <div class="mat-caption">Random icon</div>
+    <div class="mat-caption">
+      {{ icons[activeIconIndex] }}
+    </div>
+    <span class="mat-caption"> {{ activeIconIndex + 1 }}/1797 </span>
   </div>
-  <span class="mat-caption m-5"
-    >Random icon {{ activeIconIndex + 1 }}/1797</span
-  >
+
   <div class="info-container">
-    <span class="mat-display-4 m-10 name">Christian Gracia</span>
-
-    <div class="line background-accent-color m-10"></div>
-
-    <span class="mat-display-2 m-10 description"
+    <span class="mat-display-4 name">Christian Gracia</span>
+    <div class="line background-accent-color"></div>
+    <span class="mat-display-2 description"
       >I'm a software engineer who likes to build full stack web and mobile
       applications with React, NodeJs, Angular, Java, Python, C#, React Native,
       Swift, and more.</span
     >
   </div>
-  <div class="m-30">
+  <div class="learn-more-container">
     <button (click)="goToAboutPage()" mat-raised-button color="accent">
       Learn more
     </button>
