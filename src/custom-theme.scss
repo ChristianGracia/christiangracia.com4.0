@@ -3,8 +3,35 @@
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 
-$fontConfig: (
-  display-4: mat-typography-level(112px, 112px, 300, "Roboto", -0.0134em),
+// $type-scale-max: (
+//   display-4: mat-typography-level(112px, 112px, 300, "Roboto", -0.0134em),
+//   display-3: mat-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
+//   display-2: mat-typography-level(45px, 48px, 400, "Roboto", 0em),
+//   display-1: mat-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
+//   headline: mat-typography-level(24px, 32px, 400, "Roboto", 0em),
+//   title: mat-typography-level(20px, 32px, 500, "Roboto", 0.0075em),
+//   subheading-2: mat-typography-level(16px, 28px, 400, "Roboto", 0.0094em),
+//   subheading-1: mat-typography-level(15px, 24px, 500, "Roboto", 0.0067em),
+//   body-2: mat-typography-level(14px, 24px, 500, "Roboto", 0.0179em),
+//   body-1: mat-typography-level(14px, 20px, 400, "Roboto", 0.0179em),
+//   button: mat-typography-level(14px, 14px, 500, "Roboto", 0.0893em),
+//   caption: mat-typography-level(12px, 20px, 400, "Roboto", 0.0333em),
+//   input: mat-typography-level(inherit, 1.125, 400, "Roboto", 1.5px),
+// );
+
+// min 45px, max 145px;
+$display-4-font-size: calc(45px + 80 * ((100vw - 320px) / 680));
+$display-3-font-size: calc(25px + 25 * ((100vw - 320px) / 680));
+
+$type-scale-max: (
+  display-4:
+    mat-typography-level(
+      $display-4-font-size,
+      $display-4-font-size,
+      300,
+      "Roboto",
+      -0.0134em
+    ),
   display-3: mat-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
   display-2: mat-typography-level(45px, 48px, 400, "Roboto", 0em),
   display-1: mat-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
@@ -18,6 +45,7 @@ $fontConfig: (
   caption: mat-typography-level(12px, 20px, 400, "Roboto", 0.0333em),
   input: mat-typography-level(inherit, 1.125, 400, "Roboto", 1.5px),
 );
+@include angular-material-typography($type-scale-max);
 
 $dark-text: #000000;
 $dark-primary-text: rgba($dark-text, 0.87);
@@ -124,8 +152,6 @@ $mat-dark-theme-background: (
   unselected-chip: $dark-bg-lighter-20,
   disabled-list-option: $dark-bg-lighter-10,
 );
-
-@include mat-core($fontConfig);
 
 body {
   --primary-color: #bb86fc;
@@ -245,7 +271,7 @@ $custom-light-theme: map_merge(
 
 .dark-theme {
   @include angular-material-theme($dark-theme);
-  font-color: white;
+  // font-color: white;
 }
 .light-theme {
   @include angular-material-theme($custom-light-theme);
