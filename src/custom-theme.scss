@@ -3,25 +3,14 @@
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 
-// $type-scale-max: (
-//   display-4: mat-typography-level(112px, 112px, 300, "Roboto", -0.0134em),
-//   display-3: mat-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
-//   display-2: mat-typography-level(45px, 48px, 400, "Roboto", 0em),
-//   display-1: mat-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
-//   headline: mat-typography-level(24px, 32px, 400, "Roboto", 0em),
-//   title: mat-typography-level(20px, 32px, 500, "Roboto", 0.0075em),
-//   subheading-2: mat-typography-level(16px, 28px, 400, "Roboto", 0.0094em),
-//   subheading-1: mat-typography-level(15px, 24px, 500, "Roboto", 0.0067em),
-//   body-2: mat-typography-level(14px, 24px, 500, "Roboto", 0.0179em),
-//   body-1: mat-typography-level(14px, 20px, 400, "Roboto", 0.0179em),
-//   button: mat-typography-level(14px, 14px, 500, "Roboto", 0.0893em),
-//   caption: mat-typography-level(12px, 20px, 400, "Roboto", 0.0333em),
-//   input: mat-typography-level(inherit, 1.125, 400, "Roboto", 1.5px),
-// );
-
-// min 45px, max 145px;
-$display-4-font-size: calc(45px + 80 * ((100vw - 320px) / 680));
-$display-3-font-size: calc(25px + 25 * ((100vw - 320px) / 680));
+// min 44px, max 84px;
+$display-4-font-size: calc(44px + 40 * ((100vw - 320px) / 680));
+// min 25px, max 55px;
+$display-3-font-size: calc(30px + 25 * ((100vw - 320px) / 680));
+// min 25px, max 39px;
+$display-2-font-size: calc(24px + 15 * ((100vw - 320px) / 680));
+// min 25px, max 30px;
+$display-1-font-size: calc(20px + 10 * ((100vw - 320px) / 680));
 
 $type-scale-max: (
   display-4:
@@ -32,9 +21,30 @@ $type-scale-max: (
       "Roboto",
       -0.0134em
     ),
-  display-3: mat-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
-  display-2: mat-typography-level(45px, 48px, 400, "Roboto", 0em),
-  display-1: mat-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
+  display-3:
+    mat-typography-level(
+      $display-3-font-size,
+      $display-3-font-size,
+      400,
+      "Roboto",
+      -0.0089em
+    ),
+  display-2:
+    mat-typography-level(
+      $display-2-font-size,
+      $display-2-font-size,
+      400,
+      "Roboto",
+      0em
+    ),
+  display-1:
+    mat-typography-level(
+      $display-1-font-size,
+      $display-1-font-size,
+      400,
+      "Roboto",
+      0.0074em
+    ),
   headline: mat-typography-level(24px, 32px, 400, "Roboto", 0em),
   title: mat-typography-level(20px, 32px, 500, "Roboto", 0.0075em),
   subheading-2: mat-typography-level(16px, 28px, 400, "Roboto", 0.0094em),
