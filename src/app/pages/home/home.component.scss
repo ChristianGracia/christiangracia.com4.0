@@ -6,6 +6,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .icon-container {
+    .icon {
+      font-size: 80px;
+    }
+  }
+  .name-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
   .info-container {
     display: flex;
     flex-direction: column;
