@@ -1,15 +1,10 @@
 <div class="container">
-  <div class="icon-container" *ngIf="timer">
+  <div class="icon-container">
     <div>
-      <mat-icon inline class="icon" color="accent">{{
-        icons[activeIconIndex]
-      }}</mat-icon>
+      <mat-icon inline class="icon" color="accent">
+        local_fire_department
+      </mat-icon>
     </div>
-    <div class="mat-caption">Random icon</div>
-    <div class="mat-caption">
-      {{ icons[activeIconIndex] }}
-    </div>
-    <span class="mat-caption"> {{ activeIconIndex + 1 }}/1797 </span>
   </div>
 
   <div class="info-container">
@@ -25,5 +20,24 @@
     <button (click)="goToAboutPage()" mat-raised-button color="accent">
       Learn more
     </button>
+  </div>
+  <div class="other-sites-container">
+    <div class="mat-title">Other sites I'm working on</div>
+    <a
+      mat-button
+      color="accent"
+      aria-label="Home button with menu icon"
+      href="https://www.marketfeels.com"
+    >
+      marketfeels.com
+    </a>
+    <a
+      mat-button
+      color="accent"
+      aria-label="Home button with menu icon"
+      href="https://www.nflandscaping.com"
+    >
+      nflandscaping.com
+    </a>
   </div>
 </div>
