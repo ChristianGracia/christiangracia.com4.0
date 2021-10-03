@@ -9,7 +9,7 @@ $display-3-font-size: calc(22px + 30 * ((100vw - 320px) / 680));
 $display-2-font-size: calc(20px + 15 * ((100vw - 320px) / 680));
 $display-1-font-size: calc(15px + 10 * ((100vw - 320px) / 680));
 
-$type-scale-max: (
+$responsive-fonts: (
   display-4:
     mat-typography-level(
       $display-4-font-size,
@@ -52,7 +52,7 @@ $type-scale-max: (
   caption: mat-typography-level(12px, 20px, 400, "Roboto", 0.0333em),
   input: mat-typography-level(inherit, 1.125, 400, "Roboto", 1.5px),
 );
-@include angular-material-typography($type-scale-max);
+@include angular-material-typography($responsive-fonts);
 
 $dark-text: #000000;
 $dark-primary-text: rgba($dark-text, 0.87);
@@ -293,15 +293,17 @@ $custom-light-theme: map_merge(
   }
 }
 
-.mat-raised-button,
-.mat-stroked-button,
-.mat-flat-button {
-  padding: 0 1.15em;
-  margin: 0 0.65em;
-  min-width: 3em;
-  line-height: 36.4px;
+// .mat-raised-button,
+// .mat-stroked-button,
+// .mat-flat-button {
+//   padding: 0 1.15em;
+//   margin: 0 0.65em;
+//   min-width: 3em;
+//   line-height: 36.4px;
+// }
+.mat-ripple {
+  overflow: hidden !important;
 }
-
 // .material-icons {
 //   font-size: 24px;
 //   font-family: "Material Icons", "Material Icons";
