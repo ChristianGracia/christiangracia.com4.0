@@ -275,15 +275,21 @@ $custom-light-theme: map_merge(
 
 .dark-theme {
   @include angular-material-theme($dark-theme);
-  .border-accent-color {
+  .background-accent-color {
+    background-color: mat-color($theme-accent);
+  }
+  .accent-color {
     background-color: mat-color($theme-accent);
   }
   // font-color: white;
 }
 .light-theme {
   @include angular-material-theme($custom-light-theme);
-  .border-accent-color {
+  .background-accent-color {
     background-color: mat-color($light-theme-accent);
+  }
+  .accent-color {
+    color: mat-color($light-theme-accent);
   }
 }
 
@@ -297,10 +303,10 @@ $custom-light-theme: map_merge(
   line-height: 36.4px;
 }
 
-.material-icons {
-  font-size: 24px;
-  font-family: "Material Icons", "Material Icons";
-  .mat-badge-content {
-    font-family: "Roboto";
-  }
-}
+// .material-icons {
+//   font-size: 24px;
+//   font-family: "Material Icons", "Material Icons";
+//   .mat-badge-content {
+//     font-family: "Roboto";
+//   }
+// }

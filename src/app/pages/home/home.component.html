@@ -1,8 +1,9 @@
 <div class="container">
   <div class="info-container">
     <span class="mat-display-4 m-10 name">Christian Gracia</span>
-    <div class="line border-accent-color m-10"></div>
-    <app-social-media-links></app-social-media-links>
+
+    <div class="line background-accent-color m-10"></div>
+
     <span class="mat-display-2 m-10 description"
       >I'm a software engineer who likes to build full stack web and mobile
       applications with React, NodeJs, Angular, Java, Python, C#, React Native,
@@ -10,6 +11,8 @@
     >
   </div>
   <div class="m-30">
-    <button mat-raised-button color="accent">Learn more</button>
+    <button (click)="goToAboutPage()" mat-raised-button color="accent">
+      Learn more
+    </button>
   </div>
 </div>
