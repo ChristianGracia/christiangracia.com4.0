@@ -4,8 +4,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 
 // min px value, max second value
-$display-4-font-size: calc(46px + 40 * ((100vw - 320px) / 680));
-$display-3-font-size: calc(25px + 25 * ((100vw - 320px) / 680));
+$display-4-font-size: calc(38px + 40 * ((100vw - 320px) / 680));
+$display-3-font-size: calc(22px + 30 * ((100vw - 320px) / 680));
 $display-2-font-size: calc(20px + 15 * ((100vw - 320px) / 680));
 $display-1-font-size: calc(15px + 10 * ((100vw - 320px) / 680));
 
@@ -278,12 +278,17 @@ $custom-light-theme: map_merge(
 
 .dark-theme {
   @include angular-material-theme($dark-theme);
+  .accent-color {
+    color: mat-color($theme-accent);
+  }
   // font-color: white;
 }
 .light-theme {
   @include angular-material-theme($custom-light-theme);
+  .accent-color {
+    color: mat-color($light-theme-accent);
+  }
 }
-// $accent: mat-color($theme-accent);
 
 // Handle buttons appropriately, with respect to line-height
 // .mat-raised-button,
@@ -293,11 +298,6 @@ $custom-light-theme: map_merge(
 //   margin: 0 0.65em;
 //   min-width: 3em;
 //   line-height: 36.4px;
-// }
-
-// .mat-standard-chip {
-//   padding: 0.5em 0.85em;
-//   min-height: 2.5em;
 // }
 
 .material-icons {

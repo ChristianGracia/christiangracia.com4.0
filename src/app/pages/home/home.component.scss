@@ -1,8 +1,24 @@
 @import "../../../styles.scss";
-.info-container {
+.container {
+  position: relative;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: left;
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    // text-align: left;
+    .name {
+      border-bottom: 1px solid black;
+    }
+    .description {
+      // width: 340px;
+      // width: 300px;
+      max-width: 85vw;
+    }
+  }
 }
