@@ -40,11 +40,11 @@ export class AppComponent {
       )
     );
   }
-  public isLightTheme: boolean = false;
+  public isDarkTheme: boolean = true;
 
   public changeTheme(event: any): void {
-    this.isLightTheme = event.checked;
-    if (this.isLightTheme) {
+    this.isDarkTheme = event.checked;
+    if (!this.isDarkTheme) {
       window.localStorage.setItem('lightTheme', 'true');
     } else {
       localStorage.removeItem('lightTheme');
@@ -54,7 +54,7 @@ export class AppComponent {
   ngOnInit() {
     const theme = window.localStorage.getItem('lightTheme');
     if (theme) {
-      this.isLightTheme = true;
+      this.isDarkTheme = false;
     }
   }
 }

@@ -1,6 +1,6 @@
 <mat-sidenav-container
-  [class.light-theme]="isLightTheme"
-  [class.dark-theme]="!isLightTheme"
+  [class.light-theme]="!isDarkTheme"
+  [class.dark-theme]="isDarkTheme"
 >
   <mat-sidenav #sidenav role="navigation">
     <app-side-bar (closeSidenavEvent)="sidenav.close()"></app-side-bar>
@@ -9,7 +9,7 @@
     <div class="main-container">
       <app-header
         class="header"
-        [isLightTheme]="isLightTheme"
+        [isDarkTheme]="isDarkTheme"
         (sidenavToggle)="sidenav.toggle()"
         (changeTheme)="changeTheme($event)"
       ></app-header>

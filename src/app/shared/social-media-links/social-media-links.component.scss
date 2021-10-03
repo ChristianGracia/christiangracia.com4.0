@@ -2,15 +2,12 @@
 
 .social-media-container {
   .social-link {
-    // color: white;
     transition: all 0.2s ease-in-out;
     &:hover {
-      // color: yellow;
       transform: scale(1.5);
     }
   }
   .active {
-    // color: yellow;
     transform: scale(1.3);
   }
 }

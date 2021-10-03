@@ -9,12 +9,10 @@
     >
       christiangracia.com
     </a>
-    <mat-icon>dark_mode</mat-icon>
-    <mat-slide-toggle
-      [checked]="isLightTheme"
-      (change)="toggleTheme($event)"
-    ></mat-slide-toggle>
-    <mat-icon>light_mode</mat-icon>
+    <mat-icon [color]="!isDarkTheme ? 'accent' : ''">light_mode</mat-icon>
+    <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event)">
+    </mat-slide-toggle>
+    <mat-icon [color]="isDarkTheme ? 'accent' : ''">dark_mode</mat-icon>
   </div>
   <app-social-media-links></app-social-media-links>
   <div class="nav-items hide-mobile">

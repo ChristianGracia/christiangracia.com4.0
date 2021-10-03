@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   public sidenavToggle = new EventEmitter<void>();
   @Output()
   public changeTheme = new EventEmitter<boolean>();
-  @Input() public isLightTheme: boolean = false;
+  @Input() public isDarkTheme: boolean = false;
   public links: string[] = ['about', 'projects', 'contact'];
   constructor() {}
 
