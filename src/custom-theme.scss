@@ -241,13 +241,11 @@ $mat-warn: (
   lighter: #ffb3b3,
   darker: #ff0000,
   200: #ff0000,
-  // For slide toggle,
-  contrast:
-    (
-      main: $light-primary-text,
-      lighter: $dark-primary-text,
-      darker: $light-primary-text,
-    ),
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
@@ -259,7 +257,6 @@ $light-theme: mat-light-theme(
   $theme-warn
 );
 
-// customize light theme further
 $background: map-get($light-theme, background);
 $bg-color: #ffffff;
 $background: map_merge(
@@ -278,27 +275,27 @@ $custom-light-theme: map_merge(
 
 .dark-theme {
   @include angular-material-theme($dark-theme);
-  .accent-color {
-    color: mat-color($theme-accent);
+  .border-accent-color {
+    background-color: mat-color($theme-accent);
   }
   // font-color: white;
 }
 .light-theme {
   @include angular-material-theme($custom-light-theme);
-  .accent-color {
-    color: mat-color($light-theme-accent);
+  .border-accent-color {
+    background-color: mat-color($light-theme-accent);
   }
 }
 
 // Handle buttons appropriately, with respect to line-height
-// .mat-raised-button,
-// .mat-stroked-button,
-// .mat-flat-button {
-//   padding: 0 1.15em;
-//   margin: 0 0.65em;
-//   min-width: 3em;
-//   line-height: 36.4px;
-// }
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  padding: 0 1.15em;
+  margin: 0 0.65em;
+  min-width: 3em;
+  line-height: 36.4px;
+}
 
 .material-icons {
   font-size: 24px;

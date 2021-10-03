@@ -1,5 +1,7 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(public overlayContainer: OverlayContainer) {}
+  constructor(
+    public overlayContainer: OverlayContainer,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.matIconRegistry.addSvgIcon(
+      'linkedin',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/images/linkedin.svg'
+      )
+    );
+    this.matIconRegistry.addSvgIcon(
+      'twitter',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/images/twitter.svg'
+      )
+    );
+    this.matIconRegistry.addSvgIcon(
+      'github',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/images/github.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'search',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/images/search.svg'
+      )
+    );
+  }
   public isLightTheme: boolean = false;
 
   public changeTheme(event: any): void {

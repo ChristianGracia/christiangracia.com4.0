@@ -11,13 +11,12 @@
     flex-direction: column;
     justify-content: center;
     margin: 20px;
-    // text-align: left;
     .name {
-      border-bottom: 1px solid black;
+    }
+    .line {
+      height: 2px;
     }
     .description {
-      // width: 340px;
-      // width: 300px;
       max-width: 85vw;
     }
   }
