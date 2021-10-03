@@ -3,14 +3,11 @@
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 
-// min 44px, max 84px;
-$display-4-font-size: calc(44px + 40 * ((100vw - 320px) / 680));
-// min 25px, max 55px;
-$display-3-font-size: calc(30px + 25 * ((100vw - 320px) / 680));
-// min 25px, max 39px;
-$display-2-font-size: calc(24px + 15 * ((100vw - 320px) / 680));
-// min 25px, max 30px;
-$display-1-font-size: calc(20px + 10 * ((100vw - 320px) / 680));
+// min px value, max second value
+$display-4-font-size: calc(46px + 40 * ((100vw - 320px) / 680));
+$display-3-font-size: calc(25px + 25 * ((100vw - 320px) / 680));
+$display-2-font-size: calc(20px + 15 * ((100vw - 320px) / 680));
+$display-1-font-size: calc(15px + 10 * ((100vw - 320px) / 680));
 
 $type-scale-max: (
   display-4:
