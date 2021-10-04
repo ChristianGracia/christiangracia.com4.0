@@ -2,7 +2,7 @@
   <mat-icon
     *ngFor="let social of socialMediaLinks; let i = index"
     class="social-link"
-    svgIcon="{{ social }}"
+    svgIcon="assets:{{ social }}"
     color="accent"
     (click)="openLink(social)"
     [class.active]="activeIconArray[i]"

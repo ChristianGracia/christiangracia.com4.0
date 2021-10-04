@@ -14,29 +14,27 @@ export class AppComponent {
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
   ) {
-    this.matIconRegistry.addSvgIcon(
+    this.matIconRegistry.addSvgIconInNamespace(
+      'assets',
       'linkedin',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        '../assets/images/linkedin.svg'
-      )
-    );
-    this.matIconRegistry.addSvgIcon(
-      'twitter',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        '../assets/images/twitter.svg'
-      )
-    );
-    this.matIconRegistry.addSvgIcon(
-      'github',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        '../assets/images/github.svg'
+        'assets/images/linkedin.svg'
       )
     );
 
-    this.matIconRegistry.addSvgIcon(
-      'search',
+    this.matIconRegistry.addSvgIconInNamespace(
+      'assets',
+      'twitter',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        '../assets/images/search.svg'
+        'assets/images/twitter.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIconInNamespace(
+      'assets',
+      'github',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/images/github.svg'
       )
     );
   }
