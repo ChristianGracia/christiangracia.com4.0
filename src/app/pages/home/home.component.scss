@@ -10,7 +10,7 @@
   .icon-container {
     margin-top: 25px;
     .icon {
-      font-size: 80px;
+      font-size: calc(40px + 20 * ((100vw - 320px) / 680));
     }
   }
   .other-sites-container {
@@ -27,7 +27,7 @@
   }
 
   .learn-more-container {
-    margin: 22px;
+    margin: 6px 0 20px 0;
   }
   .info-container {
     display: flex;
