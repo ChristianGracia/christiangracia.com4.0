@@ -4,10 +4,10 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 
 // min px value, max second value
-$display-4-font-size: calc(36px + 42 * ((100vw - 320px) / 800));
-$display-3-font-size: calc(30px + 30 * ((100vw - 320px) / 800));
-$display-2-font-size: calc(20px + 15 * ((100vw - 320px) / 800));
-$display-1-font-size: calc(15px + 10 * ((100vw - 320px) / 800));
+$display-4-font-size: calc(36px + 42 * ((100vw - 320px) / 1000));
+$display-3-font-size: calc(30px + 30 * ((100vw - 320px) / 1000));
+$display-2-font-size: calc(20px + 15 * ((100vw - 320px) / 1000));
+$display-1-font-size: calc(15px + 10 * ((100vw - 320px) / 1000));
 
 $responsive-fonts: (
   display-4:
