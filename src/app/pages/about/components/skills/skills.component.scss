@@ -1,0 +1,15 @@
+.skills-container {
+  .skill-card {
+    width: 25vw;
+    min-width: 240px;
+    min-height: 100px;
+    margin: 20px;
+    .skill-header {
+      color: #ff5722;
+    }
+    .card-content {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}

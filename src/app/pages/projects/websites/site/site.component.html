@@ -1,6 +1,6 @@
 <mat-card
   class="site-card mat-elevation-z6"
-  (click)="viewSite(site.url)"
+  (click)="viewSite(site.url ?? '')"
   *ngIf="site"
 >
   <mat-card-title class="site-title">

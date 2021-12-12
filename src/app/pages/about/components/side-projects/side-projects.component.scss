@@ -1,0 +1,23 @@
+@import "../../../../../styles.scss";
+
+.site-container {
+  .site-card {
+    max-width: 75vw;
+    width: 330px;
+    margin: 20px;
+    .site-title {
+      color: #ff5722;
+    }
+    &:hover {
+      a {
+        color: white;
+      }
+      transform: scale(1.07);
+      background-color: black;
+      color: white;
+      .site-title {
+        color: yellow;
+      }
+    }
+  }
+}
