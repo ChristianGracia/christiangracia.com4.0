@@ -279,9 +279,8 @@ $custom-light-theme: map_merge(
     background-color: mat-color($theme-accent);
   }
   .accent-color {
-    background-color: mat-color($theme-accent);
+    color: mat-color($theme-accent);
   }
-  // font-color: white;
 }
 .light-theme {
   @include angular-material-theme($custom-light-theme);

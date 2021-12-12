@@ -5,12 +5,12 @@
       *ngFor="let site of sites"
       class="site-card mat-elevation-z6 clickable"
     >
-      <mat-card-title class="site-title">
+      <mat-card-title class="accent-color">
         {{ site.title }}
       </mat-card-title>
       <mat-card-content>{{ site.bottomText }}</mat-card-content>
       <mat-card-content
-        ><a href="{{ site.url }}" target="_blank">{{
+        ><a class="accent-color" href="{{ site.url }}" target="_blank">{{
           site.url
         }}</a></mat-card-content
       >
