@@ -1,6 +1,10 @@
 @import "../../../../../styles.scss";
 
 .site-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   .site-card {
     max-width: 75vw;
     width: 330px;

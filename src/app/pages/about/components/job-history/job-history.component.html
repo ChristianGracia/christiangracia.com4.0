@@ -1,10 +1,8 @@
 <div class="job-history-container">
   <app-page-header title="Job History"></app-page-header>
-  <div>
-    <div *ngFor="let job of jobs" class="company-card">
-      <p class="company-name">{{ job.company }}</p>
-      <p class="job-description">{{ job.description }}</p>
-      <p class="company-years">{{ job.range }}</p>
-    </div>
+  <div *ngFor="let job of jobs" class="company-card">
+    <p class="company-name">{{ job.company }}</p>
+    <p class="job-description">{{ job.description }}</p>
+    <p class="company-years">{{ job.range }}</p>
   </div>
 </div>
