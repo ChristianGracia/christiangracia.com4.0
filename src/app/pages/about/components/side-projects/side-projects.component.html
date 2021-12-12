@@ -1,14 +1,13 @@
 <div class="side-project-container">
   <app-page-header title="Current Projects"></app-page-header>
   <div class="site-container">
-    <mat-card
-      *ngFor="let site of sites"
-      class="site-card mat-elevation-z6 clickable"
-    >
-      <mat-card-title class="accent-color">
+    <mat-card *ngFor="let site of sites" class="site-card mat-elevation-z6">
+      <mat-card-title class="mat-title accent-color">
         {{ site.title }}
       </mat-card-title>
-      <mat-card-content>{{ site.bottomText }}</mat-card-content>
+      <mat-card-content class="mat-subheading-1">{{
+        site.bottomText
+      }}</mat-card-content>
       <mat-card-content
         ><a class="accent-color" href="{{ site.url }}" target="_blank">{{
           site.url

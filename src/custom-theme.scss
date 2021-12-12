@@ -8,6 +8,12 @@ $display-4-font-size: calc(36px + 42 * ((100vw - 320px) / 1100));
 $display-3-font-size: calc(30px + 30 * ((100vw - 320px) / 1100));
 $display-2-font-size: calc(20px + 15 * ((100vw - 320px) / 1100));
 $display-1-font-size: calc(15px + 10 * ((100vw - 320px) / 1100));
+$caption-font-size: calc(12px + 7 * ((100vw - 320px) / 1100));
+$title-font-size: calc(18px + 7 * ((100vw - 320px) / 1100));
+$subheading2-font-size: calc(16px + 7 * ((100vw - 320px) / 1100));
+$subheading1-font-size: calc(14px + 7 * ((100vw - 320px) / 1100));
+$body2-font-size: calc(13px + 7 * ((100vw - 320px) / 1100));
+$body1-font-size: calc(12px + 7 * ((100vw - 320px) / 1100));
 
 $responsive-fonts: (
   display-4:
@@ -43,13 +49,55 @@ $responsive-fonts: (
       0.0074em
     ),
   headline: mat-typography-level(24px, 32px, 400, "Roboto", 0em),
-  title: mat-typography-level(20px, 32px, 500, "Roboto", 0.0075em),
-  subheading-2: mat-typography-level(16px, 28px, 400, "Roboto", 0.0094em),
-  subheading-1: mat-typography-level(15px, 24px, 500, "Roboto", 0.0067em),
-  body-2: mat-typography-level(14px, 24px, 500, "Roboto", 0.0179em),
-  body-1: mat-typography-level(14px, 20px, 400, "Roboto", 0.0179em),
+  title:
+    mat-typography-level(
+      $title-font-size,
+      $title-font-size,
+      500,
+      "Roboto",
+      0.01em
+    ),
+  subheading-2:
+    mat-typography-level(
+      $subheading2-font-size,
+      $subheading2-font-size,
+      300,
+      "Roboto",
+      0.0074em
+    ),
+  subheading-1:
+    mat-typography-level(
+      $subheading1-font-size,
+      $subheading1-font-size,
+      300,
+      "Roboto",
+      0.0074em
+    ),
+  body-2:
+    mat-typography-level(
+      $body2-font-size,
+      $body2-font-size,
+      300,
+      "Roboto",
+      0.0074em
+    ),
+  body-1:
+    mat-typography-level(
+      $body1-font-size,
+      $body1-font-size,
+      300,
+      "Roboto",
+      0.0074em
+    ),
   button: mat-typography-level(14px, 14px, 500, "Roboto", 0.0893em),
-  caption: mat-typography-level(12px, 20px, 400, "Roboto", 0.0333em),
+  caption:
+    mat-typography-level(
+      $caption-font-size,
+      $caption-font-size,
+      300,
+      "Roboto",
+      0.0074em
+    ),
   input: mat-typography-level(inherit, 1.125, 400, "Roboto", 1.5px),
 );
 @include angular-material-typography($responsive-fonts);

@@ -1,24 +1,18 @@
+@import "../../../../../styles.scss";
 .job-history-container {
-  // width: 100%;
   display: flex;
-  // margin: 0 auto;
   flex-direction: column;
   justify-content: center;
   .company-card {
-    // max-width: 400px;
-    // width: 94vw;
-    padding: 10px 30px;
+    margin-bottom: 16px;
     .company-name {
-      font-size: 25px;
       font-style: italic;
       font-weight: bold;
     }
     .company-years {
-      font-size: 14px;
       font-weight: bold;
     }
     .job-description {
-      font-size: 16px;
     }
   }
 }
