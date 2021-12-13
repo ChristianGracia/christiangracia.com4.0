@@ -5,7 +5,7 @@
       mat-button
       color="accent"
       aria-label="Home button with menu icon"
-      href="/"
+      (click)="goToLink('/')"
     >
       christiangracia.com
     </a>
@@ -21,7 +21,7 @@
       *ngFor="let link of links"
       mat-button
       color="accent"
-      href="{{ link }}"
+      (click)='goToLink(link)'
       >{{ link }}</a
     >
   </div>
