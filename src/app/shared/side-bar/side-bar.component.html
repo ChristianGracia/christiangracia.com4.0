@@ -3,10 +3,10 @@
     <span class="site-navigation-text">Navigation</span>
   </div>
   <br color="accent" />
-  <a mat-list-item href="/">
-    <span class="nav-caption" (click)="onClose()">Home</span>
+  <a *ngFor="let link of links" mat-list-item (click)="goToLink(link)">
+    <span class="nav-caption" (click)="onClose()">{{link}}</span>
   </a>
-  <a mat-list-item href="/about">
+  <!-- <a mat-list-item href="/about">
     <span class="nav-caption" (click)="onClose()">About</span>
   </a>
   <a mat-list-item href="/projects">
@@ -14,5 +14,5 @@
   </a>
   <a mat-list-item href="/contact">
     <span class="nav-caption" (click)="onClose()">Contact</span>
-  </a>
+  </a> -->
 </mat-nav-list>
