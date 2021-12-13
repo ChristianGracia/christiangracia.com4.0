@@ -10,6 +10,8 @@ export class ProjectsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const element = document.querySelector("mat-sidenav-content") || window;
+    element.scrollTo(0, 0);
   }
 
 }

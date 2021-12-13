@@ -7,6 +7,9 @@ body {
 }
 .container {
   padding: 12px;
+  @media only screen and (min-width: 900px) {
+    padding: 20px 20px 100px;
+  }
 }
 .clickable {
   cursor: pointer;

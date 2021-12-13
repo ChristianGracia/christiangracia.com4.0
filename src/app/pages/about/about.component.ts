@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoutingService } from 'src/app/services/routing.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routingService: RoutingService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public goToProjectsPage(): void {
+    this.routingService.navigateToProjects();
   }
-
 }
