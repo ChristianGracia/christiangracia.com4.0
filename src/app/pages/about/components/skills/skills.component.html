@@ -1,21 +1,14 @@
 <app-page-header title="Skills"></app-page-header>
 <div class="skills-container">
-  <mat-card class="skill-card mat-elevation-z6">
-    <mat-card-title class="accent-color mat-title"> Languages </mat-card-title>
+  <mat-card
+    *ngFor="let key of skillKeys; let i = index"
+    class="skill-card mat-elevation-z6"
+  >
+    <mat-card-title class="accent-color mat-title skill-title">
+      {{ key }}
+    </mat-card-title>
     <mat-card-content class="card-content mat-subheading-2">
-      {{ languagesArray.join(", ") }}</mat-card-content
-    >
-  </mat-card>
-  <mat-card class="skill-card mat-elevation-z6">
-    <mat-card-title class="accent-color"> Front-end </mat-card-title>
-    <mat-card-content class="card-content mat-subheading-2"
-      >{{ frontEndArray.join(", ") }}
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="skill-card mat-elevation-z6">
-    <mat-card-title class="accent-color"> Back-end </mat-card-title>
-    <mat-card-content class="card-content mat-subheading-2">
-      {{ backEndArray.join(", ") }}</mat-card-content
+      {{ skills[i][key] }}</mat-card-content
     >
   </mat-card>
 </div>
