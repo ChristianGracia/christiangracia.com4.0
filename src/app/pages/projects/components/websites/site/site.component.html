@@ -3,7 +3,7 @@
   (click)="viewSite(site.url ?? '')"
   *ngIf="site"
 >
-  <mat-card-title class="site-title">
+  <mat-card-title class="site-title mat-title accent-color">
     {{ site.title }}
   </mat-card-title>
   <mat-card-content>
@@ -20,7 +20,7 @@
     >
     </slideshow> -->
   </mat-card-content>
-  <mat-card-content>
+  <mat-card-content class="mat-subheading-2">
     <p>{{ site.bottomText }}</p>
   </mat-card-content>
 </mat-card>

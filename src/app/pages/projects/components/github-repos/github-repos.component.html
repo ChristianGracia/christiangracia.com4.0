@@ -15,8 +15,8 @@
         {{ repo.name.split("-").join(" ") }}
       </mat-card-title>
 
-      <mat-card-content class="repo-description-container mat-subheading1">
-        <span class="repo-description">
+      <mat-card-content class="repo-description-container mat-subheading-2">
+        <span class="repo-description mat-subheading-2">
           {{ repo.description }}
         </span>
       </mat-card-content>
@@ -25,7 +25,6 @@
     <div class="bottom-row">
       <div class="repo-language-container">
         <span class="repo-language-text mat-caption"> Language: </span>
-
         <span
           class="repo-language-text"
           [ngStyle]="{ color: formatRepoLanguage(repo.language) }"
@@ -34,10 +33,9 @@
       </div>
       <div class="repo-date-container">
         <span class="repo-date-text mat-caption">
-          Last updated at
-          <span class="repo-date-value">{{
+          Last updated at {{
             formatUpdateAtDate(repo.updatedAt)
-          }}</span></span
+          }}</span
         >
       </div>
     </div>

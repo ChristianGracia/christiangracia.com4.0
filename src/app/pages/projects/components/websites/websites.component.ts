@@ -1,17 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Site } from 'src/app/models/site.model';
 
-const CHRISTIAN_GRACIA_SITE: Site = new Site(
-  'christiangracia.com v2',
-  'My previous site that I wrote in TypeScript with only stateless functional components and React Hooks. React/Redux + Sass front-end.',
-  'https://christiangracia-old.herokuapp.com/',
-  [
-    'https://imgur.com/571eBHE.jpg',
-    'https://imgur.com/avITmTE.jpg',
-    'https://imgur.com/mzRJGSM.jpg',
-  ]
-);
-
 const ON_A_BEAT_SITE: Site = new Site(
   'On a Beat!',
   'A MERN stack site I wrote while learning to code, React/Redux front-end with a Node Js back-end and a MongoDB database. Users can make accounts, sign in, add/delete videos, songs, pics, and gifs to front page, and more with a site dashboard I built',
@@ -48,7 +37,7 @@ const CHRISTIAN_GRACIA_API: Site = new Site(
 
 const MARKETFEELS: Site = new Site(
   'MarketFeels',
-  'Server side rendered React + Redux finance site written in TypeScript',
+  'Work in progress server side rendered React + Redux finance site written in TypeScript',
   'https://marketfeels.com',
   ['https://i.imgur.com/D1ualvH.jpeg']
 );
@@ -64,7 +53,6 @@ export class WebsitesComponent implements OnInit {
     CHRISTIAN_GRACIA_API,
     ON_A_BEAT_SITE,
     NFL_SITE,
-    CHRISTIAN_GRACIA_SITE,
   ];
 
   constructor() {}
