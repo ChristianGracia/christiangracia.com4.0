@@ -1,14 +1,11 @@
 <app-page-header title="Skills"></app-page-header>
 <div class="skills-container">
-  <mat-card
-    *ngFor="let key of skillKeys; let i = index"
-    class="skill-card mat-elevation-z6"
-  >
+  <mat-card *ngFor="let skill of skills" class="skill-card mat-elevation-z6">
     <mat-card-title class="accent-color mat-title skill-title">
-      {{ key }}
+      {{ skill.label }}
     </mat-card-title>
     <mat-card-content class="card-content mat-subheading-2">
-      {{ skills[i][key] }}</mat-card-content
+      {{ skill.value }}</mat-card-content
     >
   </mat-card>
 </div>

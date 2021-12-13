@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-const LANGUAGES = [
+const LANGUAGES: string[] = [
   'JavaScript',
   'Java',
   'Python',
@@ -13,7 +13,7 @@ const LANGUAGES = [
   'HTML/CSS + Sass',
 ];
 
-const FRONTEND_SKILLS = [
+const FRONTEND_SKILLS: string[] = [
   'React',
   'Angular',
   'React Native',
@@ -26,7 +26,7 @@ const FRONTEND_SKILLS = [
   'Java Web Apps',
 ];
 
-const BACKEND_SKILLS = [
+const BACKEND_SKILLS: string[] = [
   'RESTful APIs',
   'NodeJS',
   'Spring Boot',
@@ -38,10 +38,22 @@ const BACKEND_SKILLS = [
   'GCP',
 ];
 
-const SKILLS: { [key: string]: any } = [
-  { languages: [LANGUAGES.join(', ')] },
-  { 'front-end': [FRONTEND_SKILLS.join(', ')] },
-  { 'back-end': [BACKEND_SKILLS.join(', ')] },
+const SKILLS: {
+  label: string;
+  value: string;
+}[] = [
+  {
+    label: 'languages',
+    value: LANGUAGES.join(', '),
+  },
+  {
+    label: 'front-end',
+    value: FRONTEND_SKILLS.join(', '),
+  },
+  {
+    label: 'back-end',
+    value: BACKEND_SKILLS.join(', '),
+  },
 ];
 
 @Component({
@@ -51,10 +63,6 @@ const SKILLS: { [key: string]: any } = [
 })
 export class SkillsComponent implements OnInit {
   public skills = SKILLS;
-  public skillKeys: string[] = this.skills.map(
-    (skill: Object) => Object.keys(skill)[0]
-  );
-
   constructor() {}
 
   ngOnInit() {}
