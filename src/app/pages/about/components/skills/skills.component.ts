@@ -51,7 +51,9 @@ const SKILLS: { [key: string]: any } = [
 })
 export class SkillsComponent implements OnInit {
   public skills = SKILLS;
-  public skillKeys: string[] = ['languages', 'front-end', 'back-end'];
+  public skillKeys: string[] = this.skills.map(
+    (skill: Object) => Object.keys(skill)[0]
+  );
 
   constructor() {}
 
