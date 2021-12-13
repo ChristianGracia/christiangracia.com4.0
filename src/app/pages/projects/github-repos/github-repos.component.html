@@ -4,24 +4,27 @@
   <mat-spinner color="accent"></mat-spinner>
 </div>
 
-<div class="github-container" *ngIf="!loadingRepos">
+<div class="github-container clickable" *ngIf="!loadingRepos">
   <mat-card
     *ngFor="let repo of data"
     class="repo-card mat-elevation-z6"
     (click)="openRepoCommitModal(repo.name, repo.url)"
   >
-    <mat-card-title class="repo-title">
-      {{ repo.name.split("-").join(" ") }}
-    </mat-card-title>
+    <div class="top-row">
+      <mat-card-title class="repo-title mat-title accent-color">
+        {{ repo.name.split("-").join(" ") }}
+      </mat-card-title>
 
-    <mat-card-content class="repo-description-container">
-      <span class="repo-description">
-        {{ repo.description }}
-      </span>
-    </mat-card-content>
-    <div class="bottom-text">
+      <mat-card-content class="repo-description-container mat-subheading1">
+        <span class="repo-description">
+          {{ repo.description }}
+        </span>
+      </mat-card-content>
+    </div>
+   
+    <div class="bottom-row">
       <div class="repo-language-container">
-        <span style="font-weight: bold"> Language: </span>
+        <span class="repo-language-text mat-caption"> Language: </span>
 
         <span
           class="repo-language-text"
@@ -30,7 +33,7 @@
         >
       </div>
       <div class="repo-date-container">
-        <span class="repo-date-text">
+        <span class="repo-date-text mat-caption">
           Last updated at
           <span class="repo-date-value">{{
             formatUpdateAtDate(repo.updatedAt)

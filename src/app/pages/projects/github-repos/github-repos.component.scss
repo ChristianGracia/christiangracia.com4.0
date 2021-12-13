@@ -5,9 +5,14 @@
   flex-wrap: wrap;
 }
 .repo-card {
-  width: 300px;
+  height: 250px;
+  width: 85%;
+  max-width: 370px;
   margin: 30px 5px;
-  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
   @media (min-width: 500px) {
     margin: 15px 30px;
   }
@@ -24,28 +29,21 @@
       transform: scale(1.07);
     }
   }
-  .bottom-text {
-    // position: absolute;
-    // bottom: 0;
-  }
-
   .repo-language-container {
     margin-top: -6px;
     margin-bottom: 10px;
     .repo-language-text {
-      font-size: 16px;
+      font-weight: bold
     }
   }
   .repo-description-container {
     margin: 20px 0;
     .repo-description {
-      font-size: 16px;
     }
   }
   .repo-date-container {
     margin-bottom: 10px;
     .repo-date-text {
-      font-size: 12px;
       font-style: italic;
     }
     .repo-date-value {
@@ -62,12 +60,10 @@
   text-align: center;
   margin-top: 12px;
   .api-description-text {
-    font-size: 14px;
     font-style: italic;
   }
   .api-description-url {
     margin-top: 15px;
-    font-size: 14px;
     font-style: normal;
     font-weight: bold;
   }
