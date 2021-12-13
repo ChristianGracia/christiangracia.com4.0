@@ -6,9 +6,9 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 .container {
-  padding: 12px;
+  padding: 12px 12px 60px;
   @media only screen and (min-width: 900px) {
-    padding: 20px 20px 100px;
+    padding: 30px 40px 100px;
   }
 }
 .clickable {
