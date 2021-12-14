@@ -2,12 +2,11 @@ import {
   Component,
   OnInit,
   Inject,
-  AfterViewInit,
   ViewChild,
 } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { GithubService } from "../../../shared-components/services/github.service";
-import { Commit } from "src/app/modules/shared-components/models/commit.model";
+import { GithubService } from 'src/app/services/github.service';
+import { Commit } from "src/app/models/commit.model";
 import { formatDateAndTime } from "src/app/util/dateMethods";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
@@ -25,13 +24,13 @@ export class RepoCommitModalComponent implements OnInit {
   public loadingCommits: boolean = false;
   public commits: Commit[] = [];
   public pageSize = 25;
-  public totalCommits;
+  public totalCommits : number = 0;
 
   displayedColumns: string[] = ["time", "message"];
 
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: false }) paginator: any;
 
-  public dataSource;
+  public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private githubService: GithubService

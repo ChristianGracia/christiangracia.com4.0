@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Repo } from 'src/app/models/github-repo.model';
 import { GithubService } from 'src/app/services/github.service';
 import { formatDateAndTime } from 'src/app/util/dateMethods';
+import { RepoCommitModalComponent } from '../../modals/repo-commit-modal/repo-commit-modal.component';
 
 @Component({
   selector: 'app-github-repos',
@@ -24,20 +25,20 @@ export class GithubReposComponent implements OnInit {
   }
 
   public openRepoCommitModal(repoName: string, repoUrl: string) {
-    // let config = new MatDialogConfig();
-    // config = {
-    //   maxWidth: "100vw",
-    //   maxHeight: "100vh",
-    //   height: "100%",
-    //   width: "100%",
-    //   panelClass: "full-screen-modal",
-    //   data: {
-    //     repo: repoName,
-    //     url: repoUrl,
-    //   },
-    // };
-    // const dialogRef = this.dialog.open(RepoCommitModalComponent, config);
-    // dialogRef.afterClosed().subscribe((result) => {});
+    let config = new MatDialogConfig();
+    config = {
+      maxWidth: "100vw",
+      maxHeight: "100vh",
+      height: "100%",
+      width: "100%",
+      panelClass: "full-screen-modal",
+      data: {
+        repo: repoName,
+        url: repoUrl,
+      },
+    };
+    const dialogRef = this.dialog.open(RepoCommitModalComponent, config);
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   public formatUpdateAtDate(date: string) {

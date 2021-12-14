@@ -9,7 +9,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
@@ -22,7 +21,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatListModule,
     MatMenuModule,
     MatSlideToggleModule,
-    MatDialogModule,
     MatProgressSpinnerModule,
   ],
   exports: [
@@ -34,7 +32,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatListModule,
     MatMenuModule,
     MatSlideToggleModule,
-    MatDialogModule,
     MatProgressSpinnerModule,
   ],
 })

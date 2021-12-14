@@ -14,6 +14,8 @@ export class AppComponent {
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
   ) {
+    overlayContainer.getContainerElement().classList.add('dark-theme');
+
     this.matIconRegistry.addSvgIconInNamespace(
       'assets',
       'linkedin',

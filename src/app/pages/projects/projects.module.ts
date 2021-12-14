@@ -6,9 +6,12 @@ import { GithubReposComponent } from './components/github-repos/github-repos.com
 import { SiteComponent } from './components/websites/site/site.component';
 import { WebsitesComponent } from './components/websites/websites.component';
 import { MaterialModule } from '../../material/material.module';
+import { RepoCommitModalComponent } from "./modals/repo-commit-modal/repo-commit-modal.component";
+import { ViewSiteModalComponent } from "./modals/view-site-modal/view-site-modal.component";
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
 
 @NgModule({
@@ -17,6 +20,8 @@ import { SharedComponentsModule } from 'src/app/shared-components/shared-compone
     WebsitesComponent,
     SiteComponent,
     ProjectsComponent,
+    RepoCommitModalComponent,
+    ViewSiteModalComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +29,9 @@ import { SharedComponentsModule } from 'src/app/shared-components/shared-compone
     ProjectsRoutingModule,
     MatPaginatorModule,
     MatTableModule,
+    MatDialogModule,
     SharedComponentsModule,
   ],
+  entryComponents: [RepoCommitModalComponent, ViewSiteModalComponent],
 })
 export class ProjectsModule {}

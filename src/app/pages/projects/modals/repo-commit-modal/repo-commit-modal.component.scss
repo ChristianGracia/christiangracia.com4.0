@@ -1,5 +1,6 @@
-@import "../../../../../styles.scss";
-
+.full-screen-modal .mat-dialog-container {
+  max-width: none;
+}
 .modal-container {
   .repo-container {
     .repo-name {
