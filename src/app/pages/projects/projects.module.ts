@@ -13,7 +13,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
-import { SlideshowModule } from "ng-simple-slideshow";
 
 import { SafePipe } from "./services/safe.pipe";
 
@@ -35,7 +34,6 @@ import { SafePipe } from "./services/safe.pipe";
     MatTableModule,
     MatDialogModule,
     SharedComponentsModule,
-    SlideshowModule,
   ],
   entryComponents: [RepoCommitModalComponent, ViewSiteModalComponent],
 })

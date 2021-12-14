@@ -9,7 +9,8 @@ import { ViewSiteModalComponent } from '../../../modals/view-site-modal/view-sit
   styleUrls: ['./site.component.scss'],
 })
 export class SiteComponent implements OnInit {
-  @Input() public site: Site | undefined;
+  @Input()
+  public site: Site = new Site('x', 'x', 'x', []);
 
   constructor(public dialog: MatDialog) {}
 
@@ -27,8 +28,8 @@ export class SiteComponent implements OnInit {
         url: siteUrl,
       },
     };
-    const dialogRef = this.dialog.open(ViewSiteModalComponent, config);
+    // const dialogRef = this.dialog.open(ViewSiteModalComponent, config);
 
-    dialogRef.afterClosed().subscribe((result) => {});
+    // dialogRef.afterClosed().subscribe((result) => {});
   }
 }
