@@ -9,7 +9,7 @@
     "test": "ng test",
     "dev:ssr": "ng run christiangracia-ssr:serve-ssr",
     "serve:ssr": "node dist/christiangracia-ssr/server/main.js",
-    "build:ssr": "ng build && ng run christiangracia-ssr:server",
+    "build:ssr": "ng build --prod && ng run christiangracia-ssr:server:production",
     "prerender": "ng run christiangracia-ssr:prerender",
     "heroku-postbuild": "npm run clean-build",
     "build:stats": "ng build --stats-json",
