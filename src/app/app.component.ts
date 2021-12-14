@@ -1,5 +1,6 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -8,11 +9,14 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  public loaded : Boolean = false;
   constructor(
     public overlayContainer: OverlayContainer,
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private renderer: Renderer2,
   ) {
     overlayContainer.getContainerElement().classList.add('dark-theme');
 
@@ -51,10 +55,18 @@ export class AppComponent {
     }
   }
 
-  ngOnInit() {
-    const theme = window.localStorage.getItem('lightTheme');
-    if (theme) {
-      this.isDarkTheme = false;
+  ngOnInit() {}
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const theme = window.localStorage.getItem('lightTheme');
+      if (theme) {
+        this.isDarkTheme = false;
+      }
+
+      this.loaded = true;
+      let loader = this.renderer.selectRootElement('.load-container');
+      if (loader.style.display != "none") loader.style.display = "none";
     }
   }
 }
