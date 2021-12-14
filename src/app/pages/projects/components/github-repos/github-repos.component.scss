@@ -33,7 +33,7 @@
     margin-top: -6px;
     margin-bottom: 5px;
     .repo-language-text {
-      font-weight: bold
+      font-weight: bold;
     }
   }
   .repo-description-container {
@@ -71,11 +71,11 @@
   justify-content: center;
   margin-top: 60px;
 }
-.full-screen-modal .mat-dialog-container {
-  height: 100vh;
-  width: 100vw;
-  z-index: 10000000 !important;
-  .mat-dialog-content {
-    height: 100%;
-  }
-}
+// .full-screen-modal .mat-dialog-container {
+//   height: 100vh;
+//   width: 100vw;
+//   z-index: 10000000 !important;
+//   .mat-dialog-content {
+//     height: 100%;
+//   }
+// }

@@ -1,6 +1,12 @@
 .full-screen-modal {
-  max-width: none;
-  z-index: 999999999999;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.9;
 }
 .modal-container {
   // height: 100%;
@@ -59,4 +65,19 @@
     width: 100%;
     height: 100vh;
   }
+}
+::ng-deep .full-screen-modal {
+  position: fixed;
+  z-index: 9;
+  top: 0px;
+
+  // .mat-dialog-container {
+  //   max-width: 100vw;
+  //   max-height: 100vh;
+  //   height: 100%;
+  //   width: 100%;
+  //   .mat-dialog-content {
+  //     max-height: unset !important;
+  //   }
+  // }
 }

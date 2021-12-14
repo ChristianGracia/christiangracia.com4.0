@@ -32,6 +32,10 @@ mat-sidenav {
 .footer {
   grid-area: footer;
 }
-.full-screen-modal .cdk-overlay-backdrop {
-  z-index: 999999999;
+
+::ng-deep .full-screen-modal {
+  position: fixed;
+  z-index: 9;
+  top: 0px;
+  width: 100%;
 }

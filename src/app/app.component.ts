@@ -1,6 +1,12 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  PLATFORM_ID,
+  Renderer2,
+} from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -10,15 +16,16 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
-  public loaded : Boolean = false;
+  public loaded: Boolean = false;
   constructor(
     public overlayContainer: OverlayContainer,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private renderer: Renderer2,
+    private renderer: Renderer2
   ) {
     overlayContainer.getContainerElement().classList.add('dark-theme');
+    overlayContainer.getContainerElement().classList.add('full-screen-modal');
 
     this.matIconRegistry.addSvgIconInNamespace(
       'assets',
@@ -66,7 +73,7 @@ export class AppComponent implements AfterViewInit {
 
       this.loaded = true;
       let loader = this.renderer.selectRootElement('.app-loader-container');
-      if (loader.style.display != "none") loader.style.display = "none";
+      if (loader.style.display != 'none') loader.style.display = 'none';
     }
   }
 }

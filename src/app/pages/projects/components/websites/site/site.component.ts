@@ -10,7 +10,7 @@ import { ViewSiteModalComponent } from '../../../modals/view-site-modal/view-sit
 })
 export class SiteComponent implements OnInit {
   @Input()
-  public site: Site = new Site('x', 'x', 'x', []);
+  public site!: Site;
 
   constructor(public dialog: MatDialog) {}
 
@@ -23,13 +23,12 @@ export class SiteComponent implements OnInit {
       maxHeight: '100vh',
       height: '100%',
       width: '100%',
-      panelClass: 'full-screen-modal',
       data: {
         url: siteUrl,
       },
     };
-    // const dialogRef = this.dialog.open(ViewSiteModalComponent, config);
+    const dialogRef = this.dialog.open(ViewSiteModalComponent, config);
 
-    // dialogRef.afterClosed().subscribe((result) => {});
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 }
