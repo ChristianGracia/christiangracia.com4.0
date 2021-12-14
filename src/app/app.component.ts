@@ -65,7 +65,7 @@ export class AppComponent implements AfterViewInit {
       }
 
       this.loaded = true;
-      let loader = this.renderer.selectRootElement('.load-container');
+      let loader = this.renderer.selectRootElement('.app-loader-container');
       if (loader.style.display != "none") loader.style.display = "none";
     }
   }

@@ -7,18 +7,18 @@
     {{ site.title }}
   </mat-card-title>
   <mat-card-content>
-    <!-- <slideshow
+    <slideshow
       [height]="'350px'"
       [minHeight]="'325px'"
       [autoPlay]="true"
       [showArrows]="false"
       [imageUrls]="site.imageUrls"
-      [lazyLoad]="site.imageUrls?.length > 1"
+      [lazyLoad]="true"
       [autoPlayWaitForLazyLoad]="true"
       [showDots]="true"
       dotColor="black"
     >
-    </slideshow> -->
+    </slideshow>
   </mat-card-content>
   <mat-card-content class="mat-subheading-2">
     <p>{{ site.bottomText }}</p>

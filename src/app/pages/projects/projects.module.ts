@@ -13,6 +13,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
+import { SlideshowModule } from "ng-simple-slideshow";
+
+import { SafePipe } from "./services/safe.pipe";
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { SharedComponentsModule } from 'src/app/shared-components/shared-compone
     ProjectsComponent,
     RepoCommitModalComponent,
     ViewSiteModalComponent,
+    SafePipe,
   ],
   imports: [
     CommonModule,
@@ -31,6 +35,7 @@ import { SharedComponentsModule } from 'src/app/shared-components/shared-compone
     MatTableModule,
     MatDialogModule,
     SharedComponentsModule,
+    SlideshowModule,
   ],
   entryComponents: [RepoCommitModalComponent, ViewSiteModalComponent],
 })

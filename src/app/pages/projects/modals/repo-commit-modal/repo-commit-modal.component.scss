@@ -1,7 +1,11 @@
-.full-screen-modal .mat-dialog-container {
+.full-screen-modal {
   max-width: none;
+  z-index: 999999999999;
 }
 .modal-container {
+  // height: 100%;
+  // width: 100%;
+  z-index: 999999999999;
   .repo-container {
     .repo-name {
       margin-top: 20px;

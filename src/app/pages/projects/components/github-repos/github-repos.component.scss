@@ -71,3 +71,11 @@
   justify-content: center;
   margin-top: 60px;
 }
+.full-screen-modal .mat-dialog-container {
+  height: 100vh;
+  width: 100vw;
+  z-index: 10000000 !important;
+  .mat-dialog-content {
+    height: 100%;
+  }
+}

@@ -32,3 +32,6 @@ mat-sidenav {
 .footer {
   grid-area: footer;
 }
+.full-screen-modal .cdk-overlay-backdrop {
+  z-index: 999999999;
+}

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Site } from 'src/app/models/site.model';
+import { ViewSiteModalComponent } from '../../../modals/view-site-modal/view-site-modal.component';
 
 @Component({
   selector: 'app-site',
@@ -26,8 +27,8 @@ export class SiteComponent implements OnInit {
         url: siteUrl,
       },
     };
-    // const dialogRef = this.dialog.open(ViewSiteModalComponent, config);
+    const dialogRef = this.dialog.open(ViewSiteModalComponent, config);
 
-    // dialogRef.afterClosed().subscribe((result) => {});
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 }
