@@ -15,11 +15,16 @@ export function app(): express.Express {
     ? 'index.original.html'
     : 'index';
 
-  server.engine(
-    'html',
+  server.engine('html', (_, options: any, callback) =>
     ngExpressEngine({
       bootstrap: AppServerModule,
-    })
+      providers: [
+        {
+          provide: 'clientIPAddress',
+          useValue: options.req.connection.remoteAddress, //Provides the client IP address to angular
+        },
+      ],
+    })(_, options, callback)
   );
 
   server.set('view engine', 'html');
