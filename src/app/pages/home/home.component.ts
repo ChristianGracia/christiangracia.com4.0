@@ -31,6 +31,5 @@ export class HomeComponent implements OnInit {
       .subscribe((locationData: LocationData) => {
         this.emailService.sendSiteVisitEmail(locationData).subscribe(() => {});
       });
-    console.log(window.location.href);
   }
 }

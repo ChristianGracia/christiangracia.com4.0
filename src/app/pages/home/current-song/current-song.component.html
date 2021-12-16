@@ -16,7 +16,11 @@
       alt="{{ song.artist }} album image"
     />
     <div class="song-info-container">
-      <span class="accent-color mat-caption song-name">{{ song.name }} </span>
+      <span class="accent-color mat-caption song-name"
+        >{{
+          song.name.length > 35 ? song.name.substring(0, 35) + "..." : song.name
+        }}
+      </span>
       <span class="mat-caption song-name">{{ song.artist }}</span>
     </div>
   </div>
