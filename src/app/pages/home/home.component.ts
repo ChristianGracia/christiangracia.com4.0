@@ -12,26 +12,25 @@ export class HomeComponent implements OnInit {
   constructor(
     private routingService: RoutingService,
     private locationService: LocationService,
-    private emailService: EmailService,
+    private emailService: EmailService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.sendSiteVisit();
+    }, 500);
+  }
 
   public goToAboutPage(): void {
+    this.sendSiteVisit();
+    this.routingService.navigateToAbout();
+  }
+  private sendSiteVisit() {
     this.locationService
       .getLocationJSON()
       .subscribe((locationData: LocationData) => {
         this.emailService.sendSiteVisitEmail(locationData).subscribe(() => {});
       });
-    this.routingService.navigateToAbout();
-  }
-  public sendSiteVisit() {
-    this.locationService
-    .getLocationJSON()
-    .subscribe((locationData: LocationData) => {
-      this.emailService.sendSiteVisitEmail(locationData).subscribe(() => {});
-    });
-    console.log(window.location.href)
-
+    console.log(window.location.href);
   }
 }
