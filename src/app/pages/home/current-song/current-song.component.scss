@@ -9,24 +9,74 @@
     }
 }
 .song-container {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
+    margin: 5px;
+    .current-text {
+        margin: 10px 0;
+    }
     .song-row {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         .song-info-container {
-            margin-left: 3vw;
+            margin-left: 5px;
+            @media only screen and (min-width: 330px) {
+                margin-left: 2vw;
+              }
             display: flex;
             flex-direction: column;
-            // align-items: center;
-            justify-content: left;
+            justify-content: center;
+            .song-name {
+                font-weight: bold;
+            }
         }  
     }
-    .song-progress-bar{
-        margin-top: 12px;
+    .song-progress-bar-container {
+        margin-top: 16px;
         max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        .song-progress-bar {
+
+        }
+        .song-progress-bar-text-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .song-progress-bar-text {
+                margin-top: 1px;
+                font-size: 11px;
+
+            }
+        }
     }
 
 }
+.loading {
+    text-align: center;
+    span {
+      display: inline-block;
+      margin: 0 -.05em;
+    }
+}
+
+.loading-animation {
+    span {
+      margin: 0 -.05em;
+      animation: loading-animation .7s infinite alternate;
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i+1}) {
+          animation-delay: #{$i*.1}s;
+        }
+      }
+    }
+  }
+  @keyframes loading-animation {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(.8);
+    }
+  }
