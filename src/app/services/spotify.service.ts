@@ -17,11 +17,4 @@ export class SpotifyService {
       })
     );
   }
-  public getCurrentSong2() {
-    return this.http.get<Song[]>(environment.apiUrl + '/spotify/callback').pipe(
-      map((data: Song[]) => {
-        return data;
-      })
-    );
-  }
 }

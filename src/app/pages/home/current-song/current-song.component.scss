@@ -1,0 +1,25 @@
+.song-loader {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .spinner {
+        margin-top: 10px;
+    }
+}
+.song-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    .song-row {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        .song-info-container {
+            display: flex;
+            flex-direction: column;
+        }  
+    }
+
+}
