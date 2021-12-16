@@ -12,10 +12,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px;
-  max-width: calc(500px + 110 * ((100vw - 320px) / 680));
+  // margin: 10px;
+  // max-width: calc(500px + 110 * ((100vw - 320px) / 680));
   .current-text {
     margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    vertical-align: center;
   }
   .song-row {
     display: flex;
