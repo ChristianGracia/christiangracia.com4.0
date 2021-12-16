@@ -11,6 +11,8 @@ import { RoutingService } from '../../services/routing.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public song: Song | null = null;
+  public loadingSong: Boolean = false;
   constructor(
     private routingService: RoutingService,
     private locationService: LocationService,
@@ -22,14 +24,18 @@ export class HomeComponent implements OnInit {
     setTimeout(() => this.getCurrentSong(), 2000);
   }
   private getCurrentSong(): void {
+    this.loadingSong = true;
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
         console.log(song);
+        if (song.length) {
+          this.song = song[0];
+        }
+        this.loadingSong = false;
       },
       (err) => {
+        this.loadingSong = false;
         console.log(err);
-        console.log(err.url); // here is the redirect url
-        // window.location.href = err.url;
       }
     );
   }

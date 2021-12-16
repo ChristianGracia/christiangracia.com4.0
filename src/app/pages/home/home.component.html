@@ -15,7 +15,23 @@
       applications with React, NodeJs, Angular, Java, Python, C#, React Native,
       Swift, and more.</span
     >
-    <span class="description mat-display-1 accent-color" style='font-weight: bold;'>12/12/2021 - Site under construction</span>
+    <span
+      *ngIf="loadingSong"
+      class="description mat-display-1 accent-color"
+      style="font-weight: bold"
+      >loading</span
+    >
+    <span
+      *ngIf="!loadingSong && song"
+      class="description mat-display-1 accent-color"
+      style="font-weight: bold"
+      >{{ song.name }}</span
+    >
+    <span
+      class="description mat-display-1 accent-color"
+      style="font-weight: bold"
+      >12/12/2021 - Site under construction</span
+    >
   </div>
   <div class="learn-more-container">
     <a (click)="goToAboutPage()" mat-raised-button color="accent">

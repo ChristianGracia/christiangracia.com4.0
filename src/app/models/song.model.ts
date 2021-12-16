@@ -3,7 +3,7 @@ export class Song {
     public progress: string,
     public duration: string,
     public artist: string,
-    public song: string,
+    public name: string,
     public images: string[]
   ) {}
 }
