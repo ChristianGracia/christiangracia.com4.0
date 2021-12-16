@@ -1,24 +1,23 @@
 
 
 <div *ngIf="loadingSong" class='song-loader'>
-    <div class="accent-color">Checking my Spotify...</div>
+    <div class="accent-color mat-caption">Checking my Spotify...</div>
     <mat-spinner class='spinner' diameter="22" color="accent"></mat-spinner>
 </div>
 
 <div *ngIf='song && !loadingSong' class='song-container'>
     <div class='song-row'>
-        <img height='12px' width='12px' src='song.images[0]' alt='{{ song.artist }} album image'/>
+        <img height='48px' width='48px' [src]='song.images[1]' alt='{{ song.artist }} album image'/>
         <div class='song-info-container'>
-            <div class></div>
             <span
-            class="accent-color"
+            class="accent-color mat-caption"
             >{{ song.name }} </span
             >
             <span
-            class="accent-color"
+            class="accent-color mat-caption"
             >{{ song.artist }}</span
             >
         </div>
     </div>
-    <mat-progress-bar mode="determinate" value="{{songProgress}}"></mat-progress-bar>
+    <mat-progress-bar color='accent' class='song-progress-bar' mode="determinate" value="{{(songProgress / songDuration) * 100}}"></mat-progress-bar>
 </div>
