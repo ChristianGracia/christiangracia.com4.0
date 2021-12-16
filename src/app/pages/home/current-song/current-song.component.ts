@@ -14,7 +14,8 @@ export class CurrentSongComponent implements OnInit {
   constructor(private spotifyService: SpotifyService) {}
   public songProgress : number = 0;
   public songDuration : number = 0;
-  public endTime : string= '00:00';
+  public endTime : string = '00:00';
+  public currentTime : string = '00:00';
 
   public loadingText = 'Loading'.split("");
 
@@ -25,12 +26,16 @@ export class CurrentSongComponent implements OnInit {
   }
 
   private addTimeProgressBar(): void {
-    const fifthOfSecond = 1 / 5;
-    const timer$ = interval(200);
-    const sub = timer$.subscribe((unit) => {
-      this.songProgress += fifthOfSecond;
+    const second = 1;
+    const timer$ = interval(1000);
+    const sub = timer$.subscribe((sec) => {
+      this.songProgress += second;
+      this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
       if (this.songProgress >= this.songDuration) {
         sub.unsubscribe();
+        setTimeout(() => {
+          this.getCurrentSong();
+        }, 1000)
       }
     });
 
@@ -38,21 +43,6 @@ export class CurrentSongComponent implements OnInit {
 
   private getCurrentSong(): void {
     this.loadingSong = true;
-    // testing
-    // this.song = {
-    //   progress: 2010,
-    //   duration: 59000,
-    //   artist: 'Drake',
-    //   name: 'Knife Talk (with 21 Savage ft. Project Pat)',
-    //   images: [
-    //     'https://i.scdn.co/image/ab67616d0000b273cd945b4e3de57edd28481a3f',
-
-    //     'https://i.scdn.co/image/ab67616d00001e02cd945b4e3de57edd28481a3f',
-
-    //     'https://i.scdn.co/image/ab67616d00004851cd945b4e3de57edd28481a3f',
-    //   ],
-    // };
-
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
         console.log(song);
@@ -60,9 +50,12 @@ export class CurrentSongComponent implements OnInit {
           this.song = song[0];
           this.songProgress = this.song.progress / 1000
           this.songDuration = this.song.duration / 1000
+          this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
           this.endTime = new Date(this.songDuration * 1000).toTimeString().split(' ')[0].substring(3);
           this.addTimeProgressBar();
           this.loadingSong = false;
+        } else {
+          this.song = null;
         }
         this.loadingSong = false;
       },

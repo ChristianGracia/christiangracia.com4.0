@@ -27,7 +27,7 @@
     <div class='song-progress-bar-container'>
         <mat-progress-bar color='accent' class='song-progress-bar' mode="determinate" value="{{(songProgress / songDuration) * 100}}"></mat-progress-bar>
         <div class='song-progress-bar-text-container'>
-            <p class='song-progress-bar-text'>00.00<p>  
+            <p class='song-progress-bar-text'>{{currentTime}}<p>  
             <p class='song-progress-bar-text'>{{endTime}}</p>
         </div>
     </div>

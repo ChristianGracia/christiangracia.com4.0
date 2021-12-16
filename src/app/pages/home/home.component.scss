@@ -28,6 +28,12 @@
   .learn-more-container {
     margin: 6px 0 20px 0;
   }
+  .song-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 100%;
+  }
   .info-container {
     display: flex;
     flex-direction: column;
