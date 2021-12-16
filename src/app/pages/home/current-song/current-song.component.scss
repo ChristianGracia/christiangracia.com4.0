@@ -15,20 +15,27 @@
   // margin: 10px;
   // max-width: calc(500px + 110 * ((100vw - 320px) / 680));
   .current-text {
-    margin: 10px 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
-    vertical-align: center;
+    align-items: center;
+    @media only screen and (min-width: 500px) {
+      margin-left: 0px;
+    }
+    .spotify-image {
+      margin-right: 5px;
+    }
   }
   .song-row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 6px 0;
     .song-info-container {
       margin-left: 5px;
-      @media only screen and (min-width: 330px) {
-        margin-left: 2vw;
-      }
+      // @media only screen and (min-width: 330px) {
+      //   margin-left: 1vw;
+      // }
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -38,8 +45,7 @@
     }
   }
   .song-progress-bar-container {
-    margin-top: 16px;
-    max-width: 500px;
+    max-width: calc(500px + 110 * ((100vw - 320px) / 680));
     display: flex;
     flex-direction: column;
     .song-progress-bar {

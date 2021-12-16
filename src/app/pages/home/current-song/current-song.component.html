@@ -1,38 +1,41 @@
-
-
-<div *ngIf="loadingSong" class='song-loader'>
-    <div class='current-text mat-subheading-1 loading loading-animation'>  
-     <span *ngFor='let char of loadingText'>
-         {{char}}
-     </span>
-    </div>
-    <mat-spinner class='spinner' diameter="22" color="accent"></mat-spinner>
+<div *ngIf="loadingSong" class="song-loader">
+  <div class="current-text mat-subheading-1 loading loading-animation">
+    <span *ngFor="let char of loadingText">
+      {{ char }}
+    </span>
+  </div>
+  <mat-spinner class="spinner" diameter="22" color="accent"></mat-spinner>
 </div>
 
-<div *ngIf='song && !loadingSong' class='song-container'>
-    <div class='current-text mat-display-1 accent-color'><mat-icon
-        class="spotify-image"
-        svgIcon="assets:spotify"
-        color="accent"
-      > </mat-icon>&nbsp;Currently listening to...</div>
-    <div class='song-row'>
-        <img height='36px' width='36px' [src]='song.images[1]' alt='{{ song.artist }} album image'/>
-        <div class='song-info-container'>
-            <span
-            class="accent-color mat-caption song-name"
-            >{{ song.name }} </span
-            >
-            <span
-            class="mat-caption song-name"
-            >{{ song.artist }}</span
-            >
-        </div>
+<div *ngIf="song && !loadingSong" class="song-container">
+  <div class="song-row">
+    <img
+      height="36px"
+      width="36px"
+      [src]="song.images[1]"
+      alt="{{ song.artist }} album image"
+    />
+    <div class="song-info-container">
+      <span class="accent-color mat-caption song-name">{{ song.name }} </span>
+      <span class="mat-caption song-name">{{ song.artist }}</span>
     </div>
-    <div class='song-progress-bar-container'>
-        <mat-progress-bar color='accent' class='song-progress-bar' mode="determinate" value="{{(songProgress / songDuration) * 100}}"></mat-progress-bar>
-        <div class='song-progress-bar-text-container'>
-            <p class='song-progress-bar-text'>{{currentTime}}<p>  
-            <p class='song-progress-bar-text'>{{endTime}}</p>
-        </div>
+  </div>
+  <div class="song-progress-bar-container">
+    <mat-progress-bar
+      color="accent"
+      class="song-progress-bar"
+      mode="determinate"
+      value="{{ (songProgress / songDuration) * 100 }}"
+    ></mat-progress-bar>
+    <div class="song-progress-bar-text-container">
+      <p class="song-progress-bar-text">{{ currentTime }}</p>
+      <p></p>
+      <p class="song-progress-bar-text">{{ endTime }}</p>
     </div>
+  </div>
+  <div class="current-text mat-display-1">
+    <mat-icon class="spotify-image" svgIcon="assets:spotify" color="accent">
+    </mat-icon>
+    <div>Currently listening to...</div>
+  </div>
 </div>
