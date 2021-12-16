@@ -38,6 +38,20 @@ export class CurrentSongComponent implements OnInit {
 
   private getCurrentSong(): void {
     this.loadingSong = true;
+    // testing
+    // this.song = {
+    //   progress: 2010,
+    //   duration: 59000,
+    //   artist: 'Drake',
+    //   name: 'Knife Talk (with 21 Savage ft. Project Pat)',
+    //   images: [
+    //     'https://i.scdn.co/image/ab67616d0000b273cd945b4e3de57edd28481a3f',
+
+    //     'https://i.scdn.co/image/ab67616d00001e02cd945b4e3de57edd28481a3f',
+
+    //     'https://i.scdn.co/image/ab67616d00004851cd945b4e3de57edd28481a3f',
+    //   ],
+    // };
 
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
