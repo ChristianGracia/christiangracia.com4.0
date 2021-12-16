@@ -56,7 +56,7 @@ export class CurrentSongComponent implements OnInit {
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
         console.log(song);
-        if (song.length) {
+        if (song && song.length) {
           this.song = song[0];
           this.songProgress = this.song.progress / 1000
           this.songDuration = this.song.duration / 1000
