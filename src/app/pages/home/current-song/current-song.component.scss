@@ -9,10 +9,11 @@
   }
 }
 .song-container {
-  width: 95%;
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: center;
+  margin: 10px;
+  max-width: calc(500px + 110 * ((100vw - 320px) / 680));
   .current-text {
     margin: 10px 0;
   }

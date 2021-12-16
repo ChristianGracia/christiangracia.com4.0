@@ -10,7 +10,7 @@
 </div>
 
 <div *ngIf='song && !loadingSong' class='song-container'>
-    <div class='current-text mat-display-1'>Currently listening to...</div>
+    <div class='current-text mat-display-1 accent-color'>Currently listening to...</div>
     <div class='song-row'>
         <img height='36px' width='36px' [src]='song.images[1]' alt='{{ song.artist }} album image'/>
         <div class='song-info-container'>
