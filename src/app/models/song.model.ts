@@ -4,6 +4,7 @@ export class Song {
     public duration: number,
     public artist: string,
     public name: string,
-    public images: string[]
+    public images: string[],
+    public preview_url: string
   ) {}
 }
