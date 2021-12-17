@@ -21,6 +21,7 @@ export class CurrentSongComponent implements OnInit {
   public audio = new Audio();
 
   public loadingText = 'Loading'.split("");
+  public currentText = "Playing now on my Spotify".split(" ").map((item) => (item.split("")));
 
   ngOnInit(): void {
     this.loadingSong = true;
@@ -75,7 +76,6 @@ export class CurrentSongComponent implements OnInit {
             this.audio.src = this.song.previewUrl;
           }
           console.log('ran')
-          this.loadingSong = false;
         } else {
           this.song = null;
         }

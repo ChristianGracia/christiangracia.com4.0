@@ -47,6 +47,15 @@
   <div class="current-text mat-display-1">
     <mat-icon class="spotify-image" svgIcon="assets:spotify" color="accent">
     </mat-icon>
-    <div>Currently listening to...</div>
+        <!-- <div class='loading loading-animation' *ngFor="let char of currentText"><span *ngFor="let char of arr">
+            {{ char }}
+          </span>
+        </div> -->
+        <ng-template class='loading loading-animation' ngFor let-arr [ngForOf]="currentText">
+        <div class='loading loading-animation' style='padding: 3px;'><span *ngFor="let char of arr">
+            {{ char }}
+          </span>
+        </div>
+        </ng-template>
   </div>
 </div>
