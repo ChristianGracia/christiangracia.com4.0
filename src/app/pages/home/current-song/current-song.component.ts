@@ -12,6 +12,7 @@ export class CurrentSongComponent implements OnInit {
   public song: Song | null = null;
   public loadingSong: Boolean = false;
   public songPlaying: Boolean = false;
+  public timerGoing: Boolean = false;
   constructor(private spotifyService: SpotifyService) {}
   public songProgress : number = 0;
   public songDuration : number = 0;
@@ -29,6 +30,7 @@ export class CurrentSongComponent implements OnInit {
   }
 
   private addTimeProgressBar(): void {
+    this.timerGoing = true;
     const second = 1;
     const timer$ = interval(1000);
     console.log('timer started')
@@ -43,6 +45,7 @@ export class CurrentSongComponent implements OnInit {
         sub.unsubscribe();
         setTimeout(() => {
           this.audio.src = '';
+          this.audio.pause()
           this.songPlaying = false;
           this.getCurrentSong();
         }, 600)
@@ -60,7 +63,7 @@ export class CurrentSongComponent implements OnInit {
         console.log(song);
         if (song && song.length) {
           this.audio = new Audio();
-          const checkIfAddBar = this.song === null || this.song.previewUrl !== song[0].previewUrl;
+          const checkIfAddBar = this.song === null || this.song.name !== song[0].name;
           this.song = song[0];
           this.songProgress = this.song.progress / 1000
           this.songDuration = this.song.duration / 1000
@@ -69,6 +72,7 @@ export class CurrentSongComponent implements OnInit {
 
           if (checkIfAddBar) {
             this.addTimeProgressBar();
+            this.audio.src = this.song.previewUrl;
           }
           console.log('ran')
           this.loadingSong = false;
