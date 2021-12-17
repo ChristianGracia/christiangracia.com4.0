@@ -38,15 +38,17 @@ export class CurrentSongComponent implements OnInit {
       this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
 
       counter += 1;
-      if (counter > 15) {
-        this.getCurrentSong();
-        counter = 0;
-      }
+
       if (this.songProgress >= this.songDuration) {
         sub.unsubscribe();
         setTimeout(() => {
+          this.audio.src = '';
+          this.songPlaying = false;
           this.getCurrentSong();
         }, 600)
+      } else if (counter > 15) {
+        this.getCurrentSong();
+        counter = 0;
       }
     });
 
@@ -57,14 +59,15 @@ export class CurrentSongComponent implements OnInit {
       (song: Song[]) => {
         console.log(song);
         if (song && song.length) {
-          const checkIfLoaded = this.song === null;
+          this.audio = new Audio();
+          const checkIfAddBar = this.song === null || this.song.previewUrl !== song[0].previewUrl;
           this.song = song[0];
           this.songProgress = this.song.progress / 1000
           this.songDuration = this.song.duration / 1000
           this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
           this.endTime = new Date(this.songDuration * 1000).toTimeString().split(' ')[0].substring(3);
 
-          if (checkIfLoaded) {
+          if (checkIfAddBar) {
             this.addTimeProgressBar();
           }
           console.log('ran')
