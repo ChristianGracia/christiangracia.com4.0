@@ -65,4 +65,8 @@ export class RecentlyPlayedSongsComponent implements OnInit {
        this.songs.forEach((item) => item.isPlaying = false);
     }
   }
+
+  ngOnDestroy(): void {
+    this.audio.pause();
+  }
 }

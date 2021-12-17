@@ -33,7 +33,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   
   ngOnDestroy(): void {
     this.audio.pause();
-    this.songPlaying = false;
   }
 
   private addTimeProgressBar(): void {
