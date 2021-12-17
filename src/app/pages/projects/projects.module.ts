@@ -9,8 +9,6 @@ import { MaterialModule } from '../../material/material.module';
 import { RepoCommitModalComponent } from "./modals/repo-commit-modal/repo-commit-modal.component";
 import { ViewSiteModalComponent } from "./modals/view-site-modal/view-site-modal.component";
 
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
 
@@ -30,8 +28,6 @@ import { SafePipe } from "./services/safe.pipe";
     CommonModule,
     MaterialModule,
     ProjectsRoutingModule,
-    MatPaginatorModule,
-    MatTableModule,
     MatDialogModule,
     SharedComponentsModule,
   ],

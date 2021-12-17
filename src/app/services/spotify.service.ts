@@ -11,7 +11,14 @@ export class SpotifyService {
   constructor(private http: HttpClient) {}
 
   public getCurrentSong() {
-    return this.http.get<Song[]>(environment.apiUrl + '/spotify/login').pipe(
+    return this.http.get<Song[]>(environment.apiUrl + '/spotify/currently-playing').pipe(
+      map((data: Song[]) => {
+        return data;
+      })
+    );
+  }
+  public getRecentlyPlayed() {
+    return this.http.get<Song[]>(environment.apiUrl + '/spotify/recently-played').pipe(
       map((data: Song[]) => {
         return data;
       })

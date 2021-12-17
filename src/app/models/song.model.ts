@@ -5,6 +5,11 @@ export class Song {
     public artist: string,
     public name: string,
     public images: string[],
-    public previewUrl: string
+    public previewUrl: string,
+    public artistUrl: string,
+    public songUrl: string,
+    public albumUrl: string,
+    public playedAt: string,
+    public isPlaying: Boolean = false
   ) {}
 }

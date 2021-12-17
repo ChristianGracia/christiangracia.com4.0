@@ -1,0 +1,21 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  td {
+    // padding: 5px;
+  }
+  .time {
+    width: 30px;
+  }
+
+  table {
+    padding: 10px 0px;
+    width: 100%;
+  }
+  .mat-row:hover {
+    background-color: black;
+    td {
+      color: white;
+    }
+  }
+}

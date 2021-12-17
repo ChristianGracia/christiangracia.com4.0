@@ -7,12 +7,14 @@ import { MaterialModule } from '../../material/material.module';
 import { SkillsComponent } from './components/skills/skills.component';
 import { JobHistoryComponent } from './components/job-history/job-history.component';
 import { SideProjectsComponent } from './components/side-projects/side-projects.component';
+import { RecentlyPlayedSongsComponent } from './components/recently-played-songs/recently-played-songs.component';
 @NgModule({
   declarations: [
     AboutComponent,
     SkillsComponent,
     JobHistoryComponent,
     SideProjectsComponent,
+    RecentlyPlayedSongsComponent,
   ],
   imports: [
     CommonModule,
