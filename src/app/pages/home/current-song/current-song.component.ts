@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { interval } from 'rxjs/internal/observable/interval';
 import { Song } from 'src/app/models/song.model';
 import { SpotifyService } from 'src/app/services/spotify.service';
@@ -8,7 +8,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   templateUrl: './current-song.component.html',
   styleUrls: ['./current-song.component.scss'],
 })
-export class CurrentSongComponent implements OnInit {
+export class CurrentSongComponent implements OnInit, OnDestroy {
   public song: Song | null = null;
   public loadingSong: Boolean = false;
   public songPlaying: Boolean = false;
@@ -28,6 +28,12 @@ export class CurrentSongComponent implements OnInit {
     setTimeout(() => {
       this.getCurrentSong();
     }, 500);
+  }
+
+  
+  ngOnDestroy(): void {
+    this.audio.pause();
+    this.songPlaying = false;
   }
 
   private addTimeProgressBar(): void {
