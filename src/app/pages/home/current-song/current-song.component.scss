@@ -36,13 +36,17 @@
     .song-left-col {
       display: flex;
       flex-direction: row;
-      // justify-content: center;
+    }
+    .song-right-col {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .play-button {
+        cursor: pointer;
+      }
     }
     .song-info-container {
       margin-left: 5px;
-      // @media only screen and (min-width: 330px) {
-      //   margin-left: 1vw;
-      // }
       display: flex;
       flex-direction: column;
       justify-content: center;

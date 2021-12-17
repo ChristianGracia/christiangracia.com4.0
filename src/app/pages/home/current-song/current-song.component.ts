@@ -11,11 +11,13 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class CurrentSongComponent implements OnInit {
   public song: Song | null = null;
   public loadingSong: Boolean = false;
+  public songPlaying: Boolean = false;
   constructor(private spotifyService: SpotifyService) {}
   public songProgress : number = 0;
   public songDuration : number = 0;
   public endTime : string = '00:00';
   public currentTime : string = '00:00';
+  public audio = new Audio();
 
   public loadingText = 'Loading'.split("");
 
@@ -64,5 +66,21 @@ export class CurrentSongComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  public playPreviewOfSong() : void {
+    if (!this.songPlaying) {
+      if (!this.audio.src) {
+        this.audio.src = this.song?.previewUrl ?? '';
+        this.audio.load();
+        this.audio.play();
+      } else {
+        this.audio.play();
+      }
+      this.songPlaying = true;
+    } else {
+      this.audio.pause();
+      this.songPlaying = false;
+    }
   }
 }

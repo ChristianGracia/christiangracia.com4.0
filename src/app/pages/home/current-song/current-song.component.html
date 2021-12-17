@@ -27,8 +27,8 @@
         <span class="mat-caption song-name">{{ song.artist }}</span>
       </div>
     </div>
-    <div class="">
-      <mat-icon color="accent"> play_circle_outline </mat-icon>
+    <div class="song-right-col">
+      <mat-icon class='play-button' (click)='playPreviewOfSong()' color="accent"> {{!songPlaying ? 'play_circle_outline' : 'pause'}}</mat-icon>
     </div>
   </div>
   <div class="song-progress-bar-container">

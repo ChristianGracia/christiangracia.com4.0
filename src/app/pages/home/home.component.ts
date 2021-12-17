@@ -26,10 +26,13 @@ export class HomeComponent implements OnInit {
     this.routingService.navigateToAbout();
   }
   private sendSiteVisit() {
-    this.locationService
+    if (window.location && window.location.hostname !== 'localhost') {
+      this.locationService
       .getLocationJSON()
       .subscribe((locationData: LocationData) => {
         this.emailService.sendSiteVisitEmail(locationData).subscribe(() => {});
       });
+    }
+
   }
 }
