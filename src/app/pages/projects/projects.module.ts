@@ -9,7 +9,6 @@ import { MaterialModule } from '../../material/material.module';
 import { RepoCommitModalComponent } from "./modals/repo-commit-modal/repo-commit-modal.component";
 import { ViewSiteModalComponent } from "./modals/view-site-modal/view-site-modal.component";
 
-import { MatDialogModule } from '@angular/material/dialog';
 import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
 
 import { SafePipe } from "./services/safe.pipe";
@@ -28,7 +27,6 @@ import { SafePipe } from "./services/safe.pipe";
     CommonModule,
     MaterialModule,
     ProjectsRoutingModule,
-    MatDialogModule,
     SharedComponentsModule,
   ],
   entryComponents: [RepoCommitModalComponent, ViewSiteModalComponent],
