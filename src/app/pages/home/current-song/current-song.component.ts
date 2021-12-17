@@ -44,7 +44,6 @@ export class CurrentSongComponent implements OnInit {
       }
       if (this.songProgress >= this.songDuration) {
         sub.unsubscribe();
-        this.song = null;
         setTimeout(() => {
           this.getCurrentSong();
         }, 600)
