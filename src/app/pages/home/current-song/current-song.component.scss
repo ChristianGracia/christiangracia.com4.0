@@ -34,9 +34,11 @@
     justify-content: space-between;
     max-width: calc(500px + 110 * ((100vw - 320px) / 680));
     margin: 6px 0;
+    align-items: center;
     .song-left-col {
       display: flex;
       flex-direction: row;
+      align-items: center;
     }
     .song-right-col {
       display: flex;
