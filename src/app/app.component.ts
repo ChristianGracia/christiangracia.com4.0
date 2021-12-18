@@ -24,9 +24,6 @@ export class AppComponent implements AfterViewInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private renderer: Renderer2
   ) {
-    overlayContainer.getContainerElement().classList.add('dark-theme');
-    overlayContainer.getContainerElement().classList.add('full-screen-modal');
-
     this.matIconRegistry.addSvgIconInNamespace(
       'assets',
       'linkedin',
@@ -67,6 +64,14 @@ export class AppComponent implements AfterViewInit {
     } else {
       localStorage.removeItem('lightTheme');
     }
+
+    if (this.isDarkTheme) {
+      this.overlayContainer.getContainerElement().classList.remove('light-theme');
+      this.overlayContainer.getContainerElement().classList.add('dark-theme');
+    } else {
+      this.overlayContainer.getContainerElement().classList.remove('dark-theme');
+      this.overlayContainer.getContainerElement().classList.add('light-theme');
+    }
   }
 
   ngOnInit() {}
@@ -77,6 +82,14 @@ export class AppComponent implements AfterViewInit {
       if (theme) {
         this.isDarkTheme = false;
       }
+
+      if (this.isDarkTheme) {
+        this.overlayContainer.getContainerElement().classList.add('dark-theme');
+      } else {
+        this.overlayContainer.getContainerElement().classList.add('light-theme');
+      }
+      this.overlayContainer.getContainerElement().classList.add('full-screen-modal');
+  
 
       this.loaded = true;
       let loader = this.renderer.selectRootElement('.app-loader-container');
