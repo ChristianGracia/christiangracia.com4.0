@@ -4,17 +4,16 @@
       <span class="close-button-text">X</span>
     </button>
   </div>
-  <div fxLayout="column" fxLayoutAlign="center center" class="repo-container">
-    <div class="repo-name">
+  <div class="repo-container">
+    <div class="repo-name mat-title accent-color">
       {{ data.repo }}
     </div>
     <div class="view-repo-text-container">
       <a href="{{ data.url }}" rel="noreferrer" target="_blank"
-        >View this repo on GitHub
+        >{{data.url}}
         <mat-icon svgIcon="github" class="social-link"></mat-icon
       ></a>
     </div>
-    <div class="repo-update-text">Recent Updates</div>
     <div class="click-commit-text">Click a row to view code changes</div>
 
     <div

@@ -19,7 +19,13 @@
     .repo-name {
       margin-top: 20px;
       font-weight: bold;
-      color: #f7d000;
+      text-align: center;
+    }
+  }
+  .view-repo-text-container {
+    text-align: center;
+    a {
+      text-decoration: none;
     }
   }
   .social-link {
