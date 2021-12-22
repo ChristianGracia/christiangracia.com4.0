@@ -13,7 +13,7 @@
       <img
         height="36px"
         width="36px"
-        [src]="song.images[1]"
+        [src]="song.images?.url ? song.images[1].url : song.images[1]"
         alt="{{ song.artist }} album image"
       />
       <div class="song-info-container">

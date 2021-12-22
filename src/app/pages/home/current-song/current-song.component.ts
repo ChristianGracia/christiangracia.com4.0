@@ -10,6 +10,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class CurrentSongComponent implements OnInit, OnDestroy {
   public song: Song | null = null;
+  public lastPlayedSong: Song | null = null;
   public loadingSong: Boolean = false;
   public songPlaying: Boolean = false;
   public timerGoing: Boolean = false;
@@ -66,24 +67,24 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
         console.log(song);
-        if (song && song.length) {
-          const checkIfAddBar = this.song === null || this.song.name !== song[0].name;
-          this.song = song[0];
-          this.songProgress = this.song.progress / 1000
-          this.songDuration = this.song.duration / 1000
-          this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
-          this.endTime = new Date(this.songDuration * 1000).toTimeString().split(' ')[0].substring(3);
+        if (song && song.length && false) {
+          // const checkIfAddBar = this.song === null || this.song.name !== song[0].name;
+          // this.song = song[0];
+          // this.songProgress = this.song.progress / 1000
+          // this.songDuration = this.song.duration / 1000
+          // this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
+          // this.endTime = new Date(this.songDuration * 1000).toTimeString().split(' ')[0].substring(3);
 
-          if (checkIfAddBar) {
-            this.audio.pause()
-            this.audio.src = '';
-            this.audio = new Audio();
-            this.addTimeProgressBar();
-            this.audio.src = this.song.previewUrl;
-          }
-          console.log('ran')
+          // if (checkIfAddBar) {
+          //   this.audio.pause()
+          //   this.audio.src = '';
+          //   this.audio = new Audio();
+          //   this.addTimeProgressBar();
+          //   this.audio.src = this.song.previewUrl;
+          // }
+          // console.log('ran')
         } else {
-          this.song = null;
+          this.checkRecentlyPlayed();
         }
         this.loadingSong = false;
       },
@@ -92,6 +93,15 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
         console.log(err);
       }
     );
+  }
+
+  private checkRecentlyPlayed() : void {
+    console.log(this.song)
+    this.spotifyService.getRecentlyPlayed().subscribe((recentSongs: Song[]) =>  {
+      this.song = recentSongs.length > 0 ? recentSongs[0] : null;
+      console.log(this.song)
+    });
+    console.log(this.song)
   }
 
   public playPreviewOfSong() : void {
