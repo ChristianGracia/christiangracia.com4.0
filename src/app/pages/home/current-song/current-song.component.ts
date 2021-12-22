@@ -45,12 +45,14 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     console.log('timer started')
     let counter = 0;
     const sub = timer$.subscribe((sec) => {
-      this.songProgress += second;
+      if (!this.song?.playedAt || this.songPlaying) {
+        this.songProgress += second;
+      }
       this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
 
       counter += 1;
 
-      if (this.songProgress >= this.songDuration || this.songIndex > 0) {
+      if (this.songProgress >= this.songDuration) {
         console.log('timer ended')
         sub.unsubscribe();
         setTimeout(() => {
@@ -58,7 +60,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.songPlaying = false;
           this.getCurrentSong();
         }, 600)
-      } else if (counter > 15) {
+      } else if (counter > 5) {
         this.getCurrentSong();
         counter = 0;
       }
@@ -70,7 +72,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
         console.log(song);
-        if (song && song.length) {
+        if (song && song.length && this.songIndex === 0) {
           const checkIfAddBar = this.song === null || this.song.name !== song[0].name;
           this.song = song[0];
           this.songProgress = this.song.progress / 1000
@@ -88,8 +90,8 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.loadingSong = false;
         }
         if (this.recentSongs.length === 0) {
-          this.checkRecentlyPlayed();
-        } 
+          setTimeout(() => this.checkRecentlyPlayed(), 500);
+        }
       },
       (err) => {
         this.loadingSong = false;
@@ -105,6 +107,10 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     ) {
       return;
     }
+    this.songProgress = 0;
+    this.songDuration = 30;
+    this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
+    this.endTime = new Date(this.songDuration * 1000).toTimeString().split(' ')[0].substring(3);
     this.audio.pause()
     this.audio.src = '';
     this.audio = new Audio();
