@@ -18,6 +18,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   constructor(private spotifyService: SpotifyService) {}
   public songProgress : number = 0;
   public songDuration : number = 0;
+  public songIndex : number = 0;
   public endTime : string = '00:00';
   public currentTime : string = '00:00';
   public audio = new Audio();
@@ -84,10 +85,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
             this.addTimeProgressBar();
             this.audio.src = this.song.previewUrl;
           }
-        } else {
-          if (this.recentSongs === []) {
-            this.checkRecentlyPlayed();
-          }
+          this.loadingSong = false;
+        } {
+          this.checkRecentlyPlayed();
         }
         this.loadingSong = false;
       },
@@ -98,11 +98,26 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     );
   }
 
+  public skipSong(direction: string) : void {
+    if (
+      (direction === 'back' && this.songIndex === 0)
+      || (direction === 'forward' && this.songIndex === this.recentSongs.length - 1)
+    ) {
+      return;
+    }
+    this.audio.pause()
+    this.audio.src = '';
+    this.audio = new Audio();
+    this.songIndex = this.songIndex + (direction === 'forward' ? 1 : -1);
+    this.song = this.recentSongs[this.songIndex];
+    this.audio.src = this.song.previewUrl;
+  }
+
   private checkRecentlyPlayed() : void {
     this.spotifyService.getRecentlyPlayed().subscribe((recentSongs: Song[]) =>  {
       this.song = recentSongs.length > 0 ? recentSongs[0] : null;
+      this.loadingSong = false;
       this.recentSongs = recentSongs;
-      
     });
   }
   public formatDate(date: string) {
