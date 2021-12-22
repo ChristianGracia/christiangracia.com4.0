@@ -11,6 +11,7 @@ import { formatDateAndTime } from "src/app/util/dateMethods";
 })
 export class CurrentSongComponent implements OnInit, OnDestroy {
   public song: Song | null = null;
+  public recentSongs: Song[] = [];
   public loadingSong: Boolean = false;
   public songPlaying: Boolean = false;
   public timerGoing: Boolean = false;
@@ -84,7 +85,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
             this.audio.src = this.song.previewUrl;
           }
         } else {
-          this.checkRecentlyPlayed();
+          if (this.recentSongs === []) {
+            this.checkRecentlyPlayed();
+          }
         }
         this.loadingSong = false;
       },
@@ -98,10 +101,11 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   private checkRecentlyPlayed() : void {
     this.spotifyService.getRecentlyPlayed().subscribe((recentSongs: Song[]) =>  {
       this.song = recentSongs.length > 0 ? recentSongs[0] : null;
+      this.recentSongs = recentSongs;
+      
     });
   }
   public formatDate(date: string) {
-    console.log(this.song?.playedAt);
     return formatDateAndTime(date);
   }
 

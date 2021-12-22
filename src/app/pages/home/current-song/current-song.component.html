@@ -28,7 +28,9 @@
       </div>
     </div>
     <div class="song-right-col">
+      <mat-icon class='forward-button' (click)='playPreviewOfSong()' color="accent" *ngIf="song.previewUrl"> {{!songPlaying ? 'fast_rewind' : ''}}</mat-icon>
       <mat-icon class='play-button' (click)='playPreviewOfSong()' color="accent" *ngIf="song.previewUrl"> {{!songPlaying ? 'play_circle_outline' : 'pause'}}</mat-icon>
+      <mat-icon class='rewind-button' (click)='playPreviewOfSong()' color="accent" *ngIf="song.previewUrl"> {{!songPlaying ? 'fast_forward' : ''}}</mat-icon>
     </div>
   </div>
   <div class="song-progress-bar-container">
