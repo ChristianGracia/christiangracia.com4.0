@@ -1,3 +1,4 @@
+
 export class Song {
   constructor(
     public progress: number,

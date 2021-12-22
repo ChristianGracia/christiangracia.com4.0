@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { interval } from 'rxjs/internal/observable/interval';
 import { Song } from 'src/app/models/song.model';
 import { SpotifyService } from 'src/app/services/spotify.service';
+import { formatDateAndTime } from "src/app/util/dateMethods";
 
 @Component({
   selector: 'app-current-song',
@@ -48,6 +49,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       counter += 1;
 
       if (this.songProgress >= this.songDuration) {
+        console.log('timer ended')
         sub.unsubscribe();
         setTimeout(() => {
           this.audio.src = '';
@@ -81,9 +83,8 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
             this.addTimeProgressBar();
             this.audio.src = this.song.previewUrl;
           }
-          console.log('ran')
         } else {
-          this.song = null;
+          this.checkRecentlyPlayed();
         }
         this.loadingSong = false;
       },
@@ -92,6 +93,16 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
         console.log(err);
       }
     );
+  }
+
+  private checkRecentlyPlayed() : void {
+    this.spotifyService.getRecentlyPlayed().subscribe((recentSongs: Song[]) =>  {
+      this.song = recentSongs.length > 0 ? recentSongs[0] : null;
+    });
+  }
+  public formatDate(date: string) {
+    console.log(this.song?.playedAt);
+    return formatDateAndTime(date);
   }
 
   public playPreviewOfSong() : void {
