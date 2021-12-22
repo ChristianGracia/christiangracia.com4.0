@@ -45,7 +45,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     console.log('timer started')
     let counter = 0;
     const sub = timer$.subscribe((sec) => {
-      if (!this.song?.playedAt || this.songPlaying) {
+      if (!this.song?.playedAt || (this.song?.playedAt && this.songPlaying)) {
         this.songProgress += second;
       }
       this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
@@ -126,6 +126,11 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.spotifyService.getRecentlyPlayed().subscribe((recentSongs: Song[]) =>  {
       if (!this.song && recentSongs.length > 0) {
         this.song = recentSongs.length > 0 ? recentSongs[0] : null;
+        this.songProgress = 0;
+        this.songDuration = 30;
+        this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
+        this.endTime = new Date(this.songDuration * 1000).toTimeString().split(' ')[0].substring(3);
+        this.addTimeProgressBar();
       }
       this.loadingSong = false;
       this.recentSongs = recentSongs;
