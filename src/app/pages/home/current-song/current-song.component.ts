@@ -111,6 +111,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.songIndex = this.songIndex + (direction === 'forward' ? 1 : -1);
     this.song = this.recentSongs[this.songIndex];
     this.audio.src = this.song.previewUrl;
+    if (this.songPlaying) {
+      this.audio.play();
+    }
   }
 
   private checkRecentlyPlayed() : void {

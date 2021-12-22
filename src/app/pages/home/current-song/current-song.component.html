@@ -19,8 +19,8 @@
       <div class="song-info-container">
         <span class="accent-color mat-caption song-name"
           >{{
-            song.name.length > 35
-              ? song.name.substring(0, 35) + "..."
+            song.name.length > 25
+              ? song.name.substring(0, 20) + "..."
               : song.name
           }}
         </span>
@@ -28,9 +28,9 @@
       </div>
     </div>
     <div class="song-right-col">
-      <mat-icon class='rewind-button' (click)='skipSong("back")' color="accent" *ngIf="song.previewUrl && song.playedAt"> {{!songPlaying ? 'fast_rewind' : ''}}</mat-icon>
-      <mat-icon class='play-button' (click)='playPreviewOfSong()' color="accent" *ngIf="song.previewUrl"> {{!songPlaying ? 'play_circle_outline' : 'pause'}}</mat-icon>
-      <mat-icon class='forward-button' (click)='skipSong("forward")' color="accent" *ngIf="song.previewUrl && song.playedAt"> {{!songPlaying ? 'fast_forward' : ''}}</mat-icon>
+      <mat-icon class='rewind-button' (click)='skipSong("back")' color="accent" *ngIf="song.previewUrl">fast_rewind</mat-icon>
+      <mat-icon class='play-button' (click)='playPreviewOfSong()' color="accent" *ngIf="song.previewUrl">{{!songPlaying ? 'play_circle_outline' : 'pause'}}</mat-icon>
+      <mat-icon class='forward-button' (click)='skipSong("forward")' color="accent" *ngIf="song.previewUrl">fast_forward</mat-icon>
     </div>
   </div>
   <div class="song-progress-bar-container">
