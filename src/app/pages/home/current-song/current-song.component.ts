@@ -60,7 +60,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.songPlaying = false;
           this.getCurrentSong();
         }, 600)
-      } else if (counter > 5) {
+      } else if (counter > 20) {
         this.getCurrentSong();
         counter = 0;
       }
