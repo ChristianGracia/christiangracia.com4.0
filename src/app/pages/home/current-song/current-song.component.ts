@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { interval } from 'rxjs/internal/observable/interval';
 import { Song } from 'src/app/models/song.model';
 import { SpotifyService } from 'src/app/services/spotify.service';
+import { formatDateAndTime } from "src/app/util/dateMethods";
 
 @Component({
   selector: 'app-current-song',
@@ -99,9 +100,10 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     console.log(this.song)
     this.spotifyService.getRecentlyPlayed().subscribe((recentSongs: Song[]) =>  {
       this.song = recentSongs.length > 0 ? recentSongs[0] : null;
-      console.log(this.song)
     });
-    console.log(this.song)
+  }
+  public formatDate(date: string) {
+    return formatDateAndTime(date);
   }
 
   public playPreviewOfSong() : void {

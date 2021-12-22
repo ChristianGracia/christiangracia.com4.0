@@ -13,7 +13,7 @@
       <img
         height="36px"
         width="36px"
-        [src]="song.images?.url ? song.images[1].url : song.images[1]"
+        [src]="song.images[1]"
         alt="{{ song.artist }} album image"
       />
       <div class="song-info-container">
@@ -47,11 +47,10 @@
   <div class="current-text mat-display-1">
     <mat-icon class="spotify-image" svgIcon="assets:spotify" color="accent">
     </mat-icon>
-        <!-- <div class='loading loading-animation' *ngFor="let char of currentText"><span *ngFor="let char of arr">
-            {{ char }}
-          </span>
-        </div> -->
-        <ng-template class='loading loading-animation' ngFor let-arr [ngForOf]="currentText">
+        <div class='mat-caption' *ngIf='song.playedAt !== ""'>
+          Last played at {{formatDate(song.playedAt)}}
+        </div>
+        <ng-template class='loading loading-animation' ngFor let-arr [ngForOf]="currentText" *ngIf='song.playedAt === ""'>
         <div class='loading loading-animation' style='padding: 2px;'><span *ngFor="let char of arr">
             {{ char }}
           </span>
