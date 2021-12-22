@@ -11,7 +11,6 @@ import { formatDateAndTime } from "src/app/util/dateMethods";
 })
 export class CurrentSongComponent implements OnInit, OnDestroy {
   public song: Song | null = null;
-  public lastPlayedSong: Song | null = null;
   public loadingSong: Boolean = false;
   public songPlaying: Boolean = false;
   public timerGoing: Boolean = false;
@@ -50,6 +49,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       counter += 1;
 
       if (this.songProgress >= this.songDuration) {
+        console.log('timer ended')
         sub.unsubscribe();
         setTimeout(() => {
           this.audio.src = '';
@@ -68,22 +68,21 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
         console.log(song);
-        if (song && song.length && false) {
-          // const checkIfAddBar = this.song === null || this.song.name !== song[0].name;
-          // this.song = song[0];
-          // this.songProgress = this.song.progress / 1000
-          // this.songDuration = this.song.duration / 1000
-          // this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
-          // this.endTime = new Date(this.songDuration * 1000).toTimeString().split(' ')[0].substring(3);
+        if (song && song.length) {
+          const checkIfAddBar = this.song === null || this.song.name !== song[0].name;
+          this.song = song[0];
+          this.songProgress = this.song.progress / 1000
+          this.songDuration = this.song.duration / 1000
+          this.currentTime = new Date(this.songProgress * 1000).toTimeString().split(' ')[0].substring(3);
+          this.endTime = new Date(this.songDuration * 1000).toTimeString().split(' ')[0].substring(3);
 
-          // if (checkIfAddBar) {
-          //   this.audio.pause()
-          //   this.audio.src = '';
-          //   this.audio = new Audio();
-          //   this.addTimeProgressBar();
-          //   this.audio.src = this.song.previewUrl;
-          // }
-          // console.log('ran')
+          if (checkIfAddBar) {
+            this.audio.pause()
+            this.audio.src = '';
+            this.audio = new Audio();
+            this.addTimeProgressBar();
+            this.audio.src = this.song.previewUrl;
+          }
         } else {
           this.checkRecentlyPlayed();
         }
@@ -97,12 +96,12 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
 
   private checkRecentlyPlayed() : void {
-    console.log(this.song)
     this.spotifyService.getRecentlyPlayed().subscribe((recentSongs: Song[]) =>  {
       this.song = recentSongs.length > 0 ? recentSongs[0] : null;
     });
   }
   public formatDate(date: string) {
+    console.log(this.song?.playedAt);
     return formatDateAndTime(date);
   }
 
