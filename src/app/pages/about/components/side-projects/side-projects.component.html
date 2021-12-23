@@ -2,17 +2,19 @@
   <app-page-header title="Current Projects"></app-page-header>
   <div class="site-container">
     <mat-card *ngFor="let site of sites" class="site-card mat-elevation-z6">
-      <mat-card-title class="mat-title accent-color">
-        {{ site.title }}
-      </mat-card-title>
-      <mat-card-content class="mat-subheading-2">{{
-        site.bottomText
-      }}</mat-card-content>
-      <mat-card-content
-        ><a class="accent-color" href="{{ site.url }}" target="_blank">{{
-          site.url
-        }}</a></mat-card-content
-      >
+      <div class="top-row">
+        <mat-card-title class="mat-title accent-color">
+          {{ site.title }}
+        </mat-card-title>
+        <mat-card-content class="mat-subheading-2">{{
+          site.bottomText
+        }}</mat-card-content>
+      </div>
+      <mat-card-content *ngIf='site.url'>
+        <a class="accent-color" href="https://{{ site.url }}" target="_blank">{{
+          site.url.replace('www.', '').replace('github.com/ChristianGracia/', '') ?? ''
+        }}</a>
+      </mat-card-content>
     </mat-card>
   </div>
 </div>
