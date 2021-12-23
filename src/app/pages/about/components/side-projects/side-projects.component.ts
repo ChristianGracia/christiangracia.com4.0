@@ -8,13 +8,13 @@ const CG: Site = new Site(
 );
 
 const ALGORITHMS: Site = new Site(
-  'Data Structures and Algorithms',
-  'Doing review of Data structures and Algorithms and work done on this will be seen here',
+  'Algorithms',
+  'Doing review of Data Structures and Algorithms and work done on this will be seen here',
   'www.github.com/ChristianGracia/Algorithms'
 );
 
 const NFL_SITE: Site = new Site(
-  "Nature's Frontier Landscaping",
+  "NF Landscaping",
   'Rewritting this site in TypeScript + adding server side rendering. I made this site when I first started learning React and want to redo + redesign',
   'www.nflandscaping.com'
 );
