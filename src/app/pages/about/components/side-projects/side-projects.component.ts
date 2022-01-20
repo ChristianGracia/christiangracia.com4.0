@@ -3,7 +3,7 @@ import { Site } from '../../../../models/site.model';
 
 const CG: Site = new Site(
   'Christiangracia.com',
-  'Rewrote this site for the 4th time and there are still some unfinished things on this rewrite',
+  'Every year I rewrite my website, still some work left to do here',
   'www.github.com/ChristianGracia/christiangracia.com4.0'
 );
 

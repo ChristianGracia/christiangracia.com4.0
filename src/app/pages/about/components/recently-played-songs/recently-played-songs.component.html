@@ -1,4 +1,4 @@
-<app-page-header title="Recently Played"></app-page-header>
+<app-page-header *ngIf="!loadingSongs" title="Recently Played"></app-page-header>
 <div *ngIf="loadingSongs" class="song-loader">
     <mat-spinner class="spinner" diameter="22" color="accent"></mat-spinner>
 </div>

@@ -57,6 +57,9 @@ export class GithubReposComponent implements OnInit {
       case 'JavaScript':
         color = '#F0D91D';
         break;
+      case 'Kotlin':
+          color = '#a87bfe';
+          break;
       case 'TypeScript':
         color = '#61D2F8';
         break;
