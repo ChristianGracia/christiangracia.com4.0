@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   public changeTheme = new EventEmitter<boolean>();
   @Input() public isDarkTheme: boolean = false;
   public links: string[] = ['about', 'projects', 'contact'];
+  @Input() public currentUrl : string = '';
   constructor(private routingService: RoutingService) {}
 
   ngOnInit() {}

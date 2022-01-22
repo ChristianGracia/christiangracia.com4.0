@@ -13,6 +13,7 @@
         [isDarkTheme]="isDarkTheme"
         (sidenavToggle)="sidenav.toggle()"
         (changeTheme)="changeTheme($event)"
+        [currentUrl]="currentUrl"
       ></app-header>
       <main class="mat-app-background main-content">
         <router-outlet></router-outlet>
