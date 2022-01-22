@@ -9,12 +9,17 @@
       {{ data.repo }}
     </div>
     <div class="view-repo-text-container">
-      <a href="{{ data.url }}" rel="noreferrer" target="_blank"
-        >{{data.url}}
-        <mat-icon svgIcon="github" class="social-link"></mat-icon
-      ></a>
+      <button
+        mat-stroked-button
+        aria-label="click button to view on github"
+        (click)="openLink(data.url ?? '')"
+      >
+        View repository on GitHub
+      </button>
     </div>
-    <div class="click-commit-text">Click a row to view code changes</div>
+    <div class="click-commit-text">
+      Click a row to view individual code changes
+    </div>
 
     <div
       *ngIf="!loadingCommits && commits.length > 0"
