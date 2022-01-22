@@ -20,8 +20,12 @@
       class="nav-item"
       *ngFor="let link of links"
       mat-button
-      (click)='goToLink(link)'
-      [ngClass]="(currentUrl === link || currentUrl === '' && link === 'home') ? 'accent-color' : ''"
+      (click)="goToLink(link)"
+      [ngClass]="
+        currentUrl === link || (currentUrl === '' && link === 'home')
+          ? 'accent-color'
+          : ''
+      "
       >{{ link }}</a
     >
   </div>

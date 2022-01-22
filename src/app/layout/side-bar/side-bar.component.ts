@@ -15,7 +15,7 @@ const LINKS = {
 export class SideBarComponent implements OnInit {
   public links = Object.keys(LINKS);
   @Output() private closeSidenavEvent = new EventEmitter<void>();
-  @Input() public currentUrl : string = '';
+  @Input() public currentUrl: string = '';
   constructor(private routingService: RoutingService) {}
   ngOnInit(): void {}
 

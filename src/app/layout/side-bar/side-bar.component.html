@@ -7,12 +7,20 @@
     >
   </div>
   <div class="line background-accent-color"></div>
-  <div class='link-row' *ngFor="let link of links">
+  <div class="link-row" *ngFor="let link of links">
     <a
       mat-list-item
       (click)="goToLink(link)"
       class="nav-caption mat-subheading-3"
-      ><div>{{ link }}</div><div [ngClass]="(currentUrl === link || currentUrl === '' && link === 'home') ? 'background-accent-color' : ''" class="small-line"></div>
+      ><div>{{ link }}</div>
+      <div
+        [ngClass]="
+          currentUrl === link || (currentUrl === '' && link === 'home')
+            ? 'background-accent-color'
+            : ''
+        "
+        class="small-line"
+      ></div>
     </a>
   </div>
 </mat-nav-list>

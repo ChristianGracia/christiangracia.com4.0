@@ -18,7 +18,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent implements AfterViewInit {
   public loaded: Boolean = false;
-  public currentUrl : string = '';
+  public currentUrl: string = '';
   constructor(
     public overlayContainer: OverlayContainer,
     private matIconRegistry: MatIconRegistry,
@@ -29,7 +29,7 @@ export class AppComponent implements AfterViewInit {
   ) {
     this.initializeImages();
     this.router.events.forEach((event) => {
-      if(event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd) {
         const path = window.location.pathname;
         this.currentUrl = path !== '/' ? path.slice(1) : '';
       }
