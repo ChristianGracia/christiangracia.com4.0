@@ -5,12 +5,14 @@ const JOBS: Job[] = [
   {
     company: 'Velentium',
     range: 'Mar 2021 - Present',
+    website: 'https://velentium.com',
     description:
       'Here I build full stack medical web and mobile applications with React, NodeJS, React Native, and Python.',
   },
   {
     company: 'Magellan Jets',
     range: 'Jan 2020 - Mar 2021',
+    website: 'https://magellanjets.com/magellan-jets-apps',
     description:
       'I built Salesforce integrated web and mobile applications with Angular, React Native, and Java as well as back-end APIs with Ruby/RoR and NodeJs.',
   },
@@ -26,4 +28,8 @@ export class JobHistoryComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  public openSite(url: string) {
+    console.log('opening');
+    window.open(url, '_blank');
+  }
 }

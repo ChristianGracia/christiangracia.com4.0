@@ -1,6 +1,7 @@
 <app-page-header
   *ngIf="!loadingSongs"
   title="Recently Played"
+  subHeader="Click a row to preview song"
 ></app-page-header>
 <div *ngIf="loadingSongs" class="song-loader">
   <mat-spinner class="spinner" diameter="22" color="accent"></mat-spinner>
@@ -43,7 +44,6 @@
         <td mat-cell *matCellDef="let element">
           <mat-icon
             class="play-button"
-            (click)="playPreviewOfSong(element)"
             color="accent"
             *ngIf="element.previewUrl"
           >
@@ -53,6 +53,7 @@
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr
+        (click)="playPreviewOfSong(row)"
         class="clickable"
         mat-row
         *matRowDef="let row; columns: displayedColumns"
