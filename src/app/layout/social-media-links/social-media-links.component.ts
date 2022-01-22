@@ -48,6 +48,6 @@ export class SocialMediaLinksComponent implements OnInit, OnDestroy {
       this.activeIconArray[index] = false;
       this.activeIconArray[nextIndex] = true;
       counter++;
-    }, 2500);
+    }, 1500);
   }
 }

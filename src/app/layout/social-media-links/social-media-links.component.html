@@ -3,7 +3,7 @@
     *ngFor="let social of socialMediaLinks; let i = index"
     class="social-link"
     svgIcon="assets:{{ social }}"
-    color="accent"
+    color="{{ activeIconArray[i] ? 'accent' : '' }}"
     (click)="openLink(social)"
     [class.active]="activeIconArray[i]"
   >
