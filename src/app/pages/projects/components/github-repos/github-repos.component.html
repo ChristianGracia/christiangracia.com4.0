@@ -41,16 +41,15 @@
     </div>
   </mat-card>
 </div>
-<div class="paginator-container" *ngIf="!loadingRepos">
+<!-- <div class="paginator-container" *ngIf="!loadingRepos">
   <mat-paginator
     [length]="gitRepos.length"
     [pageSize]="size"
     [pageIndex]="page"
-    [pageSizeOptions]="[1, 2, 3, 5, 8, 13, 21]"
     (page)="getData($event)"
   >
   </mat-paginator>
-</div>
+</div> -->
 <!-- <div class="api-description-container" *ngIf="data.length">
   <div class="api-description-text">
     This data was server side rendered from my API

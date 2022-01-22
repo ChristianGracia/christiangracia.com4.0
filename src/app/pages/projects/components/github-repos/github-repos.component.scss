@@ -3,68 +3,69 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-}
-.repo-card {
-  // height: 250px;
-  width: 85%;
-  max-width: 370px;
-  margin: 30px 5px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  .repo-card {
+    // height: 250px;
+    width: 85%;
+    max-width: 370px;
+    margin: 30px 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 
-  @media (min-width: 500px) {
-    margin: 15px 30px;
-  }
-  &:hover {
-    transform: scale(1.07);
-    .repo-title {
+    @media (min-width: 500px) {
+      margin: 15px 30px;
     }
-  }
-  .repo-title {
-    font-weight: bold;
-    text-align: center;
-    margin: 6px 0 auto;
     &:hover {
       transform: scale(1.07);
+      .repo-title {
+      }
     }
-  }
-  .repo-language-container {
-    margin-top: -6px;
-    margin-bottom: 5px;
-    .repo-language-text {
+    .repo-title {
       font-weight: bold;
+      text-align: center;
+      margin: 6px 0 auto;
+      &:hover {
+        transform: scale(1.07);
+      }
     }
-  }
-  .repo-description-container {
-    margin: 20px 0;
-    .repo-description {
+    .repo-language-container {
+      margin-top: -6px;
+      margin-bottom: 5px;
+      .repo-language-text {
+        font-weight: bold;
+      }
     }
-  }
-  .repo-date-container {
-    margin-bottom: 10px;
-    .repo-date-text {
-      font-style: italic;
+    .repo-description-container {
+      margin: 20px 0;
+      .repo-description {
+      }
+    }
+    .repo-date-container {
+      margin-bottom: 10px;
+      .repo-date-text {
+        font-style: italic;
+      }
     }
   }
 }
-.paginator-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.api-description-container {
-  text-align: center;
-  margin-top: 12px;
-  .api-description-text {
-    font-style: italic;
-  }
-  .api-description-url {
-    margin-top: 15px;
-    font-style: normal;
-    font-weight: bold;
-  }
-}
+
+// .paginator-container {
+//   display: flex;
+//   justify-content: center;
+//   margin-top: 20px;
+// }
+// .api-description-container {
+//   text-align: center;
+//   margin-top: 12px;
+//   .api-description-text {
+//     font-style: italic;
+//   }
+//   .api-description-url {
+//     margin-top: 15px;
+//     font-style: normal;
+//     font-weight: bold;
+//   }
+// }
 
 .repo-loader-container {
   display: flex;
