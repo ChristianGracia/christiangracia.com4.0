@@ -53,6 +53,6 @@ export class RepoCommitModalComponent implements OnInit {
   }
 
   public openLink(url: string) {
-    window.open(`https://${url}`, '_blank');
+    window.open(url, '_blank');
   }
 }
