@@ -29,8 +29,11 @@
       }
     }
     .repo-language-container {
-      margin-top: -6px;
-      margin-bottom: 5px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      // margin-top: -6px;
+      // margin-bottom: 5px;
       .repo-language-text {
         font-weight: bold;
       }
@@ -41,14 +44,13 @@
       }
     }
     .repo-date-container {
-      margin-bottom: 10px;
+      margin: 12px 0;
       .repo-date-text {
         font-style: italic;
       }
     }
   }
 }
-
 // .paginator-container {
 //   display: flex;
 //   justify-content: center;
