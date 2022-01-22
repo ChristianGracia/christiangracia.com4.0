@@ -70,7 +70,7 @@ export class GithubReposComponent implements OnInit {
         color = '#616161';
         break;
       case 'Python':
-        color = 'green';
+        color = '#90EE90';
         break;
       case 'Rust':
         color = '#B34313';
