@@ -1,5 +1,7 @@
-<app-page-header title="Github Repos"></app-page-header
-  >
+<app-page-header
+  title="Github Repos"
+  subHeader="Click repository below to view code changes"
+></app-page-header>
 <div *ngIf="loadingRepos" class="repo-loader-container">
   <mat-spinner color="accent"></mat-spinner>
 </div>
@@ -21,7 +23,7 @@
         </span>
       </mat-card-content>
     </div>
-   
+
     <div class="bottom-row">
       <div class="repo-language-container">
         <span class="repo-language-text mat-caption"> Language: </span>
@@ -33,9 +35,7 @@
       </div>
       <div class="repo-date-container">
         <span class="repo-date-text mat-caption">
-          Last updated at {{
-            formatUpdateAtDate(repo.updatedAt)
-          }}</span
+          Last updated at {{ formatUpdateAtDate(repo.updatedAt) }}</span
         >
       </div>
     </div>

@@ -14,7 +14,7 @@ const ALGORITHMS: Site = new Site(
 );
 
 const NFL_SITE: Site = new Site(
-  "NF Landscaping",
+  'NF Landscaping',
   'Rewritting this site in TypeScript + adding server side rendering. I made this site when I first started learning React and want to redo + redesign',
   'www.nflandscaping.com'
 );
@@ -36,4 +36,8 @@ export class SideProjectsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  public openLink(url: string) {
+    window.open(`https://${url}`, '_blank');
+  }
 }

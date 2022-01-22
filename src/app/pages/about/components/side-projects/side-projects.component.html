@@ -1,7 +1,14 @@
 <div class="side-project-container">
-  <app-page-header title="Current Projects"></app-page-header>
+  <app-page-header
+    title="Current Projects"
+    subHeader="Click site below to view"
+  ></app-page-header>
   <div class="site-container">
-    <mat-card *ngFor="let site of sites" class="site-card mat-elevation-z6">
+    <mat-card
+      *ngFor="let site of sites"
+      class="site-card mat-elevation-z6"
+      (click)="openLink(site.url ?? '')"
+    >
       <div class="top-row">
         <mat-card-title class="mat-title accent-color">
           {{ site.title }}
@@ -10,11 +17,6 @@
           site.bottomText
         }}</mat-card-content>
       </div>
-      <mat-card-content *ngIf='site.url'>
-        <a class="accent-color" href="https://{{ site.url }}" target="_blank">{{
-          site.url.replace('www.', '').replace('github.com/ChristianGracia/', '') ?? ''
-        }}</a>
-      </mat-card-content>
     </mat-card>
   </div>
 </div>
