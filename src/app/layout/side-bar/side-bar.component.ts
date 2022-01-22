@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RoutingService } from 'src/app/services/routing.service';
 
 const LINKS = {
@@ -16,7 +15,8 @@ const LINKS = {
 export class SideBarComponent implements OnInit {
   public links = Object.keys(LINKS);
   @Output() private closeSidenavEvent = new EventEmitter<void>();
-  constructor(private routingService: RoutingService, private router: Router) {}
+  @Input() public currentUrl : string = '';
+  constructor(private routingService: RoutingService) {}
   ngOnInit(): void {}
 
   public onClose() {

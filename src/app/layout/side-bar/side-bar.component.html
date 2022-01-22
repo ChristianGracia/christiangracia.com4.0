@@ -7,17 +7,12 @@
     >
   </div>
   <div class="line background-accent-color"></div>
-  <a
-    *ngFor="let link of links"
-    mat-list-item
-    (click)="goToLink(link)"
-    routerLink="/about"
-    routerLinkActiveOptions="{ exact: true }"
-    routerLinkActive="active-link"
-  >
-    deded
-    <span class="nav-caption mat-subheading-3" (click)="onClose()">{{
-      link
-    }}</span>
-  </a>
+  <div class='link-row' *ngFor="let link of links">
+    <a
+      mat-list-item
+      (click)="goToLink(link)"
+      class="nav-caption mat-subheading-3"
+      ><div>{{ link }}</div><div [ngClass]="(currentUrl === link || currentUrl === '' && link === 'home') ? 'background-accent-color' : ''" class="small-line"></div>
+    </a>
+  </div>
 </mat-nav-list>

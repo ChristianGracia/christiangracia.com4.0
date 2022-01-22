@@ -1,9 +1,3 @@
-.nav-caption {
-  margin-top: 5px;
-  margin-left: 5px;
-  text-transform: capitalize;
-}
-
 .site-navigation-header {
   margin: 5px;
   padding: 10px;
@@ -15,8 +9,17 @@
   margin: 10px;
   height: 2px;
 }
-.active-link {
-  font-weight: bold;
-  font-size: 30px;
-  color: yellow !important;
+.link-row {
+  display: flex;
+  justify-content: center;
+  .nav-caption {
+    margin-top: 5px;
+    margin-left: 5px;
+    text-transform: capitalize;
+    .small-line {
+      margin: 10px;
+      height: 2px;
+      width: 10px;
+    }
+  }
 }

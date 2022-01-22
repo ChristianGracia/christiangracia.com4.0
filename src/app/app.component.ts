@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,43 +18,22 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AppComponent implements AfterViewInit {
   public loaded: Boolean = false;
+  public currentUrl : string = '';
   constructor(
     public overlayContainer: OverlayContainer,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private router: Router
   ) {
-    this.matIconRegistry.addSvgIconInNamespace(
-      'assets',
-      'linkedin',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/images/linkedin.svg'
-      )
-    );
-
-    this.matIconRegistry.addSvgIconInNamespace(
-      'assets',
-      'twitter',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/images/twitter.svg'
-      )
-    );
-
-    this.matIconRegistry.addSvgIconInNamespace(
-      'assets',
-      'github',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/images/github.svg'
-      )
-    );
-    this.matIconRegistry.addSvgIconInNamespace(
-      'assets',
-      'spotify',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/images/spotify.svg'
-      )
-    );
+    this.initializeImages();
+    this.router.events.forEach((event) => {
+      if(event instanceof NavigationEnd) {
+        const path = window.location.pathname;
+        this.currentUrl = path !== '/' ? path.slice(1) : '';
+      }
+    });
   }
   public isDarkTheme: boolean = true;
 
@@ -102,5 +82,37 @@ export class AppComponent implements AfterViewInit {
       let loader = this.renderer.selectRootElement('.app-loader-container');
       if (loader.style.display != 'none') loader.style.display = 'none';
     }
+  }
+  private initializeImages() {
+    this.matIconRegistry.addSvgIconInNamespace(
+      'assets',
+      'linkedin',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/images/linkedin.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIconInNamespace(
+      'assets',
+      'twitter',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/images/twitter.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIconInNamespace(
+      'assets',
+      'github',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/images/github.svg'
+      )
+    );
+    this.matIconRegistry.addSvgIconInNamespace(
+      'assets',
+      'spotify',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/images/spotify.svg'
+      )
+    );
   }
 }
