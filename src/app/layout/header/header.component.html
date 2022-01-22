@@ -3,7 +3,7 @@
     <a
       class="hide-mobile"
       mat-button
-      color="accent"
+      [ngClass]="currentUrl === '' ? 'accent-color' : ''"
       aria-label="Home button with menu icon"
       (click)="goToLink('/')"
     >
@@ -20,8 +20,12 @@
       class="nav-item"
       *ngFor="let link of links"
       mat-button
-      color="accent"
-      (click)='goToLink(link)'
+      (click)="goToLink(link)"
+      [ngClass]="
+        currentUrl === link || (currentUrl === '' && link === 'home')
+          ? 'accent-color'
+          : ''
+      "
       >{{ link }}</a
     >
   </div>

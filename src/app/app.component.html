@@ -4,7 +4,10 @@
   *ngIf="loaded"
 >
   <mat-sidenav #sidenav role="navigation">
-    <app-side-bar (closeSidenavEvent)="sidenav.close()"></app-side-bar>
+    <app-side-bar
+      (closeSidenavEvent)="sidenav.close()"
+      [currentUrl]="currentUrl"
+    ></app-side-bar>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="main-container">
@@ -13,6 +16,7 @@
         [isDarkTheme]="isDarkTheme"
         (sidenavToggle)="sidenav.toggle()"
         (changeTheme)="changeTheme($event)"
+        [currentUrl]="currentUrl"
       ></app-header>
       <main class="mat-app-background main-content">
         <router-outlet></router-outlet>

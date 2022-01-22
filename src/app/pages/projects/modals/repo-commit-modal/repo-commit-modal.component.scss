@@ -9,8 +9,6 @@
   opacity: 0.9;
 }
 .modal-container {
-  // height: 100%;
-  // width: 100%;
   z-index: 999999999999;
   .repo-container {
     display: flex;
@@ -43,21 +41,16 @@
     overflow-x: auto;
     td {
       padding: 5px;
+      margin: 5px;
     }
-    .time {
-      width: 30px;
-    }
-
     table {
       padding: 10px 0px;
       width: 100%;
     }
-    // .mat-row:hover {
-    //   background-color: black;
-    //   td {
-    //     color: white;
-    //   }
-    // }
+    .mat-row:hover {
+      transform: scale(1.01);
+      overflow: hidden;
+    }
   }
   .click-commit-text {
     margin-bottom: 20px;

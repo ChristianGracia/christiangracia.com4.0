@@ -1,9 +1,26 @@
 <mat-nav-list class="side-nav-bar">
   <div class="site-navigation-header">
-    <span class="site-navigation-text">Navigation</span>
+    <span
+      class="site-navigation-text mat-subheading-2"
+      (click)="goToLink('home')"
+      >christiangracia.com</span
+    >
   </div>
-  <br color="accent" />
-  <a *ngFor="let link of links" mat-list-item (click)="goToLink(link)">
-    <span class="nav-caption" (click)="onClose()">{{link}}</span>
-  </a>
+  <div class="line background-accent-color"></div>
+  <div class="link-row" *ngFor="let link of links">
+    <a
+      mat-list-item
+      (click)="goToLink(link)"
+      class="nav-caption mat-subheading-3"
+      ><div>{{ link }}</div>
+      <div
+        [ngClass]="
+          currentUrl === link || (currentUrl === '' && link === 'home')
+            ? 'background-accent-color'
+            : ''
+        "
+        class="small-line"
+      ></div>
+    </a>
+  </div>
 </mat-nav-list>
