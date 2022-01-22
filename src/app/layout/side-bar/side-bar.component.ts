@@ -19,11 +19,8 @@ export class SideBarComponent implements OnInit {
   constructor(private routingService: RoutingService) {}
   ngOnInit(): void {}
 
-  public onClose() {
-    this.closeSidenavEvent.emit();
-  }
-
   public goToLink(page: string): void {
     this.routingService.navigateToPage(page !== 'home' ? page : '/');
+    this.closeSidenavEvent.emit();
   }
 }
