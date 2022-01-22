@@ -1,7 +1,7 @@
 <div class="modal-container">
   <div class="close-button-container" align="end">
     <button mat-button [mat-dialog-close]="true">
-      <span class="close-button-text">X</span>
+      <span class="close-button-text mat-display-1">X</span>
     </button>
   </div>
   <div class="repo-container">
@@ -47,11 +47,9 @@
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 20, 30]"></mat-paginator>
     </div>
-    <mat-dialog-content *ngIf="loadingCommits" class="loader">
-      <div fxLayout="column" fxLayoutAlign="center center">
-        <p>Loading commits</p>
-        <mat-spinner></mat-spinner>
-      </div>
-    </mat-dialog-content>
+
+    <div *ngIf="loadingCommits" class="loader">
+      <mat-spinner color="accent"></mat-spinner>
+    </div>
   </div>
 </div>

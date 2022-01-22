@@ -14,7 +14,7 @@ export class GithubReposComponent implements OnInit {
   public gitRepos: Repo[] = [];
   public data: Repo[] = [];
   public page = 0;
-  public size = 6;
+  public size = 25;
 
   constructor(private githubService: GithubService, public dialog: MatDialog) {}
 
@@ -58,8 +58,8 @@ export class GithubReposComponent implements OnInit {
         color = '#F0D91D';
         break;
       case 'Kotlin':
-          color = '#a87bfe';
-          break;
+        color = '#a87bfe';
+        break;
       case 'TypeScript':
         color = '#61D2F8';
         break;
@@ -98,9 +98,12 @@ export class GithubReposComponent implements OnInit {
   private getGithubRepos() {
     this.loadingRepos = true;
     this.githubService.getAllRepos().subscribe((repos: Repo[]) => {
-      this.gitRepos = repos;
+      if (repos) {
+        this.gitRepos = repos;
+        this.size = repos.length;
+        this.getData({ pageIndex: this.page, pageSize: this.size });
+      }
       this.loadingRepos = false;
-      this.getData({ pageIndex: this.page, pageSize: this.size });
     });
   }
 }

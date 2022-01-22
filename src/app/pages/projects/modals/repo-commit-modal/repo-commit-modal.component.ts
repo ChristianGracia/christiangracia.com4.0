@@ -48,7 +48,6 @@ export class RepoCommitModalComponent implements OnInit {
         setTimeout(() => (this.dataSource.paginator = this.paginator));
         this.commits = data;
         this.totalCommits = this.commits.length;
-        console.log(this.totalCommits);
         this.loadingCommits = false;
       });
   }
