@@ -5,8 +5,7 @@
   ></app-page-header>
   <div class="info-container">
     <div class="font-text">
-      <p>Responsive Global Fonts</p>
-      <img src="https://i.imgur.com/Mxuy7WH.png" height="100px" width="100px" />
+      <p class="mat-display-2">Responsive Global Fonts</p>
       <p>
         This site has no font-size declarations in the entire application
         besides pre-defined font sizes in my custom Angular Material theme. I
@@ -15,18 +14,24 @@
         grow but a noticeable gap up or down when a certain screen size is
         reached.
       </p>
+      <img src="https://i.imgur.com/Mxuy7WH.png" height="100px" width="100px" />
     </div>
-    <div class="font-text">
-      <p>Real Time Spotify listening data</p>
-      <img src="https://i.imgur.com/Mxuy7WH.png" height="100px" width="100px" />
+    <div class="spotify-text">
+      <p class="mat-display-2">Spotify API Integrated</p>
       <p>
-        This site has no font-size declarations in the entire application
-        besides pre-defined font sizes in my custom Angular Material theme. I
-        made these fonts shrink or grow depending on screen size while most
-        sites I see use media queries which causes font-sizes to not shrink or
-        grow but a noticeable gap up or down when a certain screen size is
-        reached.
+        This website receives my Spotify listening data through my API server.
+        Every 24 hours this server logs into Spotify with a Google Chrome bot to
+        get an authorizaion code which is used to get an access token. This
+        access token is then refreshed every 55 minutes throughout the day to
+        provide the Spotify data shown on my website. The back-end code I wrote
+        can be seen
+        <a
+          href="https://github.com/ChristianGracia/christiangracia-API/blob/master/src/classes/spotify.ts"
+          target="_blank"
+          >Here</a
+        >
       </p>
+      <img src="https://i.imgur.com/SZgPAW3.png" height="100px" width="100px" />
     </div>
   </div>
 </div>
