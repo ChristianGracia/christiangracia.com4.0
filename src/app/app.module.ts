@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './material/material.module';
@@ -12,6 +13,7 @@ import { CurrentSongComponent } from './pages/home/current-song/current-song.com
 @NgModule({
   declarations: [AppComponent, HomeComponent, CurrentSongComponent],
   imports: [
+    CommonModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     MaterialModule,

@@ -19,10 +19,8 @@ export class SiteComponent implements OnInit {
   public viewSite(siteUrl: string) {
     let config = new MatDialogConfig();
     config = {
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      height: '100%',
-      width: '100%',
+      minWidth: '100vw',
+      height: '100vh',
       data: {
         url: siteUrl,
       },

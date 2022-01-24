@@ -12,15 +12,15 @@
       mat-list-item
       (click)="goToLink(link)"
       class="nav-caption mat-subheading-3"
-      ><div>{{ link }}</div>
-      <div
+      ><div
         [ngClass]="
           currentUrl === link || (currentUrl === '' && link === 'home')
-            ? 'background-accent-color'
+            ? 'accent-color'
             : ''
         "
-        class="small-line"
-      ></div>
+      >
+        {{ link }}
+      </div>
     </a>
   </div>
 </mat-nav-list>

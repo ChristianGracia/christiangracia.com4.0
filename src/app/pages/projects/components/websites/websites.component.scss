@@ -1,9 +1,7 @@
-.site-container {
-  max-width: 500px;
+.websites-container {
   margin: 0 auto;
-  padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }

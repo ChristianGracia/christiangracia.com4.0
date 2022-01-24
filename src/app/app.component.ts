@@ -107,12 +107,5 @@ export class AppComponent implements AfterViewInit {
         'assets/images/github.svg'
       )
     );
-    this.matIconRegistry.addSvgIconInNamespace(
-      'assets',
-      'spotify',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/images/spotify.svg'
-      )
-    );
   }
 }
