@@ -18,7 +18,7 @@ export interface DialogData {
 export class RepoCommitModalComponent implements OnInit {
   public loadingCommits: boolean = false;
   public commits: Commit[] = [];
-  public pageSize = 25;
+  public pageSize = 15;
   public totalCommits: number = 0;
 
   displayedColumns: string[] = ['time', 'message'];

@@ -1,13 +1,13 @@
 <div class="modal-container">
-  <div class="close-button-container" align="end">
-    <button mat-button [mat-dialog-close]="true">
-      <span class="close-button-text mat-display-1">X</span>
-    </button>
-  </div>
-  <div class="repo-container">
+  <div class="header-container">
     <div class="repo-name mat-title accent-color">
       {{ data.repo }}
     </div>
+    <button mat-button [mat-dialog-close]="true">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="repo-container">
     <div class="view-repo-text-container">
       <button
         mat-stroked-button

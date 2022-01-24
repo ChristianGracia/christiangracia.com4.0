@@ -27,10 +27,8 @@ export class GithubReposComponent implements OnInit {
   public openRepoCommitModal(repoName: string, repoUrl: string) {
     let config = new MatDialogConfig();
     config = {
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      height: '100%',
-      width: '100%',
+      minWidth: '100vw',
+      height: '100vh',
       data: {
         repo: repoName,
         url: repoUrl,
