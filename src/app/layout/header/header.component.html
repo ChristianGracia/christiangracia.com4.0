@@ -1,14 +1,14 @@
 <mat-toolbar class="nav-container">
   <div class="dark-mode-switch">
-    <a
-      class="hide-mobile"
+    <button
+      class="hide-mobile cg-site-text"
       mat-button
       [ngClass]="currentUrl === '' ? 'accent-color' : ''"
       aria-label="Home button with menu icon"
       (click)="goToLink('/')"
     >
       christiangracia.com
-    </a>
+    </button>
     <mat-icon [color]="!isDarkTheme ? 'accent' : ''">light_mode</mat-icon>
     <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event)">
     </mat-slide-toggle>
@@ -16,8 +16,9 @@
   </div>
   <app-social-media-links></app-social-media-links>
   <div class="nav-items hide-mobile">
-    <a
-      class="nav-item"
+    <button
+      aria-label="Nav item"
+      class="nav-item nav-item-text"
       *ngFor="let link of links"
       mat-button
       (click)="goToLink(link)"
@@ -26,8 +27,9 @@
           ? 'accent-color'
           : ''
       "
-      >{{ link }}</a
     >
+      {{ link }}
+    </button>
   </div>
   <div class="hide-desktop">
     <button
