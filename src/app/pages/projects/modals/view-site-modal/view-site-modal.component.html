@@ -12,16 +12,9 @@
       <mat-icon>close</mat-icon>
     </button>
   </div>
-  <!-- <div
-      *ngIf="data.url.match('herokuapp') && iframeLoading"
-      class="repo-loader-container"
-    >
-      <div class="free-server-container">
-        This site is hosted on a free server which can take 1-2 mins to wake up
-        from sleep
-      </div>
-      <mat-spinner></mat-spinner>
-    </div> -->
+  <div *ngIf="iframeLoading" class="loader">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
   <div [class.is-hidden]="iframeLoading" class="iframe-container">
     <iframe
       allowtransparency="true"
