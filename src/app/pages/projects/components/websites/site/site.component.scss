@@ -1,18 +1,8 @@
 @import "../../../../../../styles.scss";
 .site-card {
-  width: 300px;
-  // @media only screen and (min-width: 500px) {
-  //   width: 500px;
-  //   // max-width: 900px;
-  // }
   height: 500px;
   margin-bottom: 20px;
   cursor: pointer;
-  &:hover {
-    transform: scale(1.07);
-    .site-title {
-    }
-  }
   .carousel-container {
   }
 }
