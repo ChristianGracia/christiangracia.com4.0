@@ -329,6 +329,7 @@ $custom-light-theme: map_merge(
   .accent-color {
     color: mat-color($theme-accent);
   }
+  --theme-color: mat-color($theme-accent);
 }
 .light-theme {
   @include angular-material-theme($custom-light-theme);
@@ -338,6 +339,7 @@ $custom-light-theme: map_merge(
   .accent-color {
     color: mat-color($light-theme-accent);
   }
+  --theme-color: mat-color($theme-accent);
 }
 
 .nav-item-text {

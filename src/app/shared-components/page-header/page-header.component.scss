@@ -1,3 +1,4 @@
+@import "../../../custom-theme.scss";
 .header-row {
   display: flex;
   flex-direction: column;
@@ -18,13 +19,14 @@
 }
 
 .line {
-  width: 300px;
+  width: 95%;
+  max-width: 320px;
   margin: 5px -20px 0;
   height: 2px;
   // background: #fff;
   // position: absolute;
   // top: 50%;
-  left: 50%;
+  // left: 0;
   transform: translate(-50%, -50%);
 }
 
@@ -32,11 +34,11 @@
   content: "";
   position: absolute;
   // top: 0;
-  left: 0;
+  // left: 0;
   width: 100%;
   height: 100%;
-  background: green;
-  animation: animate 10s linear infinite;
+  background: mat-color($theme-accent);
+  animation: animate 1s linear infinite;
 }
 
 @keyframes animate {
