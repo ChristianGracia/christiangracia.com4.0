@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects.component';
 import { GithubReposComponent } from './components/github-repos/github-repos.component';
@@ -12,6 +11,7 @@ import { ViewSiteModalComponent } from "./modals/view-site-modal/view-site-modal
 import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
 
 import { SafePipe } from "./services/safe.pipe";
+import { MatCarouselModule } from '@ngbmodule/material-carousel';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { SafePipe } from "./services/safe.pipe";
     SafePipe,
   ],
   imports: [
-    CommonModule,
+    MatCarouselModule.forRoot(),
     MaterialModule,
     ProjectsRoutingModule,
     SharedComponentsModule,

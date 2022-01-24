@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './about.component';
 import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
@@ -17,7 +16,6 @@ import { RecentlyPlayedSongsComponent } from './components/recently-played-songs
     RecentlyPlayedSongsComponent,
   ],
   imports: [
-    CommonModule,
     AboutRoutingModule,
     SharedComponentsModule,
     MaterialModule,

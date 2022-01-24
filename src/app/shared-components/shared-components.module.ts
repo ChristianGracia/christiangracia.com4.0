@@ -7,6 +7,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [PageHeaderComponent],
   imports: [CommonModule, MatTableModule, MatPaginatorModule, MatDialogModule],
-  exports: [PageHeaderComponent, MatTableModule, MatPaginatorModule, MatDialogModule],
+  exports: [PageHeaderComponent, MatTableModule, MatPaginatorModule, MatDialogModule, CommonModule],
 })
 export class SharedComponentsModule {}

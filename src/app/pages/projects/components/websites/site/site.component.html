@@ -6,7 +6,26 @@
   <mat-card-title class="site-title mat-title accent-color">
     {{ site.title }}
   </mat-card-title>
-  <mat-card-content> </mat-card-content>
+  <mat-card-content class="carousel-container">
+      <mat-carousel
+        timings="250ms ease-in"
+        [autoplay]="true"
+        [loop]="true"
+        [hideArrows]="true"
+        [hideIndicators]="true"
+        orientation="ltr"
+        [slides]="site.imageUrls ? site.imageUrls.length : 0"
+        slideHeight="300px"
+        [maintainAspectRatio]="false"
+      >
+        <mat-carousel-slide
+          #matCarouselSlide
+          *ngFor="let slide of site.imageUrls; let i = index"
+          [image]="slide"
+          [hideOverlay]="true"
+        ></mat-carousel-slide>
+      </mat-carousel>
+  </mat-card-content>
   <mat-card-content class="mat-subheading-2">
     <p>{{ site.bottomText }}</p>
   </mat-card-content>

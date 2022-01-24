@@ -3,7 +3,7 @@ import { Site } from 'src/app/models/site.model';
 
 const ON_A_BEAT_SITE: Site = new Site(
   'On a Beat!',
-  'A MERN stack site I wrote while learning to code, React/Redux front-end with a Node Js back-end and a MongoDB database. Users can make accounts, sign in, add/delete videos, songs, pics, and gifs to front page, and more with a site dashboard I built',
+  'A MERN stack site I wrote while learning to code, React/Redux front-end with a Node Js back-end and a MongoDB database. Users can make accounts, sign in, add/delete videos, songs, pics, and gifs to front page, and more.',
   'https://onabeat.herokuapp.com/',
   [
     'https://i.imgur.com/h9Bm4yj.jpeg',
@@ -15,7 +15,7 @@ const ON_A_BEAT_SITE: Site = new Site(
 
 const NFL_SITE: Site = new Site(
   "Nature's Frontier Landscaping",
-  "React front-end + NodeJS back-end site I made for Nature's Frontier Landscaping. Live at nflandscaping.com. Will be rewritten soon, I made this while just learning React",
+  "React front-end + NodeJS back-end site I made for Nature's Frontier Landscaping. Will be rewritten soon since I made this while just learning React. Live at nflandscaping.com.",
   'https://www.nflandscaping.com',
   [
     'https://i.imgur.com/TTgeW7Y.jpeg',
@@ -26,7 +26,7 @@ const NFL_SITE: Site = new Site(
 
 const CHRISTIAN_GRACIA_API: Site = new Site(
   'Christian Gracia API',
-  'TypeScript Node.js API back-end that serves my website content, sends me emails, and more',
+  'TypeScript Node.js API back-end that serves my website content, sends me emails, and more.',
   'https://christiangracia-api.herokuapp.com',
   [
     'https://imgur.com/1upVQ9n.png',
@@ -37,7 +37,7 @@ const CHRISTIAN_GRACIA_API: Site = new Site(
 
 const MARKETFEELS: Site = new Site(
   'MarketFeels',
-  'Work in progress server side rendered React + Redux finance site written in TypeScript',
+  'Work in progress server side rendered React + Redux finance site written in TypeScript.',
   'https://marketfeels.com',
   ['https://i.imgur.com/D1ualvH.jpeg']
 );
