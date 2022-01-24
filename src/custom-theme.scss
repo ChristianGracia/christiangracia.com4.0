@@ -340,25 +340,20 @@ $custom-light-theme: map_merge(
   }
 }
 
-// .mat-raised-button,
-// .mat-stroked-button,
-// .mat-flat-button {
-//   padding: 0 1.15em;
-//   margin: 0 0.65em;
-//   min-width: 3em;
-//   line-height: 36.4px;
-// }
+.nav-item-text {
+  font-size: 20px;
+}
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  padding: 0 1.15em;
+  margin: 0 0.65em;
+  min-width: 3em;
+  line-height: 36.4px;
+}
 .mat-ripple {
   overflow: hidden !important;
 }
 .cdk-visually-hidden {
   visibility: hidden;
 }
-
-// .material-icons {
-//   font-size: 24px;
-//   font-family: "Material Icons", "Material Icons";
-//   .mat-badge-content {
-//     font-family: "Roboto";
-//   }
-// }
