@@ -6,34 +6,12 @@
   justify-content: center;
   align-items: center;
   margin: 1px;
-  .icon-container {
-    margin-top: 25px;
-    .icon {
-      font-size: calc(40px + 20 * ((100vw - 320px) / 680));
-    }
-  }
-  // .other-sites-container {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  //   .sites-row {
-  //     display: flex;
-  //     flex-direction: row;
-  //     justify-content: center;
-  //     flex-wrap: wrap;
-  //   }
-  // }
 
   .learn-more-container {
     margin: 6px 0 20px 0;
   }
   .song-container {
-    // width: 100%;
     margin: 5px;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
   }
   .info-container {
     display: flex;
