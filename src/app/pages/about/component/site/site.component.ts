@@ -16,4 +16,7 @@ export class SiteComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  public openSite(url: string) {
+    window.open(url, '_blank');
+  }
 }
