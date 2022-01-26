@@ -25,7 +25,7 @@ const NFL_SITE: Site = new Site(
 );
 
 const CHRISTIAN_GRACIA_API: Site = new Site(
-  'christiangracia API',
+  'Christiangracia API',
   "TypeScript Node.js API back-end that serves my website content, sends me and site's I mange emails, auths with spotify, runs scripts, and more.",
   'https://christiangracia-api.herokuapp.com',
   [
