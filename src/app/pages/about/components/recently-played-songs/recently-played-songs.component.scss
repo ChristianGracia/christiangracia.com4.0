@@ -1,6 +1,6 @@
 .table-container {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   td {
   }
   .time {
@@ -12,9 +12,11 @@
     width: 100%;
   }
   .mat-row:hover {
-    transform: scale(1.01);
-    overflow: hidden;
+    transform: scale(1.02);
   }
+}
+.songs-container {
+  overflow-x: auto;
 }
 .song-loader {
   margin-top: 6px;
