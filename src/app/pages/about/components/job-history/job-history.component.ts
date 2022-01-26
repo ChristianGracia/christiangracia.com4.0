@@ -29,7 +29,6 @@ export class JobHistoryComponent implements OnInit {
 
   ngOnInit() {}
   public openSite(url: string) {
-    console.log('opening');
     window.open(url, '_blank');
   }
 }
