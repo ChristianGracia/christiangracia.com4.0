@@ -42,6 +42,13 @@ const MARKETFEELS: Site = new Site(
   ['https://i.imgur.com/D1ualvH.jpeg']
 );
 
+const BASH_SCRIPT_GEN: Site = new Site(
+  'Bash Script Generator',
+  'NPM package I built that parses Python and JavaScript/TypeScript installation files to create and mange long Bash scripts for installing dependencies.',
+  'www.npmjs.com/package/bash-script-dependency-generator',
+  ['https://i.imgur.com/cKVykHp.png', 'https://i.imgur.com/WckQ1EP.png', 'https://i.imgur.com/h2d5yud.png', 'https://i.imgur.com/x2R60Vd.png', 'https://i.imgur.com/EWN046J.png']
+);
+
 @Component({
   selector: 'app-websites',
   templateUrl: './websites.component.html',
@@ -49,10 +56,11 @@ const MARKETFEELS: Site = new Site(
 })
 export class WebsitesComponent implements OnInit {
   public sites: Site[] = [
-    MARKETFEELS,
-    CHRISTIAN_GRACIA_API,
-    ON_A_BEAT_SITE,
+    BASH_SCRIPT_GEN,
     NFL_SITE,
+    CHRISTIAN_GRACIA_API,
+    MARKETFEELS,
+    ON_A_BEAT_SITE,
   ];
 
   constructor() {}

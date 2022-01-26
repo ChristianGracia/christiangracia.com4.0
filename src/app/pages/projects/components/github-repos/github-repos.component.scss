@@ -73,3 +73,20 @@
   justify-content: center;
   margin-top: 60px;
 }
+.dark-theme .mat-paginator {
+  background-color: transparent !important;
+}
+
+::ng-deep .mat-paginator-page-size-select {
+  background-color: transparent !important;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: transparent !important;
+}
+
+::ng-deep .mat-select-value {
+  color: #005999;
+}
+::ng-deep .mat-select-arrow {
+  color: #005999;
+}

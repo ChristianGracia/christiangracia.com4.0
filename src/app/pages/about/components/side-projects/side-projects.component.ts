@@ -27,7 +27,7 @@ const MARKETFEELS: Site = new Site(
 
 const BASH_SCRIPT_GEN: Site = new Site(
   'Bash Scipt Generator ',
-  'Created a NPM package in a day 1/24/2022, building this out to be able to parse other types of installation files to create even more dependency installation bash scripts',
+  'NPM package I created in a few hours that parses Python and JavaScript/TypeScript installation files to create and mange long Bash scripts for installing dependencies, building this out to parse for more languages',
   'www.npmjs.com/package/bash-script-dependency-generator'
 );
 
