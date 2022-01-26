@@ -27,7 +27,7 @@ const MARKETFEELS: Site = new Site(
 
 const BASH_SCRIPT_GEN: Site = new Site(
   'Bash Scipt Generator ',
-  'NPM package I created in a few hours that parses Python and JavaScript/TypeScript installation files to create and mange long Bash scripts for installing dependencies, building this out to parse for more languages',
+  'NPM package I created in a few hours that parses Python and JavaScript/TypeScript installation files to create and manage long Bash scripts for installing dependencies, building this out to parse for more languages',
   'www.npmjs.com/package/bash-script-dependency-generator'
 );
 
