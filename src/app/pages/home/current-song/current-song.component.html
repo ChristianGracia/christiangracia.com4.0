@@ -65,7 +65,13 @@
     </div>
   </div>
   <div class="current-text mat-display-1">
-    <mat-icon class="spotify-image" color="accent"> headphones </mat-icon>
+    
+    <div class='btn-container'>
+      <!-- <button class='btn btn--shockwave is-active'> -->
+        <mat-icon class="spotify-image" color="accent" class='spotify-image btn btn--shockwave is-active'> headphones </mat-icon>
+      <!-- </button> -->
+    
+    </div>
     <div class="mat-caption" *ngIf="song.playedAt">
       Last played at {{ formatDate(song.playedAt) }}
     </div>
