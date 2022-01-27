@@ -18,39 +18,104 @@
   }
 }
 
-.line {
-  width: 95%;
-  max-width: 320px;
-  margin: 5px -20px 0;
-  height: 2px;
-  // background: #fff;
-  // position: absolute;
-  // top: 50%;
-  // left: 0;
-  transform: translate(-50%, -50%);
-}
+$animation-time: 6s;
+$animation-key: $animation-time/1s;
+$newbpm: 360 / $animation-key;
+$bpm: $animation-key*10s;
 
-.line::before {
-  content: "";
+.number-1 {
+ font-size: 6rem;
+ text-align: center;
+ width: 6rem;
+ position: relative;
+ &:after {
+  display: block;
   position: absolute;
-  // top: 0;
-  // left: 0;
-  width: 100%;
-  height: 100%;
-  background: mat-color($theme-accent);
-  animation: animate 1s linear infinite;
+  width: 12rem;
+  top: 0;
+  left: 0;
+ }
+ span {
+  font-size: 2rem;
+  position: relative;
+  top: -2rem;
+  left:-5rem;
+  opacity: 1;
+  animation: beat ($animation-time/6) infinite;
+ }
+}
+.wave-container {
+ max-width: 900px;
+ margin: 0 auto;
+}
+.graph {
+ padding: 0;
+ background: linear-gradient(90deg, transparent 0, #37af8c 50%, transparent 50%);
+ animation: travel $animation-time infinite linear;
+ display: flex;
+ background-size: 100% auto;
+ background-position: -380px 0;
+ width: 100%;
+ height: 2px; 
+ max-height: 5px;
 }
 
-@keyframes animate {
-  0% {
-    left: 0;
-  }
+.cell {
+ margin: 10px 0 0;
+ display: flex;
+ animation: shuffle $animation-time*6 steps(1) infinite;
+ padding: 20px 0;
+}
+.cell-1 {
+ background-position: 0, 0;
+ animation-delay: ($animation-time/6)*-2;
+}
 
-  50% {
-    left: 100%;
-  }
+@keyframes shuffle {
+ 0% {
+  background-position: 83.3%, 0;
+ }
+ 16.6% {
+  background-position: 33.33%, 0;
+ }
+ 33.3% {
+  background-position: 66.66%, 0;
+ }
+ 50% {
+  background-position: 16.66%, 0;
+ }
+ 66.6% {
+  background-position: 50%, 0;
+ }
+ 83.3% {
+  background-position: 0%, 0;
+ }
+}
 
-  0% {
-    left: 0;
-  }
+@keyframes beat {
+ 0% {
+  opacity:  1;
+ }
+ 35% {
+  opacity: 1;
+ }
+ 45% {
+  opacity: 0.3;
+ }
+ 60% {
+  opacity: 1
+ }
+
+ 100% {
+  opacity: 1;
+ }
+}
+
+@keyframes travel {
+ 0% {
+  background-position: -380px 0;
+ }
+ 100% {
+  background-position: 380px 0;
+ }
 }
