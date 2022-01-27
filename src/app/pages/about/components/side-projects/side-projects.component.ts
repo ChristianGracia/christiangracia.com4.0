@@ -25,13 +25,19 @@ const MARKETFEELS: Site = new Site(
   'www.marketfeels.com'
 );
 
+const BASH_SCRIPT_GEN: Site = new Site(
+  'Bash Script Generator ',
+  'NPM package I created in a few hours that parses Python and JavaScript/TypeScript installation files to create and manage long Bash scripts for installing dependencies, building this out to parse for more languages',
+  'www.npmjs.com/package/bash-script-dependency-generator'
+);
+
 @Component({
   selector: 'app-side-projects',
   templateUrl: './side-projects.component.html',
   styleUrls: ['./side-projects.component.scss'],
 })
 export class SideProjectsComponent implements OnInit {
-  public sites: Site[] = [CG, ALGORITHMS, MARKETFEELS, NFL_SITE];
+  public sites: Site[] = [BASH_SCRIPT_GEN, ALGORITHMS, CG, MARKETFEELS, NFL_SITE];
 
   constructor() {}
 

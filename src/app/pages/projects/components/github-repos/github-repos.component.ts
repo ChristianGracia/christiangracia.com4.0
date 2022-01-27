@@ -14,7 +14,7 @@ export class GithubReposComponent implements OnInit {
   public gitRepos: Repo[] = [];
   public data: Repo[] = [];
   public page = 0;
-  public size = 25;
+  public size = 15;
 
   constructor(private githubService: GithubService, public dialog: MatDialog) {}
 
@@ -98,7 +98,6 @@ export class GithubReposComponent implements OnInit {
     this.githubService.getAllRepos().subscribe((repos: Repo[]) => {
       if (repos) {
         this.gitRepos = repos;
-        this.size = repos.length;
         this.getData({ pageIndex: this.page, pageSize: this.size });
       }
       this.loadingRepos = false;

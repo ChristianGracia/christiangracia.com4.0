@@ -13,8 +13,10 @@
   }
   .mat-row:hover {
     transform: scale(1.03);
-    overflow: hidden;
   }
+}
+.songs-container {
+  overflow-x: auto;
 }
 .song-loader {
   margin-top: 6px;
