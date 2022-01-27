@@ -106,7 +106,7 @@
   cursor: pointer;
 }
 
-.btn-container {
+.shockwave-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -116,104 +116,98 @@
   justify-content: space-around;
 }
 
-.btn {
-  width: 20px;
-  line-height: 20px;
-  // background: #fff;
-  // border-radius: 50%;
+.shock {
   text-align: center;
-  margin: 1.6rem;
-  font-size: 0.8rem;
   border: none;
-  padding: 0;
   position: relative;
   outline: none;
+  border-radius: 50%;
 }
 
-.btn--shockwave.is-active {
+.shock--shockwave.is-active {
   -webkit-animation: shockwaveJump 1s ease-out infinite;
-  animation: shockwaveJump 1s ease-out infinite;
+          animation: shockwaveJump 1s ease-out infinite;
 }
-.btn--shockwave.is-active:after {
-  content: "";
+.shock--shockwave.is-active:after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  // border-radius: 50%;
-  -webkit-animation: shockwave 1s 0.65s ease-out infinite;
-  animation: shockwave 1s 0.65s ease-out infinite;
+  border-radius: 50%;
+  -webkit-animation: shockwave 1s .65s ease-out infinite;
+          animation: shockwave 1s .65s ease-out infinite;
 }
-.btn--shockwave.is-active:before {
-  content: "";
+.shock--shockwave.is-active:before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  // border-radius: 50%;
-  -webkit-animation: shockwave 1s 0.5s ease-out infinite;
-  animation: shockwave 1s 0.5s ease-out infinite;
+  border-radius: 50%;
+  -webkit-animation: shockwave 1s .5s ease-out infinite;
+          animation: shockwave 1s .5s ease-out infinite;
 }
 
 @-webkit-keyframes shockwaveJump {
   0% {
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
   }
   40% {
     -webkit-transform: scale(1.08);
-    transform: scale(1.08);
+            transform: scale(1.08);
   }
   50% {
     -webkit-transform: scale(0.98);
-    transform: scale(0.98);
+            transform: scale(0.98);
   }
   55% {
     -webkit-transform: scale(1.02);
-    transform: scale(1.02);
+            transform: scale(1.02);
   }
   60% {
     -webkit-transform: scale(0.98);
-    transform: scale(0.98);
+            transform: scale(0.98);
   }
   100% {
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @keyframes shockwaveJump {
   0% {
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
   }
   40% {
     -webkit-transform: scale(1.08);
-    transform: scale(1.08);
+            transform: scale(1.08);
   }
   50% {
     -webkit-transform: scale(0.98);
-    transform: scale(0.98);
+            transform: scale(0.98);
   }
   55% {
     -webkit-transform: scale(1.02);
-    transform: scale(1.02);
+            transform: scale(1.02);
   }
   60% {
     -webkit-transform: scale(0.98);
-    transform: scale(0.98);
+            transform: scale(0.98);
   }
   100% {
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
   }
 }
 @-webkit-keyframes shockwave {
   0% {
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15), inset 0 0 1px rgba(0, 0, 0, 0.15);
   }
   95% {
@@ -221,13 +215,13 @@
   }
   100% {
     -webkit-transform: scale(2.25);
-    transform: scale(2.25);
+            transform: scale(2.25);
   }
 }
 @keyframes shockwave {
   0% {
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15), inset 0 0 1px rgba(0, 0, 0, 0.15);
   }
   95% {
@@ -235,23 +229,23 @@
   }
   100% {
     -webkit-transform: scale(2.25);
-    transform: scale(2.25);
+            transform: scale(2.25);
   }
 }
-.btn--jump.is-active {
-  -webkit-animation: 0.4s jump ease infinite alternate;
-  animation: 0.4s jump ease infinite alternate;
+.shock--jump.is-active {
+  -webkit-animation: .4s jump ease infinite alternate;
+          animation: .4s jump ease infinite alternate;
 }
 
 @-webkit-keyframes jump {
   0% {
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   }
   100% {
     -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+            transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 }
@@ -259,12 +253,12 @@
 @keyframes jump {
   0% {
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   }
   100% {
     -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+            transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 }
