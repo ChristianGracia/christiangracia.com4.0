@@ -323,7 +323,7 @@ $custom-light-theme: map_merge(
 @mixin section-header-theme($theme) {
   $accent: map-get($theme, accent);
    
-  .ggg {
+  .animated-line {
     @keyframes travel {
         0% {
           background-position: -380px 0;
