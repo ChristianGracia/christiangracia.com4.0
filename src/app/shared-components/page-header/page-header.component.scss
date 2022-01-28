@@ -50,9 +50,9 @@ $bpm: $animation-key*10s;
 }
 .graph {
  padding: 0;
- background: linear-gradient(90deg, transparent 0, #37af8c 50%, transparent 50%);
- animation: travel $animation-time infinite linear;
- display: flex;
+//  background: linear-gradient(90deg, transparent 0, 'black' 50%, transparent 50%);
+//  animation: travel $animation-time infinite linear;
+//  display: flex;
  background-size: 100% auto;
  background-position: -380px 0;
  width: 100%;
