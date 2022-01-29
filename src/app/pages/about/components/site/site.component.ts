@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpotifyService } from 'src/app/services/spotify.service';
 
 interface Section {
   title: string;
@@ -13,9 +14,14 @@ const sections = [{}];
   styleUrls: ['./site.component.scss'],
 })
 export class SiteComponent implements OnInit {
-  constructor() {}
+  public code : string = '';
+  constructor(private spotifyService: SpotifyService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spotifyService.getSpotifyCode().subscribe((data : any)=> {
+      this.code = data;
+    })
+  }
   public openSite(url: string) {
     window.open(url, '_blank');
   }
