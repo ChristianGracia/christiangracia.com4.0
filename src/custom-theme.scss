@@ -320,9 +320,26 @@ $custom-light-theme: map_merge(
     background: $background,
   )
 );
-
+@mixin section-header-theme($theme) {
+  $accent: map-get($theme, accent);
+   
+  .animated-line {
+    @keyframes travel {
+        0% {
+          background-position: -380px 0;
+        }
+        100% {
+          background-position: 380px 0;
+        }
+      }
+    animation: travel 6s infinite linear;
+    background: linear-gradient(90deg, transparent 0, mat-color($accent)  50%, transparent 50%);
+  }
+}
+ 
 .dark-theme {
   @include angular-material-theme($dark-theme);
+  @include section-header-theme($dark-theme);
   .background-accent-color {
     background-color: mat-color($theme-accent);
   }
@@ -332,6 +349,7 @@ $custom-light-theme: map_merge(
 }
 .light-theme {
   @include angular-material-theme($custom-light-theme);
+  @include section-header-theme($custom-light-theme);
   .background-accent-color {
     background-color: mat-color($light-theme-accent);
   }

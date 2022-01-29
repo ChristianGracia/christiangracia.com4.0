@@ -79,8 +79,6 @@ export class AppComponent implements AfterViewInit {
         .classList.add('full-screen-modal');
 
       this.loaded = true;
-      let loader = this.renderer.selectRootElement('.app-loader-container');
-      if (loader.style.display != 'none') loader.style.display = 'none';
     }
   }
   private initializeImages() {
