@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 interface Section {
@@ -14,12 +15,11 @@ const sections = [{}];
   styleUrls: ['./site.component.scss'],
 })
 export class SiteComponent implements OnInit {
-  public code : string = '';
-  constructor(private spotifyService: SpotifyService) {}
-
+  public code : any = '';
+  constructor(private spotifyService: SpotifyService, private domSanitizer: DomSanitizer) {}
   ngOnInit(): void {
-    this.spotifyService.getSpotifyCode().subscribe((data : any)=> {
-      this.code = data;
+    this.spotifyService.getSpotifyCode().subscribe((data : string)=> {
+      this.code = this.domSanitizer.bypassSecurityTrustHtml(data);
     })
   }
   public openSite(url: string) {

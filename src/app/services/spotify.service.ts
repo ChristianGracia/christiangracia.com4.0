@@ -26,6 +26,6 @@ export class SpotifyService {
   }
 
   public getSpotifyCode() {
-    return this.http.get<string>(environment.apiUrl + '/spotify/show-code', {responseType: 'text' as 'json'});
+    return this.http.get<string>(environment.apiUrl + '/util/show-file?file=src/classes/spotify.ts&cssFile=code-snippet.css', {responseType: 'text' as 'json'});
   }
 }
