@@ -26,7 +26,7 @@ const NFL_SITE: Site = new Site(
 
 const CHRISTIAN_GRACIA_API: Site = new Site(
   'Christiangracia API',
-  "TypeScript Node.js API back-end that serves my website content, sends me and site's I manage emails, auths with spotify, runs scripts, and more.",
+  "Dockerized TypeScript Node.js API back-end that serves my website content, sends me and site's I manage emails, auths with spotify, runs scripts, and more.",
   'https://christiangracia-api.herokuapp.com',
   [
     'https://imgur.com/1upVQ9n.png',
@@ -57,8 +57,8 @@ const BASH_SCRIPT_GEN: Site = new Site(
 export class WebsitesComponent implements OnInit {
   public sites: Site[] = [
     BASH_SCRIPT_GEN,
-    NFL_SITE,
     CHRISTIAN_GRACIA_API,
+    NFL_SITE,
     MARKETFEELS,
     ON_A_BEAT_SITE,
   ];
