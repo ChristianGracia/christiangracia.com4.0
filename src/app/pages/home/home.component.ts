@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.sendSiteVisit();
-    }, 500);
+    }, 6000);
   }
 
   public goToAboutPage(): void {
