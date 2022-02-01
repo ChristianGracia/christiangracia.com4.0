@@ -322,21 +322,26 @@ $custom-light-theme: map_merge(
 );
 @mixin section-header-theme($theme) {
   $accent: map-get($theme, accent);
-   
+
   .animated-line {
     @keyframes travel {
-        0% {
-          background-position: -380px 0;
-        }
-        100% {
-          background-position: 380px 0;
-        }
+      0% {
+        background-position: -380px 0;
       }
+      100% {
+        background-position: 380px 0;
+      }
+    }
     animation: travel 6s infinite linear;
-    background: linear-gradient(90deg, transparent 0, mat-color($accent)  50%, transparent 50%);
+    background: linear-gradient(
+      90deg,
+      transparent 0,
+      mat-color($accent) 50%,
+      transparent 50%
+    );
   }
 }
- 
+
 .dark-theme {
   @include angular-material-theme($dark-theme);
   @include section-header-theme($dark-theme);

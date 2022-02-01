@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from "@angular/core";
 
-const SOCIAL_MEDIA_LINKS = ['github', 'twitter', 'linkedin'];
+const SOCIAL_MEDIA_LINKS = ["github", "twitter", "linkedin"];
 
 @Component({
-  selector: 'app-social-media-links',
-  templateUrl: './social-media-links.component.html',
-  styleUrls: ['./social-media-links.component.scss'],
+  selector: "app-social-media-links",
+  templateUrl: "./social-media-links.component.html",
+  styleUrls: ["./social-media-links.component.scss"],
 })
 export class SocialMediaLinksComponent implements OnInit, OnDestroy {
   public activeIconArray: boolean[] = [false, false, false];
@@ -22,21 +22,21 @@ export class SocialMediaLinksComponent implements OnInit, OnDestroy {
     clearInterval(this.timer);
   }
   public openLink(socialMedia: string) {
-    let url = '';
+    let url = "";
     switch (socialMedia) {
-      case 'github':
-        url = 'https://github.com/ChristianGracia';
+      case "github":
+        url = "https://github.com/ChristianGracia";
         break;
-      case 'twitter':
-        url = 'http://www.twitter.com/CG_CODING';
+      case "twitter":
+        url = "http://www.twitter.com/CG_CODING";
         break;
-      case 'linkedin':
-        url = 'https://www.linkedin.com/in/christiangracia';
+      case "linkedin":
+        url = "https://www.linkedin.com/in/christiangracia";
         break;
       default:
         break;
     }
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   }
 
   private renderActiveLinkHighlight() {

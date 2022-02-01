@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { GithubReposComponent } from './github-repos.component';
+import { GithubReposComponent } from "./github-repos.component";
 
-describe('GithubReposComponent', () => {
+describe("GithubReposComponent", () => {
   let component: GithubReposComponent;
   let fixture: ComponentFixture<GithubReposComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GithubReposComponent ]
-    })
-    .compileComponents();
+      declarations: [GithubReposComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('GithubReposComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

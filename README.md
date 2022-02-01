@@ -26,15 +26,11 @@ most recent | **Modularized Angular + Material**
 
 code: https://github.com/ChristianGracia/christiangracia3.0
 
-
-
 second most recent | **100% TypeScript React Site with React Hooks and only functional components**
 
 live at : https://christiangracia-old.herokuapp.com/ (on a free dyno so will take a 1-2 mins to wake up)
 
 code: https://github.com/ChristianGracia/christiangracia2.0
-
-
 
 third most recent | **Javascript**
 

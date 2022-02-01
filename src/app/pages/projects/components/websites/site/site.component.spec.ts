@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SiteComponent } from './site.component';
+import { SiteComponent } from "./site.component";
 
-describe('SiteComponent', () => {
+describe("SiteComponent", () => {
   let component: SiteComponent;
   let fixture: ComponentFixture<SiteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SiteComponent ]
-    })
-    .compileComponents();
+      declarations: [SiteComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('SiteComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

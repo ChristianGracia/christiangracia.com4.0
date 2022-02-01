@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 import { environment } from "@environments/environment";
-import { EmailMessage } from '../models/email-message.model';
-import { LocationData } from '../models/location-data.model';
+import { EmailMessage } from "../models/email-message.model";
+import { LocationData } from "../models/location-data.model";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class EmailService {
   constructor(private http: HttpClient) {}
@@ -17,12 +17,12 @@ export class EmailService {
       email: email,
       message: message,
     };
-    return this.http.post(environment.apiUrl + '/email/send-email', emailBody);
+    return this.http.post(environment.apiUrl + "/email/send-email", emailBody);
   }
 
   public sendSiteVisitEmail(locationData: LocationData) {
     return this.http.post(
-      environment.apiUrl + '/email/site-visit',
+      environment.apiUrl + "/email/site-visit",
       locationData
     );
   }

@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { RoutingService } from 'src/app/services/routing.service';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { OverlayContainer } from "@angular/cdk/overlay";
+import { RoutingService } from "src/app/services/routing.service";
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
   @Output()
@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
   @Output()
   public changeTheme = new EventEmitter<boolean>();
   @Input() public isDarkTheme: boolean = false;
-  public links: string[] = ['about', 'projects', 'contact'];
-  @Input() public currentUrl: string = '';
+  public links: string[] = ["about", "projects", "contact"];
+  @Input() public currentUrl: string = "";
   constructor(private routingService: RoutingService) {}
 
   ngOnInit() {}

@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ViewSiteModalComponent } from './view-site-modal.component';
+import { ViewSiteModalComponent } from "./view-site-modal.component";
 
-describe('ViewSiteModalComponent', () => {
+describe("ViewSiteModalComponent", () => {
   let component: ViewSiteModalComponent;
   let fixture: ComponentFixture<ViewSiteModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewSiteModalComponent ]
-    })
-    .compileComponents();
+      declarations: [ViewSiteModalComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ViewSiteModalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

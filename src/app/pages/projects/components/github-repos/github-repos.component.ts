@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Repo } from 'src/app/models/github-repo.model';
-import { GithubService } from 'src/app/services/github.service';
-import { formatDateAndTime } from 'src/app/util/dateMethods';
-import { RepoCommitModalComponent } from '../../modals/repo-commit-modal/repo-commit-modal.component';
+import { Component, OnInit } from "@angular/core";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { Repo } from "src/app/models/github-repo.model";
+import { GithubService } from "src/app/services/github.service";
+import { formatDateAndTime } from "src/app/util/dateMethods";
+import { RepoCommitModalComponent } from "../../modals/repo-commit-modal/repo-commit-modal.component";
 
 @Component({
-  selector: 'app-github-repos',
-  templateUrl: './github-repos.component.html',
-  styleUrls: ['./github-repos.component.scss'],
+  selector: "app-github-repos",
+  templateUrl: "./github-repos.component.html",
+  styleUrls: ["./github-repos.component.scss"],
 })
 export class GithubReposComponent implements OnInit {
   public gitRepos: Repo[] = [];
@@ -27,8 +27,8 @@ export class GithubReposComponent implements OnInit {
   public openRepoCommitModal(repoName: string, repoUrl: string) {
     let config = new MatDialogConfig();
     config = {
-      minWidth: '100vw',
-      height: '100vh',
+      minWidth: "100vw",
+      height: "100vh",
       data: {
         repo: repoName,
         url: repoUrl,
@@ -43,41 +43,41 @@ export class GithubReposComponent implements OnInit {
   }
 
   public formatRepoLanguage(language: string) {
-    let color = '';
+    let color = "";
 
     switch (language) {
-      case 'Ruby':
-        color = 'red';
+      case "Ruby":
+        color = "red";
         break;
-      case 'Java':
-        color = '#B07219';
+      case "Java":
+        color = "#B07219";
         break;
-      case 'JavaScript':
-        color = '#F0D91D';
+      case "JavaScript":
+        color = "#F0D91D";
         break;
-      case 'Kotlin':
-        color = '#a87bfe';
+      case "Kotlin":
+        color = "#a87bfe";
         break;
-      case 'TypeScript':
-        color = '#61D2F8';
+      case "TypeScript":
+        color = "#61D2F8";
         break;
-      case 'C#':
-        color = 'green';
+      case "C#":
+        color = "green";
         break;
-      case 'C':
-        color = '#ed7014';
+      case "C":
+        color = "#ed7014";
         break;
-      case 'Python':
-        color = '#90EE90';
+      case "Python":
+        color = "#90EE90";
         break;
-      case 'Rust':
-        color = '#B34313';
+      case "Rust":
+        color = "#B34313";
         break;
-      case 'Swift':
-        color = '#F7B0BB';
+      case "Swift":
+        color = "#F7B0BB";
         break;
       default:
-        color = 'black';
+        color = "black";
         break;
     }
     return color;
