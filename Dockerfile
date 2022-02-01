@@ -24,6 +24,4 @@ WORKDIR /tmp
 ADD package.json ./package.json
 COPY --from=builder /tmp/dist /tmp/dist
 
-EXPOSE 80
-
 ENTRYPOINT npm run serve:ssr

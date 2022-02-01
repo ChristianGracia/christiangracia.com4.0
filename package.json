@@ -1,6 +1,6 @@
 {
-  "name": "angular-ssr-example",
-  "version": "0.0.0",
+  "name": "christiangracia.com",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,15 +14,14 @@
     "clean-build": "rm -rf dist/ && npm run build:ssr",
     "stats": "npm run build:stats && npm run analyze",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr:prod": "npm run build:client-and-server-bundles:prod && npm run compile:server",
     "build:ssr:cert": "npm run build:client-and-server-bundles:cert && npm run compile:server",
     "build:ssr:dev": "npm run build:client-and-server-bundles:dev && npm run compile:server",
-    "build:client-and-server-bundles:prod": "ng build --configuration=prod-ssr && ng run angular-ssr-example:server:prod-ssr --bundleDependencies all",
-    "build:client-and-server-bundles:cert": "ng build --configuration=cert-ssr && ng run angular-ssr-example:server:cert-ssr --bundleDependencies all",
-    "build:client-and-server-bundles:dev": "ng build --configuration=dev-ssr && ng run angular-ssr-example:server:dev-ssr --bundleDependencies all"
+    "build:client-and-server-bundles:prod": "ng build --configuration=prod-ssr && ng run christiangracia.com:server:prod-ssr --bundleDependencies all",
+    "build:client-and-server-bundles:cert": "ng build --configuration=cert-ssr && ng run christiangracia.com:server:cert-ssr --bundleDependencies all",
+    "build:client-and-server-bundles:dev": "ng build --configuration=dev-ssr && ng run christiangracia.com:server:dev-ssr --bundleDependencies all"
   },
   "private": true,
   "dependencies": {
