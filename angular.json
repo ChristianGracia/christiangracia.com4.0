@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-ssr-example": {
+    "christiangracia-ssr": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -185,26 +185,26 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-ssr-example:build",
+            "browserTarget": "christiangracia-ssr:build",
             "port": 4200,
             "host": "0.0.0.0"
           },
           "configurations": {
             "prod": {
-              "browserTarget": "angular-ssr-example:build:prod"
+              "browserTarget": "christiangracia-ssr:build:prod"
             },
             "cert": {
-              "browserTarget": "angular-ssr-example:build:cert"
+              "browserTarget": "christiangracia-ssr:build:cert"
             },
             "dev": {
-              "browserTarget": "angular-ssr-example:build:dev"
+              "browserTarget": "christiangracia-ssr:build:dev"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-ssr-example:build"
+            "browserTarget": "christiangracia-ssr:build"
           }
         },
         "test": {
@@ -243,17 +243,17 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-ssr-example:serve"
+            "devServerTarget": "christiangracia-ssr:serve"
           },
           "configurations": {
             "prod": {
-              "devServerTarget": "angular-ssr-example:serve:prod"
+              "devServerTarget": "christiangracia-ssr:serve:prod"
             },
             "cert": {
-              "devServerTarget": "angular-ssr-example:serve:cert"
+              "devServerTarget": "christiangracia-ssr:serve:cert"
             },
             "dev": {
-              "devServerTarget": "angular-ssr-example:serve:dev"
+              "devServerTarget": "christiangracia-ssr:serve:dev"
             }
           }
         },
@@ -347,5 +347,5 @@
         }
       }
     }},
-  "defaultProject": "angular-ssr-example"
+  "defaultProject": "christiangracia-ssr"
 }
