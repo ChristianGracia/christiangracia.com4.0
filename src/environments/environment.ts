@@ -1,6 +1,13 @@
 export const environment = {
   production: false,
-  // apiUrl: 'http://localhost:3000',
-  // apiUrl: "https://christiangracia-api-staging.herokuapp.com",
-  apiUrl: 'https://christiangracia-api.herokuapp.com',
+  name: "local",
+  baseURL: "https://dev.angular-non-ssr-example.coltenkrauter.com",
+  title: "NON-SSR Example",
+  linkText: "SSR Example",
+  linkURL: "https://dev.angular-ssr-example.coltenkrauter.com",
+  apiUrl: 'https://christiangracia-api.herokuapp.com'
 };
+
+
+// For debugging
+import 'zone.js/dist/zone-error';  // Included with Angular CLI.

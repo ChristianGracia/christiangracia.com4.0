@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { MaterialModule } from './material/material.module';
+import { CoreModule } from "@core";
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './layout/layout.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -13,13 +10,10 @@ import { CurrentSongComponent } from './pages/home/current-song/current-song.com
 @NgModule({
   declarations: [AppComponent, HomeComponent, CurrentSongComponent],
   imports: [
-    CommonModule,
+    CoreModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    BrowserAnimationsModule,
-    MaterialModule,
     LayoutModule,
     AppRoutingModule,
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

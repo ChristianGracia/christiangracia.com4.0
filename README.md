@@ -1,41 +1,30 @@
-# christiangracia4.0
+# angular-ssr-example
 
-# Features
+A simple example of a Dockerized Angular app that uses Angular Universal for server-side rendering.
 
-**Server side rendered, Angular 12, Material, modularized routes, lazy loading**
+# Quick start
 
-This repo contains the code for my personal website reritten from scratch for the fourth time.
+## Build Docker image with Express SSR (server side rendering)
 
-this code will be live at https://www.christiangracia.com
+```bash
+docker build . --file Dockerfile.ssr --build-arg ENV=dev --tag angular-ssr-example:latest # ENV must be one of dev, cert, prod
+docker run -p 8080:80 angular-ssr-example:latest
+```
 
-# API
+## Build Docker image without SSR, served with NGINX
 
-this site is served by my Typescript Node API back-end
+```bash
+docker build . --file Dockerfile --build-arg ENV=dev --tag angular-ssr-example:latest-non-ssr # ENV must be one of dev, cert, prod
+docker run -p 8081:80 angular-ssr-example:latest-non-ssr
+```
 
-link to live api: https://christiangracia-api.herokuapp.com/
+## Run locally
 
-# Pipeline
+```bash
+ng s # This will run a local environment
+# ng s --configuration=dev
+```
 
-staging - https://christiangracia-staging.herokuapp.com/
+## Responsive images
 
-production - https://christiangracia.herokuapp.com/
-
-## My Previous sites
-
-most recent | **Modularized Angular + Material**
-
-code: https://github.com/ChristianGracia/christiangracia3.0
-
-
-
-second most recent | **100% TypeScript React Site with React Hooks and only functional components**
-
-live at : https://christiangracia-old.herokuapp.com/ (on a free dyno so will take a 1-2 mins to wake up)
-
-code: https://github.com/ChristianGracia/christiangracia2.0
-
-
-
-third most recent | **Javascript**
-
-code: https://github.com/ChristianGracia/christiangracia.com
+I generate responsive images using [Responsive Breakpoints](https://www.responsivebreakpoints.com/) and I use webp image format with jpg as the fallback.

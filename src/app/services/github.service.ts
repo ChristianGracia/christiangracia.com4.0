@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { environment } from "@environments/environment";
 import { Repo } from '../models/github-repo.model';
 import { Commit } from '../models/commit.model';
 

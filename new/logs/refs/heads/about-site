@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 1f6c840aeacb9f6b8e7868e8d06a771c406f71de Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1643428369 -0600	branch: Created from refs/remotes/origin/about-site
+1f6c840aeacb9f6b8e7868e8d06a771c406f71de fb17fec4b42b2624b09a61a197e42c1387bedbab Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1643428444 -0600	merge master: Merge made by the 'recursive' strategy.
+fb17fec4b42b2624b09a61a197e42c1387bedbab ab3ab5593d181abb317dac4d954241e2f74355d2 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1643435697 -0600	commit: added route that receives a file as html from my back-end
+ab3ab5593d181abb317dac4d954241e2f74355d2 4666cf16cd95f391c76eb98c798e601ecd0c544e Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1643465786 -0600	commit: connected view code component to finalized route

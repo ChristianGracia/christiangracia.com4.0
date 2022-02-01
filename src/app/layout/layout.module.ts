@@ -14,6 +14,6 @@ import { SocialMediaLinksComponent } from './social-media-links/social-media-lin
     SocialMediaLinksComponent,
   ],
   imports: [CommonModule, MaterialModule],
-  exports: [SideBarComponent, HeaderComponent, FooterComponent],
+  exports: [SideBarComponent, HeaderComponent, FooterComponent, CommonModule],
 })
 export class LayoutModule {}

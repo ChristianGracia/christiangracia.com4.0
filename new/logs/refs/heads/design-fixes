@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000 a76da2274fce613b1e6693dca721fd9ee535ed31 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1642918682 -0600	branch: Created from refs/remotes/origin/design-fixes
+a76da2274fce613b1e6693dca721fd9ee535ed31 34800092c067851e6d506839deee3bc92dd1748d Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1642982091 -0600	commit: redid view site iframe modal, css changes
+34800092c067851e6d506839deee3bc92dd1748d a0ead65080d297e77572c1441000cc0f24ab8d44 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1642982570 -0600	commit: more modal cleanup
+a0ead65080d297e77572c1441000cc0f24ab8d44 64d8793a928077ed4e513b298a9199318420071a Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1642983420 -0600	commit: more repo commit modal css changes
+64d8793a928077ed4e513b298a9199318420071a 0a59b96ca61dd0a5ffe8ef2be71d94c91417c4d4 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1642987704 -0600	commit: module import tweaks + added and implemented new slideshow package
+0a59b96ca61dd0a5ffe8ef2be71d94c91417c4d4 ebc4359f659b5459fdd9adb1be619cbb8eb8f34c Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1642987737 -0600	commit: re added github component for deploy

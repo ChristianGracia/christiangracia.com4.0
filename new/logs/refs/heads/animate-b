@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 fff6d01039382502047ce7c4149855f44384cd20 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1643342913 -0600	branch: Created from HEAD
+fff6d01039382502047ce7c4149855f44384cd20 fe7dcfd17520122bb8e89a0c7a42fe7b2bf0b652 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1643342953 -0600	commit: synced animated lines on section header connection with light mode / dark mode
+fe7dcfd17520122bb8e89a0c7a42fe7b2bf0b652 683e55d78af5adc98242f292cba479de214f263a Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1643343492 -0600	commit: cleanup
+683e55d78af5adc98242f292cba479de214f263a 0ff0919b3d60c52aff2ee66dd51bc13ef88c17ce Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1643345023 -0600	commit: refactored some scss
+0ff0919b3d60c52aff2ee66dd51bc13ef88c17ce c95fad8adbabf0fceaef91b763ae581e1e5bfa0a Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1643345165 -0600	commit: removed some more css
