@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SocialMediaLinksComponent } from './social-media-links.component';
+import { SocialMediaLinksComponent } from "./social-media-links.component";
 
-describe('SocialMediaLinksComponent', () => {
+describe("SocialMediaLinksComponent", () => {
   let component: SocialMediaLinksComponent;
   let fixture: ComponentFixture<SocialMediaLinksComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SocialMediaLinksComponent ]
-    })
-    .compileComponents();
+      declarations: [SocialMediaLinksComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('SocialMediaLinksComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

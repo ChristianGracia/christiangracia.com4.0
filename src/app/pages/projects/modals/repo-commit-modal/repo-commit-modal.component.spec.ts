@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { RepoCommitModalComponent } from './repo-commit-modal.component';
+import { RepoCommitModalComponent } from "./repo-commit-modal.component";
 
-describe('RepoCommitModalComponent', () => {
+describe("RepoCommitModalComponent", () => {
   let component: RepoCommitModalComponent;
   let fixture: ComponentFixture<RepoCommitModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RepoCommitModalComponent ]
-    })
-    .compileComponents();
+      declarations: [RepoCommitModalComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('RepoCommitModalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,16 +1,16 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { EmailService } from '../../../services/email.service';
-import { EmailMessage } from '../../../models/email-message.model';
-import { RoutingService } from 'src/app/services/routing.service';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { EmailService } from "../../../services/email.service";
+import { EmailMessage } from "../../../models/email-message.model";
+import { RoutingService } from "src/app/services/routing.service";
 
-import { LocationData } from '../../../models/location-data.model';
-import { LocationService } from '../../../services/location.service';
+import { LocationData } from "../../../models/location-data.model";
+import { LocationService } from "../../../services/location.service";
 
 @Component({
-  selector: 'app-contact-form',
-  templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.scss'],
+  selector: "app-contact-form",
+  templateUrl: "./contact-form.component.html",
+  styleUrls: ["./contact-form.component.scss"],
 })
 export class ContactFormComponent implements OnInit {
   @Output() private emailReceivedEvent = new EventEmitter<boolean>();

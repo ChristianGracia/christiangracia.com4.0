@@ -1,24 +1,24 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { RouterModule, Routes } from "@angular/router";
+import { HomeComponent } from "./pages/home/home.component";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: "", component: HomeComponent },
   {
-    path: 'about',
+    path: "about",
     loadChildren: () =>
-      import('./pages/about/about.module').then((m) => m.AboutModule),
+      import("./pages/about/about.module").then((m) => m.AboutModule),
   },
   {
-    path: 'projects',
+    path: "projects",
     loadChildren: () =>
-      import('./pages/projects/projects.module').then((m) => m.ProjectsModule),
+      import("./pages/projects/projects.module").then((m) => m.ProjectsModule),
   },
   {
-    path: 'contact',
+    path: "contact",
     loadChildren: () =>
-      import('./pages/contact/contact.module').then((m) => m.ContactModule),
+      import("./pages/contact/contact.module").then((m) => m.ContactModule),
   },
 ];
 

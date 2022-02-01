@@ -1,24 +1,24 @@
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { isPlatformBrowser } from '@angular/common';
+import { OverlayContainer } from "@angular/cdk/overlay";
+import { isPlatformBrowser } from "@angular/common";
 import {
   AfterViewInit,
   Component,
   Inject,
   PLATFORM_ID,
   Renderer2,
-} from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-import { NavigationEnd, Router } from '@angular/router';
+} from "@angular/core";
+import { MatIconRegistry } from "@angular/material/icon";
+import { DomSanitizer } from "@angular/platform-browser";
+import { NavigationEnd, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements AfterViewInit {
   public loaded: Boolean = false;
-  public currentUrl: string = '';
+  public currentUrl: string = "";
   constructor(
     public overlayContainer: OverlayContainer,
     private matIconRegistry: MatIconRegistry,
@@ -31,7 +31,7 @@ export class AppComponent implements AfterViewInit {
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         const path = window.location.pathname;
-        this.currentUrl = path !== '/' ? path.slice(1) : '';
+        this.currentUrl = path !== "/" ? path.slice(1) : "";
       }
     });
   }
@@ -40,21 +40,21 @@ export class AppComponent implements AfterViewInit {
   public changeTheme(event: any): void {
     this.isDarkTheme = event.checked;
     if (!this.isDarkTheme) {
-      window.localStorage.setItem('lightTheme', 'true');
+      window.localStorage.setItem("lightTheme", "true");
     } else {
-      localStorage.removeItem('lightTheme');
+      localStorage.removeItem("lightTheme");
     }
 
     if (this.isDarkTheme) {
       this.overlayContainer
         .getContainerElement()
-        .classList.remove('light-theme');
-      this.overlayContainer.getContainerElement().classList.add('dark-theme');
+        .classList.remove("light-theme");
+      this.overlayContainer.getContainerElement().classList.add("dark-theme");
     } else {
       this.overlayContainer
         .getContainerElement()
-        .classList.remove('dark-theme');
-      this.overlayContainer.getContainerElement().classList.add('light-theme');
+        .classList.remove("dark-theme");
+      this.overlayContainer.getContainerElement().classList.add("light-theme");
     }
   }
 
@@ -62,47 +62,47 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const theme = window.localStorage.getItem('lightTheme');
+      const theme = window.localStorage.getItem("lightTheme");
       if (theme) {
         this.isDarkTheme = false;
       }
 
       if (this.isDarkTheme) {
-        this.overlayContainer.getContainerElement().classList.add('dark-theme');
+        this.overlayContainer.getContainerElement().classList.add("dark-theme");
       } else {
         this.overlayContainer
           .getContainerElement()
-          .classList.add('light-theme');
+          .classList.add("light-theme");
       }
       this.overlayContainer
         .getContainerElement()
-        .classList.add('full-screen-modal');
+        .classList.add("full-screen-modal");
 
       this.loaded = true;
     }
   }
   private initializeImages() {
     this.matIconRegistry.addSvgIconInNamespace(
-      'assets',
-      'linkedin',
+      "assets",
+      "linkedin",
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/images/linkedin.svg'
+        "assets/images/linkedin.svg"
       )
     );
 
     this.matIconRegistry.addSvgIconInNamespace(
-      'assets',
-      'twitter',
+      "assets",
+      "twitter",
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/images/twitter.svg'
+        "assets/images/twitter.svg"
       )
     );
 
     this.matIconRegistry.addSvgIconInNamespace(
-      'assets',
-      'github',
+      "assets",
+      "github",
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/images/github.svg'
+        "assets/images/github.svg"
       )
     );
   }
