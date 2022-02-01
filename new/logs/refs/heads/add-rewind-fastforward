@@ -1,6 +1,0 @@
-0000000000000000000000000000000000000000 26d4b02cac70cfe5393857d34c1c7ed4fb191e31 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640137894 -0600	branch: Created from HEAD
-26d4b02cac70cfe5393857d34c1c7ed4fb191e31 4a58dc4ea17e70b70f8b02fc4243c6aaa096cc63 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640137919 -0600	commit: add setting up rewind and fast forward of songs
-4a58dc4ea17e70b70f8b02fc4243c6aaa096cc63 beba49d77e33ae41f22acf9994e1c0d7a6cc5fd3 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640139198 -0600	commit: added 50 songs to home page through my recently played using my API and spotify
-beba49d77e33ae41f22acf9994e1c0d7a6cc5fd3 89e2dcc5e8b068360281f1d6a9bff2e4771fe8d5 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640139565 -0600	commit: fast forward and rewind working well
-89e2dcc5e8b068360281f1d6a9bff2e4771fe8d5 1ff56fde0e88a23896f3bad650909efca88ea339 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640140654 -0600	commit: ready for deploy
-1ff56fde0e88a23896f3bad650909efca88ea339 5bd4155372d8e947e343e912ca04600b46df295d Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640142606 -0600	commit: more player tweaks

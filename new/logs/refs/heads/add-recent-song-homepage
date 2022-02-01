@@ -1,4 +1,0 @@
-0000000000000000000000000000000000000000 a1f72e54db958adfef1db81feec1bac437615ea4 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640133641 -0600	branch: Created from HEAD
-a1f72e54db958adfef1db81feec1bac437615ea4 0fb0c56a0e3b893c72e79e4d9d2406076cdbda62 Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640133657 -0600	commit: set up for small back-end change
-0fb0c56a0e3b893c72e79e4d9d2406076cdbda62 09f8fb24be79b0bf2bf3c5d756673e764ceec3aa Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640135599 -0600	commit: set up to show last played song if current song not available
-09f8fb24be79b0bf2bf3c5d756673e764ceec3aa c42db943c85cc552c3f8ab7bfbba958c39bebe0c Christian Gracia <42984214+ChristianGracia@users.noreply.github.com> 1640136290 -0600	commit: more set up for last played song
