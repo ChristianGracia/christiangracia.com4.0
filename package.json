@@ -23,10 +23,10 @@
     "build:client-and-server-bundles:prod": "ng build --configuration=prod-ssr && ng run christiangracia-ssr:server:prod-ssr --bundleDependencies all",
     "build:client-and-server-bundles:cert": "ng build --configuration=cert-ssr && ng run christiangracia-ssr:server:cert-ssr --bundleDependencies all",
     "build:client-and-server-bundles:dev": "ng build --configuration=dev-ssr && ng run christiangracia-ssr:server:dev-ssr --bundleDependencies all",
-    "push-p": "heroku container:push web --app christiangracia-api",
-    "release-p": "heroku container:release web --app christiangracia-api",
-    "push-s": "heroku container:push web --app christiangracia-api-staging",
-    "release-s": "heroku container:release web --app christiangracia-api-staging",
+    "push-p": "heroku container:push web --app christiangracia",
+    "release-p": "heroku container:release web --app christiangracia",
+    "push-s": "heroku container:push web --app christiangracia-staging",
+    "release-s": "heroku container:release web --app christiangracia-staging",
     "rebuild": "docker-compose down && docker-compose build && docker-compose up"
   },
   "private": true,
@@ -65,6 +65,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "prettier": "^2.5.1",
+    "ts-loader": "^9.2.6",
     "typescript": "~4.3.5",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^3.1.0"

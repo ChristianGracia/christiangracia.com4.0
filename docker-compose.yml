@@ -5,7 +5,7 @@ services:
     container_name: server
     build: .
     environment:
-      - PORT=4200
+      - PORT=80
     ports:
-      - '4200:4200'
+      - '8080:80'
     restart: always

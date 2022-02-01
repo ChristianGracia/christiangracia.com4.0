@@ -1,8 +1,6 @@
-ARG ENV=prod
-
 FROM node:12-alpine as builder
 
-ARG ENV
+ARG ENV=prod
 
 WORKDIR /tmp
 ADD package.json ./package.json
@@ -12,16 +10,13 @@ RUN npm ci
 
 ADD . .
 
-RUN npm run build:ssr:$ENV
+RUN npm run build -- --configuration=$ENV --output-path=dist
 
-FROM node:12-alpine
+FROM nginx:1.17.2-alpine
 
-ARG ENV
-ENV ENV=$ENV
+COPY --from=builder /tmp/dist /usr/share/nginx/html
+ADD nginx.conf /etc/nginx/conf.d/default.conf
 
-WORKDIR /tmp
+EXPOSE 80
 
-ADD package.json ./package.json
-COPY --from=builder /tmp/dist /tmp/dist
-
-ENTRYPOINT npm run serve:ssr
+CMD nginx -g "daemon off;"
