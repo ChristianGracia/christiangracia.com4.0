@@ -16,12 +16,18 @@
     "lint": "ng lint",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
+    "format": "prettier --write .",
     "build:ssr:prod": "npm run build:client-and-server-bundles:prod && npm run compile:server",
     "build:ssr:cert": "npm run build:client-and-server-bundles:cert && npm run compile:server",
     "build:ssr:dev": "npm run build:client-and-server-bundles:dev && npm run compile:server",
     "build:client-and-server-bundles:prod": "ng build --configuration=prod-ssr && ng run christiangracia-ssr:server:prod-ssr --bundleDependencies all",
     "build:client-and-server-bundles:cert": "ng build --configuration=cert-ssr && ng run christiangracia-ssr:server:cert-ssr --bundleDependencies all",
-    "build:client-and-server-bundles:dev": "ng build --configuration=dev-ssr && ng run christiangracia-ssr:server:dev-ssr --bundleDependencies all"
+    "build:client-and-server-bundles:dev": "ng build --configuration=dev-ssr && ng run christiangracia-ssr:server:dev-ssr --bundleDependencies all",
+    "push-p": "heroku container:push web --app christiangracia-api",
+    "release-p": "heroku container:release web --app christiangracia-api",
+    "push-s": "heroku container:push web --app christiangracia-api-staging",
+    "release-s": "heroku container:release web --app christiangracia-api-staging",
+    "rebuild": "docker-compose down && docker-compose build && docker-compose up"
   },
   "private": true,
   "dependencies": {
@@ -58,6 +64,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "prettier": "^2.5.1",
     "typescript": "~4.3.5",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^3.1.0"

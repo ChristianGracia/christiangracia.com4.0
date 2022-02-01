@@ -1,4 +1,4 @@
-ARG ENV=dev
+ARG ENV=prod
 
 FROM node:12-alpine as builder
 
