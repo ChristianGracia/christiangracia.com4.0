@@ -1,0 +1,27 @@
+
+  .info-container {
+      margin: 10px;
+      .site-img {
+        // width: 300px;
+        // max-width: 500px;
+      }
+        .description {
+       
+            max-width: 90%;
+            line-height: 28px;
+        }
+      .code-scroll-container {
+    
+        height: 400px;
+        overflow-x: scroll;
+        overflow-y: scroll;
+        width: 100%;
+        max-width: 90vw;
+        .code-container {
+    
+        } 
+      }
+      .spotify-text {
+          margin-top: 20px;
+      }
+  }

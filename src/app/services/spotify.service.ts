@@ -28,4 +28,7 @@ export class SpotifyService {
         })
       );
   }
+  public getSpotifyCode() {
+    return this.http.get<string>(environment.apiUrl + '/util/show-file?file=spotify.ts&cssFile=code-snippet.css', {responseType: 'text' as 'json'});
+  }
 }
