@@ -2,7 +2,6 @@
 
 This repo contains the code for my personal website
 
-
 # Features
 
 **Server side rendered, Dockerized, Angular 12, Material, modularized routes, lazy loading**
