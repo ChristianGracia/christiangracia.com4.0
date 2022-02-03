@@ -1,27 +1,39 @@
 
   .info-container {
-      margin: 10px;
+      margin: 8px;
       .site-img {
         // width: 300px;
         // max-width: 500px;
       }
         .description {
-       
-            max-width: 90%;
+            // max-width: 93%;
             line-height: 28px;
         }
       .code-scroll-container {
-    
+        margin-top: 20px;
         height: 400px;
         overflow-x: scroll;
         overflow-y: scroll;
-        width: 100%;
-        max-width: 90vw;
+        width: 93%;
+        max-width: 80vw;
+        margin: 0 auto;
         .code-container {
     
         } 
       }
-      .spotify-text {
-          margin-top: 20px;
+      .section-text {
+          margin-top: 30px;
+      }
+      .show-code-buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          margin: 30px 0;
+          @media only screen and (min-width: 800px) {
+            justify-content: left;
+            .show-code-button {
+                margin-right: 30px;
+            }
+          }
       }
   }

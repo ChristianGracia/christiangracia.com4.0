@@ -4,7 +4,17 @@
       subHeader="What makes this site cool"
     ></app-page-header>
     <div class="info-container">
-      <div class="font-text">
+      <div class="section-text">
+        <p class="mat-title accent-color">Dockerized</p>
+        <p class="description mat-subheading-2">
+          This site is deployed in a docker container where this application is built in a NginX web server
+        </p>
+        <!-- <img
+          src="https://i.imgur.com/Mxuy7WH.png"
+          class="site-image"
+        /> -->
+      </div>
+      <div class="section-text">
         <p class="mat-title accent-color">Responsive Global Fonts</p>
         <p class="description mat-subheading-2">
           This site has no font-size declarations in the entire application
@@ -17,62 +27,80 @@
         <!-- <img
           src="https://i.imgur.com/Mxuy7WH.png"
           class="site-image"
-          width="300px"
-          height="300px"
         /> -->
       </div>
-      <div class="spotify-text">
+        <div class="section-text">
+          <p class="mat-title accent-color">Lazy Loaded Modules</p>
+          <p class="description mat-subheading-2">
+            Each page of this website is lazy loaded as a single unit when it is requested. So when you access the home page, you haven't loaded the about or project page yet but you reached the home page faster then you would have if you loaded all the modules
+          </p>
+          <!-- <img
+            src="https://i.imgur.com/Mxuy7WH.png"
+            class="site-image"
+          /> -->
+        </div>
+      <div class="section-text">
         <p class="mat-title accent-color">Spotify API Integrated</p>
         <p class='description mat-subheading-2'>
           This website receives my Spotify listening data through my API server.
           Every 24 hours this server logs into Spotify with a Google Chrome bot to
           get an authorizaion code which is used to get an access token. This
           access token is then refreshed every 55 minutes throughout the day to
-          provide the Spotify data shown on my website. The back-end code I wrote
-          can be seen below
+          provide the Spotify data shown on my website. Below, received from my API back-end, is my class file Spotify.ts which contains all this logic.
         </p>
-        <div class='code-scroll-container'>
-          <div [innerHTML]="code" class='code-container'></div>
-        </div>
+        <div class='show-code-buttons'>
+          <button
+          class='show-code-button'
+          mat-raised-button
+          color="accent"
+          (click)="
+            openSite(
+              'https://github.com/ChristianGracia/christiangracia-API/blob/master/src/classes/spotify.ts'
+            )
+          "
+        >
+          View on GitHub
+        </button>
+
+        <button
+        mat-raised-button
+        color="accent"
+        (click)="
+          openSite(
+            'https://christiangracia-api.herokuapp.com/util/show-file?file=spotify.ts&cssFile=code-snippet.css'
+          )
+        "
+      >
+        View on my API
+      </button>
+    </div>
+    <div class='code-scroll-container'>
+      <div [innerHTML]="code" class='code-container'></div>
+    </div>
+  
         <!-- <img
           class="site-image"
           src="https://i.imgur.com/SZgPAW3.png"
-          width="300px"
-          height="300px"
         /> -->
       </div>
+  
+    <div class="section-text">
+      <p class="mat-title accent-color">Web Analytics</p>
+      <p class='description mat-subheading-2'>
+        When someone visits my website, a request is made to my API that emails me
+        collected user data.
+      </p>
+      <!-- <img
+        class="site-image"
+        src="https://i.imgur.com/v2R2zOL.png"
+      /> -->
+    </div>
+    <div class="section-text">
+      <p class="mat-title accent-color">Full Material Theming</p>
+      <p class='description mat-subheading-2'>
+        This site fully used Material theming to provide a uniform look and use
+        less code + seamless Light/Dark mode
+      </p>
     </div>
   </div>
-
-        <!-- <div class="analytic-text">
-        <p class="mat-display-2 accent-color">Web Analytics</p>
-        <p>
-          When someone visits my website, a request is made to my API that emails
-          collected user data.
-        </p>
-        <img
-          class="site-image"
-          src="https://i.imgur.com/v2R2zOL.png"
-          width="300px"
-          height="200px"
-        />
-      </div> -->
-      <!-- <div class="Theming-text">
-        <p class="mat-display-2 accent-color">Full Material Theming</p>
-        <p>
-          This site fully used Material theming to provide a uniform look and use
-          less code. Light/Dark mode
-        </p>
-      </div> -->
-
-                <!-- <button
-            mat-button
-            color="accent"
-            (click)="
-              openSite(
-                'https://github.com/ChristianGracia/christiangracia-API/blob/master/src/classes/spotify.ts'
-              )
-            "
-          >
-            Here
-          </button> -->
+  </div>
