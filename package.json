@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "dev":"ng s --configuration=dev",
+    "dev": "ng s --configuration=dev",
     "prerender": "ng run christiangracia-ssr:prerender",
     "heroku-postbuild": "npm run clean-build",
     "build:stats": "ng build --stats-json",
