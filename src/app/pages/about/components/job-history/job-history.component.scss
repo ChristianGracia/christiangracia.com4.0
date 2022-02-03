@@ -1,20 +1,35 @@
-.job-history-container {
+.job-history-page-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  .company-card {
-    margin-bottom: 16px;
-    .company-name {
-      font-style: italic;
-      font-weight: bold;
-      cursor: pointer;
-    }
+  .job-history-container {
+    max-width: 900px;
+    margin: 0 auto;
 
-    .company-years {
-      font-weight: bold;
-    }
-    .job-description {
-      line-height: 28px;
+    .company-card {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+
+      .top-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .company-name {
+        font-style: italic;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .company-years {
+        font-weight: bold;
+        margin: 0 0 16px;
+      }
+      .job-description {
+        line-height: 28px;
+      }
     }
   }
 }

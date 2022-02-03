@@ -1,16 +1,20 @@
-<div class="job-history-container">
+<div class="job-history-page-container">
   <app-page-header
     title="Experience"
     subHeader="Click company name to view website"
   ></app-page-header>
-  <div *ngFor="let job of jobs" class="company-card">
-    <p
-      class="company-name accent-color mat-title"
-      (click)="openSite(job.website ?? '')"
-    >
-      {{ job.company }}
-    </p>
-    <p class="job-description mat-subheading-2">{{ job.description }}</p>
-    <p class="company-years mat-caption">{{ job.range }}</p>
+  <div class="job-history-container">
+    <div *ngFor="let job of jobs" class="company-card">
+      <div class="top-row">
+        <div
+          class="company-name accent-color mat-title"
+          (click)="openSite(job.website ?? '')"
+        >
+          {{ job.company }}
+        </div>
+        <div class="company-years mat-caption">{{ job.range }}</div>
+      </div>
+      <div class="job-description mat-subheading-2">{{ job.description }}</div>
+    </div>
   </div>
 </div>
