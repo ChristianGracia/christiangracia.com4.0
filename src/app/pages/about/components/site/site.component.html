@@ -62,10 +62,10 @@
           <p class="mat-title accent-color">Responsive Global Fonts + Theming</p>
           <p class="description mat-subheading-2">
             This site has no font-size declarations in the entire application
-            besides pre-defined screen responsive font sizes in my custom Angular Material theme.
-            I made these fonts shrink or grow depending on screen size while
+            besides my screen responsive font types in my custom Angular Material theme.<br><br>
+            I made these font types shrink or grow depending on screen size while
             most sites use media queries which causes font-sizes to not
-            shrink or grow but noticeably gap up or down when break points are reached. This site fully uses Material theming to provide a uniform look, 
+            shrink or grow but noticeably gap up or down when break points are reached.<br><br>This site fully uses Material theming to provide a uniform look, 
             use less code, and seamless Light/Dark mode.
           </p>
           <div class="site-image">
@@ -97,7 +97,7 @@
             Each page of this website is lazy loaded as a single module when it
             is requested. So when you access the home page, you haven't loaded
             the About or Project page yet but you reached the home page faster
-            then you would have if you loaded all the modules
+            then you would have if you loaded all the modules.
           </p>
           <!-- <img
             src="https://i.imgur.com/Mxuy7WH.png"
@@ -110,7 +110,7 @@
             This website receives my Spotify listening data through my API
             server. Every 24 hours this server logs into Spotify with a Google
             Chrome bot to get an authorizaion code which is used to get an
-            access token. This access token is then refreshed every 55 minutes
+            access token.<br><br>This access token is then refreshed every 55 minutes
             throughout the day to provide the Spotify data shown on my website.
             Below, received from my API back-end, is my class file Spotify.ts
             which contains all this logic.
@@ -142,7 +142,11 @@
             </button>
           </div>
     
-          <div class='file-name-text' align='center'>christiangracia-API/src/classes/spotify.ts</div>
+          <div class='file-name-text' align='center' (click)="
+          openSite(
+            'https://christiangracia-api.herokuapp.com/util/show-file?file=spotify.ts&cssFile=code-snippet.css'
+          )
+        ">christiangracia-API/src/classes/spotify.ts</div>
           <div class="code-scroll-container">
             <div [innerHTML]="code" class="code-container"></div>
           </div>
@@ -152,14 +156,6 @@
           src="https://i.imgur.com/SZgPAW3.png"
         /> -->
         </div>
-        <!-- <div class="section-text">
-          <p class="mat-title accent-color">Full Material Theming</p>
-          <p class="description mat-subheading-2">
-            This site fully used Material theming to provide a uniform look and
-            use less code + seamless Light/Dark mode
-          </p>
-
-        </div> -->
         <div class="section-text">
           <p class="mat-title accent-color">Web Analytics</p>
           <p class="description mat-subheading-2">

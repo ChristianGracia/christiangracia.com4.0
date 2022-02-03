@@ -1,51 +1,50 @@
 .info-container {
   margin: 8px;
   .site-img-div {
-
     display: flex;
     justify-content: center;
-    // max-width: 500px;
     .site-image{
       width: 300px;
       height: 200px;
       max-width:90%;
     }
   }
-  .description {
-    // max-width: 93%;
-    line-height: 28px;
-  }
-  .file-name-text {
-    font-weight: bold;
-  }
-  .code-scroll-container {
-    margin-top: 20px;
-    height: 400px;
-    overflow-x: scroll;
-    overflow-y: scroll;
-    width: 93%;
-    max-width: 80vw;
-    margin: 0 auto;
-    .code-container {
-      // background-color: #000;
-      // ::ng-deep span code {
-      //   color: black;
-      // }
-    }
-  }
   .section-text {
-    margin-top: 30px;
-  }
-  .show-code-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 30px 0;
-    @media only screen and (min-width: 800px) {
-      justify-content: left;
-      .show-code-button {
-        margin-right: 30px;
+    margin-top: 50px;
+    .show-code-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: 30px 0;
+      @media only screen and (min-width: 800px) {
+        justify-content: left;
+        .show-code-button {
+          margin-right: 30px;
+        }
+      }
+    }
+    .description {
+      line-height: 28px;
+    }
+    .file-name-text {
+      font-weight: bold;
+      cursor: pointer
+    }
+    .code-scroll-container {
+      margin-top: 20px;
+      height: 400px;
+      overflow-x: scroll;
+      overflow-y: scroll;
+      width: 93%;
+      max-width: 80vw;
+      margin: 0 auto;
+      .code-container {
+        // background-color: #000;
+        // ::ng-deep span code {
+        //   color: black;
+        // }
       }
     }
   }
+
 }
