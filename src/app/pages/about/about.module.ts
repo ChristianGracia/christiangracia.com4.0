@@ -7,7 +7,7 @@ import { SkillsComponent } from "./components/skills/skills.component";
 import { JobHistoryComponent } from "./components/job-history/job-history.component";
 import { SideProjectsComponent } from "./components/side-projects/side-projects.component";
 import { RecentlyPlayedSongsComponent } from "./components/recently-played-songs/recently-played-songs.component";
-import { SiteComponent } from './components/site/site.component';
+import { SiteComponent } from "./components/site/site.component";
 @NgModule({
   declarations: [
     AboutComponent,
