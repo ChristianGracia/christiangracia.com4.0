@@ -24,6 +24,9 @@
     .description {
       margin: 5px;
       max-width: 92vw;
+      @media only screen and (max-width: 1200px) {
+        line-height: 36px;
+      }
     }
     .graph {
       margin: 10px;

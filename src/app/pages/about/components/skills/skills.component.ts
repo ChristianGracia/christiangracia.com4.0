@@ -22,12 +22,11 @@ const FRONTEND_SKILLS: string[] = [
   "Material Design",
   "Vue.js",
   "Tailwind CSS",
-  "ASP.NET",
-  "Java Web Apps",
+  "Next.js",
 ];
 
 const BACKEND_SKILLS: string[] = [
-  "RESTful APIs",
+  "REST APIs",
   "NodeJS",
   "Spring Boot",
   "Ruby on Rails",
