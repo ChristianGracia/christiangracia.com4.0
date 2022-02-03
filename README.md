@@ -1,12 +1,13 @@
 # christiangracia4.0
 
+This repo contains the code for my personal website
+
+
 # Features
 
 **Server side rendered, Dockerized, Angular 12, Material, modularized routes, lazy loading**
 
-This repo contains the code for my personal website reritten from scratch for the fourth time.
-
-this code will be live at https://www.christiangracia.com
+this code is live at https://www.christiangracia.com
 
 # API
 
@@ -19,19 +20,3 @@ link to live api: https://christiangracia-api.herokuapp.com/
 staging - https://christiangracia-staging.herokuapp.com/
 
 production - https://christiangracia.herokuapp.com/
-
-## My Previous sites
-
-most recent | **Modularized Angular + Material**
-
-code: https://github.com/ChristianGracia/christiangracia3.0
-
-second most recent | **100% TypeScript React Site with React Hooks and only functional components**
-
-live at : https://christiangracia-old.herokuapp.com/ (on a free dyno so will take a 1-2 mins to wake up)
-
-code: https://github.com/ChristianGracia/christiangracia2.0
-
-third most recent | **Javascript**
-
-code: https://github.com/ChristianGracia/christiangracia.com
