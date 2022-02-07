@@ -7,7 +7,7 @@ const JOBS: Job[] = [
     range: "Mar 2021 - Present",
     website: "https://velentium.com",
     description:
-      "Here I build full stack medical web and mobile applications with React, NodeJS, React Native, Python, and Java.",
+      "Here I build full stack medical web and mobile applications with React, NodeJS, React Native, Python, Kotlin, and Java.",
   },
   {
     company: "Magellan Jets",
