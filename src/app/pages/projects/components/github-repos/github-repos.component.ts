@@ -77,7 +77,6 @@ export class GithubReposComponent implements OnInit {
         color = "#F7B0BB";
         break;
       default:
-        color = "black";
         break;
     }
     return color;
