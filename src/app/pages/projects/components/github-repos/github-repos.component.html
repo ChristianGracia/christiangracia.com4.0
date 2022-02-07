@@ -32,7 +32,7 @@
           [ngStyle]="{ color: formatRepoLanguage(repo.language) }"
           style="margin-left: 4px"
         >
-          {{ repo.language }}
+          {{ repo.language ?? 'None' }}
         </div>
       </div>
       <div class="repo-date-container">
