@@ -17,12 +17,12 @@ const FRONTEND_SKILLS: string[] = [
   "React",
   "Angular",
   "React Native",
-  "Mobile iOS/Android",
-  "Bootstrap",
-  "Material Design",
-  "Vue.js",
-  "Tailwind CSS",
   "Next.js",
+  "Mobile iOS/Android",
+  "Material Design",
+  "Bootstrap",
+  // "Vue.js",
+  // "Tailwind CSS",
 ];
 
 const BACKEND_SKILLS: string[] = [
