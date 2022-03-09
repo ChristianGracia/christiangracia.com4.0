@@ -35,14 +35,14 @@ export class AppComponent implements AfterViewInit {
       }
     });
   }
-  public isDarkTheme: boolean = true;
+  public isDarkTheme: boolean = false;
 
   public changeTheme(event: any): void {
     this.isDarkTheme = event.checked;
-    if (!this.isDarkTheme) {
-      window.localStorage.setItem("lightTheme", "true");
+    if (this.isDarkTheme) {
+      window.localStorage.setItem("darkTheme", "true");
     } else {
-      localStorage.removeItem("lightTheme");
+      localStorage.removeItem("darkTheme");
     }
 
     if (this.isDarkTheme) {
@@ -62,9 +62,9 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const theme = window.localStorage.getItem("lightTheme");
+      const theme = window.localStorage.getItem("darkTheme");
       if (theme) {
-        this.isDarkTheme = false;
+        this.isDarkTheme = true;
       }
 
       if (this.isDarkTheme) {
