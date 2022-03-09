@@ -15,7 +15,7 @@ const ON_A_BEAT_SITE: Site = new Site(
 
 const NFL_SITE: Site = new Site(
   "Nature's Frontier Landscaping",
-  "React front-end + NodeJS back-end site I made for Nature's Frontier Landscaping. Will be rewritten soon since I made this while just learning React. Live at nflandscaping.com.",
+  "Dockerized Typescript React site live at nflandscaping.com with SSR, MUI 5, Emotion.js, and Next.js",
   "https://www.nflandscaping.com",
   [
     "https://i.imgur.com/TTgeW7Y.jpeg",
@@ -62,9 +62,9 @@ const BASH_SCRIPT_GEN: Site = new Site(
 })
 export class WebsitesComponent implements OnInit {
   public sites: Site[] = [
-    BASH_SCRIPT_GEN,
-    CHRISTIAN_GRACIA_API,
     NFL_SITE,
+    CHRISTIAN_GRACIA_API,
+    BASH_SCRIPT_GEN,
     MARKETFEELS,
     ON_A_BEAT_SITE,
   ];
