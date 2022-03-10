@@ -3,7 +3,7 @@ import { Site } from "../../../../models/site.model";
 
 const CG: Site = new Site(
   "Christiangracia.com",
-  "Every year I rewrite my website, still some things I'd like to do here. I want to add tests, more content, and further site optimization",
+  "Every year I rewrite my website, still some things I'd like to do here like add more tests, content, and further site optimization",
   "www.github.com/ChristianGracia/christiangracia.com4.0"
 );
 
@@ -15,13 +15,13 @@ const CG_API: Site = new Site(
 
 const ALGORITHMS: Site = new Site(
   "Algorithms",
-  "Doing review of Data Structures and Algorithms. Algorithms I write and Data Structure use case examples will be found in this repository",
+  "Doing review of Data Structures and Algorithms",
   "www.github.com/ChristianGracia/Algorithms"
 );
 
 const NFL_SITE: Site = new Site(
   "NF Landscaping",
-  "Rewritting this site in TypeScript + adding server side rendering. I made this site when I first started learning React and want to redo + redesign",
+  "Working with the owner of Nature's Frontier Landscaping on where to take the site next",
   "www.nflandscaping.com"
 );
 
@@ -45,11 +45,11 @@ const BASH_SCRIPT_GEN: Site = new Site(
 export class SideProjectsComponent implements OnInit {
   public sites: Site[] = [
     ALGORITHMS,
+    NFL_SITE,
     CG_API,
     CG,
     BASH_SCRIPT_GEN,
     MARKETFEELS,
-    NFL_SITE,
   ];
 
   constructor() {}

@@ -4,12 +4,15 @@ const LANGUAGES: string[] = [
   "JavaScript",
   "Java",
   "Python",
-  "C#",
-  "Ruby",
-  "Swift",
-  "C",
-  "Objective-C",
   "TypeScript",
+  "C#",
+  "C",
+  "Ruby",
+  "Rust",
+  "Kotlin",
+  "Swift",
+  "Obj-C",
+  "Bash",
   "HTML/CSS + Sass",
 ];
 
@@ -21,20 +24,25 @@ const FRONTEND_SKILLS: string[] = [
   "Mobile iOS/Android",
   "Material Design",
   "Bootstrap",
-  // "Vue.js",
-  // "Tailwind CSS",
+  "MUI",
+  // "Emotion.js",
+  "Vue.js",
+  "Tailwind CSS",
 ];
 
 const BACKEND_SKILLS: string[] = [
   "REST APIs",
   "NodeJS",
+  "GraphQL",
   "Spring Boot",
   "Ruby on Rails",
-  "GraphQL",
   "Flask",
   "Django",
   "AWS",
   "GCP",
+  "Heroku",
+  "Salesforce",
+  "SSR"
 ];
 
 const SKILLS: {
