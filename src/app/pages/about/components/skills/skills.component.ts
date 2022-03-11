@@ -42,7 +42,7 @@ const BACKEND_SKILLS: string[] = [
   "GCP",
   "Heroku",
   "Salesforce",
-  "SSR"
+  "SSR",
 ];
 
 const SKILLS: {

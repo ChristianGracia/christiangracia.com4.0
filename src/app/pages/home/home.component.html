@@ -13,9 +13,17 @@
       <app-current-song></app-current-song>
     </div>
   </div>
-  <div class="learn-more-container">
-    <a (click)="goToAboutPage()" mat-raised-button color="accent">
+  <div class="learn-more-container hover-1">
+    <!-- <a (click)="goToAboutPage()" mat-raised-button color="accent">
       Learn More
-    </a>
+    </a> -->
+    <button
+      (click)="goToAboutPage()"
+      class="show-code-button hover-1"
+      mat-raised-button
+      color="accent"
+    >
+      Learn More
+    </button>
   </div>
 </div>
