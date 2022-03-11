@@ -1,7 +1,7 @@
 <mat-toolbar class="nav-container">
   <div class="dark-mode-switch">
     <button
-      class="hide-mobile cg-site-text"
+      class="hide-mobile cg-site-text hover-1"
       mat-button
       [ngClass]="currentUrl === '' ? 'accent-color' : ''"
       aria-label="Home button with menu icon"
@@ -18,7 +18,7 @@
   <div class="nav-items hide-mobile">
     <button
       aria-label="Nav item"
-      class="nav-item nav-item-text"
+      class="nav-item nav-item-text hover-1"
       *ngFor="let link of links"
       mat-button
       (click)="goToLink(link)"

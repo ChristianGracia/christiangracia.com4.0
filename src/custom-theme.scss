@@ -348,6 +348,11 @@ $custom-light-theme: map_merge(
   .accent-color {
     color: mat-color($theme-accent);
   }
+  .hover-1 {
+    &:hover {
+      filter: brightness(85%);
+    }
+  }
 }
 .light-theme {
   @include angular-material-theme($custom-light-theme);
@@ -357,6 +362,11 @@ $custom-light-theme: map_merge(
   }
   .accent-color {
     color: mat-color($light-theme-accent);
+  }
+  .hover-1 {
+    &:hover {
+      filter: brightness(115%);
+    }
   }
 }
 

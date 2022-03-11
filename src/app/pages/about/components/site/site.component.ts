@@ -22,7 +22,6 @@ export class SiteComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.spotifyService.getSpotifyCode().subscribe((data: string) => {
-      console.log(data);
       this.code = this.domSanitizer.bypassSecurityTrustHtml(data);
     });
   }

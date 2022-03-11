@@ -74,7 +74,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   private getCurrentSong(): void {
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
-        console.log(song);
         if (song && song.length && this.songIndex === 0) {
           const checkIfAddBar =
             this.song === null || this.song.name !== song[0].name;
@@ -157,7 +156,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       }
       this.loadingSong = false;
       this.recentSongs = recentSongs;
-      console.log(recentSongs);
     });
   }
   public formatDate(date: string) {
