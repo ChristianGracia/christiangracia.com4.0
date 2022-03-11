@@ -4,9 +4,9 @@
     display: flex;
     justify-content: center;
     .site-image {
-      width: 300px;
-      height: 200px;
-      max-width: 90%;
+      // width: 300px;
+      // height: 200px;
+      // max-width: 90%;
     }
   }
   .section-text {
@@ -14,12 +14,19 @@
     .show-code-buttons {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       justify-content: space-around;
       margin: 30px 0;
       @media only screen and (min-width: 800px) {
         justify-content: left;
         .show-code-button {
           margin-right: 30px;
+          margin-top: 10px;
+        }
+      }
+      @media only screen and (max-width: 350px) {
+        .show-code-button {
+          margin-top: 10px;
         }
       }
     }
