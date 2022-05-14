@@ -14,4 +14,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
-        run: docker login -u _ -p $HEROKU_API_KEY registry.heroku.com && heroku container:push web --app christiangracia-staging && heroku container:release web --app christiangracia-staging
+        run: docker login -u _ -p --password-stdin $HEROKU_API_KEY registry.heroku.com && heroku container:push web --app christiangracia-staging && heroku container:release web --app christiangracia-staging
