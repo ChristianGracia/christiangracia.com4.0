@@ -6,7 +6,7 @@ const JOBS: Job[] = [
     company: "CoStar Group",
     range: "Mar 2022 - Present",
     website: "https://www.costargroup.com/",
-    description: "TBD",
+    description: "Currently I am working on an international real estate application with React and GraphQL.",
   },
   {
     company: "Velentium",
