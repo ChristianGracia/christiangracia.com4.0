@@ -1,5 +1,7 @@
-<div *ngIf="loadingSong" class="song-loader">
-  <div class="current-text mat-subheading-1 loading loading-animation">
+<div *ngIf="loadingSong" class="flex flex-col justify-center song-loader">
+  <div
+    class="current-text flex flex-row align-center mat-subheading-1 loading loading-animation"
+  >
     <span *ngFor="let char of loadingText">
       {{ char }}
     </span>
@@ -7,7 +9,10 @@
   <mat-spinner class="spinner" diameter="22" color="accent"></mat-spinner>
 </div>
 
-<div *ngIf="song && !loadingSong" class="song-container">
+<div
+  *ngIf="song && !loadingSong"
+  class="flex flex-col justify-center song-container"
+>
   <div class="song-row">
     <div class="song-left-col">
       <img
@@ -66,7 +71,7 @@
       <p class="song-progress-bar-text">{{ endTime }}</p>
     </div>
   </div>
-  <div class="current-text mat-display-1">
+  <div class="current-text flex flex-row align-center mat-display-1">
     <div class="shockwave-container">
       <mat-icon
         class="spotify-image"

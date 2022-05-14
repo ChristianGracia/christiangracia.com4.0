@@ -401,3 +401,10 @@ $custom-light-theme: map_merge(
 .align-center {
   align-items: center;
 }
+
+.flex-col {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}

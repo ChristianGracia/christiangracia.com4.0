@@ -3,10 +3,10 @@
     title="Current Projects"
     subHeader="Click projects below to view more"
   ></app-page-header>
-  <div class="site-container">
+  <div class="flex site-container">
     <mat-card
       *ngFor="let site of sites"
-      class="site-card mat-elevation-z6"
+      class="flex site-card mat-elevation-z6"
       (click)="openLink(site.url ?? '')"
     >
       <div class="top-row">
