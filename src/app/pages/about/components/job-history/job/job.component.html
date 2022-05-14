@@ -1,11 +1,13 @@
-<p>{{ job.company }}</p>
-<div class="close-button">
-  <button
-    class=""
-    mat-button
-    aria-label="Close view more"
-    (click)="job.viewMoreOpen = false"
-  >
-    <mat-icon>close</mat-icon>
-  </button>
-</div>
+<mat-card class="flex justify-center mat-elevation-z6 m-20">
+  <div class="close-button flex">
+    <button
+      class=""
+      mat-button
+      aria-label="Close view more"
+      (click)="job.viewMoreOpen = false"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-card-content class="card-text-container"> Coming soon </mat-card-content>
+</mat-card>
