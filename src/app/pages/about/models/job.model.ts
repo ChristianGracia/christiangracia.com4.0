@@ -1,3 +1,4 @@
+import { Application } from "./application.model";
 
 export class Job {
   constructor(
@@ -5,6 +6,7 @@ export class Job {
     public range?: string,
     public description?: string,
     public website?: string,
-    public viewMoreOpen?: boolean
+    public viewMoreOpen?: boolean,
+    public applications?: Application[]
   ) {}
 }

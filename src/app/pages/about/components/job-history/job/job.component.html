@@ -1,13 +1,29 @@
+<div class="close-button flex">
+  <button
+    class=""
+    mat-button
+    aria-label="Close view more"
+    (click)="job.viewMoreOpen = false"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
 <mat-card class="flex justify-center mat-elevation-z6 m-20">
-  <div class="close-button flex">
-    <button
-      class=""
-      mat-button
-      aria-label="Close view more"
-      (click)="job.viewMoreOpen = false"
+  <mat-card-content class="card-text-container">
+    <div
+      *ngFor="let app of job.applications"
+      class="flex flex-col justify-center app-container"
     >
-      <mat-icon>close</mat-icon>
-    </button>
-  </div>
-  <mat-card-content class="card-text-container"> Coming soon </mat-card-content>
+      <div>{{ app.name }}</div>
+      <div *ngIf="app.description">{{ app.description }}</div>
+      <div class="flex flex-row justify-center">
+        <p
+          class="language-text"
+          *ngFor="let language of app.languages; let i = index"
+        >
+          {{ app.languages[i] }}
+        </p>
+      </div>
+    </div></mat-card-content
+  >
 </mat-card>
