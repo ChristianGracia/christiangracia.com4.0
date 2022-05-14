@@ -1,4 +1,11 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import {
+  Component,
+  ComponentFactoryResolver,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+} from "@angular/core";
 import { interval } from "rxjs/internal/observable/interval";
 import { Song } from "src/app/models/song.model";
 import { SpotifyService } from "src/app/services/spotify.service";
@@ -10,29 +17,40 @@ import { formatDateAndTime } from "src/app/util/dateMethods";
   styleUrls: ["./current-song.component.scss"],
 })
 export class CurrentSongComponent implements OnInit, OnDestroy {
+  @ViewChild("lazyAnimatedIconComponent", { read: ViewContainerRef })
+  LazyAnimatedIconComponent!: ViewContainerRef;
   public song: Song | null = null;
   public recentSongs: Song[] = [];
   public loadingSong: Boolean = false;
   public songPlaying: Boolean = false;
   public timerGoing: Boolean = false;
-  constructor(private spotifyService: SpotifyService) {}
+
   public songProgress: number = 0;
   public songDuration: number = 0;
   public songIndex: number = 0;
   public endTime: string = "00:00";
   public currentTime: string = "00:00";
   public audio = new Audio();
+  public showShockwave = false;
 
   public loadingText = "Loading".split("");
   public currentText = "Playing now on my Spotify"
     .split(" ")
     .map((item) => item.split(""));
+  constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private spotifyService: SpotifyService
+  ) {}
 
   ngOnInit(): void {
     this.loadingSong = true;
-    setTimeout(() => {
+    setTimeout(async () => {
       this.getCurrentSong();
     }, 500);
+    setTimeout(() => {
+      this.showShockwave = true;
+      this.loadForm();
+    }, 1000);
   }
 
   ngOnDestroy(): void {
@@ -176,5 +194,18 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       this.audio.pause();
       this.songPlaying = false;
     }
+  }
+
+  private async loadForm() {
+    const { LazyAnimatedIconComponent } = await import(
+      "./lazy-animated-icon/lazy-animated-icon.component"
+    );
+
+    const componentFactory =
+      this.componentFactoryResolver.resolveComponentFactory(
+        LazyAnimatedIconComponent
+      );
+    this.LazyAnimatedIconComponent.clear();
+    this.LazyAnimatedIconComponent.createComponent(componentFactory);
   }
 }
