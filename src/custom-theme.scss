@@ -390,3 +390,14 @@ $custom-light-theme: map_merge(
 .cdk-visually-hidden {
   visibility: hidden;
 }
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}

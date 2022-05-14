@@ -1,16 +1,11 @@
 .nav-container {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   .dark-mode-switch {
-    display: flex;
-    align-items: center;
     .cg-site-text {
       margin-right: 5px;
     }
   }
   .nav-items {
-    display: flex;
     flex-direction: row;
     .nav-item {
       text-transform: capitalize;
