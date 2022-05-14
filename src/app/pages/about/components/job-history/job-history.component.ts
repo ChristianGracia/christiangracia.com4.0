@@ -43,6 +43,6 @@ export class JobHistoryComponent implements OnInit {
     window.open(url, "_blank");
   }
   public viewMoreJob(job: Job) {
-    console.log(job);
+    job.viewMoreOpen = !job.viewMoreOpen;
   }
 }

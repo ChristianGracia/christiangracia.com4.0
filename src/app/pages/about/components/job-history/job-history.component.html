@@ -17,7 +17,7 @@
       <div class="job-description mat-subheading-2">{{ job.description }}</div>
 
       <button
-      ngIf="!job.viewMoreOpen"
+        *ngIf="!job.viewMoreOpen"
         class=""
         mat-button
         aria-label="View more"
@@ -25,7 +25,7 @@
       >
         View More
       </button>
-      <app-job></app-job>
+      <app-job *ngIf="job.viewMoreOpen ?? false" [job]="job"></app-job>
     </div>
   </div>
 </div>
