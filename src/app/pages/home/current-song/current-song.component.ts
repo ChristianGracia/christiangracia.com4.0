@@ -31,7 +31,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   public endTime: string = "00:00";
   public currentTime: string = "00:00";
   public audio = new Audio();
-  public showShockwave = false;
 
   public loadingText = "Loading".split("");
   public currentText = "Playing now on my Spotify"
@@ -48,8 +47,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       this.getCurrentSong();
     }, 500);
     setTimeout(() => {
-      this.showShockwave = true;
-      this.loadForm();
+      this.loadAnimatedIconComponent();
     }, 1000);
   }
 
@@ -196,7 +194,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     }
   }
 
-  private async loadForm() {
+  private async loadAnimatedIconComponent() {
     const { LazyAnimatedIconComponent } = await import(
       "./lazy-animated-icon/lazy-animated-icon.component"
     );
