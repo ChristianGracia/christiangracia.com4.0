@@ -2,6 +2,7 @@ import {
   Component,
   ComponentFactoryResolver,
   OnInit,
+  ViewChild,
   ViewContainerRef,
 } from "@angular/core";
 import { LocationData } from "src/app/models/location-data.model";
@@ -14,6 +15,7 @@ import { RoutingService } from "../../services/routing.service";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+  @ViewChild("currentSongComponent", { read: ViewContainerRef })
   currentSongComponent!: ViewContainerRef;
   constructor(
     private routingService: RoutingService,
@@ -26,9 +28,9 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.sendSiteVisit();
     }, 6000);
-    setTimeout(() => {
+    setTimeout(async () => {
       this.lazyLoadSpotifyComponent();
-    }, 2000);
+    }, 3000);
   }
 
   public goToAboutPage(): void {
