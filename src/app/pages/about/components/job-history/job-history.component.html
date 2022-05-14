@@ -15,6 +15,17 @@
         <div class="company-years mat-caption">{{ job.range }}</div>
       </div>
       <div class="job-description mat-subheading-2">{{ job.description }}</div>
+
+      <button
+      ngIf="!job.viewMoreOpen"
+        class=""
+        mat-button
+        aria-label="View more"
+        (click)="viewMoreJob(job)"
+      >
+        View More
+      </button>
+      <app-job></app-job>
     </div>
   </div>
 </div>

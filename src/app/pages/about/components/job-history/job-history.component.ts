@@ -6,7 +6,9 @@ const JOBS: Job[] = [
     company: "CoStar Group",
     range: "Mar 2022 - Present",
     website: "https://www.costargroup.com/",
-    description: "Currently I am working on an international real estate application with React and GraphQL.",
+    description:
+      "Currently I am working on an international real estate application with React and GraphQL.",
+    viewMoreOpen: false,
   },
   {
     company: "Velentium",
@@ -14,6 +16,7 @@ const JOBS: Job[] = [
     website: "https://www.velentium.com",
     description:
       "Here I built full stack medical web and mobile applications with React, NodeJS, React Native, Python, Kotlin, and Java.",
+    viewMoreOpen: false,
   },
   {
     company: "Magellan Jets",
@@ -21,6 +24,7 @@ const JOBS: Job[] = [
     website: "https://www.magellanjets.com/magellan-jets-apps",
     description:
       "I built Salesforce integrated web and mobile applications with Angular, React Native, and Java as well as back-end APIs with Ruby/RoR and NodeJs.",
+    viewMoreOpen: false,
   },
 ];
 
@@ -31,10 +35,14 @@ const JOBS: Job[] = [
 })
 export class JobHistoryComponent implements OnInit {
   public jobs: Job[] = JOBS;
+
   constructor() {}
 
   ngOnInit() {}
   public openSite(url: string) {
     window.open(url, "_blank");
+  }
+  public viewMoreJob(job: Job) {
+    console.log(job);
   }
 }
