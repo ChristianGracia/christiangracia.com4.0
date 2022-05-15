@@ -38,7 +38,7 @@ export class RecentlyPlayedSongsComponent implements OnInit {
     this.spotifyService.getRecentlyPlayed().subscribe(
       (songs: Song[]) => {
         this.dataSource = new MatTableDataSource<any>(songs);
-        setTimeout(() => (this.dataSource.paginator = this.paginator));
+        this.dataSource.paginator = this.paginator;
         this.songs = songs;
         this.loadingSongs = false;
       },

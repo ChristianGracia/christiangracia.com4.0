@@ -8,6 +8,8 @@ import { JobHistoryComponent } from "./components/job-history/job-history.compon
 import { SideProjectsComponent } from "./components/side-projects/side-projects.component";
 import { RecentlyPlayedSongsComponent } from "./components/recently-played-songs/recently-played-songs.component";
 import { SiteComponent } from "./components/site/site.component";
+import { JobComponent } from "./components/job-history/job/job.component";
+
 @NgModule({
   declarations: [
     AboutComponent,
@@ -16,6 +18,7 @@ import { SiteComponent } from "./components/site/site.component";
     SideProjectsComponent,
     RecentlyPlayedSongsComponent,
     SiteComponent,
+    JobComponent,
   ],
   imports: [AboutRoutingModule, SharedComponentsModule, MaterialModule],
 })

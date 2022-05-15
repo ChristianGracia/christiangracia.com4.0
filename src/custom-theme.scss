@@ -321,6 +321,8 @@ $custom-light-theme: map_merge(
   $accent: map-get($theme, accent);
 
   .animated-line {
+    will-change: transform;
+    transform: translateZ(0);
     @keyframes travel {
       0% {
         background-position: -380px 0;
@@ -389,4 +391,41 @@ $custom-light-theme: map_merge(
 }
 .cdk-visually-hidden {
   visibility: hidden;
+}
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.m-5 {
+  margin: 5px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.m-28 {
+  margin: 28px;
+}
+.clickable {
+  cursor: pointer;
 }

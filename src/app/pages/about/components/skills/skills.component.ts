@@ -32,7 +32,7 @@ const FRONTEND_SKILLS: string[] = [
 
 const BACKEND_SKILLS: string[] = [
   "REST APIs",
-  "NodeJS",
+  "Node.js",
   "GraphQL",
   "Spring Boot",
   "Ruby on Rails",

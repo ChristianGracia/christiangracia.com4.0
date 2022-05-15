@@ -1,5 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { OverlayContainer } from "@angular/cdk/overlay";
+import {
+  Component,
+  ComponentFactoryResolver,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewContainerRef,
+} from "@angular/core";
 import { RoutingService } from "src/app/services/routing.service";
 @Component({
   selector: "app-header",
@@ -7,6 +15,8 @@ import { RoutingService } from "src/app/services/routing.service";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild("socialMediaLinksComponent", { read: ViewContainerRef })
+  socialMediaLinksComponent!: ViewContainerRef;
   @Output()
   public sidenavToggle = new EventEmitter<void>();
   @Output()
@@ -14,9 +24,14 @@ export class HeaderComponent implements OnInit {
   @Input() public isDarkTheme: boolean = false;
   public links: string[] = ["about", "projects", "contact"];
   @Input() public currentUrl: string = "";
-  constructor(private routingService: RoutingService) {}
+  constructor(
+    private routingService: RoutingService,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.lazyLoadSocialMediaComponent();
+  }
   public onToggleSidenav(): void {
     this.sidenavToggle.emit();
   }
@@ -25,5 +40,18 @@ export class HeaderComponent implements OnInit {
   }
   public goToLink(page: string): void {
     this.routingService.navigateToPage(page);
+  }
+
+  private async lazyLoadSocialMediaComponent() {
+    const { SocialMediaLinksComponent } = await import(
+      "../social-media-links/social-media-links.component"
+    );
+
+    const componentFactory =
+      this.componentFactoryResolver.resolveComponentFactory(
+        SocialMediaLinksComponent
+      );
+    this.socialMediaLinksComponent.clear();
+    this.socialMediaLinksComponent.createComponent(componentFactory);
   }
 }

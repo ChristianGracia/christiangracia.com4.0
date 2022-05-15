@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Site } from "../../../../models/site.model";
+import { Site } from "../../../../shared-components/models/site.model";
 
 const CG: Site = new Site(
   "Christiangracia.com",

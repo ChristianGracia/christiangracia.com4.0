@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { GithubService } from "src/app/services/github.service";
-import { Commit } from "src/app/models/commit.model";
+import { GithubService } from "src/app/shared-components/services/github.service";
+import { Commit } from "src/app/shared-components/models/commit.model";
 import { formatDateAndTime } from "src/app/util/dateMethods";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
@@ -45,7 +45,7 @@ export class RepoCommitModalComponent implements OnInit {
       .getAllCommitsOfRepo(this.data.repo, 1000)
       .subscribe((data) => {
         this.dataSource = new MatTableDataSource<any>(data);
-        setTimeout(() => (this.dataSource.paginator = this.paginator));
+        this.dataSource.paginator = this.paginator;
         this.commits = data;
         this.totalCommits = this.commits.length;
         this.loadingCommits = false;
