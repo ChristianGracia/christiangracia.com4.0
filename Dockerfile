@@ -4,6 +4,7 @@ ARG ENV=prod
 
 WORKDIR /tmp
 ADD package.json ./package.json
+ADD package-lock.json ./package-lock.json
 
 RUN npm ci
 
