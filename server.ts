@@ -1,3 +1,5 @@
+import "zone.js/dist/zone-node";
+
 import * as express from "express";
 import { join } from "path";
 
