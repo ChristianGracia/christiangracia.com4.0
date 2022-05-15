@@ -1,31 +1,19 @@
 .home-container {
-  position: relative;
-  height: 85vh;
-
-  margin: 1px;
-
-  .learn-more-container {
-    margin: 6px 0 20px 0;
-  }
-  .song-container {
-    margin: 5px;
-  }
-  .info-container {
-    margin: 20px;
-    .name {
-      margin: 5px;
-    }
-    .description {
-      margin: 5px;
-      max-width: 92vw;
-      @media only screen and (max-width: 1200px) {
-        line-height: 30px;
-      }
-    }
-    .graph {
-      margin: 10px;
-      height: 2px;
-      max-width: calc(500px + 110 * ((100vw - 320px) / 680));
+  position: absolute;
+  top: 20vh;
+  .description {
+    @media only screen and (max-width: 1200px) {
+      line-height: 28px;
     }
   }
+  .graph {
+    height: 2px;
+    margin: 8px 0;
+    max-width: calc(500px + 110 * ((100vw - 320px) / 680));
+  }
+}
+.learn-more-container {
+  position: absolute;
+  width: 100%;
+  bottom: 8vh;
 }

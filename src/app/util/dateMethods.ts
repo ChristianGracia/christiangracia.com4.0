@@ -17,4 +17,8 @@ const formatDateAndTime = (date: string) => {
   );
 };
 
-export { militaryTimeConverter, formatDateAndTime };
+const formatHHMMString = (timestamp: number) => {
+  return new Date(timestamp * 1000).toTimeString().split(" ")[0].substring(3);
+};
+
+export { militaryTimeConverter, formatDateAndTime, formatHHMMString };

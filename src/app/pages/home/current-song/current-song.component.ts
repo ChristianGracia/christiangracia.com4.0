@@ -1,15 +1,8 @@
-import {
-  Component,
-  ComponentFactoryResolver,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-  ViewContainerRef,
-} from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { interval } from "rxjs/internal/observable/interval";
 import { Song } from "src/app/models/song.model";
 import { SpotifyService } from "src/app/services/spotify.service";
-import { formatDateAndTime } from "src/app/util/dateMethods";
+import { formatDateAndTime, formatHHMMString } from "src/app/util/dateMethods";
 
 @Component({
   selector: "app-current-song",
@@ -17,13 +10,11 @@ import { formatDateAndTime } from "src/app/util/dateMethods";
   styleUrls: ["./current-song.component.scss"],
 })
 export class CurrentSongComponent implements OnInit, OnDestroy {
-  @ViewChild("lazyAnimatedIconComponent", { read: ViewContainerRef })
-  LazyAnimatedIconComponent!: ViewContainerRef;
   public song: Song | null = null;
   public recentSongs: Song[] = [];
-  public loadingSong: Boolean = false;
-  public songPlaying: Boolean = false;
-  public timerGoing: Boolean = false;
+  public loadingSong: boolean = false;
+  public songPlaying: boolean = false;
+  public timerGoing: boolean = false;
 
   public songProgress: number = 0;
   public songDuration: number = 0;
@@ -36,19 +27,13 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   public currentText = "Playing now on my Spotify"
     .split(" ")
     .map((item) => item.split(""));
-  constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
-    private spotifyService: SpotifyService
-  ) {}
+  constructor(private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {
     this.loadingSong = true;
     setTimeout(async () => {
       this.getCurrentSong();
     }, 500);
-    setTimeout(() => {
-      this.loadAnimatedIconComponent();
-    }, 1000);
   }
 
   ngOnDestroy(): void {
@@ -65,10 +50,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       if (!this.song?.playedAt || (this.song?.playedAt && this.songPlaying)) {
         this.songProgress += second;
       }
-      this.currentTime = new Date(this.songProgress * 1000)
-        .toTimeString()
-        .split(" ")[0]
-        .substring(3);
+      this.currentTime = formatHHMMString(this.songProgress);
 
       counter += 1;
 
@@ -96,14 +78,8 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.song = song[0];
           this.songProgress = this.song.progress / 1000;
           this.songDuration = this.song.duration / 1000;
-          this.currentTime = new Date(this.songProgress * 1000)
-            .toTimeString()
-            .split(" ")[0]
-            .substring(3);
-          this.endTime = new Date(this.songDuration * 1000)
-            .toTimeString()
-            .split(" ")[0]
-            .substring(3);
+          this.currentTime = formatHHMMString(this.songProgress);
+          this.endTime = formatHHMMString(this.songDuration);
 
           if (checkIfAddBar) {
             this.audio.pause();
@@ -135,14 +111,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     }
     this.songProgress = 0;
     this.songDuration = 30;
-    this.currentTime = new Date(this.songProgress * 1000)
-      .toTimeString()
-      .split(" ")[0]
-      .substring(3);
-    this.endTime = new Date(this.songDuration * 1000)
-      .toTimeString()
-      .split(" ")[0]
-      .substring(3);
+    this.currentTime = formatHHMMString(this.songProgress);
+    this.endTime = formatHHMMString(this.songDuration);
+
     this.audio.pause();
     this.audio.src = "";
     this.audio = new Audio();
@@ -160,14 +131,8 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
         this.song = recentSongs.length > 0 ? recentSongs[0] : null;
         this.songProgress = 0;
         this.songDuration = 30;
-        this.currentTime = new Date(this.songProgress * 1000)
-          .toTimeString()
-          .split(" ")[0]
-          .substring(3);
-        this.endTime = new Date(this.songDuration * 1000)
-          .toTimeString()
-          .split(" ")[0]
-          .substring(3);
+        this.currentTime = formatHHMMString(this.songProgress);
+        this.endTime = formatHHMMString(this.songDuration);
         this.addTimeProgressBar();
       }
       this.loadingSong = false;
@@ -192,18 +157,5 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       this.audio.pause();
       this.songPlaying = false;
     }
-  }
-
-  private async loadAnimatedIconComponent() {
-    const { LazyAnimatedIconComponent } = await import(
-      "./lazy-animated-icon/lazy-animated-icon.component"
-    );
-
-    const componentFactory =
-      this.componentFactoryResolver.resolveComponentFactory(
-        LazyAnimatedIconComponent
-      );
-    this.LazyAnimatedIconComponent.clear();
-    this.LazyAnimatedIconComponent.createComponent(componentFactory);
   }
 }

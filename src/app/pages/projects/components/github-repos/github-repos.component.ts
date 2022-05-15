@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { Repo } from "src/app/models/github-repo.model";
-import { GithubService } from "src/app/services/github.service";
+import { Repo } from "src/app/shared-components/models/github-repo.model";
+import { GithubService } from "src/app/shared-components/services/github.service";
 import { formatDateAndTime } from "src/app/util/dateMethods";
 import { RepoCommitModalComponent } from "../../modals/repo-commit-modal/repo-commit-modal.component";
 

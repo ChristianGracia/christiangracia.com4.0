@@ -1,25 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LazyAnimatedIconComponent } from './lazy-animated-icon.component';
+import { AnimatedIconComponent } from "./lazy-animated-icon.component";
 
-describe('LazyAnimatedIconComponent', () => {
-  let component: LazyAnimatedIconComponent;
-  let fixture: ComponentFixture<LazyAnimatedIconComponent>;
+describe("AnimatedIconComponent", () => {
+  let component: AnimatedIconComponent;
+  let fixture: ComponentFixture<AnimatedIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LazyAnimatedIconComponent ]
-    })
-    .compileComponents();
+      declarations: [AnimatedIconComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LazyAnimatedIconComponent);
+    fixture = TestBed.createComponent(AnimatedIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
