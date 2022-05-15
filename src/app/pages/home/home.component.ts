@@ -25,11 +25,11 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    setTimeout(async () => {
-      this.sendSiteVisit();
-    }, 6000);
-    setTimeout(async () => {
+    setTimeout(() => {
       this.lazyLoadSpotifyComponent();
+      setTimeout(() => {
+        this.sendSiteVisit();
+      }, 3000);
     }, 3000);
   }
 

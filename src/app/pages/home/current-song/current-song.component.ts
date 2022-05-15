@@ -31,7 +31,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadingSong = true;
-    setTimeout(async () => {
+    setTimeout(() => {
       this.getCurrentSong();
     }, 500);
   }
@@ -91,7 +91,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.loadingSong = false;
         }
         if (this.recentSongs.length === 0) {
-          setTimeout(() => this.checkRecentlyPlayed(), 500);
+          setTimeout(() => this.checkRecentlyPlayed(), 1000);
         }
       },
       (err) => {
