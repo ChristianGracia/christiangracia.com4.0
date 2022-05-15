@@ -9,12 +9,23 @@
     >
       christiangracia.com
     </button>
-    <mat-icon [color]="!isDarkTheme ? 'accent' : ''">light_mode</mat-icon>
-    <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event)">
-    </mat-slide-toggle>
-    <mat-icon [color]="isDarkTheme ? 'accent' : ''">dark_mode</mat-icon>
+    <div class="flex flex-row justify-center align-center">
+      <div>
+        <mat-icon
+          [color]="!isDarkTheme ? 'accent' : ''"
+          svgIcon="assets:light_mode"
+        ></mat-icon>
+      </div>
+      <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event)">
+      </mat-slide-toggle>
+      <div>
+        <mat-icon
+          [color]="isDarkTheme ? 'accent' : ''"
+          svgIcon="assets:dark_mode"
+        ></mat-icon>
+      </div>
+    </div>
   </div>
-  <!-- <ng-template #socialMediaLinksComponent></ng-template> -->
   <app-social-media-links></app-social-media-links>
   <div class="flex flex-row nav-items hide-mobile">
     <button
@@ -39,7 +50,7 @@
       aria-label="Home button with menu icon"
       (click)="onToggleSidenav()"
     >
-      <mat-icon>menu</mat-icon>
+      <mat-icon svgIcon="assets:menu">menu</mat-icon>
     </button>
   </div>
 </mat-toolbar>

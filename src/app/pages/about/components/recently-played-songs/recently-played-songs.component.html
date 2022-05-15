@@ -46,9 +46,11 @@
             class="play-button"
             color="accent"
             *ngIf="element.previewUrl"
+            svgIcon="assets:{{
+              !element.isPlaying ? 'play_circle' : 'pause_circle'
+            }}"
           >
-            {{ !element.isPlaying ? "play_circle_outline" : "pause" }}</mat-icon
-          >
+          </mat-icon>
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

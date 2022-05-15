@@ -1,4 +1,5 @@
 @import "~@angular/material/theming";
+@import "./assets/fonts/fonts.scss";
 
 // min px value, max second value
 $display-4-font-size: calc(36px + 42 * ((100vw - 320px) / 1100));
