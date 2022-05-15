@@ -19,6 +19,21 @@ import { NavigationEnd, Router } from "@angular/router";
 export class AppComponent implements AfterViewInit {
   public loaded: Boolean = false;
   public currentUrl: string = "";
+
+  private icons: string[] = [
+    "github",
+    "twitter",
+    "linkedin",
+    "fast_forward",
+    "fast_rewind",
+    "light_mode",
+    "dark_mode",
+    "headphones",
+    "play_circle",
+    "pause_circle",
+    "menu",
+    "close",
+  ];
   constructor(
     public overlayContainer: OverlayContainer,
     private matIconRegistry: MatIconRegistry,
@@ -82,28 +97,14 @@ export class AppComponent implements AfterViewInit {
     }
   }
   private initializeImages() {
-    this.matIconRegistry.addSvgIconInNamespace(
-      "assets",
-      "linkedin",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        "assets/images/linkedin.svg"
-      )
-    );
-
-    this.matIconRegistry.addSvgIconInNamespace(
-      "assets",
-      "twitter",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        "assets/images/twitter.svg"
-      )
-    );
-
-    this.matIconRegistry.addSvgIconInNamespace(
-      "assets",
-      "github",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        "assets/images/github.svg"
-      )
-    );
+    this.icons.forEach((icon) => {
+      this.matIconRegistry.addSvgIconInNamespace(
+        "assets",
+        icon.toString(),
+        this.domSanitizer.bypassSecurityTrustResourceUrl(
+          `assets/images/${icon}.svg`
+        )
+      );
+    });
   }
 }

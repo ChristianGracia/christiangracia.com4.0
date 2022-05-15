@@ -16,8 +16,6 @@ import { RoutingService } from "src/app/services/routing.service";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-  // @ViewChild("socialMediaLinksComponent", { read: ViewContainerRef })
-  // socialMediaLinksComponent!: ViewContainerRef;
   @Output()
   public sidenavToggle = new EventEmitter<void>();
   @Output()
@@ -29,9 +27,7 @@ export class HeaderComponent implements OnInit {
     private routingService: RoutingService // private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
-  ngOnInit() {
-    // this.lazyLoadSocialMediaComponent();
-  }
+  ngOnInit() {}
   public onToggleSidenav(): void {
     this.sidenavToggle.emit();
   }
@@ -41,17 +37,4 @@ export class HeaderComponent implements OnInit {
   public goToLink(page: string): void {
     this.routingService.navigateToPage(page);
   }
-
-  // private async lazyLoadSocialMediaComponent() {
-  //   const { SocialMediaLinksComponent } = await import(
-  //     "../social-media-links/social-media-links.component"
-  //   );
-
-  //   const componentFactory =
-  //     this.componentFactoryResolver.resolveComponentFactory(
-  //       SocialMediaLinksComponent
-  //     );
-  //   this.socialMediaLinksComponent.clear();
-  //   this.socialMediaLinksComponent.createComponent(componentFactory);
-  // }
 }
