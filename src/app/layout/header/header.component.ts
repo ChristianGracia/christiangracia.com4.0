@@ -1,22 +1,23 @@
 import {
   Component,
-  ComponentFactoryResolver,
+  // ComponentFactoryResolver,
   EventEmitter,
   Input,
   OnInit,
+  // ViewChild,
+  // ViewContainerRef,
   Output,
-  ViewChild,
-  ViewContainerRef,
 } from "@angular/core";
 import { RoutingService } from "src/app/services/routing.service";
+
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-  @ViewChild("socialMediaLinksComponent", { read: ViewContainerRef })
-  socialMediaLinksComponent!: ViewContainerRef;
+  // @ViewChild("socialMediaLinksComponent", { read: ViewContainerRef })
+  // socialMediaLinksComponent!: ViewContainerRef;
   @Output()
   public sidenavToggle = new EventEmitter<void>();
   @Output()
@@ -25,12 +26,11 @@ export class HeaderComponent implements OnInit {
   public links: string[] = ["about", "projects", "contact"];
   @Input() public currentUrl: string = "";
   constructor(
-    private routingService: RoutingService,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private routingService: RoutingService // private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
   ngOnInit() {
-    this.lazyLoadSocialMediaComponent();
+    // this.lazyLoadSocialMediaComponent();
   }
   public onToggleSidenav(): void {
     this.sidenavToggle.emit();
@@ -42,16 +42,16 @@ export class HeaderComponent implements OnInit {
     this.routingService.navigateToPage(page);
   }
 
-  private async lazyLoadSocialMediaComponent() {
-    const { SocialMediaLinksComponent } = await import(
-      "../social-media-links/social-media-links.component"
-    );
+  // private async lazyLoadSocialMediaComponent() {
+  //   const { SocialMediaLinksComponent } = await import(
+  //     "../social-media-links/social-media-links.component"
+  //   );
 
-    const componentFactory =
-      this.componentFactoryResolver.resolveComponentFactory(
-        SocialMediaLinksComponent
-      );
-    this.socialMediaLinksComponent.clear();
-    this.socialMediaLinksComponent.createComponent(componentFactory);
-  }
+  //   const componentFactory =
+  //     this.componentFactoryResolver.resolveComponentFactory(
+  //       SocialMediaLinksComponent
+  //     );
+  //   this.socialMediaLinksComponent.clear();
+  //   this.socialMediaLinksComponent.createComponent(componentFactory);
+  // }
 }
