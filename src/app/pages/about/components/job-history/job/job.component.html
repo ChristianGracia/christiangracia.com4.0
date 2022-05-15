@@ -12,18 +12,19 @@
   <mat-card-content class="card-text-container">
     <div
       *ngFor="let app of job.applications"
-      class="flex flex-col justify-center app-container"
+      class="flex flex-col justify-center align-center app-container"
     >
       <div>{{ app.name }}</div>
-      <div *ngIf="app.description">{{ app.description }}</div>
-      <div class="flex flex-row justify-center">
+      <div class="mat-display-2">Coming Soon</div>
+      <!-- <div *ngIf="app.description">{{ app.description }}</div> -->
+      <!-- <div class="flex flex-row justify-center">
         <p
           class="language-text"
           *ngFor="let language of app.languages; let i = index"
         >
           {{ app.languages[i] }}
         </p>
-      </div>
+      </div> -->
     </div></mat-card-content
   >
 </mat-card>

@@ -30,9 +30,7 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    setTimeout(() => {
-      this.lazyLoadSocialMediaComponent();
-    }, 3000);
+    this.lazyLoadSocialMediaComponent();
   }
   public onToggleSidenav(): void {
     this.sidenavToggle.emit();

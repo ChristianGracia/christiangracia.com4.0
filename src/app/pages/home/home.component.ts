@@ -1,6 +1,7 @@
 import {
   Component,
   ComponentFactoryResolver,
+  OnDestroy,
   OnInit,
   ViewChild,
   ViewContainerRef,
@@ -14,7 +15,7 @@ import { RoutingService } from "../../services/routing.service";
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild("currentSongComponent", { read: ViewContainerRef })
   currentSongComponent!: ViewContainerRef;
   constructor(
@@ -25,12 +26,11 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.lazyLoadSpotifyComponent();
-      setTimeout(() => {
-        this.sendSiteVisit();
-      }, 3000);
-    }, 3000);
+    this.lazyLoadSpotifyComponent();
+  }
+
+  ngOnDestroy(): void {
+    this.sendSiteVisit();
   }
 
   public goToAboutPage(): void {

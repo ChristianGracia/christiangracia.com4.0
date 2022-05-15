@@ -27,7 +27,8 @@
     "release-p": "heroku container:release web --app christiangracia",
     "push-s": "heroku container:push web --app christiangracia-staging",
     "release-s": "heroku container:release web --app christiangracia-staging",
-    "rebuild": "docker-compose down && docker-compose build && docker-compose up"
+    "rebuild": "docker-compose down && docker-compose build && docker-compose up",
+    "docker-login": "heroku authorizations:create"
   },
   "private": true,
   "dependencies": {

@@ -15,7 +15,7 @@ export class SocialMediaLinksComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit() {
-    setTimeout(() => this.renderActiveLinkHighlight(), 2000);
+    this.renderActiveLinkHighlight();
   }
 
   ngOnDestroy() {

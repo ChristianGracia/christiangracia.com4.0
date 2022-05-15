@@ -321,6 +321,8 @@ $custom-light-theme: map_merge(
   $accent: map-get($theme, accent);
 
   .animated-line {
+    will-change: transform;
+    transform: translateZ(0);
     @keyframes travel {
       0% {
         background-position: -380px 0;
