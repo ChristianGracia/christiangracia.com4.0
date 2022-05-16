@@ -1,24 +1,15 @@
 .contact-form {
   max-width: 500px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
   mat-form-field {
     width: 280px;
   }
   .submit-button-container {
     margin-top: 5px;
     margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
   }
 }
 .email-received-container {
   margin-top: 40vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }

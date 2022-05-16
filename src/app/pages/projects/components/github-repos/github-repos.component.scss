@@ -1,17 +1,11 @@
 .github-container {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap;
   .repo-card {
     width: 100%;
     max-width: 99vw;
     @media (min-width: 500px) {
       max-width: 320px;
     }
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+
     margin-bottom: 15px;
     @media (min-width: 500px) {
       margin: 15px;
@@ -30,8 +24,6 @@
       }
     }
     .repo-language-container {
-      display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
       .repo-language-text {
         font-weight: bold;
@@ -51,27 +43,8 @@
     }
   }
 }
-// .paginator-container {
-//   display: flex;
-//   justify-content: center;
-//   margin-top: 20px;
-// }
-// .api-description-container {
-//   text-align: center;
-//   margin-top: 12px;
-//   .api-description-text {
-//     font-style: italic;
-//   }
-//   .api-description-url {
-//     margin-top: 15px;
-//     font-style: normal;
-//     font-weight: bold;
-//   }
-// }
 
 .repo-loader-container {
-  display: flex;
-  justify-content: center;
   margin-top: 60px;
 }
 .dark-theme .mat-paginator {

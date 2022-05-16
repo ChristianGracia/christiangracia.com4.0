@@ -1,6 +1,9 @@
 <app-page-header title="Skills"></app-page-header>
-<div class="skills-container">
-  <mat-card *ngFor="let skill of skills" class="skill-card mat-elevation-z6">
+<div class="flex flex-row flex-wrap justify-space-around">
+  <mat-card
+    *ngFor="let skill of skills"
+    class="flex flex-row skill-card mat-elevation-z6"
+  >
     <mat-card-title class="accent-color mat-title skill-title">
       {{ skill.label }}
     </mat-card-title>

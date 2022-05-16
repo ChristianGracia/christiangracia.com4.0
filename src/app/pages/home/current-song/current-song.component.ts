@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { environment } from "@environments/environment";
 import { interval } from "rxjs/internal/observable/interval";
 import { Song } from "src/app/models/song.model";
 import { SpotifyService } from "src/app/services/spotify.service";
@@ -10,6 +11,8 @@ import { formatDateAndTime, formatHHMMString } from "src/app/util/dateMethods";
   styleUrls: ["./current-song.component.scss"],
 })
 export class CurrentSongComponent implements OnInit, OnDestroy {
+  public imagePrefix = environment.spotify.imageUrl;
+  public previewUrlPrefix = environment.spotify.previewUrl;
   public song: Song | null = null;
   public recentSongs: Song[] = [];
   public loadingSong: boolean = false;
@@ -85,12 +88,12 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
             this.audio.src = "";
             this.audio = new Audio();
             this.addTimeProgressBar();
-            this.audio.src = this.song.previewUrl;
+            this.audio.src = this.previewUrlPrefix + this.song.previewUrl;
           }
           this.loadingSong = false;
         }
         if (this.recentSongs.length === 0) {
-          this.checkRecentlyPlayed();
+          setTimeout(() => this.checkRecentlyPlayed(), 100);
         }
       },
       (err) => {
@@ -118,7 +121,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.audio = new Audio();
     this.songIndex = this.songIndex + (direction === "forward" ? 1 : -1);
     this.song = this.recentSongs[this.songIndex];
-    this.audio.src = this.song.previewUrl ? this.song.previewUrl : "";
+    this.audio.src = this.song.previewUrl
+      ? this.previewUrlPrefix + this.song.previewUrl
+      : "";
     if (this.songPlaying) {
       this.audio.play();
     }
@@ -145,7 +150,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   public playPreviewOfSong(): void {
     if (!this.songPlaying) {
       if (!this.audio.src) {
-        this.audio.src = this.song?.previewUrl ?? "";
+        this.audio.src = this.previewUrlPrefix + this.song?.previewUrl ?? "";
         this.audio.load();
         this.audio.play();
       } else {

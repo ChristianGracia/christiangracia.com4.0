@@ -377,8 +377,7 @@ $custom-light-theme: map_merge(
   font-size: 20px;
 }
 .mat-raised-button,
-.mat-stroked-button,
-.mat-flat-button {
+.mat-stroked-button {
   padding: 0 1.15em;
   margin: 0 0.65em;
   min-width: 3em;
@@ -395,6 +394,17 @@ $custom-light-theme: map_merge(
 }
 .flex {
   display: flex;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .justify-center {

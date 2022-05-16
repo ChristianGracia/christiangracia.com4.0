@@ -13,15 +13,15 @@
   *ngIf="song && !loadingSong"
   class="flex flex-col justify-center song-container"
 >
-  <div class="song-row">
-    <div class="song-left-col">
+  <div class="flex flex-row align-center song-row">
+    <div class="flex flex-row align-center song-left-col">
       <img
         height="36px"
         width="36px"
-        [src]="song.images[1]"
+        [src]="imagePrefix + song.images[0]"
         alt="{{ song.artist }} album image"
       />
-      <div class="song-info-container">
+      <div class="flex flex-col justify-center song-info-container">
         <span class="accent-color mat-caption song-name"
           >{{
             song.name.length > 25
@@ -32,7 +32,7 @@
         <span class="mat-caption song-name">{{ song.artist }}</span>
       </div>
     </div>
-    <div class="song-right-col">
+    <div class="flex flex-row align-center song-right-col">
       <mat-icon
         class="rewind-button clickable"
         (click)="skipSong('back')"
@@ -56,7 +56,7 @@
       ></mat-icon>
     </div>
   </div>
-  <div class="song-progress-bar-container">
+  <div class="flex flex-col song-progress-bar-container">
     <mat-progress-bar
       aria-valuemin="00:00"
       aria-valuemax="30:00"
@@ -65,7 +65,7 @@
       mode="determinate"
       value="{{ (songProgress / songDuration) * 100 }}"
     ></mat-progress-bar>
-    <div class="song-progress-bar-text-container">
+    <div class="flex flex-row song-progress-bar-text-container">
       <p class="song-progress-bar-text">{{ currentTime }}</p>
       <p></p>
       <p class="song-progress-bar-text">{{ endTime }}</p>

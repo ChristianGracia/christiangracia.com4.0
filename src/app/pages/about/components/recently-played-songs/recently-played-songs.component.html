@@ -1,9 +1,11 @@
 <app-page-header
-  *ngIf="!loadingSongs"
   title="Recently Played"
   subHeader="Click a row to preview song"
 ></app-page-header>
-<div *ngIf="loadingSongs" class="song-loader">
+<div
+  *ngIf="loadingSongs || !songs.length"
+  class="flex flex-col align-center justify-center song-loader"
+>
   <mat-spinner class="spinner" diameter="22" color="accent"></mat-spinner>
 </div>
 <div class="songs-container">
@@ -18,7 +20,7 @@
           <img
             height="36px"
             width="36px"
-            [src]="element.images[0]"
+            [src]="imagePrefix + element.images[0]"
             alt="{{ element.artist }} album image"
           />
         </td>

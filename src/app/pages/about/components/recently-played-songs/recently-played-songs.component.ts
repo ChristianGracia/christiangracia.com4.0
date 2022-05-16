@@ -4,6 +4,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { Song } from "src/app/models/song.model";
 import { SpotifyService } from "src/app/services/spotify.service";
 import { formatDateAndTime } from "src/app/util/dateMethods";
+import { environment } from "@environments/environment";
 
 @Component({
   selector: "app-recently-played-songs",
@@ -24,6 +25,9 @@ export class RecentlyPlayedSongsComponent implements OnInit {
   public songPlaying: Boolean = false;
   public audio = new Audio();
 
+  public imagePrefix = environment.spotify.imageUrl;
+  public previewUrlPrefix = environment.spotify.previewUrl;
+
   @ViewChild(MatPaginator, { static: false }) paginator: any;
 
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
@@ -38,7 +42,7 @@ export class RecentlyPlayedSongsComponent implements OnInit {
     this.spotifyService.getRecentlyPlayed().subscribe(
       (songs: Song[]) => {
         this.dataSource = new MatTableDataSource<any>(songs);
-        this.dataSource.paginator = this.paginator;
+        setTimeout(() => (this.dataSource.paginator = this.paginator), 100);
         this.songs = songs;
         this.loadingSongs = false;
       },
@@ -55,7 +59,7 @@ export class RecentlyPlayedSongsComponent implements OnInit {
   public playPreviewOfSong(song: Song): void {
     const index = 0;
     if (!song.isPlaying) {
-      this.audio.src = song.previewUrl;
+      this.audio.src = this.previewUrlPrefix + song.previewUrl;
       this.audio.load();
       this.songs.forEach((item) => {
         if (item.previewUrl === song.previewUrl) {

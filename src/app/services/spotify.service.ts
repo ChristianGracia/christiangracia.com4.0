@@ -13,20 +13,12 @@ export class SpotifyService {
   public getCurrentSong() {
     return this.http
       .get<Song[]>(environment.apiUrl + "/spotify/currently-playing")
-      .pipe(
-        map((data: Song[]) => {
-          return data;
-        })
-      );
+      .pipe(map((data: Song[]) => data));
   }
   public getRecentlyPlayed() {
     return this.http
       .get<Song[]>(environment.apiUrl + "/spotify/recently-played")
-      .pipe(
-        map((data: Song[]) => {
-          return data;
-        })
-      );
+      .pipe(map((data: Song[]) => data));
   }
   public getSpotifyCode() {
     return this.http.get<string>(

@@ -11,13 +11,10 @@ export class EmailService {
   constructor(private http: HttpClient) {}
 
   public sendContactEmail(emailMessage: EmailMessage) {
-    const { name, email, message } = emailMessage;
-    let emailBody = {
-      name: name,
-      email: email,
-      message: message,
-    };
-    return this.http.post(environment.apiUrl + "/email/send-email", emailBody);
+    return this.http.post(
+      environment.apiUrl + "/email/send-email",
+      emailMessage
+    );
   }
 
   public sendSiteVisitEmail(locationData: LocationData) {

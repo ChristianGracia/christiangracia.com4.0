@@ -1,22 +1,11 @@
 .job-history-page-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   .job-history-container {
     max-width: 900px;
     margin: 0 auto;
 
     .company-card {
       margin-bottom: 16px;
-      display: flex;
-      flex-direction: column;
 
-      .top-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
       .company-name {
         font-style: italic;
         font-weight: bold;
