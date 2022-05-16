@@ -1,20 +1,14 @@
-.skills-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  .skill-card {
-    max-width: 450px;
-    @media only screen and (min-width: 900px) {
-      max-width: 250px;
-    }
-    margin-bottom: 20px;
-    .card-content {
-      font-weight: bold;
-      line-height: 28px;
-    }
-    .skill-title {
-      text-transform: capitalize;
-    }
+.skill-card {
+  max-width: 450px;
+  @media only screen and (min-width: 900px) {
+    max-width: 250px;
+  }
+  margin-bottom: 20px;
+  .card-content {
+    font-weight: bold;
+    line-height: 28px;
+  }
+  .skill-title {
+    text-transform: capitalize;
   }
 }

@@ -10,10 +10,8 @@ export class LocationService {
   constructor(private http: HttpClient) {}
 
   public getLocationJSON() {
-    return this.http.get<LocationData>("https://json.geoiplookup.io/").pipe(
-      map((data: LocationData) => {
-        return LocationData.fromJSON(data);
-      })
-    );
+    return this.http
+      .get<LocationData>("https://json.geoiplookup.io/")
+      .pipe(map((data: LocationData) => LocationData.fromJSON(data)));
   }
 }

@@ -1,4 +1,7 @@
-<section class="contact-form" *ngIf="!emailReceived">
+<section
+  class="flex flex-col align-center justify-center contact-form"
+  *ngIf="!emailReceived"
+>
   <form #contactForm="ngForm" (ngSubmit)="submit(contactForm)">
     <div>
       <mat-form-field color="accent" appearance="fill">
@@ -55,7 +58,7 @@
         >
       </mat-form-field>
     </div>
-    <div class="submit-button-container">
+    <div class="flex justify-center submit-button-container">
       <button
         aria-label="submit"
         mat-raised-button
@@ -67,7 +70,10 @@
     </div>
   </form>
 </section>
-<section *ngIf="emailReceived" class="email-received-container">
+<section
+  *ngIf="emailReceived"
+  class="flex flex-col align-center justify-center email-received-container"
+>
   <h1>I have received your email!</h1>
   <button
     aria-label="back"
