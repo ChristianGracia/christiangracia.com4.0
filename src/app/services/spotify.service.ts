@@ -15,9 +15,11 @@ export class SpotifyService {
       .get<Song[]>(environment.apiUrl + "/spotify/currently-playing")
       .pipe(map((data: Song[]) => data));
   }
-  public getRecentlyPlayed() {
+  public getRecentlyPlayed(amount: number = 50) {
     return this.http
-      .get<Song[]>(environment.apiUrl + "/spotify/recently-played")
+      .get<Song[]>(
+        environment.apiUrl + "/spotify/recently-played?amount=" + amount
+      )
       .pipe(map((data: Song[]) => data));
   }
   public getSpotifyCode() {

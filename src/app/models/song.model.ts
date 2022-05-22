@@ -9,7 +9,7 @@ export class Song {
     public artistUrl: string,
     public songUrl: string,
     public albumUrl: string,
-    public playedAt: string,
+    public playedAt?: string,
     public isPlaying: Boolean = false
   ) {}
 }

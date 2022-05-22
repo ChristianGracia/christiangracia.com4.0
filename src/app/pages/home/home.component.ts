@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public goToAboutPage(): void {
-    this.sendSiteVisit();
     this.routingService.navigateToAbout();
   }
   private sendSiteVisit() {

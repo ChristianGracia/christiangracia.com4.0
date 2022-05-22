@@ -93,7 +93,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.loadingSong = false;
         }
         if (this.recentSongs.length === 0) {
-          setTimeout(() => this.checkRecentlyPlayed(), 100);
+          this.checkRecentlyPlayed();
         }
       },
       (err) => {
@@ -115,6 +115,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.songDuration = 30;
     this.currentTime = formatHHMMString(this.songProgress);
     this.endTime = formatHHMMString(this.songDuration);
+    if (this.songIndex === 0) {
+      this.checkRecentlyPlayed(50);
+    }
 
     this.audio.pause();
     this.audio.src = "";
@@ -129,19 +132,21 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     }
   }
 
-  private checkRecentlyPlayed(): void {
-    this.spotifyService.getRecentlyPlayed().subscribe((recentSongs: Song[]) => {
-      if (!this.song && recentSongs.length > 0) {
-        this.song = recentSongs.length > 0 ? recentSongs[0] : null;
-        this.songProgress = 0;
-        this.songDuration = 30;
-        this.currentTime = formatHHMMString(this.songProgress);
-        this.endTime = formatHHMMString(this.songDuration);
-        this.addTimeProgressBar();
-      }
-      this.loadingSong = false;
-      this.recentSongs = recentSongs;
-    });
+  private checkRecentlyPlayed(amount: number = 2): void {
+    this.spotifyService
+      .getRecentlyPlayed(amount)
+      .subscribe((recentSongs: Song[]) => {
+        if (!this.song && recentSongs.length > 0) {
+          this.song = recentSongs.length > 0 ? recentSongs[0] : null;
+          this.songProgress = 0;
+          this.songDuration = 30;
+          this.currentTime = formatHHMMString(this.songProgress);
+          this.endTime = formatHHMMString(this.songDuration);
+          this.addTimeProgressBar();
+        }
+        this.loadingSong = false;
+        this.recentSongs = recentSongs;
+      });
   }
   public formatDate(date: string) {
     return formatDateAndTime(date);
