@@ -16,6 +16,7 @@
   <div class="flex flex-row align-center song-row">
     <div class="flex flex-row align-center song-left-col">
       <img
+        loading="lazy"
         height="36px"
         width="36px"
         [src]="imagePrefix + song.images[0]"
@@ -55,7 +56,7 @@
         svgIcon="assets:fast_forward"
       ></mat-icon>
       <mat-spinner
-        *ngIf="songIndex === 1 && recentSongs.length !== 50"
+        *ngIf="songIndex === 1 && recentSongs.length !== maxSongs"
         class="spinner"
         diameter="22"
         color="accent"

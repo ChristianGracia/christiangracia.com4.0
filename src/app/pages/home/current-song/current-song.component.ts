@@ -5,6 +5,7 @@ import { Song } from "src/app/models/song.model";
 import { SpotifyService } from "src/app/services/spotify.service";
 import { formatDateAndTime, formatHHMMString } from "src/app/util/dateMethods";
 
+const MAX_SONGS = 50;
 @Component({
   selector: "app-current-song",
   templateUrl: "./current-song.component.html",
@@ -18,6 +19,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   public loadingSong: boolean = false;
   public songPlaying: boolean = false;
   public timerGoing: boolean = false;
+  public maxSongs = MAX_SONGS;
 
   public songProgress: number = 0;
   public songDuration: number = 0;
@@ -75,21 +77,21 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
         if (song && song.length && this.songIndex === 0) {
-          const checkIfAddBar =
-            this.song === null || this.song.name !== song[0].name;
+          // const checkIfAddBar =
+          //   this.song === null || this.song.name !== song[0].name;
           this.song = song[0];
           this.songProgress = this.song.progress / 1000;
           this.songDuration = this.song.duration / 1000;
           this.currentTime = formatHHMMString(this.songProgress);
           this.endTime = formatHHMMString(this.songDuration);
 
-          if (checkIfAddBar) {
-            this.audio.pause();
-            this.audio.src = "";
-            this.audio = new Audio();
-            this.addTimeProgressBar();
-            this.audio.src = this.previewUrlPrefix + this.song.previewUrl;
-          }
+          // if (checkIfAddBar) {
+          // this.audio.pause();
+          // this.audio.src = "";
+          // this.audio = new Audio();
+          // this.addTimeProgressBar();
+          // this.audio.src = this.previewUrlPrefix + this.song.previewUrl;
+          // }
           this.loadingSong = false;
         }
         if (this.recentSongs.length === 0) {
@@ -115,8 +117,8 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.songDuration = 30;
     this.currentTime = formatHHMMString(this.songProgress);
     this.endTime = formatHHMMString(this.songDuration);
-    if (this.songIndex === 0) {
-      this.checkRecentlyPlayed(50);
+    if (this.songIndex === 0 && this.recentSongs.length !== this.maxSongs) {
+      this.checkRecentlyPlayed(this.maxSongs);
     }
 
     this.audio.pause();
