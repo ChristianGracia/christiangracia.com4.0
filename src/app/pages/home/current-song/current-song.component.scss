@@ -1,6 +1,5 @@
 .song-loader {
   margin-top: 6px;
-  align-items: center;
   .spinner {
     margin-top: 2px;
   }
@@ -30,11 +29,9 @@
   }
   .song-progress-bar-container {
     max-width: calc(500px + 110 * ((100vw - 320px) / 680));
-    .song-progress-bar-text-container {
-      justify-content: space-between;
-      .song-progress-bar-text {
-        margin-top: 1px;
-      }
+
+    .song-progress-bar-text {
+      margin-top: 1px;
     }
   }
 }
