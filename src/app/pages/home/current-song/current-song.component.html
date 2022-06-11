@@ -41,10 +41,11 @@
     <div class="flex flex-row align-center song-right-col">
       <mat-icon
         class="rewind-button clickable"
+        style="transform: scaleX(-1)"
         (click)="skipSong('back')"
         color="accent"
         *ngIf="songIndex > 0"
-        svgIcon="assets:fast_rewind"
+        svgIcon="assets:fast_forward"
       ></mat-icon>
       <mat-icon
         class="play-button clickable"

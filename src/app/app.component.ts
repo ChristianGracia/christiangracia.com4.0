@@ -19,7 +19,6 @@ export class AppComponent implements AfterViewInit {
     "twitter",
     "linkedin",
     "fast_forward",
-    "fast_rewind",
     "light_mode",
     "dark_mode",
     "headphones",
