@@ -38,7 +38,7 @@
       <ng-container matColumnDef="playedAt" class="data-item">
         <th mat-header-cell *matHeaderCellDef>Time</th>
         <td mat-cell *matCellDef="let element">
-          {{ formatDate(element.playedAt) }}
+          {{ element.playedAt }}
         </td>
       </ng-container>
       <ng-container matColumnDef="previewUrl" class="data-item">

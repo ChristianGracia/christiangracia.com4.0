@@ -3,7 +3,7 @@ import { environment } from "@environments/environment";
 import { interval } from "rxjs/internal/observable/interval";
 import { Song } from "src/app/models/song.model";
 import { SpotifyService } from "src/app/services/spotify.service";
-import { formatDateAndTime, formatHHMMString } from "src/app/util/dateMethods";
+import { formatHHMMString } from "src/app/util/dateMethods";
 
 const MAX_SONGS = 50;
 @Component({
@@ -149,9 +149,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
         this.loadingSong = false;
         this.recentSongs = recentSongs;
       });
-  }
-  public formatDate(date: string) {
-    return formatDateAndTime(date);
   }
 
   public playPreviewOfSong(): void {

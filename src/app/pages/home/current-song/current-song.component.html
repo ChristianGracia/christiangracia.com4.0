@@ -81,7 +81,7 @@
   <div class="current-text flex flex-row align-center mat-display-1">
     <app-lazy-animated-icon></app-lazy-animated-icon>
     <div class="mat-caption" *ngIf="song.playedAt">
-      Last played at {{ formatDate(song.playedAt) }}
+      Last played at {{ song.playedAt }}
     </div>
     <ng-template
       class="loading loading-animation"

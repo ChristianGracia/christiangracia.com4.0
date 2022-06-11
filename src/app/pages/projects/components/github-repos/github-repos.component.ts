@@ -38,10 +38,6 @@ export class GithubReposComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {});
   }
 
-  public formatUpdateAtDate(date: string) {
-    return formatDateAndTime(date);
-  }
-
   public formatRepoLanguage(language: string) {
     let color = "";
 

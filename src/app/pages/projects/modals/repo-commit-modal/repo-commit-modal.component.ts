@@ -2,7 +2,6 @@ import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { GithubService } from "src/app/shared-components/services/github.service";
 import { Commit } from "src/app/shared-components/models/commit.model";
-import { formatDateAndTime } from "src/app/util/dateMethods";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
 export interface DialogData {
@@ -32,9 +31,6 @@ export class RepoCommitModalComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.loadCommits();
-  }
-  public formatDate(date: string) {
-    return formatDateAndTime(date);
   }
   public openSite(url: string) {
     window.open(url, "_blank");

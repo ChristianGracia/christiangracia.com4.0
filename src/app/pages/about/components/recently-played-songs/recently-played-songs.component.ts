@@ -3,7 +3,6 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
 import { Song } from "src/app/models/song.model";
 import { SpotifyService } from "src/app/services/spotify.service";
-import { formatDateAndTime } from "src/app/util/dateMethods";
 import { environment } from "@environments/environment";
 
 @Component({
@@ -51,9 +50,6 @@ export class RecentlyPlayedSongsComponent implements OnInit {
         console.log(err);
       }
     );
-  }
-  public formatDate(date: string) {
-    return formatDateAndTime(date);
   }
 
   public playPreviewOfSong(song: Song): void {
