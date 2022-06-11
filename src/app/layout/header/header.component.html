@@ -1,5 +1,5 @@
-<mat-toolbar class="nav-container flex align-center">
-  <div class="dark-mode-switch flex align-center">
+<mat-toolbar class="flex align-center justify-space-between">
+  <div class="flex align-center">
     <button
       class="hide-mobile cg-site-text hover-1"
       mat-button
@@ -27,10 +27,10 @@
     </div>
   </div>
   <app-social-media-links></app-social-media-links>
-  <div class="flex flex-row nav-items hide-mobile">
+  <div class="flex flex-row hide-mobile">
     <button
       aria-label="Nav item"
-      class="nav-item nav-item-text hover-1"
+      class="nav-item hover-1"
       *ngFor="let link of links"
       mat-button
       (click)="goToLink(link)"

@@ -1,13 +1,4 @@
-import {
-  Component,
-  // ComponentFactoryResolver,
-  EventEmitter,
-  Input,
-  OnInit,
-  // ViewChild,
-  // ViewContainerRef,
-  Output,
-} from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { RoutingService } from "src/app/services/routing.service";
 
 @Component({
@@ -23,9 +14,7 @@ export class HeaderComponent implements OnInit {
   @Input() public isDarkTheme: boolean = false;
   public links: string[] = ["about", "projects", "contact"];
   @Input() public currentUrl: string = "";
-  constructor(
-    private routingService: RoutingService // private componentFactoryResolver: ComponentFactoryResolver
-  ) {}
+  constructor(private routingService: RoutingService) {}
 
   ngOnInit() {}
   public onToggleSidenav(): void {
