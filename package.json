@@ -28,9 +28,7 @@
     "push-s": "heroku container:push web --app christiangracia-staging",
     "release-s": "heroku container:release web --app christiangracia-staging",
     "rebuild": "docker-compose down && docker-compose build && docker-compose up",
-    "docker-login": "heroku authorizations:create",
-    "gzip": "gzipper compress ./dist",
-    "uglify": "uglifyjs --compress --mangle -- ./dist/"
+    "docker-login": "heroku authorizations:create"
   },
   "private": true,
   "dependencies": {
