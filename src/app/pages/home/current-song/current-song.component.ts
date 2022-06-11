@@ -70,11 +70,11 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   private getCurrentSong(): void {
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
-        if (song && song.length && this.songIndex === 0) {
+        if (song && song.length && this.songIndex) {
           this.song = song[0];
           this.loadingSong = false;
         }
-        if (this.recentSongs.length === 0) {
+        if (!this.recentSongs.length) {
           this.checkRecentlyPlayed();
         }
       },
@@ -94,14 +94,14 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
 
   public skipSong(direction: string): void {
     if (
-      (direction === "back" && this.songIndex === 0) ||
+      (direction === "back" && !this.songIndex) ||
       (direction === "forward" &&
         this.songIndex === this.recentSongs.length - 1)
     ) {
       return;
     }
     this.resetSongProgress();
-    if (this.songIndex === 0 && this.recentSongs.length !== this.maxSongs) {
+    if (!this.songIndex && this.recentSongs.length !== this.maxSongs) {
       this.checkRecentlyPlayed(this.maxSongs);
     }
 
@@ -121,8 +121,8 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.spotifyService
       .getRecentlyPlayed(amount)
       .subscribe((recentSongs: Song[]) => {
-        if (!this.song && recentSongs.length > 0) {
-          this.song = recentSongs.length > 0 ? recentSongs[0] : null;
+        if (!this.song && recentSongs.length) {
+          this.song = recentSongs.length ? recentSongs[0] : null;
           this.resetSongProgress();
           this.addTimeProgressBar();
         }
