@@ -55,8 +55,6 @@ export class AppComponent implements AfterViewInit {
     this.setTheme();
   }
 
-  ngOnInit() {}
-
   private setTheme(): void {
     this.overlayContainer
       .getContainerElement()

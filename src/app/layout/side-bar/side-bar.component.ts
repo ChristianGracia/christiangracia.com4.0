@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { RoutingService } from "src/app/services/routing.service";
 
 const LINKS = {
@@ -12,12 +12,11 @@ const LINKS = {
   templateUrl: "./side-bar.component.html",
   styleUrls: ["./side-bar.component.scss"],
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent {
   public links = Object.keys(LINKS);
   @Output() private closeSidenavEvent = new EventEmitter<void>();
   @Input() public currentUrl: string = "";
   constructor(private routingService: RoutingService) {}
-  ngOnInit(): void {}
 
   public goToLink(page: string): void {
     this.routingService.navigateToPage(page !== "home" ? page : "/");
