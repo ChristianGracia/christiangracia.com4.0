@@ -6,7 +6,7 @@ import { SpotifyService } from "src/app/services/spotify.service";
 const formatHHMMString = (timestamp: number) => {
   return new Date(timestamp * 1000).toTimeString().split(" ")[0].substring(3);
 };
-const MAX_SONGS = 50;
+const MAX_SONGS = 51;
 @Component({
   selector: "app-current-song",
   templateUrl: "./current-song.component.html",
@@ -18,11 +18,13 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   public song: Song | null = null;
   public recentSongs: Song[] = [];
   public loadingSong: boolean = false;
+  public loadingRecentlyPlayed: boolean = false;
   public songPlaying: boolean = false;
   public timerGoing: boolean = false;
   public maxSongs = MAX_SONGS;
   public songIndex: number = 0;
   public audio: HTMLMediaElement = new Audio();
+  public progress: number = 0;
 
   public loadingText = "Loading".split("");
   public currentText = "Playing now on my Spotify"
@@ -49,6 +51,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       if (!this.song?.playedAt || (this.song?.playedAt && this.songPlaying)) {
         this.song.progress += second;
         this.song.progressString = formatHHMMString(this.song.progress);
+        this.progress = (this.song.progress / this.song.duration) * 100;
       }
       counter += 1;
 
@@ -76,7 +79,8 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.addTimeProgressBar();
         }
         this.loadingSong = false;
-        if (!this.recentSongs.length) {
+        this.recentSongs[0] = this.song;
+        if (this.recentSongs.length === 1) {
           this.checkRecentlyPlayed();
         }
       },
@@ -92,6 +96,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.song.duration = 30;
     this.song.progressString = "00:00";
     this.song.durationString = "00:30";
+    this.progress = 0;
   }
 
   public skipSong(direction: string): void {
@@ -102,15 +107,15 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     ) {
       return;
     }
-    this.resetSongProgress();
     if (!this.songIndex && this.recentSongs.length !== this.maxSongs) {
-      this.checkRecentlyPlayed(this.maxSongs);
+      this.checkRecentlyPlayed(this.maxSongs - 1);
     }
 
     this.audio.pause();
     this.audio = new Audio();
     this.songIndex = this.songIndex + (direction === "forward" ? 1 : -1);
     this.song = this.recentSongs[this.songIndex];
+    this.resetSongProgress();
     this.setAudioSrc();
     if (this.songPlaying) {
       this.audio.play();
@@ -118,6 +123,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
 
   private checkRecentlyPlayed(amount: number = 2): void {
+    this.loadingRecentlyPlayed = true;
     this.spotifyService
       .getRecentlyPlayed(amount)
       .subscribe((recentSongs: Song[]) => {
@@ -126,8 +132,12 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.resetSongProgress();
           this.addTimeProgressBar();
         }
-        this.loadingSong = false;
-        this.recentSongs = recentSongs;
+
+        this.recentSongs = [
+          ...(this.recentSongs.length ? [this.recentSongs[0]] : []),
+          ...recentSongs,
+        ];
+        this.loadingRecentlyPlayed = false;
       });
   }
 

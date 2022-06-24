@@ -1,7 +1,4 @@
-<div
-  *ngIf="loadingSong"
-  class="flex flex-col justify-center align-center song-loader"
->
+<div *ngIf="loadingSong" class="flex flex-col justify-center align-center m-5">
   <div
     class="current-text accent-color flex flex-row align-center mat-subheading-1 loading loading-animation"
   >
@@ -9,7 +6,7 @@
       {{ char }}
     </span>
   </div>
-  <mat-spinner class="spinner" diameter="22" color="accent"></mat-spinner>
+  <mat-spinner diameter="22" color="accent"></mat-spinner>
 </div>
 
 <div
@@ -17,7 +14,7 @@
   class="flex flex-col justify-center song-container"
 >
   <div
-    class="song-row flex flex-row align-center flex-wrap justify-space-between"
+    class="calc-width song-row flex flex-row align-center flex-wrap justify-space-between"
   >
     <div class="flex flex-row align-center song-left-col">
       <img
@@ -38,57 +35,59 @@
         <span class="mat-caption text-bold">{{ song.artist }}</span>
       </div>
     </div>
-    <div class="flex flex-col">
-      <div class="flex justify-right">
-        <span class="mat-caption text-bold">{{ songIndex + 1 }}/50</span>
-      </div>
-      <div class="flex flex-row align-center">
-        <mat-icon
-          class="clickable"
-          style="transform: scaleX(-1)"
-          (click)="skipSong('back')"
-          color="accent"
-          *ngIf="songIndex > 0"
-          svgIcon="assets:fast_forward"
-        ></mat-icon>
-        <mat-icon
-          class="clickable"
-          (click)="playPreviewOfSong()"
-          color="accent"
-          *ngIf="song.previewUrl"
-          svgIcon="assets:{{ !songPlaying ? 'play_circle' : 'pause_circle' }}"
-        ></mat-icon>
-        <mat-icon
-          class="clickable"
-          (click)="skipSong('forward')"
-          color="accent"
-          *ngIf="songIndex !== 1 || songIndex < recentSongs.length - 1"
-          svgIcon="assets:fast_forward"
-        ></mat-icon>
-        <mat-spinner
-          *ngIf="songIndex === 1 && recentSongs.length !== maxSongs"
-          class="spinner"
-          diameter="22"
-          color="accent"
-        ></mat-spinner>
-      </div>
+
+    <div class="flex flex-row align-center clickable">
+      <mat-icon
+        style="transform: scaleX(-1)"
+        (click)="skipSong('back')"
+        color="accent"
+        *ngIf="songIndex > 0"
+        svgIcon="assets:fast_forward"
+      ></mat-icon>
+      <mat-icon
+        (click)="playPreviewOfSong()"
+        color="accent"
+        *ngIf="song.previewUrl"
+        svgIcon="assets:{{ !songPlaying ? 'play_circle' : 'pause_circle' }}"
+      ></mat-icon>
+      <mat-icon
+        (click)="skipSong('forward')"
+        color="accent"
+        *ngIf="!loadingRecentlyPlayed"
+        svgIcon="assets:fast_forward"
+      ></mat-icon>
+      <mat-spinner
+        *ngIf="loadingRecentlyPlayed"
+        diameter="22"
+        color="accent"
+      ></mat-spinner>
     </div>
   </div>
-  <div class="flex flex-col song-progress-bar-container">
+  <div class="flex flex-col calc-width">
     <mat-progress-bar
       aria-valuemin="00:00"
       aria-valuemax="00:30"
       color="accent"
-      class="song-progress-bar"
       mode="determinate"
-      value="{{ (song.progress / song.duration) * 100 }}"
+      value="{{ progress }}"
     ></mat-progress-bar>
     <div
-      class="flex flex-row justify-space-between song-progress-bar-text-container"
+      class="flex flex-row justify-space-between song-progress-bar-text-container mt-5"
     >
-      <p class="song-progress-bar-text">{{ song.progressString }}</p>
-      <p></p>
-      <p class="song-progress-bar-text">{{ song.durationString }}</p>
+      <p>{{ song.progressString }}</p>
+      <div class="flex flex-row align-center">
+        <div class="text-bold">{{ songIndex + 1 }}/</div>
+        <div *ngIf="!loadingRecentlyPlayed" class="text-bold">
+          {{ recentSongs.length }}
+        </div>
+        <mat-spinner
+          *ngIf="loadingRecentlyPlayed"
+          class="mat-caption"
+          color="accent"
+          diameter="12"
+        ></mat-spinner>
+      </div>
+      <p>{{ song.durationString }}</p>
     </div>
   </div>
   <div class="current-text flex flex-row align-center mat-display-1">

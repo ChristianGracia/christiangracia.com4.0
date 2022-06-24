@@ -1,18 +1,15 @@
 import { NgModule, Optional, SkipSelf } from "@angular/core";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { MaterialModule } from "../app/material/material.module";
 import { RouterModule } from "@angular/router";
 import { EnsureModuleLoadedOnceGuard } from "./ensure-module-loaded-once.guard";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 let modules = [
   BrowserAnimationsModule,
-  FormsModule,
   HttpClientModule,
   MaterialModule,
-  ReactiveFormsModule,
   RouterModule,
 ];
 

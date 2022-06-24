@@ -63,3 +63,11 @@ body {
 .clickable {
   cursor: pointer;
 }
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.calc-width {
+  max-width: calc(500px + 110 * ((100vw - 320px) / 680));
+}
