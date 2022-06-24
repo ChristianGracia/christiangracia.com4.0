@@ -53,7 +53,6 @@ export class RecentlyPlayedSongsComponent implements OnInit {
   }
 
   public playPreviewOfSong(song: Song): void {
-    const index = 0;
     if (!song.isPlaying) {
       this.audio.src = this.previewUrlPrefix + song.previewUrl;
       this.audio.load();

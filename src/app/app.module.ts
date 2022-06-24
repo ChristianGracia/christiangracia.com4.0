@@ -7,6 +7,7 @@ import { LayoutModule } from "./layout/layout.module";
 import { HomeComponent } from "./pages/home/home.component";
 import { CurrentSongComponent } from "./pages/home/current-song/current-song.component";
 import { AnimatedIconComponent } from "./pages/home/current-song/lazy-animated-icon/lazy-animated-icon.component";
+import { UtilService } from "./services/util.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { AnimatedIconComponent } from "./pages/home/current-song/lazy-animated-i
     LayoutModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [UtilService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -70,10 +70,10 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   private getCurrentSong(): void {
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
-        if (song && song.length && this.songIndex) {
+        if (song) {
           this.song = song[0];
-          this.loadingSong = false;
         }
+        this.loadingSong = false;
         if (!this.recentSongs.length) {
           this.checkRecentlyPlayed();
         }
