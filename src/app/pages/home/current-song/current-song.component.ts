@@ -57,10 +57,11 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
         setTimeout(() => {
           this.audio.src = "";
           this.songPlaying = false;
+          this.timerGoing = false;
           this.resetSongProgress();
           this.getCurrentSong();
         }, 600);
-      } else if (counter > 20) {
+      } else if (counter > 20 && this.song.progress > 30) {
         this.getCurrentSong();
         counter = 0;
       }
@@ -72,6 +73,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       (song: Song[]) => {
         if (song) {
           this.song = song[0];
+          this.addTimeProgressBar();
         }
         this.loadingSong = false;
         if (!this.recentSongs.length) {
@@ -109,9 +111,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.audio = new Audio();
     this.songIndex = this.songIndex + (direction === "forward" ? 1 : -1);
     this.song = this.recentSongs[this.songIndex];
-    this.audio.src = this.song.previewUrl
-      ? this.previewUrlPrefix + this.song.previewUrl
-      : "";
+    this.setAudioSrc();
     if (this.songPlaying) {
       this.audio.play();
     }
@@ -133,10 +133,19 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
 
   public playPreviewOfSong(): void {
     if (!this.audio.src) {
-      this.audio.src = this.previewUrlPrefix + this.song?.previewUrl ?? "";
+      this.setAudioSrc();
       this.audio.load();
+      this.resetSongProgress();
     }
     this.audio[!this.songPlaying ? "play" : "pause"]();
     this.songPlaying = !this.songPlaying;
+
+    if (!this.songPlaying) {
+      this.addTimeProgressBar;
+    }
+  }
+
+  private setAudioSrc(): void {
+    this.audio.src = this.previewUrlPrefix + this.song?.previewUrl ?? "";
   }
 }

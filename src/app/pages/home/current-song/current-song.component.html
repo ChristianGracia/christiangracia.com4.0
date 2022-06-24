@@ -38,41 +38,46 @@
         <span class="mat-caption song-name">{{ song.artist }}</span>
       </div>
     </div>
-    <div class="flex flex-row align-center song-right-col">
-      <mat-icon
-        class="rewind-button clickable"
-        style="transform: scaleX(-1)"
-        (click)="skipSong('back')"
-        color="accent"
-        *ngIf="songIndex > 0"
-        svgIcon="assets:fast_forward"
-      ></mat-icon>
-      <mat-icon
-        class="play-button clickable"
-        (click)="playPreviewOfSong()"
-        color="accent"
-        *ngIf="song.previewUrl"
-        svgIcon="assets:{{ !songPlaying ? 'play_circle' : 'pause_circle' }}"
-      ></mat-icon>
-      <mat-icon
-        class="forward-button clickable"
-        (click)="skipSong('forward')"
-        color="accent"
-        *ngIf="songIndex !== 1 || songIndex < recentSongs.length - 1"
-        svgIcon="assets:fast_forward"
-      ></mat-icon>
-      <mat-spinner
-        *ngIf="songIndex === 1 && recentSongs.length !== maxSongs"
-        class="spinner"
-        diameter="22"
-        color="accent"
-      ></mat-spinner>
+    <div class="flex flex-col">
+      <div class="flex justify-right mat-caption">
+        <span class="mat-caption">{{ songIndex + 1 }}/50</span>
+      </div>
+      <div class="flex flex-row align-center">
+        <mat-icon
+          class="clickable"
+          style="transform: scaleX(-1)"
+          (click)="skipSong('back')"
+          color="accent"
+          *ngIf="songIndex > 0"
+          svgIcon="assets:fast_forward"
+        ></mat-icon>
+        <mat-icon
+          class="clickable"
+          (click)="playPreviewOfSong()"
+          color="accent"
+          *ngIf="song.previewUrl"
+          svgIcon="assets:{{ !songPlaying ? 'play_circle' : 'pause_circle' }}"
+        ></mat-icon>
+        <mat-icon
+          class="clickable"
+          (click)="skipSong('forward')"
+          color="accent"
+          *ngIf="songIndex !== 1 || songIndex < recentSongs.length - 1"
+          svgIcon="assets:fast_forward"
+        ></mat-icon>
+        <mat-spinner
+          *ngIf="songIndex === 1 && recentSongs.length !== maxSongs"
+          class="spinner"
+          diameter="22"
+          color="accent"
+        ></mat-spinner>
+      </div>
     </div>
   </div>
   <div class="flex flex-col song-progress-bar-container">
     <mat-progress-bar
       aria-valuemin="00:00"
-      aria-valuemax="30:00"
+      aria-valuemax="00:30"
       color="accent"
       class="song-progress-bar"
       mode="determinate"

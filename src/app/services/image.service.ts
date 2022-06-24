@@ -9,9 +9,7 @@ export class ImageService {
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
-  ) {
-    console.log("created icons");
-  }
+  ) {}
 
   public initializeImages(icons: string[]) {
     icons.forEach((icon) => {
