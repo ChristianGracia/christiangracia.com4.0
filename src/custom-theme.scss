@@ -411,6 +411,10 @@ $custom-light-theme: map_merge(
   justify-content: center;
 }
 
+.justify-right {
+  justify-content: right;
+}
+
 .align-center {
   align-items: center;
 }

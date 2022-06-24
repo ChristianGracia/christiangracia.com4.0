@@ -10,16 +10,14 @@ const DIST_FOLDER = join(process.cwd(), "dist/browser");
 
 const {
   AppServerModuleNgFactory,
-  LAZY_MODULE_MAP,
   ngExpressEngine,
-  provideModuleMap,
 } = require("./dist/server/main");
 
 app.engine(
   "html",
   ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
-    providers: [provideModuleMap(LAZY_MODULE_MAP)],
+    providers: [],
   })
 );
 

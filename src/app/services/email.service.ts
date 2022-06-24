@@ -1,26 +1,19 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { environment } from "@environments/environment";
+
 import { EmailMessage } from "../models/email-message.model";
 import { LocationData } from "../models/location-data.model";
-
+import { UtilService } from "./util.service";
 @Injectable({
   providedIn: "root",
 })
 export class EmailService {
-  constructor(private http: HttpClient) {}
+  constructor(private utilService: UtilService) {}
 
   public sendContactEmail(emailMessage: EmailMessage) {
-    return this.http.post(
-      environment.apiUrl + "/email/send-email",
-      emailMessage
-    );
+    return this.utilService.postObservable("/email/send-email", emailMessage);
   }
 
   public sendSiteVisitEmail(locationData: LocationData) {
-    return this.http.post(
-      environment.apiUrl + "/email/site-visit",
-      locationData
-    );
+    return this.utilService.postObservable("/email/site-visit", locationData);
   }
 }

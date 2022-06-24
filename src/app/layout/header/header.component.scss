@@ -1,24 +1,19 @@
-.nav-container {
-  justify-content: space-between;
-  .dark-mode-switch {
-    .cg-site-text {
-      margin-right: 5px;
-    }
-  }
-  .nav-items {
-    .nav-item {
-      text-transform: capitalize;
-    }
-  }
-  @media only screen and (max-width: 654px) {
-    .hide-mobile {
-      display: none;
-    }
-  }
+.cg-site-text {
+  margin-right: 5px;
+}
 
-  @media only screen and (min-width: 655px) {
-    .hide-desktop {
-      display: none;
-    }
+.nav-item {
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 654px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 655px) {
+  .hide-desktop {
+    display: none;
   }
 }

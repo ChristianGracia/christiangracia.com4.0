@@ -2,6 +2,7 @@
   .repo-card {
     width: 100%;
     max-width: 99vw;
+    display: flex;
     @media (min-width: 500px) {
       max-width: 320px;
     }

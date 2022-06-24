@@ -1,6 +1,9 @@
-<div *ngIf="loadingSong" class="flex flex-col justify-center song-loader">
+<div
+  *ngIf="loadingSong"
+  class="flex flex-col justify-center align-center song-loader"
+>
   <div
-    class="current-text flex flex-row align-center mat-subheading-1 loading loading-animation"
+    class="current-text accent-color flex flex-row align-center mat-subheading-1 loading loading-animation"
   >
     <span *ngFor="let char of loadingText">
       {{ char }}
@@ -13,9 +16,12 @@
   *ngIf="song && !loadingSong"
   class="flex flex-col justify-center song-container"
 >
-  <div class="flex flex-row align-center song-row">
+  <div
+    class="song-row flex flex-row align-center flex-wrap justify-space-between"
+  >
     <div class="flex flex-row align-center song-left-col">
       <img
+        loading="lazy"
         height="36px"
         width="36px"
         [src]="imagePrefix + song.images[0]"
@@ -32,49 +38,63 @@
         <span class="mat-caption song-name">{{ song.artist }}</span>
       </div>
     </div>
-    <div class="flex flex-row align-center song-right-col">
-      <mat-icon
-        class="rewind-button clickable"
-        (click)="skipSong('back')"
-        color="accent"
-        *ngIf="songIndex > 0"
-        svgIcon="assets:fast_rewind"
-      ></mat-icon>
-      <mat-icon
-        class="play-button clickable"
-        (click)="playPreviewOfSong()"
-        color="accent"
-        *ngIf="song.previewUrl"
-        svgIcon="assets:{{ !songPlaying ? 'play_circle' : 'pause_circle' }}"
-      ></mat-icon>
-      <mat-icon
-        class="forward-button clickable"
-        (click)="skipSong('forward')"
-        color="accent"
-        *ngIf="songIndex < recentSongs.length - 1"
-        svgIcon="assets:fast_forward"
-      ></mat-icon>
+    <div class="flex flex-col">
+      <div class="flex justify-right mat-caption">
+        <span class="mat-caption">{{ songIndex + 1 }}/50</span>
+      </div>
+      <div class="flex flex-row align-center">
+        <mat-icon
+          class="clickable"
+          style="transform: scaleX(-1)"
+          (click)="skipSong('back')"
+          color="accent"
+          *ngIf="songIndex > 0"
+          svgIcon="assets:fast_forward"
+        ></mat-icon>
+        <mat-icon
+          class="clickable"
+          (click)="playPreviewOfSong()"
+          color="accent"
+          *ngIf="song.previewUrl"
+          svgIcon="assets:{{ !songPlaying ? 'play_circle' : 'pause_circle' }}"
+        ></mat-icon>
+        <mat-icon
+          class="clickable"
+          (click)="skipSong('forward')"
+          color="accent"
+          *ngIf="songIndex !== 1 || songIndex < recentSongs.length - 1"
+          svgIcon="assets:fast_forward"
+        ></mat-icon>
+        <mat-spinner
+          *ngIf="songIndex === 1 && recentSongs.length !== maxSongs"
+          class="spinner"
+          diameter="22"
+          color="accent"
+        ></mat-spinner>
+      </div>
     </div>
   </div>
   <div class="flex flex-col song-progress-bar-container">
     <mat-progress-bar
       aria-valuemin="00:00"
-      aria-valuemax="30:00"
+      aria-valuemax="00:30"
       color="accent"
       class="song-progress-bar"
       mode="determinate"
-      value="{{ (songProgress / songDuration) * 100 }}"
+      value="{{ (song.progress / song.duration) * 100 }}"
     ></mat-progress-bar>
-    <div class="flex flex-row song-progress-bar-text-container">
-      <p class="song-progress-bar-text">{{ currentTime }}</p>
+    <div
+      class="flex flex-row justify-space-between song-progress-bar-text-container"
+    >
+      <p class="song-progress-bar-text">{{ song.progressString }}</p>
       <p></p>
-      <p class="song-progress-bar-text">{{ endTime }}</p>
+      <p class="song-progress-bar-text">{{ song.durationString }}</p>
     </div>
   </div>
   <div class="current-text flex flex-row align-center mat-display-1">
     <app-lazy-animated-icon></app-lazy-animated-icon>
     <div class="mat-caption" *ngIf="song.playedAt">
-      Last played at {{ formatDate(song.playedAt) }}
+      Last played at {{ song.playedAt }}
     </div>
     <ng-template
       class="loading loading-animation"

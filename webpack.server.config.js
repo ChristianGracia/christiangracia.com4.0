@@ -1,5 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: "none",
@@ -12,7 +14,8 @@ module.exports = {
   target: "node",
   resolve: { extensions: [".ts", ".js"] },
   optimization: {
-    minimize: false,
+    minimize: true,
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -39,5 +42,8 @@ module.exports = {
       path.join(__dirname, "src"),
       {}
     ),
+    new CompressionPlugin({
+      algorithm: "gzip",
+    }),
   ],
 };

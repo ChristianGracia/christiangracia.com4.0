@@ -12,7 +12,7 @@
 >
   <mat-card
     *ngFor="let repo of data"
-    class="repo-card mat-elevation-z6 flex flex-col justify-space-between"
+    class="flex flex-col justify-space-around repo-card mat-elevation-z6"
     (click)="openRepoCommitModal(repo.name, repo.url)"
   >
     <div class="top-row">
@@ -42,7 +42,7 @@
       </div>
       <div class="repo-date-container">
         <div class="repo-date-text mat-caption">
-          Updated at {{ formatUpdateAtDate(repo.updatedAt) }}
+          Updated at {{ repo.updatedAt }}
         </div>
       </div>
     </div>

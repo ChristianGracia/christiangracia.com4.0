@@ -12,8 +12,6 @@ export class SocialMediaLinksComponent implements OnInit, OnDestroy {
   public socialMediaLinks: string[] = SOCIAL_MEDIA_LINKS;
   private timer!: number;
 
-  constructor() {}
-
   ngOnInit() {
     this.renderActiveLinkHighlight();
   }
@@ -22,21 +20,13 @@ export class SocialMediaLinksComponent implements OnInit, OnDestroy {
     clearInterval(this.timer);
   }
   public openLink(socialMedia: string) {
-    let url = "";
-    switch (socialMedia) {
-      case "github":
-        url = "https://github.com/ChristianGracia";
-        break;
-      case "twitter":
-        url = "http://www.twitter.com/CG_CODING";
-        break;
-      case "linkedin":
-        url = "https://www.linkedin.com/in/christiangracia";
-        break;
-      default:
-        break;
-    }
-    window.open(url, "_blank");
+    const SocialMedia = {
+      github: "https://github.com/ChristianGracia",
+      twitter: "http://www.twitter.com/CG_CODING",
+      linkedin: "https://www.linkedin.com/in/christiangracia",
+    };
+
+    window.open(SocialMedia[socialMedia as keyof typeof SocialMedia], "_blank");
   }
 
   private renderActiveLinkHighlight() {
@@ -48,6 +38,6 @@ export class SocialMediaLinksComponent implements OnInit, OnDestroy {
       this.activeIconArray[index] = false;
       this.activeIconArray[nextIndex] = true;
       counter++;
-    }, 1500);
+    }, 1800);
   }
 }

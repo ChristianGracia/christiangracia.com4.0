@@ -1,20 +1,15 @@
-import { OverlayContainer } from "@angular/cdk/overlay";
 import { isPlatformBrowser } from "@angular/common";
-import {
-  AfterViewInit,
-  Component,
-  Inject,
-  PLATFORM_ID,
-  Renderer2,
-} from "@angular/core";
-import { MatIconRegistry } from "@angular/material/icon";
-import { DomSanitizer } from "@angular/platform-browser";
+import { AfterViewInit, Component, Inject, PLATFORM_ID } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
-
+import { ImageService } from "./services/image.service";
+import { OverlayContainer } from "@angular/cdk/overlay";
+import { SpotifyService } from "./services/spotify.service";
+import { EmailService } from "./services/email.service";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
+  providers: [SpotifyService, EmailService],
 })
 export class AppComponent implements AfterViewInit {
   public loaded: Boolean = false;
@@ -25,7 +20,6 @@ export class AppComponent implements AfterViewInit {
     "twitter",
     "linkedin",
     "fast_forward",
-    "fast_rewind",
     "light_mode",
     "dark_mode",
     "headphones",
@@ -34,19 +28,19 @@ export class AppComponent implements AfterViewInit {
     "menu",
     "close",
   ];
+
+  private lazyIcons: string[] = ["close"];
   constructor(
     public overlayContainer: OverlayContainer,
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private renderer: Renderer2,
-    private router: Router
+    private router: Router,
+    private imageService: ImageService
   ) {
-    this.initializeImages();
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         const path = window.location.pathname;
-        this.currentUrl = path !== "/" ? path.slice(1) : "";
+        const onHomePage = path === "/";
+        this.currentUrl = onHomePage ? "" : path.slice(1);
       }
     });
   }
@@ -60,51 +54,24 @@ export class AppComponent implements AfterViewInit {
       localStorage.removeItem("darkTheme");
     }
 
-    if (this.isDarkTheme) {
-      this.overlayContainer
-        .getContainerElement()
-        .classList.remove("light-theme");
-      this.overlayContainer.getContainerElement().classList.add("dark-theme");
-    } else {
-      this.overlayContainer
-        .getContainerElement()
-        .classList.remove("dark-theme");
-      this.overlayContainer.getContainerElement().classList.add("light-theme");
-    }
+    this.setTheme();
   }
 
-  ngOnInit() {}
+  private setTheme(): void {
+    this.overlayContainer
+      .getContainerElement()
+      .classList.add(this.isDarkTheme ? "dark-theme" : "light-theme");
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const theme = window.localStorage.getItem("darkTheme");
-      if (theme) {
-        this.isDarkTheme = true;
-      }
-
-      if (this.isDarkTheme) {
-        this.overlayContainer.getContainerElement().classList.add("dark-theme");
-      } else {
-        this.overlayContainer
-          .getContainerElement()
-          .classList.add("light-theme");
-      }
+      this.isDarkTheme = !!window.localStorage.getItem("darkTheme");
+      this.loaded = true;
+      this.imageService.initializeImages(this.icons);
+      this.setTheme();
       this.overlayContainer
         .getContainerElement()
         .classList.add("full-screen-modal");
-
-      this.loaded = true;
     }
-  }
-  private initializeImages() {
-    this.icons.forEach((icon) => {
-      this.matIconRegistry.addSvgIconInNamespace(
-        "assets",
-        icon.toString(),
-        this.domSanitizer.bypassSecurityTrustResourceUrl(
-          `assets/images/${icon}.svg`
-        )
-      );
-    });
   }
 }
