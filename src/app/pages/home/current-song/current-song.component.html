@@ -28,19 +28,19 @@
         alt="{{ song.artist }} album image"
       />
       <div class="flex flex-col justify-center song-info-container">
-        <span class="accent-color mat-caption song-name"
+        <span class="accent-color mat-caption text-bold"
           >{{
             song.name.length > 25
               ? song.name.substring(0, 20) + "..."
               : song.name
           }}
         </span>
-        <span class="mat-caption song-name">{{ song.artist }}</span>
+        <span class="mat-caption text-bold">{{ song.artist }}</span>
       </div>
     </div>
     <div class="flex flex-col">
-      <div class="flex justify-right mat-caption">
-        <span class="mat-caption">{{ songIndex + 1 }}/50</span>
+      <div class="flex justify-right">
+        <span class="mat-caption text-bold">{{ songIndex + 1 }}/50</span>
       </div>
       <div class="flex flex-row align-center">
         <mat-icon

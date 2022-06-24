@@ -11,3 +11,55 @@ body {
     padding: 30px 40px 100px;
   }
 }
+.flex {
+  display: flex;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-right {
+  justify-content: right;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.m-5 {
+  margin: 5px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.m-28 {
+  margin: 28px;
+}
+.clickable {
+  cursor: pointer;
+}

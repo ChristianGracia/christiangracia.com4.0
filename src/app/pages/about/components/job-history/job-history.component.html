@@ -7,12 +7,12 @@
     <div *ngFor="let job of jobs" class="flex flex-col company-card">
       <div class="flex flex-row align-center justify-space-between">
         <div
-          class="company-name accent-color mat-title"
+          class="text-bold accent-color mat-title"
           (click)="openSite(job.website ?? '')"
         >
           {{ job.company }}
         </div>
-        <div class="company-years mat-caption">{{ job.range }}</div>
+        <div class="text-bold mat-caption">{{ job.range }}</div>
       </div>
       <div class="job-description mat-subheading-2">{{ job.description }}</div>
 

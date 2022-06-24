@@ -17,7 +17,6 @@
       }
     }
     .repo-title {
-      font-weight: bold;
       text-align: center;
       margin: 6px 0 auto;
       &:hover {
@@ -26,9 +25,6 @@
     }
     .repo-language-container {
       flex-wrap: wrap;
-      .repo-language-text {
-        font-weight: bold;
-      }
     }
     .repo-description-container {
       margin: 20px 0;
