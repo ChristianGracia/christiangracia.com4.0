@@ -15,7 +15,8 @@ const MAX_SONGS = 51;
 export class CurrentSongComponent implements OnInit, OnDestroy {
   public imagePrefix = environment.spotify.imageUrl;
   public previewUrlPrefix = environment.spotify.previewUrl;
-  public song: Song | null = null;
+  public currentlyPlayingSong: Song | null = null;
+  public allSongs: Song[] = [];
   public recentSongs: Song[] = [];
   public loadingSong: boolean = false;
   public loadingRecentlyPlayed: boolean = false;
@@ -42,33 +43,41 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
 
   private addTimeProgressBar(): void {
-    console.log("started");
     if (!this.timerGoing) {
+      console.log("started");
       this.timerGoing = true;
       const second = 1;
       const timer$ = interval(1000);
+
       let counter = 0;
       const sub = timer$.subscribe((sec) => {
-        if (!this.song?.playedAt || (this.song?.playedAt && this.songPlaying)) {
-          this.song.progress += second;
-          this.song.progressString = formatHHMMString(this.song.progress);
-          this.progress = (this.song.progress / this.song.duration) * 100;
-        }
-        counter += 1;
-
-        if (this.song.progress >= this.song.duration) {
+        const songFinishedCheck =
+          this.allSongs[this.songIndex].progress >=
+          this.allSongs[this.songIndex].duration;
+        if (songFinishedCheck || !this.allSongs[this.songIndex].isPlaying) {
           sub.unsubscribe();
+          this.allSongs[this.songIndex].isPlaying = false;
           console.log("ended");
-          setTimeout(() => {
-            this.audio.src = "";
+          this.timerGoing = false;
+          if (songFinishedCheck) {
             this.songPlaying = false;
-            this.timerGoing = false;
             this.resetSongProgress();
+          }
+        } else {
+          counter += 1;
+          this.allSongs[this.songIndex].progress += second;
+          this.allSongs[this.songIndex].progressString = formatHHMMString(
+            this.allSongs[this.songIndex].progress
+          );
+          this.progress =
+            (this.allSongs[this.songIndex].progress /
+              this.allSongs[this.songIndex].duration) *
+            100;
+
+          if (counter > 20 && this.allSongs[this.songIndex].progress > 30) {
             this.getCurrentSong();
-          }, 600);
-        } else if (counter > 20 && this.song.progress > 30) {
-          this.getCurrentSong();
-          counter = 0;
+            counter = 0;
+          }
         }
       });
     }
@@ -78,12 +87,16 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
         if (song) {
-          this.song = song[0];
-          this.addTimeProgressBar();
+          this.currentlyPlayingSong = song[0];
+          this.allSongs = [this.currentlyPlayingSong, ...this.recentSongs];
+          if (this.songIndex === 0) {
+            this.addTimeProgressBar();
+          }
         }
+
         this.loadingSong = false;
-        this.recentSongs[0] = this.song;
-        if (this.recentSongs.length === 1) {
+
+        if (!this.recentSongs.length) {
           this.checkRecentlyPlayed();
         }
       },
@@ -95,33 +108,33 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
 
   private resetSongProgress(): void {
-    this.song.progress = 0;
-    this.song.duration = 30;
-    this.song.progressString = "00:00";
-    this.song.durationString = "00:30";
+    this.allSongs[this.songIndex].progress = 0;
+    this.allSongs[this.songIndex].duration = 30;
+    this.allSongs[this.songIndex].progressString = "00:00";
+    this.allSongs[this.songIndex].durationString = "00:30";
     this.progress = 0;
   }
 
   public skipSong(direction: string): void {
     if (
       (direction === "back" && !this.songIndex) ||
-      (direction === "forward" &&
-        this.songIndex === this.recentSongs.length - 1)
+      (direction === "forward" && this.songIndex === this.allSongs.length - 1)
     ) {
       return;
     }
-    if (!this.songIndex && this.recentSongs.length !== this.maxSongs) {
-      this.checkRecentlyPlayed(this.maxSongs - 1);
-    }
-
     this.audio.pause();
     this.audio = new Audio();
+    this.allSongs[this.songIndex].isPlaying = false;
     this.songIndex = this.songIndex + (direction === "forward" ? 1 : -1);
-    this.song = this.recentSongs[this.songIndex];
-    this.resetSongProgress();
+    if (this.songIndex >= 1 && this.allSongs.length < this.maxSongs - 1) {
+      this.checkRecentlyPlayed(this.maxSongs - 1);
+    }
     this.setAudioSrc();
     if (this.songPlaying) {
+      this.resetSongProgress();
+      this.allSongs[this.songIndex].isPlaying = true;
       this.audio.play();
+      this.addTimeProgressBar();
     }
   }
 
@@ -130,16 +143,13 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.spotifyService
       .getRecentlyPlayed(amount)
       .subscribe((recentSongs: Song[]) => {
-        if (!this.song && recentSongs.length) {
-          this.song = recentSongs.length ? recentSongs[0] : null;
-          this.resetSongProgress();
-          this.addTimeProgressBar();
+        if (recentSongs.length) {
+          this.recentSongs = recentSongs;
+          this.allSongs = [
+            ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
+            ...this.recentSongs,
+          ];
         }
-
-        this.recentSongs = [
-          ...(this.recentSongs.length ? [this.recentSongs[0]] : []),
-          ...recentSongs,
-        ];
         this.loadingRecentlyPlayed = false;
       });
   }
@@ -150,19 +160,18 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       this.audio.load();
       this.resetSongProgress();
     }
-
     this.audio[!this.songPlaying ? "play" : "pause"]();
     this.songPlaying = !this.songPlaying;
-
-    if (!this.songPlaying && !this.timerGoing) {
-      this.addTimeProgressBar;
+    if (this.songPlaying && !this.timerGoing) {
+      this.allSongs[this.songIndex].isPlaying = true;
+      this.addTimeProgressBar();
+    } else {
+      this.allSongs[this.songIndex].isPlaying = false;
     }
   }
 
   private setAudioSrc(): void {
     this.audio.src =
-      this.previewUrlPrefix + this.song?.previewUrl ??
-      this.recentSongs?.[this.songIndex]?.previewUrl ??
-      "";
+      this.previewUrlPrefix + this.allSongs[this.songIndex].previewUrl;
   }
 }
