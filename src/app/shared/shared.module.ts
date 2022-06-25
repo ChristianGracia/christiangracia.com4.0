@@ -23,4 +23,4 @@ import { CommonModule } from "@angular/common";
     CommonModule,
   ],
 })
-export class SharedComponentsModule {}
+export class SharedModule {}

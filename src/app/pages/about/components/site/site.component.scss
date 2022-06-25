@@ -24,7 +24,6 @@
       line-height: 28px;
     }
     .file-name-text {
-      font-weight: bold;
       cursor: pointer;
     }
     .code-scroll-container {
@@ -35,6 +34,11 @@
       width: 93%;
       max-width: 80vw;
       margin: 0 auto;
+      filter: brightness(2.5);
+    }
+    .site-image {
+      width: 90%;
+      max-width: 500px;
     }
   }
 }

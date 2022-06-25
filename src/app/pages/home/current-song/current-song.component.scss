@@ -1,9 +1,3 @@
-.song-loader {
-  margin-top: 6px;
-  .spinner {
-    margin-top: 2px;
-  }
-}
 .song-container {
   margin-top: 6px;
 
@@ -16,22 +10,10 @@
   .song-row {
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: calc(500px + 110 * ((100vw - 320px) / 680));
-    margin: 6px 0;
+    margin: 6px 0 3px 0;
 
     .song-info-container {
       margin-left: 5px;
-
-      .song-name {
-        font-weight: bold;
-      }
-    }
-  }
-  .song-progress-bar-container {
-    max-width: calc(500px + 110 * ((100vw - 320px) / 680));
-
-    .song-progress-bar-text {
-      margin-top: 1px;
     }
   }
 }

@@ -1,30 +1,39 @@
-<div class="close-button flex">
-  <button
-    class=""
-    mat-button
-    aria-label="Close view more"
-    (click)="job.viewMoreOpen = false"
-  >
-    <mat-icon svgIcon="assets:close"></mat-icon>
-  </button>
-</div>
 <mat-card class="flex justify-center mat-elevation-z6 m-20">
   <mat-card-content class="card-text-container">
+    <div class="close-button flex">
+      <button
+        class=""
+        mat-button
+        aria-label="Close view more"
+        (click)="job.viewMoreOpen = false"
+      >
+        <mat-icon svgIcon="assets:close"></mat-icon>
+      </button>
+    </div>
     <div
-      *ngFor="let app of job.applications"
+      *ngFor="let app of job.applications; index as i"
       class="flex flex-col justify-center align-center app-container"
     >
-      <div>{{ app.name }}</div>
-      <div class="mat-display-2">Coming Soon</div>
-      <!-- <div *ngIf="app.description">{{ app.description }}</div> -->
-      <!-- <div class="flex flex-row justify-center">
-        <p
-          class="language-text"
-          *ngFor="let language of app.languages; let i = index"
-        >
-          {{ app.languages[i] }}
-        </p>
-      </div> -->
+      <div class="flex flex-col">
+        <div class="mat-subheading-2 accent-color">{{ app.name }}</div>
+        <div class="calc-width graph animated-line"></div>
+      </div>
+      <!-- <div class="mat-display-2">Coming Soon</div> -->
+      <div *ngIf="app.description" class="mat-body">
+        {{ app.description }}
+      </div>
+      <div class="flex flex-col justify-center">
+        <div class="text-bold">Languages/Frameworks</div>
+        <div class="flex flex-row m-5">
+          <div
+            *ngFor="let language of app.languages"
+            [ngStyle]="{ color: formatRepoLanguage(language) }"
+            class="mat-caption m-5 text-bold"
+          >
+            {{ language }}
+          </div>
+        </div>
+      </div>
     </div></mat-card-content
   >
 </mat-card>

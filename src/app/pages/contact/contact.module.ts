@@ -9,7 +9,7 @@ import { MaterialModule } from "../../material/material.module";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 
-import { SharedComponentsModule } from "src/app/shared-components/shared-components.module";
+import { SharedModule } from "src/app/shared/shared.module";
 @NgModule({
   declarations: [ContactComponent, ContactFormComponent],
   imports: [
@@ -18,7 +18,7 @@ import { SharedComponentsModule } from "src/app/shared-components/shared-compone
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    SharedComponentsModule,
+    SharedModule,
   ],
 })
 export class ContactModule {}

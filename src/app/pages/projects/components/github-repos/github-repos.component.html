@@ -16,7 +16,7 @@
     (click)="openRepoCommitModal(repo.name, repo.url)"
   >
     <div class="top-row">
-      <mat-card-title class="repo-title mat-title accent-color">
+      <mat-card-title class="repo-title text-bold mat-title accent-color">
         {{ repo.name.split("-").join(" ") }}
       </mat-card-title>
 
@@ -28,12 +28,10 @@
     </div>
 
     <div class="bottom-row">
-      <div
-        class="flex flex-row repo-language-container mat-caption repo-language-text"
-      >
-        <div class="mat-caption repo-language-text">Primary Language:</div>
+      <div class="flex flex-row repo-language-container mat-caption text-bold">
+        <div class="mat-caption text-bold">Primary Language:</div>
         <div
-          class="mat-caption repo-language-text"
+          class="mat-caption text-bold"
           [ngStyle]="{ color: formatRepoLanguage(repo.language) }"
           style="margin-left: 4px"
         >

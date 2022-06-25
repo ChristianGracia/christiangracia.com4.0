@@ -5,6 +5,8 @@ import { HeaderComponent } from "./header/header.component";
 import { MaterialModule } from "../material/material.module";
 import { FooterComponent } from "./footer/footer.component";
 import { SocialMediaLinksComponent } from "./social-media-links/social-media-links.component";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -13,7 +15,18 @@ import { SocialMediaLinksComponent } from "./social-media-links/social-media-lin
     FooterComponent,
     SocialMediaLinksComponent,
   ],
-  imports: [CommonModule, MaterialModule],
-  exports: [SideBarComponent, HeaderComponent, FooterComponent],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+  ],
+  exports: [
+    SideBarComponent,
+    HeaderComponent,
+    FooterComponent,
+    MatToolbarModule,
+    MatSlideToggleModule,
+  ],
 })
 export class LayoutModule {}

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { GithubService } from "src/app/shared-components/services/github.service";
-import { Commit } from "src/app/shared-components/models/commit.model";
+import { GithubService } from "src/app/shared/services/github.service";
+import { Commit } from "src/app/shared/models/commit.model";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
 export interface DialogData {

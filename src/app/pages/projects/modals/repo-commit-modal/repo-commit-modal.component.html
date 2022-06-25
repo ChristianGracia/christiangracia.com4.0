@@ -1,6 +1,6 @@
 <div class="modal-container">
   <div class="flex flex-row header-container">
-    <div class="repo-name mat-title accent-color">
+    <div class="text-bold mat-title accent-color">
       {{ data.repo }}
     </div>
     <button mat-button [mat-dialog-close]="true">
@@ -18,9 +18,7 @@
         <mat-icon svgIcon="assets:github" class="social-link"></mat-icon>
       </button>
     </div>
-    <div class="click-commit-text">
-      Click a row to view individual code changes
-    </div>
+    <div class="text-bold">Click a row to view individual code changes</div>
 
     <div
       *ngIf="!loadingCommits && commits.length > 0"

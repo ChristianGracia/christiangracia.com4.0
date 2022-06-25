@@ -3,10 +3,14 @@
   .close-button {
     justify-content: right;
   }
-  .language-text {
-    margin-right: 5px;
-  }
   .app-container {
-    gap: 10px;
+    gap: 15px;
+    margin-bottom: 45px;
+    .graph {
+      width: 90%;
+      min-width: 280px;
+      max-width: 400px;
+      height: 2px;
+    }
   }
 }
