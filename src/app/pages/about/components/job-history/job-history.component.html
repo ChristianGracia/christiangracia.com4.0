@@ -5,9 +5,11 @@
   ></app-page-header>
   <div class="job-history-container">
     <div *ngFor="let job of jobs" class="flex flex-col company-card">
-      <div class="flex flex-row align-center justify-space-between">
+      <div
+        class="flex flex-row align-center justify-space-between company-title-row"
+      >
         <div
-          class="text-bold accent-color mat-title clickable"
+          class="text-bold accent-color mat-title clickable company-name"
           (click)="openSite(job.website ?? '')"
         >
           {{ job.company }}
@@ -19,8 +21,8 @@
       <div class="flex justify-center view-more-container">
         <button
           *ngIf="!job.viewMoreOpen"
-          class="c"
-          mat-button
+          mat-raised-button
+          color="accent"
           aria-label="View more"
           (click)="viewMoreJob(job)"
         >

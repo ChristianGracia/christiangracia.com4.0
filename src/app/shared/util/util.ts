@@ -6,5 +6,6 @@ import { LanguageColors } from "../enums/colors";
  */
 export const formatRepoLanguage = (language: string) => {
   const color = LanguageColors[language];
+
   return color ?? "";
 };

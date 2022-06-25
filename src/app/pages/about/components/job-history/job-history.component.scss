@@ -6,15 +6,18 @@
     .company-card {
       margin-bottom: 16px;
 
-      .company-name {
-        font-style: italic;
-
-        cursor: pointer;
+      .company-title-row {
+        margin-bottom: 16px;
+        .company-name {
+          font-style: italic;
+          margin-bottom: 0;
+          cursor: pointer;
+        }
+        .company-years {
+          margin: 0 0 16px;
+        }
       }
 
-      .company-years {
-        margin: 0 0 16px;
-      }
       .job-description {
         line-height: 28px;
         text-align: left;

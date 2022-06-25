@@ -36,6 +36,24 @@
         </button>
       </div>
       <div class="section-text">
+        <p class="mat-title accent-color">Optimized</p>
+        <p class="description mat-subheading-2">
+          My website is the fastest Angular application with large dependencies
+          that I have ever seen. Dependencies include Material, Material Icons,
+          Material Fonts, RxJs, and more. After many hours of build
+          optimization, refactoring, minification, lazy loading, and
+          modularization, it has a score of 100 using Lighthouse web testing on
+          Chrome.
+        </p>
+        <div class="flex justify-center">
+          <img
+            class="site-image"
+            alt="My sites lighthouse score on google chrome"
+            src="https://i.imgur.com/RMLIdxz.png"
+          />
+        </div>
+      </div>
+      <div class="section-text">
         <p class="mat-title accent-color">Git CI Auto Deploy</p>
         <p class="description mat-subheading-2">
           Whenever I make a pull request or merge to the master branch, this
@@ -71,28 +89,22 @@
             reached.<br /><br />This site fully uses Material theming to provide
             a uniform look, use less code, and seamless Light/Dark mode.
           </p>
-          <div class="site-image">
-            <!-- <img
-          alt='font code files'
-            src="https://i.imgur.com/Mxuy7WH.png"
-            
-          />
-          </div> -->
-            <div class="show-code-buttons flex flex-row">
-              <button
-                class="show-code-button hover-1"
-                mat-raised-button
-                color="accent"
-                (click)="
-                  openSite(
-                    'https://github.com/ChristianGracia/christiangracia.com4.0/blob/master/src/custom-theme.scss'
-                  )
-                "
-              >
-                View my Material theme
-              </button>
-            </div>
+
+          <div class="show-code-buttons flex flex-row">
+            <button
+              class="show-code-button hover-1"
+              mat-raised-button
+              color="accent"
+              (click)="
+                openSite(
+                  'https://github.com/ChristianGracia/christiangracia.com4.0/blob/master/src/custom-theme.scss'
+                )
+              "
+            >
+              View my Material theme
+            </button>
           </div>
+
           <div class="section-text">
             <p class="mat-title accent-color">Lazy Loaded Modules</p>
             <p class="description mat-subheading-2">
@@ -101,10 +113,6 @@
               loaded the About or Project page yet but you reached the home page
               faster than you would have if you loaded all the modules.
             </p>
-            <!-- <img
-            src="https://i.imgur.com/Mxuy7WH.png"
-            class="site-image"
-          /> -->
           </div>
           <div class="section-text">
             <p class="mat-title accent-color">Spotify API Integrated</p>
