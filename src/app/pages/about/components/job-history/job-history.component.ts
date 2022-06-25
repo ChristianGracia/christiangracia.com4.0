@@ -13,7 +13,8 @@ const JOBS: Job[] = [
       {
         name: "Lender",
         languages: ["React", "GraphQL", "TypeScript"],
-        description: "Lending application",
+        description:
+          "Live lending application that is used all around the world to manage loans, properties, markets, collaterals, tenants, borrowers, and much more.",
       },
     ],
   },
@@ -28,7 +29,14 @@ const JOBS: Job[] = [
       {
         name: "Heart ECG Data App",
         languages: ["React", "Node.js", "JavaScript"],
-        description: "App that handled data",
+        description:
+          "Full stack application that received and sent heart data from implanted CCM devices. Users (doctors, clinic staff, and admins) could manage the settings of the implanted CCM device, view data, and print reports as well as CRUD trials, patients, clinics, and more.",
+      },
+      {
+        name: "Android Bluetooth Data Tester",
+        languages: ["Kotlin", "Python", "JavaScript"],
+        description:
+          "Android app served by a Kotlin Websocket Server uses python to tests device Bluetooth connections and communication",
       },
     ],
   },
@@ -41,19 +49,28 @@ const JOBS: Job[] = [
     viewMoreOpen: false,
     applications: [
       {
-        name: "API",
-        languages: ["Ruby on Rails"],
-        description: "App that handled data",
+        name: "RoR API",
+        languages: ["Ruby", "Ruby on Rails"],
+        description:
+          "Ruby on rails back-end that used PostgreSQL to CRUD salesforce objects and serve data to multiple web apps and a mobile app.",
       },
       {
-        name: "Mobile App",
+        name: "RN Mobile App",
         languages: ["React Native", "Redux", "TypeScript"],
-        description: "Mobile App",
+        description:
+          "Customer facing mobile app where users could book, manage, and pay their private jet flights, set up pickup and drop off with external car services, and order food to be waiting for them on the plane.",
       },
       {
-        name: "Web App",
+        name: "Angular Customer Web App",
         languages: ["Angular", "TypeScript"],
-        description: "Web App",
+        description:
+          "Customer facing web app with same features as mobile app mentioned above but did not require an iOS device.",
+      },
+      {
+        name: "Angular Employee Web App",
+        languages: ["Angular", "TypeScript"],
+        description:
+          "I made this application solo that is still used today. Employees are able to CRUD trips, manage their accounts, calculate pricing, and much more.",
       },
     ],
   },

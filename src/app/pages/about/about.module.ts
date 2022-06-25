@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { AboutRoutingModule } from "./about-routing.module";
 import { AboutComponent } from "./about.component";
-import { SharedComponentsModule } from "src/app/shared-components/shared-components.module";
+import { SharedModule } from "src/app/shared/shared.module";
 import { MaterialModule } from "../../material/material.module";
 import { SkillsComponent } from "./components/skills/skills.component";
 import { JobHistoryComponent } from "./components/job-history/job-history.component";
@@ -20,6 +20,6 @@ import { JobComponent } from "./components/job-history/job/job.component";
     SiteComponent,
     JobComponent,
   ],
-  imports: [AboutRoutingModule, SharedComponentsModule, MaterialModule],
+  imports: [AboutRoutingModule, SharedModule, MaterialModule],
 })
 export class AboutModule {}

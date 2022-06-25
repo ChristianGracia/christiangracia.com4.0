@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { Repo } from "src/app/shared-components/models/github-repo.model";
-import { GithubService } from "src/app/shared-components/services/github.service";
+import { Repo } from "src/app/shared/models/github-repo.model";
+import { GithubService } from "src/app/shared/services/github.service";
+import { formatRepoLanguage } from "src/app/shared/util/util";
 import { RepoCommitModalComponent } from "../../modals/repo-commit-modal/repo-commit-modal.component";
 
 @Component({
@@ -38,43 +39,7 @@ export class GithubReposComponent implements OnInit {
   }
 
   public formatRepoLanguage(language: string) {
-    let color = "";
-
-    switch (language) {
-      case "Ruby":
-        color = "red";
-        break;
-      case "Java":
-        color = "#B07219";
-        break;
-      case "JavaScript":
-        color = "#F0D91D";
-        break;
-      case "Kotlin":
-        color = "#a87bfe";
-        break;
-      case "TypeScript":
-        color = "#61D2F8";
-        break;
-      case "C#":
-        color = "green";
-        break;
-      case "C":
-        color = "#ed7014";
-        break;
-      case "Python":
-        color = "#90EE90";
-        break;
-      case "Rust":
-        color = "#B34313";
-        break;
-      case "Swift":
-        color = "#F7B0BB";
-        break;
-      default:
-        break;
-    }
-    return color;
+    return formatRepoLanguage(language);
   }
   public getData(obj: any) {
     let index = 0,

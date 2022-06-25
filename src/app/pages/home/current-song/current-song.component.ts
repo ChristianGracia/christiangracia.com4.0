@@ -34,7 +34,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   constructor(private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {
-    this.loadingSong = true;
     this.getCurrentSong();
   }
 
@@ -84,6 +83,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
 
   private getCurrentSong(): void {
+    this.loadingSong = true;
     this.spotifyService.getCurrentSong().subscribe(
       (song: Song[]) => {
         if (song) {
