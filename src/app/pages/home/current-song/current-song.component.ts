@@ -34,7 +34,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadingSong = true;
-
     this.getCurrentSong();
   }
 
@@ -43,32 +42,36 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
 
   private addTimeProgressBar(): void {
-    this.timerGoing = true;
-    const second = 1;
-    const timer$ = interval(1000);
-    let counter = 0;
-    const sub = timer$.subscribe((sec) => {
-      if (!this.song?.playedAt || (this.song?.playedAt && this.songPlaying)) {
-        this.song.progress += second;
-        this.song.progressString = formatHHMMString(this.song.progress);
-        this.progress = (this.song.progress / this.song.duration) * 100;
-      }
-      counter += 1;
+    console.log("started");
+    if (!this.timerGoing) {
+      this.timerGoing = true;
+      const second = 1;
+      const timer$ = interval(1000);
+      let counter = 0;
+      const sub = timer$.subscribe((sec) => {
+        if (!this.song?.playedAt || (this.song?.playedAt && this.songPlaying)) {
+          this.song.progress += second;
+          this.song.progressString = formatHHMMString(this.song.progress);
+          this.progress = (this.song.progress / this.song.duration) * 100;
+        }
+        counter += 1;
 
-      if (this.song.progress >= this.song.duration) {
-        sub.unsubscribe();
-        setTimeout(() => {
-          this.audio.src = "";
-          this.songPlaying = false;
-          this.timerGoing = false;
-          this.resetSongProgress();
+        if (this.song.progress >= this.song.duration) {
+          sub.unsubscribe();
+          console.log("ended");
+          setTimeout(() => {
+            this.audio.src = "";
+            this.songPlaying = false;
+            this.timerGoing = false;
+            this.resetSongProgress();
+            this.getCurrentSong();
+          }, 600);
+        } else if (counter > 20 && this.song.progress > 30) {
           this.getCurrentSong();
-        }, 600);
-      } else if (counter > 20 && this.song.progress > 30) {
-        this.getCurrentSong();
-        counter = 0;
-      }
-    });
+          counter = 0;
+        }
+      });
+    }
   }
 
   private getCurrentSong(): void {
@@ -147,15 +150,19 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       this.audio.load();
       this.resetSongProgress();
     }
+
     this.audio[!this.songPlaying ? "play" : "pause"]();
     this.songPlaying = !this.songPlaying;
 
-    if (!this.songPlaying) {
+    if (!this.songPlaying && !this.timerGoing) {
       this.addTimeProgressBar;
     }
   }
 
   private setAudioSrc(): void {
-    this.audio.src = this.previewUrlPrefix + this.song?.previewUrl ?? "";
+    this.audio.src =
+      this.previewUrlPrefix + this.song?.previewUrl ??
+      this.recentSongs?.[this.songIndex]?.previewUrl ??
+      "";
   }
 }
