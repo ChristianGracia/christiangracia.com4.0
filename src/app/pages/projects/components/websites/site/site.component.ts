@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { Site } from "src/app/shared/models/site.model";
+import { Site } from "src/app/modules/shared/models/site.model";
 import { ViewSiteModalComponent } from "../../../modals/view-site-modal/view-site-modal.component";
 
 @Component({

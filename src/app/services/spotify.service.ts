@@ -14,10 +14,4 @@ export class SpotifyService {
       "/spotify/recently-played?amount=" + amount
     );
   }
-  public getSpotifyCode() {
-    return this.utilService.getObservable(
-      "/util/show-file?file=spotify.ts&cssFile=code-snippet.css",
-      { responseType: "text" as "json" }
-    );
-  }
 }

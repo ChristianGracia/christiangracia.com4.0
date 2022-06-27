@@ -1,21 +1,17 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/internal/operators/map";
 import { environment } from "@environments/environment";
 
 @Injectable({
   providedIn: "root",
 })
 export class UtilService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    console.log("created util");
+  }
 
   public getObservable(url: string, options = {}) {
-    const observable = this.createObservable("get", url, options);
-    return options === {}
-      ? observable.pipe(
-          map((data: any) => (data.fromJSON ? data.fromJSON(data) : data))
-        )
-      : observable;
+    return this.createObservable("get", url, options);
   }
 
   public postObservable(url: string, options = {}) {
@@ -23,6 +19,6 @@ export class UtilService {
   }
 
   private createObservable(method: string, url: string, options = {}) {
-    return this.http[method](environment.apiUrl + url, options);
+    return this.http[method](`${environment.apiUrl}${url}`, options);
   }
 }

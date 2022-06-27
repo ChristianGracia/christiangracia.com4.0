@@ -49,7 +49,7 @@
       <mat-icon
         (click)="playPreviewOfSong()"
         color="accent"
-        *ngIf="allSongs[songIndex].previewUrl"
+        *ngIf="allSongs[songIndex].preview"
         svgIcon="assets:{{ !songPlaying ? 'play_circle' : 'pause_circle' }}"
       ></mat-icon>
       <mat-icon

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Site } from "src/app/shared/models/site.model";
+import { Site } from "src/app/modules/shared/models/site.model";
 
 const ON_A_BEAT_SITE: Site = new Site(
   "On a Beat!",

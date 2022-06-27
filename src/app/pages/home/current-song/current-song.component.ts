@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { environment } from "@environments/environment";
 import { interval } from "rxjs/internal/observable/interval";
-import { Song } from "src/app/models/song.model";
+import { Song } from "src/app/types/song";
 import { SpotifyService } from "src/app/services/spotify.service";
+import { currentlyPlayingText } from "src/util/constants";
 const formatHHMMString = (timestamp: number) => {
   return new Date(timestamp * 1000).toTimeString().split(" ")[0].substring(3);
 };
@@ -27,10 +28,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   public audio: HTMLMediaElement = new Audio();
   public progress: number = 0;
 
-  public loadingText = "Loading".split("");
-  public currentText = "Playing now on my Spotify"
-    .split(" ")
-    .map((item) => item.split(""));
+  public loadingText = ["L", "o", "a", "d", "i", "n", "g"];
+  public currentText = currentlyPlayingText;
+
   constructor(private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {
@@ -42,9 +42,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
 
   private addTimeProgressBar(): void {
-    console.log("checking if add");
     if (!this.timerGoing) {
-      console.log("starting");
       this.timerGoing = true;
       const second = 1;
       const timer$ = interval(1000);
@@ -55,7 +53,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.allSongs[this.songIndex].progress >=
           this.allSongs[this.songIndex].duration;
         if (songFinishedCheck || !this.allSongs[this.songIndex].isPlaying) {
-          console.log("ended");
           sub.unsubscribe();
           this.allSongs[this.songIndex].isPlaying = false;
           this.timerGoing = false;
@@ -176,6 +173,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
 
   private setAudioSrc(): void {
     this.audio.src =
-      this.previewUrlPrefix + this.allSongs[this.songIndex].previewUrl;
+      this.previewUrlPrefix + this.allSongs[this.songIndex].preview;
   }
 }

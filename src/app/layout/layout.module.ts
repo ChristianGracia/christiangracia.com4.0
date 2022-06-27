@@ -2,11 +2,12 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { SideBarComponent } from "./side-bar/side-bar.component";
 import { HeaderComponent } from "./header/header.component";
-import { MaterialModule } from "../material/material.module";
+import { MaterialModule } from "../modules/material/material.module";
 import { FooterComponent } from "./footer/footer.component";
 import { SocialMediaLinksComponent } from "./social-media-links/social-media-links.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { ImageLoaderModule } from "src/app/modules/image-loader/image-loader.module";
 
 @NgModule({
   declarations: [
@@ -20,13 +21,8 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
     MaterialModule,
     MatToolbarModule,
     MatSlideToggleModule,
+    ImageLoaderModule,
   ],
-  exports: [
-    SideBarComponent,
-    HeaderComponent,
-    FooterComponent,
-    MatToolbarModule,
-    MatSlideToggleModule,
-  ],
+  exports: [SideBarComponent, HeaderComponent, FooterComponent],
 })
 export class LayoutModule {}
