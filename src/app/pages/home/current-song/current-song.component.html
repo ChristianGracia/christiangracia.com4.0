@@ -74,11 +74,13 @@
       value="{{ progress }}"
     ></mat-progress-bar>
     <div
-      class="flex flex-row justify-space-between song-progress-bar-text-container mt-5"
+      class="flex flex-row justify-space-between song-progress-bar-text-container align-center mt-5"
     >
-      <p>{{ allSongs[songIndex].progressString }}</p>
+      <div>
+        {{ allSongs[songIndex].progressString }}
+      </div>
       <div class="flex flex-row align-center">
-        <div class="text-bold">{{ songIndex + 1 }}/</div>
+        <div class="text-bold">Track: {{ songIndex + 1 }}/</div>
         <div *ngIf="!loadingRecentlyPlayed" class="text-bold">
           {{ allSongs.length }}
         </div>
@@ -89,7 +91,9 @@
           diameter="12"
         ></mat-spinner>
       </div>
-      <p>{{ allSongs[songIndex].durationString }}</p>
+      <div>
+        {{ allSongs[songIndex].durationString }}
+      </div>
     </div>
   </div>
   <div class="current-text flex flex-row align-center mat-display-1">

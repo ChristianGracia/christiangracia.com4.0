@@ -42,8 +42,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
 
   private addTimeProgressBar(): void {
+    console.log("checking if add");
     if (!this.timerGoing) {
-      console.log("started");
+      console.log("starting");
       this.timerGoing = true;
       const second = 1;
       const timer$ = interval(1000);
@@ -54,9 +55,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.allSongs[this.songIndex].progress >=
           this.allSongs[this.songIndex].duration;
         if (songFinishedCheck || !this.allSongs[this.songIndex].isPlaying) {
+          console.log("ended");
           sub.unsubscribe();
           this.allSongs[this.songIndex].isPlaying = false;
-          console.log("ended");
           this.timerGoing = false;
           if (songFinishedCheck) {
             this.songPlaying = false;
@@ -90,6 +91,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           this.currentlyPlayingSong = song[0];
           this.allSongs = [this.currentlyPlayingSong, ...this.recentSongs];
           if (this.songIndex === 0) {
+            this.allSongs[0].isPlaying = true;
             this.addTimeProgressBar();
           }
         }
@@ -124,6 +126,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     }
     this.audio.pause();
     this.audio = new Audio();
+    this.resetSongProgress();
     this.allSongs[this.songIndex].isPlaying = false;
     this.songIndex = this.songIndex + (direction === "forward" ? 1 : -1);
     if (this.songIndex >= 1 && this.allSongs.length < this.maxSongs - 1) {
@@ -131,7 +134,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     }
     this.setAudioSrc();
     if (this.songPlaying) {
-      this.resetSongProgress();
       this.allSongs[this.songIndex].isPlaying = true;
       this.audio.play();
       this.addTimeProgressBar();
@@ -140,18 +142,20 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
 
   private checkRecentlyPlayed(amount: number = 2): void {
     this.loadingRecentlyPlayed = true;
-    this.spotifyService
-      .getRecentlyPlayed(amount)
-      .subscribe((recentSongs: Song[]) => {
-        if (recentSongs.length) {
-          this.recentSongs = recentSongs;
-          this.allSongs = [
-            ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
-            ...this.recentSongs,
-          ];
-        }
-        this.loadingRecentlyPlayed = false;
-      });
+    if (this.recentSongs.length !== this.maxSongs - 1) {
+      this.spotifyService
+        .getRecentlyPlayed(amount)
+        .subscribe((recentSongs: Song[]) => {
+          if (recentSongs.length) {
+            this.recentSongs = recentSongs;
+            this.allSongs = [
+              ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
+              ...this.recentSongs,
+            ];
+          }
+          this.loadingRecentlyPlayed = false;
+        });
+    }
   }
 
   public playPreviewOfSong(): void {
