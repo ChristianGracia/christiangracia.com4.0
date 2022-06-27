@@ -7,6 +7,9 @@ export class LocationService {
   constructor(private utilService: UtilService) {}
 
   public getLocationData() {
-    return this.utilService.getObservable("https://json.geoiplookup.io/");
+    return this.utilService.createObservable(
+      "get",
+      "https://json.geoiplookup.io/"
+    );
   }
 }

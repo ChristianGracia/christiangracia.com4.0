@@ -12,3 +12,17 @@ export const SOCIAL_MEDIA_LINKS = {
   linkedin: "https://www.linkedin.com/in/christiangracia",
 };
 export const SOCIAL_MEDIA_KEYS = ["github", "twitter", "linkedin"];
+
+export const ICONS = [
+  "github",
+  "twitter",
+  "linkedin",
+  "menu",
+  "light_mode",
+  "dark_mode",
+  "fast_forward",
+  "play_circle",
+  "pause_circle",
+  "headphones",
+  "close",
+];

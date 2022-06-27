@@ -50,6 +50,6 @@ export class ContactFormComponent implements OnInit {
   }
 
   public goToSite(): void {
-    this.routingService.navigateToHomePage();
+    this.routingService.navigateToPage("/");
   }
 }

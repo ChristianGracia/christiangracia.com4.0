@@ -8,6 +8,10 @@ export class EmailService {
   constructor(private utilService: UtilService) {}
 
   public sendSiteVisitEmail(locationData: LocationData) {
-    return this.utilService.postObservable("/email/site-visit", locationData);
+    return this.utilService.createObservable(
+      "post",
+      "/email/site-visit",
+      locationData
+    );
   }
 }

@@ -7,7 +7,6 @@ import { FooterComponent } from "./footer/footer.component";
 import { SocialMediaLinksComponent } from "./social-media-links/social-media-links.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-import { ImageLoaderModule } from "src/app/modules/image-loader/image-loader.module";
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { ImageLoaderModule } from "src/app/modules/image-loader/image-loader.mod
     MaterialModule,
     MatToolbarModule,
     MatSlideToggleModule,
-    ImageLoaderModule,
   ],
   exports: [SideBarComponent, HeaderComponent, FooterComponent],
 })

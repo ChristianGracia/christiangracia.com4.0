@@ -7,7 +7,8 @@ import { UtilService } from "src/app/services/util.service";
 export class FileService {
   constructor(private utilService: UtilService) {}
   public getSpotifyCode() {
-    return this.utilService.getObservable(
+    return this.utilService.createObservable(
+      "get",
       "/util/show-file?file=spotify.ts&cssFile=code-snippet.css",
       { responseType: "text" as "json" }
     );

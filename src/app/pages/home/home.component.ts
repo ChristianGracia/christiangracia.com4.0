@@ -21,7 +21,7 @@ export class HomeComponent implements OnDestroy {
   }
 
   public goToAboutPage(): void {
-    this.routingService.navigateToAbout();
+    this.routingService.navigateToPage("/about");
   }
   private sendSiteVisit() {
     if (window.location && window.location.hostname !== "localhost") {

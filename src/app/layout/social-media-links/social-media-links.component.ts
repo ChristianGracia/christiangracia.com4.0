@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, OnDestroy } from "@angular/core";
-import { ImageService } from "src/app/modules/image-loader/image-loader.service";
 import { SOCIAL_MEDIA_KEYS, SOCIAL_MEDIA_LINKS } from "src/util/constants";
 
 @Component({
@@ -11,10 +10,6 @@ export class SocialMediaLinksComponent implements OnDestroy, AfterViewInit {
   public activeIconArray: boolean[] = [false, false, false];
   public socialMediaLinks: string[] = SOCIAL_MEDIA_KEYS;
   private timer!: number;
-
-  constructor(private imageService: ImageService) {
-    this.imageService.initializeImages(this.socialMediaLinks);
-  }
 
   ngAfterViewInit() {
     this.renderActiveLinkHighlight();

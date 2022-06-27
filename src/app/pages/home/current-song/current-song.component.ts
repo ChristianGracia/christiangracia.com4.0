@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { environment } from "@environments/environment";
 import { interval } from "rxjs/internal/observable/interval";
 import { Song } from "src/app/types/song";
@@ -13,7 +13,7 @@ const MAX_SONGS = 51;
   templateUrl: "./current-song.component.html",
   styleUrls: ["./current-song.component.scss"],
 })
-export class CurrentSongComponent implements OnInit, OnDestroy {
+export class CurrentSongComponent implements OnDestroy {
   public imagePrefix = environment.spotify.imageUrl;
   public previewUrlPrefix = environment.spotify.previewUrl;
   public currentlyPlayingSong: Song | null = null;
@@ -31,9 +31,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   public loadingText = ["L", "o", "a", "d", "i", "n", "g"];
   public currentText = currentlyPlayingText;
 
-  constructor(private spotifyService: SpotifyService) {}
-
-  ngOnInit(): void {
+  constructor(private spotifyService: SpotifyService) {
     this.getCurrentSong();
   }
 
@@ -48,13 +46,13 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       const timer$ = interval(1000);
 
       let counter = 0;
+      let currentSong = this.allSongs[this.songIndex];
       const sub = timer$.subscribe((sec) => {
-        const songFinishedCheck =
-          this.allSongs[this.songIndex].progress >=
-          this.allSongs[this.songIndex].duration;
-        if (songFinishedCheck || !this.allSongs[this.songIndex].isPlaying) {
+        currentSong = this.allSongs[this.songIndex];
+        const songFinishedCheck = currentSong.progress >= currentSong.duration;
+        if (songFinishedCheck || !currentSong.isPlaying) {
           sub.unsubscribe();
-          this.allSongs[this.songIndex].isPlaying = false;
+          currentSong.isPlaying = false;
           this.timerGoing = false;
           if (songFinishedCheck) {
             this.songPlaying = false;
@@ -62,16 +60,11 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
           }
         } else {
           counter += 1;
-          this.allSongs[this.songIndex].progress += second;
-          this.allSongs[this.songIndex].progressString = formatHHMMString(
-            this.allSongs[this.songIndex].progress
-          );
-          this.progress =
-            (this.allSongs[this.songIndex].progress /
-              this.allSongs[this.songIndex].duration) *
-            100;
+          currentSong.progress += second;
+          currentSong.progressString = formatHHMMString(currentSong.progress);
+          this.progress = (currentSong.progress / currentSong.duration) * 100;
 
-          if (counter > 20 && this.allSongs[this.songIndex].progress > 30) {
+          if (counter > 20 && currentSong.progress > 30) {
             this.getCurrentSong();
             counter = 0;
           }
@@ -107,10 +100,11 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
 
   private resetSongProgress(): void {
-    this.allSongs[this.songIndex].progress = 0;
-    this.allSongs[this.songIndex].duration = 30;
-    this.allSongs[this.songIndex].progressString = "00:00";
-    this.allSongs[this.songIndex].durationString = "00:30";
+    const currentSong = this.allSongs[this.songIndex];
+    currentSong.progress = 0;
+    currentSong.duration = 30;
+    currentSong.progressString = "00:00";
+    currentSong.durationString = "00:30";
     this.progress = 0;
   }
 

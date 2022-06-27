@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Input, Output } from "@angular/core";
-import { ImageService } from "src/app/modules/image-loader/image-loader.service";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { RoutingService } from "src/app/services/routing.service";
 @Component({
   selector: "app-header",
@@ -14,13 +13,7 @@ export class HeaderComponent {
   @Input() public isDarkTheme: boolean = false;
   public links: string[] = ["about", "projects", "contact"];
   @Input() public currentUrl: string = "";
-  private icons: string[] = ["light_mode", "dark_mode", "menu"];
-  constructor(
-    private routingService: RoutingService,
-    private imageService: ImageService
-  ) {
-    this.imageService.initializeImages(this.icons);
-  }
+  constructor(private routingService: RoutingService) {}
 
   public onToggleSidenav(): void {
     this.sidenavToggle.emit();

@@ -10,6 +10,10 @@ export class ContactService {
   constructor(private utilService: UtilService) {}
 
   public sendContactEmail(emailMessage: EmailMessage) {
-    return this.utilService.postObservable("/email/send-email", emailMessage);
+    return this.utilService.createObservable(
+      "post",
+      "/email/send-email",
+      emailMessage
+    );
   }
 }

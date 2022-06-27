@@ -7,10 +7,14 @@ import { UtilService } from "./util.service";
 export class SpotifyService {
   constructor(private utilService: UtilService) {}
   public getCurrentSong() {
-    return this.utilService.getObservable("/spotify/currently-playing");
+    return this.utilService.createObservable(
+      "get",
+      "/spotify/currently-playing"
+    );
   }
   public getRecentlyPlayed(amount: number = 50) {
-    return this.utilService.getObservable(
+    return this.utilService.createObservable(
+      "get",
       "/spotify/recently-played?amount=" + amount
     );
   }
