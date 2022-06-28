@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { RoutingService } from "src/app/services/routing.service";
-
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",

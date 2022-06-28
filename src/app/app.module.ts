@@ -6,8 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { HomeComponent } from "./pages/home/home.component";
 import { CurrentSongComponent } from "./pages/home/current-song/current-song.component";
 import { AnimatedIconComponent } from "./pages/home/current-song/lazy-animated-icon/lazy-animated-icon.component";
-import { UtilService } from "./services/util.service";
-
+import { LayoutModule } from "src/app/layout/layout.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +15,11 @@ import { UtilService } from "./services/util.service";
     AnimatedIconComponent,
   ],
   imports: [
+    LayoutModule,
     CoreModule,
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
   ],
-  providers: [UtilService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

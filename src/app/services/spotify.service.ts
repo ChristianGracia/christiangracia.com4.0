@@ -7,17 +7,15 @@ import { UtilService } from "./util.service";
 export class SpotifyService {
   constructor(private utilService: UtilService) {}
   public getCurrentSong() {
-    return this.utilService.getObservable("/spotify/currently-playing");
-  }
-  public getRecentlyPlayed(amount: number = 50) {
-    return this.utilService.getObservable(
-      "/spotify/recently-played?amount=" + amount
+    return this.utilService.createObservable(
+      "get",
+      "/spotify/currently-playing"
     );
   }
-  public getSpotifyCode() {
-    return this.utilService.getObservable(
-      "/util/show-file?file=spotify.ts&cssFile=code-snippet.css",
-      { responseType: "text" as "json" }
+  public getRecentlyPlayed(amount: number = 50) {
+    return this.utilService.createObservable(
+      "get",
+      "/spotify/recently-played?amount=" + amount
     );
   }
 }

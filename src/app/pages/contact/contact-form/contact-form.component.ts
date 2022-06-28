@@ -1,11 +1,13 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { EmailService } from "../../../services/email.service";
-import { EmailMessage } from "../../../models/email-message.model";
+import { ContactService } from "../services/contact.service";
+import { EmailMessage } from "../../../types/email-message";
 import { RoutingService } from "src/app/services/routing.service";
 
-import { LocationData } from "../../../models/location-data.model";
+import { LocationData } from "../../../types/location-data";
 import { LocationService } from "../../../services/location.service";
+import { formatLocationData } from "src/util/formatMethods";
+import { EmailService } from "src/app/services/email.service";
 
 @Component({
   selector: "app-contact-form",
@@ -16,29 +18,38 @@ export class ContactFormComponent implements OnInit {
   @Output() private emailReceivedEvent = new EventEmitter<boolean>();
   public emailReceived: boolean = false;
   constructor(
-    private emailService: EmailService,
+    private contactService: ContactService,
     private routingService: RoutingService,
-    private locationService: LocationService
+    private locationService: LocationService,
+    private emailService: EmailService
   ) {}
 
   ngOnInit(): void {}
   public submit(form: NgForm): void {
     const { name, email, message } = form.value;
-    const messageParams = new EmailMessage(name, email, message);
+    const messageParams: EmailMessage = {
+      name,
+      email,
+      message,
+    };
     this.locationService
-      .getLocationJSON()
+      .getLocationData()
       .subscribe((locationData: LocationData) => {
-        this.emailService.sendSiteVisitEmail(locationData).subscribe(() => {});
+        this.emailService
+          .sendSiteVisitEmail(formatLocationData(locationData))
+          .subscribe(() => {});
       });
-    this.emailService.sendContactEmail(messageParams).subscribe((data: any) => {
-      if (data.name) {
-        this.emailReceived = true;
-        this.emailReceivedEvent.emit(true);
-      }
-    });
+    this.contactService
+      .sendContactEmail(messageParams)
+      .subscribe((data: any) => {
+        if (data.name) {
+          this.emailReceived = true;
+          this.emailReceivedEvent.emit(true);
+        }
+      });
   }
 
   public goToSite(): void {
-    this.routingService.navigateToHomePage();
+    this.routingService.navigateToPage("/");
   }
 }

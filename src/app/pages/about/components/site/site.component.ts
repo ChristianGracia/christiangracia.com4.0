@@ -1,14 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
-import { SpotifyService } from "src/app/services/spotify.service";
-
-interface Section {
-  title: string;
-  description: string[];
-  image: string[];
-}
-
-const sections = [{}];
+import { FileService } from "../../services/file.service";
 @Component({
   selector: "app-site",
   templateUrl: "./site.component.html",
@@ -17,11 +9,11 @@ const sections = [{}];
 export class SiteComponent implements OnInit {
   public code: any = "";
   constructor(
-    private spotifyService: SpotifyService,
+    private fileService: FileService,
     private domSanitizer: DomSanitizer
   ) {}
   ngOnInit(): void {
-    this.spotifyService.getSpotifyCode().subscribe((data: string) => {
+    this.fileService.getSpotifyCode().subscribe((data: string) => {
       this.code = this.domSanitizer.bypassSecurityTrustHtml(data);
     });
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
-import { Song } from "src/app/models/song.model";
+import { Song } from "src/app/types/song";
 import { SpotifyService } from "src/app/services/spotify.service";
 import { environment } from "@environments/environment";
 
@@ -18,7 +18,7 @@ export class RecentlyPlayedSongsComponent implements OnInit {
     "images",
     "name",
     "artist",
-    "previewUrl",
+    "preview",
     "playedAt",
   ];
   public songPlaying: Boolean = false;
@@ -54,10 +54,10 @@ export class RecentlyPlayedSongsComponent implements OnInit {
 
   public playPreviewOfSong(song: Song): void {
     if (!song.isPlaying) {
-      this.audio.src = this.previewUrlPrefix + song.previewUrl;
+      this.audio.src = this.previewUrlPrefix + song.preview;
       this.audio.load();
       this.songs.forEach((item) => {
-        if (item.previewUrl === song.previewUrl) {
+        if (item.preview === song.preview) {
           item.isPlaying = true;
         } else {
           item.isPlaying = false;

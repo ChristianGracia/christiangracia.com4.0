@@ -12,6 +12,6 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {}
 
   public goToProjectsPage(): void {
-    this.routingService.navigateToProjects();
+    this.routingService.navigateToPage("/projects");
   }
 }

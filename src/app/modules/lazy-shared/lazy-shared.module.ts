@@ -4,23 +4,18 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatTableModule } from "@angular/material/table";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatCardModule } from "@angular/material/card";
-import { CommonModule } from "@angular/common";
+import { SharedModule } from "../shared/shared.module";
+
+const modules = [
+  SharedModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatDialogModule,
+  MatCardModule,
+];
 @NgModule({
   declarations: [PageHeaderComponent],
-  imports: [
-    MatTableModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatCardModule,
-    CommonModule,
-  ],
-  exports: [
-    PageHeaderComponent,
-    MatTableModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatCardModule,
-    CommonModule,
-  ],
+  imports: modules,
+  exports: [...modules, PageHeaderComponent],
 })
-export class SharedModule {}
+export class LazySharedModule {}

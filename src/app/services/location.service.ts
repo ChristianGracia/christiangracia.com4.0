@@ -1,17 +1,15 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { LocationData } from "../models/location-data.model";
-import { map } from "rxjs/operators";
-
+import { UtilService } from "./util.service";
 @Injectable({
   providedIn: "root",
 })
 export class LocationService {
-  constructor(private http: HttpClient) {}
+  constructor(private utilService: UtilService) {}
 
-  public getLocationJSON() {
-    return this.http
-      .get<LocationData>("https://json.geoiplookup.io/")
-      .pipe(map((data: LocationData) => LocationData.fromJSON(data)));
+  public getLocationData() {
+    return this.utilService.createObservable(
+      "get",
+      "https://json.geoiplookup.io/"
+    );
   }
 }
