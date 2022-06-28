@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { Repo } from "src/app/modules/shared/models/github-repo.model";
-import { GithubService } from "src/app/modules/shared/services/github.service";
-import { formatRepoLanguage } from "src/app/modules/shared/util/util";
+import { Repo } from "src/app/modules/lazy-shared/models/github-repo.model";
+import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
+import { formatRepoLanguage } from "src/app/modules/lazy-shared/util/util";
 import { RepoCommitModalComponent } from "../../modals/repo-commit-modal/repo-commit-modal.component";
 
 @Component({

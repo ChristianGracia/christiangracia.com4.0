@@ -18,6 +18,7 @@ export class AppComponent implements AfterViewInit {
     private router: Router,
     private imageService: ImageService
   ) {
+    this.imageService.initializeImages();
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         const path = window.location.pathname;
@@ -42,7 +43,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.imageService.initializeImages();
     this.isDarkTheme = !!localStorage.getItem(MODE.DARK);
     this.setTheme();
     this.addCssClass("full-screen-modal");

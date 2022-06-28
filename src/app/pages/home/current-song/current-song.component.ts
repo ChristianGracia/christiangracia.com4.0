@@ -1,9 +1,10 @@
-import { Component, OnDestroy } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { environment } from "@environments/environment";
 import { interval } from "rxjs/internal/observable/interval";
 import { Song } from "src/app/types/song";
 import { SpotifyService } from "src/app/services/spotify.service";
 import { currentlyPlayingText } from "src/util/constants";
+
 const formatHHMMString = (timestamp: number) => {
   return new Date(timestamp * 1000).toTimeString().split(" ")[0].substring(3);
 };
@@ -13,7 +14,7 @@ const MAX_SONGS = 51;
   templateUrl: "./current-song.component.html",
   styleUrls: ["./current-song.component.scss"],
 })
-export class CurrentSongComponent implements OnDestroy {
+export class CurrentSongComponent implements OnDestroy, OnInit {
   public imagePrefix = environment.spotify.imageUrl;
   public previewUrlPrefix = environment.spotify.previewUrl;
   public currentlyPlayingSong: Song | null = null;
@@ -27,16 +28,20 @@ export class CurrentSongComponent implements OnDestroy {
   public songIndex: number = 0;
   public audio: HTMLMediaElement = new Audio();
   public progress: number = 0;
+  public currentSong = this.allSongs?.length
+    ? this.allSongs[this.songIndex]
+    : null;
 
   public loadingText = ["L", "o", "a", "d", "i", "n", "g"];
   public currentText = currentlyPlayingText;
 
-  constructor(private spotifyService: SpotifyService) {
-    this.getCurrentSong();
-  }
+  constructor(private spotifyService: SpotifyService) {}
 
   ngOnDestroy(): void {
     this.audio.pause();
+  }
+  ngOnInit() {
+    this.getCurrentSong();
   }
 
   private addTimeProgressBar(): void {
@@ -44,27 +49,28 @@ export class CurrentSongComponent implements OnDestroy {
       this.timerGoing = true;
       const second = 1;
       const timer$ = interval(1000);
-
       let counter = 0;
-      let currentSong = this.allSongs[this.songIndex];
       const sub = timer$.subscribe((sec) => {
-        currentSong = this.allSongs[this.songIndex];
-        const songFinishedCheck = currentSong.progress >= currentSong.duration;
-        if (songFinishedCheck || !currentSong.isPlaying) {
+        const songFinishedCheck =
+          this.currentSong.progress >= this.currentSong.duration;
+        if (songFinishedCheck || !this.currentSong.isPlaying) {
           sub.unsubscribe();
-          currentSong.isPlaying = false;
+          this.currentSong.isPlaying = false;
           this.timerGoing = false;
           if (songFinishedCheck) {
-            this.songPlaying = false;
+            this.currentSong.isPlaying = false;
             this.resetSongProgress();
           }
         } else {
           counter += 1;
-          currentSong.progress += second;
-          currentSong.progressString = formatHHMMString(currentSong.progress);
-          this.progress = (currentSong.progress / currentSong.duration) * 100;
+          this.currentSong.progress += second;
+          this.currentSong.progressString = formatHHMMString(
+            this.currentSong.progress
+          );
+          this.progress =
+            (this.currentSong.progress / this.currentSong.duration) * 100;
 
-          if (counter > 20 && currentSong.progress > 30) {
+          if (counter > 20 && this.currentSong.progress > 30) {
             this.getCurrentSong();
             counter = 0;
           }
@@ -82,6 +88,7 @@ export class CurrentSongComponent implements OnDestroy {
           this.allSongs = [this.currentlyPlayingSong, ...this.recentSongs];
           if (this.songIndex === 0) {
             this.allSongs[0].isPlaying = true;
+            this.currentSong = this.allSongs[0];
             this.addTimeProgressBar();
           }
         }
@@ -100,32 +107,30 @@ export class CurrentSongComponent implements OnDestroy {
   }
 
   private resetSongProgress(): void {
-    const currentSong = this.allSongs[this.songIndex];
-    currentSong.progress = 0;
-    currentSong.duration = 30;
-    currentSong.progressString = "00:00";
-    currentSong.durationString = "00:30";
+    this.currentSong.progress = 0;
+    this.currentSong.duration = 30;
+    this.currentSong.progressString = "00:00";
+    this.currentSong.durationString = "00:30";
     this.progress = 0;
   }
 
-  public skipSong(direction: string): void {
-    if (
-      (direction === "back" && !this.songIndex) ||
-      (direction === "forward" && this.songIndex === this.allSongs.length - 1)
-    ) {
+  public skipSong(direction: number): void {
+    const newIndex = direction + this.songIndex;
+    if (newIndex < 0 || newIndex > this.allSongs.length - 1) {
       return;
     }
     this.audio.pause();
     this.audio = new Audio();
     this.resetSongProgress();
-    this.allSongs[this.songIndex].isPlaying = false;
-    this.songIndex = this.songIndex + (direction === "forward" ? 1 : -1);
+    this.currentSong.isPlaying = false;
+    this.songIndex = newIndex;
+    this.currentSong = this.allSongs[this.songIndex];
     if (this.songIndex >= 1 && this.allSongs.length < this.maxSongs - 1) {
       this.checkRecentlyPlayed(this.maxSongs - 1);
     }
     this.setAudioSrc();
     if (this.songPlaying) {
-      this.allSongs[this.songIndex].isPlaying = true;
+      this.currentSong.isPlaying = true;
       this.audio.play();
       this.addTimeProgressBar();
     }
@@ -139,6 +144,9 @@ export class CurrentSongComponent implements OnDestroy {
         .subscribe((recentSongs: Song[]) => {
           if (recentSongs.length) {
             this.recentSongs = recentSongs;
+            if (!this.allSongs.length) {
+              this.currentSong = this.recentSongs[0];
+            }
             this.allSongs = [
               ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
               ...this.recentSongs,
@@ -155,18 +163,17 @@ export class CurrentSongComponent implements OnDestroy {
       this.audio.load();
       this.resetSongProgress();
     }
-    this.audio[!this.songPlaying ? "play" : "pause"]();
+
     this.songPlaying = !this.songPlaying;
+    this.audio[this.songPlaying ? "play" : "pause"]();
+
     if (this.songPlaying && !this.timerGoing) {
-      this.allSongs[this.songIndex].isPlaying = true;
+      this.currentSong.isPlaying = true;
       this.addTimeProgressBar();
-    } else {
-      this.allSongs[this.songIndex].isPlaying = false;
     }
   }
 
   private setAudioSrc(): void {
-    this.audio.src =
-      this.previewUrlPrefix + this.allSongs[this.songIndex].preview;
+    this.audio.src = this.previewUrlPrefix + this.currentSong.preview;
   }
 }

@@ -8,7 +8,7 @@ import { MaterialModule } from "../../modules/material/material.module";
 import { RepoCommitModalComponent } from "./modals/repo-commit-modal/repo-commit-modal.component";
 import { ViewSiteModalComponent } from "./modals/view-site-modal/view-site-modal.component";
 
-import { SharedModule } from "src/app/modules/shared/shared.module";
+import { LazySharedModule } from "src/app/modules/lazy-shared/lazy-shared.module";
 
 import { SafePipe } from "./services/safe.pipe";
 import { MatCarouselModule } from "@ngbmodule/material-carousel";
@@ -27,7 +27,7 @@ import { MatCarouselModule } from "@ngbmodule/material-carousel";
     MatCarouselModule.forRoot(),
     MaterialModule,
     ProjectsRoutingModule,
-    SharedModule,
+    LazySharedModule,
   ],
   entryComponents: [RepoCommitModalComponent, ViewSiteModalComponent],
 })

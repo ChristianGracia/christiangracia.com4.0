@@ -10,7 +10,7 @@
 </div>
 
 <div
-  *ngIf="allSongs.length > 0 && !loadingSong"
+  *ngIf="currentSong && !loadingSong"
   class="flex flex-col justify-center song-container"
 >
   <div
@@ -21,27 +21,25 @@
         loading="lazy"
         height="36px"
         width="36px"
-        [src]="imagePrefix + allSongs[songIndex].images[0]"
-        alt="{{ allSongs[songIndex]?.artist }} album image"
+        [src]="imagePrefix + currentSong.images[0]"
+        alt="{{ currentSong?.artist }} album image"
       />
       <div class="flex flex-col justify-center song-info-container">
         <span class="accent-color mat-caption text-bold"
           >{{
-            allSongs[songIndex].name.length > 25
-              ? allSongs[songIndex].name.substring(0, 20) + "..."
-              : allSongs[songIndex].name
+            currentSong.name.length > 25
+              ? currentSong.name.substring(0, 20) + "..."
+              : currentSong.name
           }}
         </span>
-        <span class="mat-caption text-bold">{{
-          allSongs[songIndex].artist
-        }}</span>
+        <span class="mat-caption text-bold">{{ currentSong.artist }}</span>
       </div>
     </div>
 
     <div class="flex flex-row align-center clickable">
       <mat-icon
         style="transform: scaleX(-1)"
-        (click)="skipSong('back')"
+        (click)="skipSong(-1)"
         color="accent"
         *ngIf="songIndex > 0"
         svgIcon="assets:fast_forward"
@@ -49,11 +47,11 @@
       <mat-icon
         (click)="playPreviewOfSong()"
         color="accent"
-        *ngIf="allSongs[songIndex].preview"
+        *ngIf="currentSong.preview"
         svgIcon="assets:{{ !songPlaying ? 'play_circle' : 'pause_circle' }}"
       ></mat-icon>
       <mat-icon
-        (click)="skipSong('forward')"
+        (click)="skipSong(1)"
         color="accent"
         *ngIf="!loadingRecentlyPlayed"
         svgIcon="assets:fast_forward"
@@ -77,7 +75,7 @@
       class="flex flex-row justify-space-between song-progress-bar-text-container align-center mt-5"
     >
       <div>
-        {{ allSongs[songIndex].progressString }}
+        {{ currentSong.progressString }}
       </div>
       <div class="flex flex-row align-center">
         <div class="text-bold">Track: {{ songIndex + 1 }}/</div>
@@ -92,21 +90,21 @@
         ></mat-spinner>
       </div>
       <div>
-        {{ allSongs[songIndex].durationString }}
+        {{ currentSong.durationString }}
       </div>
     </div>
   </div>
   <div class="current-text flex flex-row align-center mat-display-1">
     <app-lazy-animated-icon></app-lazy-animated-icon>
-    <div class="mat-caption" *ngIf="allSongs[songIndex].playedAt">
-      Last played at {{ allSongs[songIndex].playedAt }}
+    <div class="mat-caption" *ngIf="currentSong.playedAt">
+      Last played at {{ currentSong.playedAt }}
     </div>
     <ng-template
       class="loading loading-animation"
       ngFor
       let-arr
       [ngForOf]="currentText"
-      *ngIf="!allSongs[songIndex].playedAt"
+      *ngIf="!currentSong.playedAt"
     >
       <div class="loading loading-animation" style="padding: 2px">
         <span *ngFor="let char of arr">

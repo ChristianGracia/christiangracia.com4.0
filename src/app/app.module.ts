@@ -15,9 +15,9 @@ import { LayoutModule } from "src/app/layout/layout.module";
     AnimatedIconComponent,
   ],
   imports: [
+    LayoutModule,
     CoreModule,
     BrowserModule.withServerTransition({ appId: "serverApp" }),
-    LayoutModule,
     AppRoutingModule,
   ],
   bootstrap: [AppComponent],
