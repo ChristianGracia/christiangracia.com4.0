@@ -1,14 +1,3 @@
-<div *ngIf="loadingSong" class="flex flex-col justify-center align-center m-5">
-  <div
-    class="current-text accent-color flex flex-row align-center mat-subheading-1 loading loading-animation"
-  >
-    <span *ngFor="let char of loadingText">
-      {{ char }}
-    </span>
-  </div>
-  <mat-spinner diameter="22" color="accent"></mat-spinner>
-</div>
-
 <div
   *ngIf="currentSong && !loadingSong"
   class="flex flex-col justify-center song-container"
@@ -80,7 +69,7 @@
       <div class="flex flex-row align-center">
         <div class="text-bold">Track: {{ songIndex + 1 }}/</div>
         <div *ngIf="!loadingRecentlyPlayed" class="text-bold">
-          {{ allSongs.length }}
+          {{ 50 + (currentlyPlayingSong ? 1 : 0) }}
         </div>
         <mat-spinner
           *ngIf="loadingRecentlyPlayed"

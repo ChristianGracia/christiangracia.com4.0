@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { environment } from "@environments/environment";
 import { interval } from "rxjs/internal/observable/interval";
 import { SpotifyService } from "src/app/services/spotify.service";
@@ -32,16 +33,31 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
     ? this.allSongs[this.songIndex]
     : null;
 
-  public loadingText = ["L", "o", "a", "d", "i", "n", "g"];
   public currentText = CURRENTLY_PLAYING_TEXT;
 
-  constructor(private spotifyService: SpotifyService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private spotifyService: SpotifyService
+  ) {}
 
   ngOnDestroy(): void {
     this.audio.pause();
   }
   ngOnInit() {
-    this.getCurrentSong();
+    this.currentlyPlayingSong =
+      this.route.snapshot.data.pageData?.currentlyPlaying[0] ?? [];
+    this.recentSongs = this.route.snapshot.data.pageData?.recentSongs ?? [];
+    this.allSongs = [
+      ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
+      ...this.recentSongs,
+    ];
+    console.log(this.allSongs);
+    if (this.allSongs.length) {
+      this.currentSong = this.allSongs[0];
+      if (this.currentlyPlayingSong) {
+        this.addTimeProgressBar();
+      }
+    }
   }
 
   private addTimeProgressBar(): void {
@@ -136,7 +152,7 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
     }
   }
 
-  private checkRecentlyPlayed(amount: number = 2): void {
+  private checkRecentlyPlayed(amount: number = 1): void {
     this.loadingRecentlyPlayed = true;
     if (this.recentSongs.length !== this.maxSongs - 1) {
       this.spotifyService

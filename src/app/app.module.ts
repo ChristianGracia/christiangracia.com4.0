@@ -7,6 +7,8 @@ import { HomeComponent } from "./pages/home/home.component";
 import { CurrentSongComponent } from "./pages/home/current-song/current-song.component";
 import { AnimatedIconComponent } from "./pages/home/current-song/lazy-animated-icon/lazy-animated-icon.component";
 import { LayoutModule } from "src/app/layout/layout.module";
+import { SpotifyResolver } from "./resolvers/spotify";
+import { SpotifyService } from "./services/spotify.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,7 @@ import { LayoutModule } from "src/app/layout/layout.module";
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
   ],
+  providers: [SpotifyService, SpotifyResolver],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
