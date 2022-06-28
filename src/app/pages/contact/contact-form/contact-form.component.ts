@@ -1,13 +1,13 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ContactService } from "../services/contact.service";
-import { EmailMessage } from "../../../types/email-message";
 import { RoutingService } from "src/app/services/routing.service";
 
-import { LocationData } from "../../../types/location-data";
 import { LocationService } from "../../../services/location.service";
-import { formatLocationData } from "src/util/formatMethods";
 import { EmailService } from "src/app/services/email.service";
+import { LocationData } from "src/app/types/location-data";
+import { formatLocationData } from "src/util/formatMethods";
+import { EmailMessage } from "src/app/types/email-message";
 
 @Component({
   selector: "app-contact-form",

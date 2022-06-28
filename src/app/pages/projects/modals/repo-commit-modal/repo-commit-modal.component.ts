@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
-import { Commit } from "src/app/modules/lazy-shared/models/commit.model";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
+import { Commit } from "src/app/modules/lazy-shared/models/commit.model";
+import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
 export interface DialogData {
   repo: string;
   url: string;

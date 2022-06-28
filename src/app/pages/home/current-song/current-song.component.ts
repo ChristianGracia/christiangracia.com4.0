@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { environment } from "@environments/environment";
 import { interval } from "rxjs/internal/observable/interval";
-import { Song } from "src/app/types/song";
 import { SpotifyService } from "src/app/services/spotify.service";
-import { currentlyPlayingText } from "src/util/constants";
+import { Song } from "src/app/types/song";
+import { CURRENTLY_PLAYING_TEXT } from "src/util/constants";
 
 const formatHHMMString = (timestamp: number) => {
   return new Date(timestamp * 1000).toTimeString().split(" ")[0].substring(3);
@@ -33,7 +33,7 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
     : null;
 
   public loadingText = ["L", "o", "a", "d", "i", "n", "g"];
-  public currentText = currentlyPlayingText;
+  public currentText = CURRENTLY_PLAYING_TEXT;
 
   constructor(private spotifyService: SpotifyService) {}
 

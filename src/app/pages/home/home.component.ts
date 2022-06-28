@@ -1,9 +1,9 @@
 import { Component, OnDestroy } from "@angular/core";
-import { LocationData } from "src/app/types/location-data.d";
 import { EmailService } from "src/app/services/email.service";
 import { LocationService } from "src/app/services/location.service";
-import { RoutingService } from "../../services/routing.service";
+import { LocationData } from "src/app/types/location-data";
 import { formatLocationData } from "src/util/formatMethods";
+import { RoutingService } from "../../services/routing.service";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",

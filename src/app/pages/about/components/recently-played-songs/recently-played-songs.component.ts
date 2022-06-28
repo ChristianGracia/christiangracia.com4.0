@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
-import { Song } from "src/app/types/song";
 import { SpotifyService } from "src/app/services/spotify.service";
 import { environment } from "@environments/environment";
+import { Song } from "src/app/types/song";
 
 @Component({
   selector: "app-recently-played-songs",

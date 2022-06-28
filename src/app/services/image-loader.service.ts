@@ -27,11 +27,12 @@ export class ImageService {
     return true;
   }
 
-  public initializeImages() {
-    const promises = ICONS.map(
-      (icon: string) =>
-        new Promise((resolve, reject) => resolve(this.addIcon(icon)))
+  public async initializeImages() {
+    await Promise.all(
+      ICONS.map(
+        (icon: string) =>
+          new Promise((resolve, reject) => resolve(this.addIcon(icon)))
+      )
     );
-    return Promise.all(promises);
   }
 }
