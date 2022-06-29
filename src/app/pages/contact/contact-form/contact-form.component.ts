@@ -6,7 +6,7 @@ import { RoutingService } from "src/app/services/routing.service";
 import { LocationService } from "../../../services/location.service";
 import { EmailService } from "src/app/services/email.service";
 import { LocationData } from "src/app/types/location-data";
-import { formatLocationData } from "src/util/formatMethods";
+import { formatLocationData } from "src/app/util/formatMethods";
 import { EmailMessage } from "src/app/types/email-message";
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnDestroy } from "@angular/core";
 import { EmailService } from "src/app/services/email.service";
 import { LocationService } from "src/app/services/location.service";
 import { LocationData } from "src/app/types/location-data";
-import { formatLocationData } from "src/util/formatMethods";
+import { formatLocationData } from "src/app/util/formatMethods";
 import { RoutingService } from "../../services/routing.service";
 @Component({
   selector: "app-home",

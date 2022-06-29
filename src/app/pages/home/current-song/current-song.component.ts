@@ -4,7 +4,7 @@ import { environment } from "@environments/environment";
 import { interval } from "rxjs/internal/observable/interval";
 import { SpotifyService } from "src/app/services/spotify.service";
 import { Song } from "src/app/types/song";
-import { CURRENTLY_PLAYING_TEXT } from "src/util/constants";
+import { CURRENTLY_PLAYING_TEXT } from "src/app/constants/index";
 
 const formatHHMMString = (timestamp: number) => {
   return new Date(timestamp * 1000).toTimeString().split(" ")[0].substring(3);

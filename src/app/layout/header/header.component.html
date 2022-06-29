@@ -11,22 +11,32 @@
     </button>
     <div class="flex flex-row justify-center align-center">
       <div>
-        <mat-icon
+        <!-- <mat-icon
           [color]="!isDarkTheme ? 'accent' : ''"
           svgIcon="assets:light_mode"
-        ></mat-icon>
+        ></mat-icon> -->
+        <div [innerHTML]="lightIcon | sanitizedHtml"></div>
       </div>
       <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event)">
       </mat-slide-toggle>
       <div>
-        <mat-icon
+        <!-- <mat-icon
           [color]="isDarkTheme ? 'accent' : ''"
           svgIcon="assets:dark_mode"
-        ></mat-icon>
+        ></mat-icon> -->
+        <div [innerHTML]="darkIcon | sanitizedHtml"></div>
       </div>
     </div>
   </div>
-  <app-social-media-links></app-social-media-links>
+  <div class="flex flex-row social-media-container">
+    <div
+      *ngFor="let social of socialMediaLinks; let i = index"
+      class="social-link"
+      (click)="openLink(social[0])"
+      [innerHTML]="social[1] | sanitizedHtml"
+      [class.active]="activeIconArray[i]"
+    ></div>
+  </div>
   <div class="flex flex-row hide-mobile">
     <button
       aria-label="Nav item"
@@ -50,7 +60,7 @@
       aria-label="Home button with menu icon"
       (click)="onToggleSidenav()"
     >
-      <mat-icon svgIcon="assets:menu">menu</mat-icon>
+      <div [innerHTML]="menuIcon | sanitizedHtml"></div>
     </button>
   </div>
 </mat-toolbar>

@@ -2,7 +2,6 @@ import { AfterViewInit, Component } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
 import { OverlayContainer } from "@angular/cdk/overlay";
 import { MODE } from "./enums";
-import { ImageService } from "./services/image-loader.service";
 
 @Component({
   selector: "app-root",
@@ -15,11 +14,8 @@ export class AppComponent implements AfterViewInit {
   public isDarkTheme: boolean = false;
   constructor(
     private overlayContainer: OverlayContainer,
-    private router: Router,
-    private imageService: ImageService
+    private router: Router
   ) {
-    this.imageService.initializeImages();
-
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         const path = window.location.pathname;
