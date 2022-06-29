@@ -26,25 +26,21 @@
     </div>
 
     <div class="flex flex-row align-center clickable">
-      <mat-icon
-        style="transform: scaleX(-1)"
-        (click)="skipSong(-1)"
-        color="accent"
+      <div
         *ngIf="songIndex > 0"
-        svgIcon="assets:fast_forward"
-      ></mat-icon>
-      <mat-icon
+        (click)="skipSong(-1)"
+        [innerHTML]="rewindIcon | sanitizedHtml"
+      ></div>
+      <div
         (click)="playPreviewOfSong()"
-        color="accent"
         *ngIf="currentSong.preview"
-        svgIcon="assets:{{ !songPlaying ? 'play_circle' : 'pause_circle' }}"
-      ></mat-icon>
-      <mat-icon
+        [innerHTML]="(!songPlaying ? playIcon : pauseIcon) | sanitizedHtml"
+      ></div>
+      <div
         (click)="skipSong(1)"
-        color="accent"
         *ngIf="!loadingRecentlyPlayed"
-        svgIcon="assets:fast_forward"
-      ></mat-icon>
+        [innerHTML]="fastForwardIcon | sanitizedHtml"
+      ></div>
       <mat-spinner
         *ngIf="loadingRecentlyPlayed"
         diameter="22"

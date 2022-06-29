@@ -7,7 +7,7 @@
         aria-label="Close view more"
         (click)="job.viewMoreOpen = false"
       >
-        <mat-icon svgIcon="assets:close"></mat-icon>
+        <app-close-button></app-close-button>
       </button>
     </div>
     <div
@@ -18,7 +18,6 @@
         <div class="mat-subheading-2 accent-color">{{ app.name }}</div>
         <div class="calc-width graph animated-line"></div>
       </div>
-      <!-- <div class="mat-display-2">Coming Soon</div> -->
       <div *ngIf="app.description" class="mat-body">
         {{ app.description }}
       </div>

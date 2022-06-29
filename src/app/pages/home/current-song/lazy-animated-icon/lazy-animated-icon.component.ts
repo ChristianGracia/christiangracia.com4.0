@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { HEADPHONES_ICON } from "src/app/constants/icons";
 
 @Component({
   selector: "app-lazy-animated-icon",
@@ -6,5 +7,5 @@ import { Component } from "@angular/core";
   styleUrls: ["./lazy-animated-icon.component.scss"],
 })
 export class AnimatedIconComponent {
-  constructor() {}
+  public headphonesIcon = HEADPHONES_ICON;
 }

@@ -5,19 +5,31 @@ import { interval } from "rxjs/internal/observable/interval";
 import { SpotifyService } from "src/app/services/spotify.service";
 import { Song } from "src/app/types/song";
 import { CURRENTLY_PLAYING_TEXT } from "src/app/constants/index";
+import {
+  FAST_FORWARD_ICON,
+  REWIND_ICON,
+  PAUSE_ICON,
+  PLAY_ICON,
+} from "src/app/constants/icons";
 
 const formatHHMMString = (timestamp: number) => {
   return new Date(timestamp * 1000).toTimeString().split(" ")[0].substring(3);
 };
 const MAX_SONGS = 51;
+
+const { imageUrl, previewUrl } = environment.spotify;
 @Component({
   selector: "app-current-song",
   templateUrl: "./current-song.component.html",
   styleUrls: ["./current-song.component.scss"],
 })
 export class CurrentSongComponent implements OnDestroy, OnInit {
-  public imagePrefix = environment.spotify.imageUrl;
-  public previewUrlPrefix = environment.spotify.previewUrl;
+  public fastForwardIcon = FAST_FORWARD_ICON;
+  public rewindIcon = REWIND_ICON;
+  public playIcon = PLAY_ICON;
+  public pauseIcon = PAUSE_ICON;
+  public imagePrefix = imageUrl;
+  public previewUrlPrefix = previewUrl;
   public currentlyPlayingSong: Song | null = null;
   public allSongs: Song[] = [];
   public recentSongs: Song[] = [];
@@ -45,7 +57,7 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
   }
   ngOnInit() {
     this.currentlyPlayingSong =
-      this.route.snapshot.data.pageData?.currentlyPlaying[0] ?? [];
+      this.route.snapshot.data.pageData?.currentlyPlaying?.[0] ?? null;
     this.recentSongs = this.route.snapshot.data.pageData?.recentSongs ?? [];
     this.allSongs = [
       ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
@@ -56,6 +68,8 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
       this.currentSong = this.allSongs[0];
       if (this.currentlyPlayingSong) {
         this.addTimeProgressBar();
+      } else {
+        this.checkRecentlyPlayed(2);
       }
     }
   }
