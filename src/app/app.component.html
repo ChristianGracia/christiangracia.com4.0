@@ -1,7 +1,4 @@
-<mat-sidenav-container
-  [class.light-theme]="!isDarkTheme"
-  [class.dark-theme]="isDarkTheme"
->
+<mat-sidenav-container [ngClass]="!isDarkTheme ? 'light-theme' : 'dark-theme'">
   <mat-sidenav #sidenav role="navigation">
     <app-side-bar
       (closeSidenavEvent)="sidenav.close()"

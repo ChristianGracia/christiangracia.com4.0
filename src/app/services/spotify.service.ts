@@ -5,7 +5,9 @@ import { UtilService } from "./util.service";
   providedIn: "root",
 })
 export class SpotifyService {
-  constructor(private utilService: UtilService) {}
+  constructor(private utilService: UtilService) {
+    console.log("spotify");
+  }
   public getCurrentSong() {
     return this.utilService.createObservable(
       "get",
