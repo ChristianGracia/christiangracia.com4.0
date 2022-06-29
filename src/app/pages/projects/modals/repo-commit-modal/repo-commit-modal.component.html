@@ -14,8 +14,13 @@
         aria-label="click button to view on github"
         (click)="openLink(data.url ?? '')"
       >
-        View repository on GitHub
-        <!-- <mat-icon svgIcon="assets:github" class="social-link"></mat-icon> -->
+        <div class="flex flex-row">
+          <div>View repository on GitHub</div>
+          <div
+            class="social-link flex align-center"
+            [innerHTML]="githubIcon | sanitizedHtml"
+          ></div>
+        </div>
       </button>
     </div>
     <div class="text-bold">Click a row to view individual code changes</div>

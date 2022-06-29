@@ -351,6 +351,9 @@ $custom-light-theme: map_merge(
   .accent-color {
     color: mat-color($theme-accent);
   }
+  .fill {
+    fill: mat-color($theme-accent);
+  }
   .hover-1 {
     &:hover {
       filter: brightness(85%);
@@ -362,6 +365,9 @@ $custom-light-theme: map_merge(
   @include section-header-theme($custom-light-theme);
   .background-accent-color {
     background-color: mat-color($light-theme-accent);
+  }
+  .fill {
+    fill: mat-color($light-theme-accent);
   }
   .accent-color {
     color: mat-color($light-theme-accent);

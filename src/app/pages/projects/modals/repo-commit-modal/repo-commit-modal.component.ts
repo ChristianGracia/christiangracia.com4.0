@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
+import { GITHUB_ICON } from "src/app/constants/icons";
 import { Commit } from "src/app/modules/lazy-shared/models/commit.model";
 import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
 export interface DialogData {
@@ -19,7 +20,7 @@ export class RepoCommitModalComponent implements OnInit {
   public commits: Commit[] = [];
   public pageSize = 15;
   public totalCommits: number = 0;
-
+  public githubIcon = GITHUB_ICON;
   displayedColumns: string[] = ["time", "message"];
 
   @ViewChild(MatPaginator, { static: false }) paginator: any;
