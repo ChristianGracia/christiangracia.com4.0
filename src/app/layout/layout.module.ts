@@ -6,9 +6,11 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { SharedModule } from "../modules/shared/shared.module";
 
+const modules = [SideBarComponent, HeaderComponent, FooterComponent];
+
 @NgModule({
-  declarations: [SideBarComponent, HeaderComponent, FooterComponent],
+  declarations: modules,
   imports: [MatToolbarModule, MatSlideToggleModule, SharedModule],
-  exports: [SideBarComponent, HeaderComponent, FooterComponent],
+  exports: modules,
 })
 export class LayoutModule {}

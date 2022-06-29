@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { openLink } from "src/app/util";
 import { Job } from "../../models/job.model";
 
 const JOBS: Job[] = [
@@ -88,7 +89,7 @@ export class JobHistoryComponent implements OnInit {
 
   ngOnInit() {}
   public openSite(url: string) {
-    window.open(url, "_blank");
+    openLink(url);
   }
   public viewMoreJob(job: Job) {
     job.viewMoreOpen = !job.viewMoreOpen;

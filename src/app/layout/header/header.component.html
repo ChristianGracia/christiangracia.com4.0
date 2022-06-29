@@ -12,8 +12,7 @@
     <div class="flex flex-row justify-center align-center">
       <div>
         <div
-          [class.fill]="!isDarkTheme"
-          [class.fill-white]="isDarkTheme"
+          [ngClass]="isDarkTheme ? 'fill-white' : 'fill'"
           [innerHTML]="lightIcon | sanitizedHtml"
         ></div>
       </div>
@@ -33,8 +32,9 @@
       class="social-link"
       (click)="openLink(social[0])"
       [innerHTML]="social[1] | sanitizedHtml"
-      [class.active]="activeIconArray[i]"
-      [ngClass]="activeIconArray[i] ? 'fill' : isDarkTheme ? 'fill-white' : ''"
+      [ngClass]="
+        activeIconArray[i] ? 'fill active' : isDarkTheme ? 'fill-white' : ''
+      "
     ></div>
   </div>
   <div class="flex flex-row hide-mobile">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
+import { openLink } from "src/app/util";
 import { FileService } from "../../services/file.service";
 @Component({
   selector: "app-site",
@@ -18,6 +19,6 @@ export class SiteComponent implements OnInit {
     });
   }
   public openSite(url: string) {
-    window.open(url, "_blank");
+    openLink(url);
   }
 }

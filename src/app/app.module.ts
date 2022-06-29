@@ -9,7 +9,7 @@ import { AnimatedIconComponent } from "./pages/home/current-song/lazy-animated-i
 import { LayoutModule } from "src/app/layout/layout.module";
 import { SpotifyResolver } from "./resolvers/spotify";
 import { SpotifyService } from "./services/spotify.service";
-import { SanitizedHtmlPipe } from "./pipes/sanitized-html.pipe";
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -63,7 +63,6 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
       ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
       ...this.recentSongs,
     ];
-    console.log(this.allSongs);
     if (this.allSongs.length) {
       this.currentSong = this.allSongs[0];
       if (this.currentlyPlayingSong) {

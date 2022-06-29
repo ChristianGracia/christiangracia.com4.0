@@ -13,6 +13,7 @@ import {
   MENU_ICON,
   SOCIAL_MEDIA,
 } from "src/app/constants/icons";
+import { openLink } from "src/app/util";
 
 @Component({
   selector: "app-header",
@@ -42,7 +43,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     clearInterval(this.timer);
   }
   public openLink(url: string) {
-    window.open(url, "_blank");
+    openLink(url);
   }
 
   private renderActiveLinkHighlight() {
