@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
-import { Song } from "src/app/types/song";
 import { SpotifyService } from "src/app/services/spotify.service";
 import { environment } from "@environments/environment";
+import { Song } from "src/app/types/song";
+import { PAUSE_ICON, PLAY_ICON } from "src/app/constants/icons";
 
 @Component({
   selector: "app-recently-played-songs",
@@ -14,6 +15,8 @@ export class RecentlyPlayedSongsComponent implements OnInit {
   public loadingSongs: Boolean = false;
   public songs: Song[] = [];
   public pageSize = 5;
+  public playIcon = PLAY_ICON;
+  public pauseIcon = PAUSE_ICON;
   public displayedColumns: string[] = [
     "images",
     "name",

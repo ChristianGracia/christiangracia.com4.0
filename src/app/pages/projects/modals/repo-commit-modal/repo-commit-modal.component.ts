@@ -1,9 +1,11 @@
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
-import { Commit } from "src/app/modules/lazy-shared/models/commit.model";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
+import { GITHUB_ICON } from "src/app/constants/icons";
+import { Commit } from "src/app/modules/lazy-shared/models/commit.model";
+import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
+import { openLink } from "src/app/util";
 export interface DialogData {
   repo: string;
   url: string;
@@ -19,7 +21,7 @@ export class RepoCommitModalComponent implements OnInit {
   public commits: Commit[] = [];
   public pageSize = 15;
   public totalCommits: number = 0;
-
+  public githubIcon = GITHUB_ICON;
   displayedColumns: string[] = ["time", "message"];
 
   @ViewChild(MatPaginator, { static: false }) paginator: any;
@@ -33,7 +35,7 @@ export class RepoCommitModalComponent implements OnInit {
     this.loadCommits();
   }
   public openSite(url: string) {
-    window.open(url, "_blank");
+    openLink(url);
   }
   private loadCommits() {
     this.loadingCommits = true;
@@ -49,6 +51,6 @@ export class RepoCommitModalComponent implements OnInit {
   }
 
   public openLink(url: string) {
-    window.open(url, "_blank");
+    openLink(url);
   }
 }

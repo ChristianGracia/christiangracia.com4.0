@@ -29,6 +29,7 @@
     "release-s": "heroku container:release web --app christiangracia-staging",
     "rebuild": "docker-compose down && docker-compose build && docker-compose up",
     "docker-login": "heroku authorizations:create",
+    "login": "heroku container:login",
     "deploy": "npm run push-p && npm run release-p"
   },
   "private": true,

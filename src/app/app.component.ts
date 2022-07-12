@@ -1,7 +1,6 @@
 import { AfterViewInit, Component } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
 import { OverlayContainer } from "@angular/cdk/overlay";
-import { ImageService } from "./services/image-loader.service";
 import { MODE } from "./enums";
 
 @Component({
@@ -15,10 +14,8 @@ export class AppComponent implements AfterViewInit {
   public isDarkTheme: boolean = false;
   constructor(
     private overlayContainer: OverlayContainer,
-    private router: Router,
-    private imageService: ImageService
+    private router: Router
   ) {
-    this.imageService.initializeImages();
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         const path = window.location.pathname;
@@ -46,7 +43,7 @@ export class AppComponent implements AfterViewInit {
     this.isDarkTheme = !!localStorage.getItem(MODE.DARK);
     this.setTheme();
     this.addCssClass("full-screen-modal");
-    this.loaded = true;
+    // this.loaded = true;
   }
 
   private addCssClass(className: string): void {

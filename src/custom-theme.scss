@@ -118,8 +118,6 @@ $mat-light-theme-foreground: (
   secondary-text: $dark-accent-text,
   hint-text: $dark-disabled-text,
   accent-text: $dark-accent-text,
-  icon: $dark-accent-text,
-  icons: $dark-accent-text,
   text: $dark-primary-text,
   slider-min: $dark-primary-text,
   slider-off: rgba($dark-text, 0.26),
@@ -144,8 +142,6 @@ $mat-dark-theme-foreground: (
   hint-text: $light-disabled-text,
   secondary-text: $light-accent-text,
   accent-text: $light-accent-text,
-  icon: $light-text,
-  icons: $light-text,
   text: $light-text,
   slider-min: $light-text,
   slider-off: rgba($light-text, 0.3),
@@ -351,6 +347,9 @@ $custom-light-theme: map_merge(
   .accent-color {
     color: mat-color($theme-accent);
   }
+  .fill {
+    fill: mat-color($theme-accent);
+  }
   .hover-1 {
     &:hover {
       filter: brightness(85%);
@@ -362,6 +361,9 @@ $custom-light-theme: map_merge(
   @include section-header-theme($custom-light-theme);
   .background-accent-color {
     background-color: mat-color($light-theme-accent);
+  }
+  .fill {
+    fill: mat-color($light-theme-accent);
   }
   .accent-color {
     color: mat-color($light-theme-accent);

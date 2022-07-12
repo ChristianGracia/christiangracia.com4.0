@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { SafePipe } from "../../services/safe.pipe";
+import { openLink } from "src/app/util";
 
 export interface DialogData {
   repo: string;
@@ -26,7 +26,7 @@ export class ViewSiteModalComponent implements OnInit {
   }
 
   public openSite(url: string) {
-    window.open(url, "_blank");
+    openLink(url);
   }
   private iframeLoaded() {
     this.iframeLoading = false;

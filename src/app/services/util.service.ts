@@ -6,9 +6,7 @@ import { environment } from "@environments/environment";
   providedIn: "root",
 })
 export class UtilService {
-  constructor(private http: HttpClient) {
-    console.log("created");
-  }
+  constructor(private http: HttpClient) {}
 
   public createObservable(method: string, url: string, options = {}) {
     return this.http[method](`${environment.apiUrl}${url}`, options);
