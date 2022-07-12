@@ -18,8 +18,8 @@ import { SpotifyService } from "./services/spotify.service";
     AnimatedIconComponent,
   ],
   imports: [
-    LayoutModule,
     CoreModule,
+    LayoutModule,
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
   ],

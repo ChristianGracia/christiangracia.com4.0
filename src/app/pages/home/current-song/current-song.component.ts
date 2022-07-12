@@ -56,20 +56,29 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
     this.audio.pause();
   }
   ngOnInit() {
-    this.currentlyPlayingSong =
-      this.route.snapshot.data.pageData?.currentlyPlaying?.[0] ?? null;
-    this.recentSongs = this.route.snapshot.data.pageData?.recentSongs ?? [];
-    this.allSongs = [
-      ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
-      ...this.recentSongs,
-    ];
-    if (this.allSongs.length) {
-      this.currentSong = this.allSongs[0];
-      if (this.currentlyPlayingSong) {
-        this.addTimeProgressBar();
-      } else {
-        this.checkRecentlyPlayed(2);
+    if (
+      this.route.snapshot.data.pageData?.currentlyPlaying &&
+      this.route.snapshot.data.pageData?.recentSongs
+    ) {
+      const { currentlyPlaying, recentSongs } =
+        this.route.snapshot.data.pageData;
+      this.currentlyPlayingSong = currentlyPlaying?.[0] ?? null;
+      this.recentSongs = recentSongs ?? [];
+      this.allSongs = [
+        ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
+        ...this.recentSongs,
+      ];
+
+      if (this.allSongs.length) {
+        this.currentSong = this.allSongs[0];
+        if (this.currentlyPlayingSong) {
+          this.addTimeProgressBar();
+        } else {
+          this.checkRecentlyPlayed(2);
+        }
       }
+    } else {
+      this.getCurrentSong();
     }
   }
 
