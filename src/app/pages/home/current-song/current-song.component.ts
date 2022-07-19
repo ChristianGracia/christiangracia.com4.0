@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+// import { ActivatedRoute } from "@angular/router";
 import { environment } from "@environments/environment";
 import { interval } from "rxjs/internal/observable/interval";
 import { SpotifyService } from "src/app/services/spotify.service";
@@ -48,7 +48,7 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
   public currentText = CURRENTLY_PLAYING_TEXT;
 
   constructor(
-    private route: ActivatedRoute,
+    // private route: ActivatedRoute,
     private spotifyService: SpotifyService
   ) {}
 
@@ -56,30 +56,35 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
     this.audio.pause();
   }
   ngOnInit() {
-    if (
-      this.route.snapshot.data.pageData?.currentlyPlaying &&
-      this.route.snapshot.data.pageData?.recentSongs
-    ) {
-      const { currentlyPlaying, recentSongs } =
-        this.route.snapshot.data.pageData;
-      this.currentlyPlayingSong = currentlyPlaying?.[0] ?? null;
-      this.recentSongs = recentSongs ?? [];
-      this.allSongs = [
-        ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
-        ...this.recentSongs,
-      ];
+    // console.log("loading");
+    // console.log(this.route.snapshot.data.pageData);
+    // if (
+    //   this.route.snapshot.data.pageData?.currentlyPlaying ||
+    //   this.route.snapshot.data.pageData?.recentSongs
+    // ) {
+    //   const { currentlyPlaying, recentSongs } =
+    //     this.route.snapshot.data.pageData;
+    //   this.currentlyPlayingSong = currentlyPlaying?.[0] ?? null;
+    //   this.recentSongs = recentSongs ?? [];
+    //   this.allSongs = [
+    //     ...(this.currentlyPlayingSong ? [this.currentlyPlayingSong] : []),
+    //     ...this.recentSongs,
+    //   ];
+    //   console.log(this.allSongs);
 
-      if (this.allSongs.length) {
-        this.currentSong = this.allSongs[0];
-        if (this.currentlyPlayingSong) {
-          this.addTimeProgressBar();
-        } else {
-          this.checkRecentlyPlayed(2);
-        }
-      }
-    } else {
-      this.getCurrentSong();
-    }
+    //   if (this.allSongs.length) {
+    //     this.currentSong = this.allSongs[0];
+    //     if (this.currentlyPlayingSong) {
+    //       console.log("here2");
+    //       this.addTimeProgressBar();
+    //     } else {
+    //       console.log("here");
+    //       this.checkRecentlyPlayed(2);
+    //     }
+    //   }
+    // } else {
+    this.getCurrentSong();
+    // }
   }
 
   private addTimeProgressBar(): void {
@@ -174,7 +179,7 @@ export class CurrentSongComponent implements OnDestroy, OnInit {
     }
   }
 
-  private checkRecentlyPlayed(amount: number = 1): void {
+  private checkRecentlyPlayed(amount: number = 2): void {
     this.loadingRecentlyPlayed = true;
     if (this.recentSongs.length !== this.maxSongs - 1) {
       this.spotifyService
