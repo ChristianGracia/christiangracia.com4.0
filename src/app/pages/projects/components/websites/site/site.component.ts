@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from "@angular/material/legacy-dialog";
+import { MatDialog as MatDialog, MatDialogConfig as MatDialogConfig } from "@angular/material/dialog";
 import { Site } from "src/app/modules/lazy-shared/models/site.model";
 import { ViewSiteModalComponent } from "../../../modals/view-site-modal/view-site-modal.component";
 
