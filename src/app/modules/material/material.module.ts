@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
-import { MatButtonModule } from "@angular/material/button";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatLegacyButtonModule as MatButtonModule } from "@angular/material/legacy-button";
+import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from "@angular/material/legacy-progress-spinner";
+import { MatLegacyProgressBarModule as MatProgressBarModule } from "@angular/material/legacy-progress-bar";
 import { MatSidenavModule } from "@angular/material/sidenav";
-import { MatMenuModule } from "@angular/material/menu";
-import { MatListModule } from "@angular/material/list";
+import { MatLegacyMenuModule as MatMenuModule } from "@angular/material/legacy-menu";
+import { MatLegacyListModule as MatListModule } from "@angular/material/legacy-list";
 
 const modules = [
   MatButtonModule,

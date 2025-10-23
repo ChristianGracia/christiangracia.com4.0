@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from "@angular/material/legacy-dialog";
 import { Repo } from "src/app/modules/lazy-shared/models/github-repo.model";
 import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
 import { formatRepoLanguage } from "src/app/modules/lazy-shared/util/util";
