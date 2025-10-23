@@ -18,12 +18,12 @@ export class ViewSiteModalComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   ngOnInit() {
-    const iframe = document.getElementById("site-iframe");
-    if (iframe) {
-      iframe.addEventListener("load", this.iframeLoaded.bind(this), {
-        passive: true,
-      });
-    }
+    // const iframe = document.getElementById("site-iframe");
+    // if (iframe) {
+    //   iframe.addEventListener("load", this.iframeLoaded.bind(this), {
+    //     passive: true,
+    //   });
+    // }
   }
 
   public openSite(url: string) {

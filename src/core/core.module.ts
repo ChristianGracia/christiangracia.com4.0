@@ -2,11 +2,11 @@ import { NgModule, Optional, SkipSelf } from "@angular/core";
 import { provideHttpClient } from "@angular/common/http";
 import { EnsureModuleLoadedOnceGuard } from "./ensure-module-loaded-once.guard";
 import { SharedModule } from "src/app/modules/shared/shared.module";
-// let modules = [SharedModule];
+let modules = [SharedModule];
 
 @NgModule({
-  imports: [],
-  exports: [],
+  imports: modules,
+  exports: modules,
   providers: [provideHttpClient()]
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {

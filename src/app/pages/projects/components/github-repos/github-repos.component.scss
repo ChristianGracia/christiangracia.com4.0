@@ -1,63 +1,63 @@
-.github-container {
-  .repo-card {
-    width: 100%;
-    max-width: 99vw;
-    display: flex;
-    @media (min-width: 500px) {
-      max-width: 320px;
-    }
+// .github-container {
+//   .repo-card {
+//     width: 100%;
+//     max-width: 99vw;
+//     display: flex;
+//     @media (min-width: 500px) {
+//       max-width: 320px;
+//     }
 
-    margin-bottom: 15px;
-    @media (min-width: 500px) {
-      margin: 15px;
-    }
-    &:hover {
-      transform: scale(1.04);
-      .repo-title {
-      }
-    }
-    .repo-title {
-      text-align: center;
-      margin: 6px 0 auto;
-      &:hover {
-        transform: scale(1.07);
-      }
-    }
-    .repo-language-container {
-      flex-wrap: wrap;
-    }
-    .repo-description-container {
-      margin: 20px 0;
-      .repo-description {
-        line-height: 28px;
-      }
-    }
-    .repo-date-container {
-      margin: 12px 0;
-      .repo-date-text {
-        font-style: italic;
-      }
-    }
-  }
-}
+//     margin-bottom: 15px;
+//     @media (min-width: 500px) {
+//       margin: 15px;
+//     }
+//     &:hover {
+//       transform: scale(1.04);
+//       .repo-title {
+//       }
+//     }
+//     .repo-title {
+//       text-align: center;
+//       margin: 6px 0 auto;
+//       &:hover {
+//         transform: scale(1.07);
+//       }
+//     }
+//     .repo-language-container {
+//       flex-wrap: wrap;
+//     }
+//     .repo-description-container {
+//       margin: 20px 0;
+//       .repo-description {
+//         line-height: 28px;
+//       }
+//     }
+//     .repo-date-container {
+//       margin: 12px 0;
+//       .repo-date-text {
+//         font-style: italic;
+//       }
+//     }
+//   }
+// }
 
-.repo-loader-container {
-  margin-top: 60px;
-}
-.dark-theme .mat-paginator {
-  background-color: transparent !important;
-}
+// .repo-loader-container {
+//   margin-top: 60px;
+// }
+// .dark-theme .mat-paginator {
+//   background-color: transparent !important;
+// }
 
-::ng-deep .mat-paginator-page-size-select {
-  background-color: transparent !important;
-}
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: transparent !important;
-}
+// ::ng-deep .mat-paginator-page-size-select {
+//   background-color: transparent !important;
+// }
+// ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+//   background-color: transparent !important;
+// }
 
-::ng-deep .mat-select-value {
-  color: #005999;
-}
-::ng-deep .mat-select-arrow {
-  color: #005999;
-}
+// ::ng-deep .mat-select-value {
+//   color: #005999;
+// }
+// ::ng-deep .mat-select-arrow {
+//   color: #005999;
+// }
