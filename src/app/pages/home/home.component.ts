@@ -5,9 +5,10 @@ import { LocationData } from "src/app/types/location-data";
 import { formatLocationData } from "src/app/util/formatMethods";
 import { RoutingService } from "../../services/routing.service";
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"],
+    selector: "app-home",
+    templateUrl: "./home.component.html",
+    styleUrls: ["./home.component.scss"],
+    standalone: false
 })
 export class HomeComponent implements OnDestroy {
   constructor(

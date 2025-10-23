@@ -7,9 +7,10 @@ import { Song } from "src/app/types/song";
 import { PAUSE_ICON, PLAY_ICON } from "src/app/constants/icons";
 
 @Component({
-  selector: "app-recently-played-songs",
-  templateUrl: "./recently-played-songs.component.html",
-  styleUrls: ["./recently-played-songs.component.scss"],
+    selector: "app-recently-played-songs",
+    templateUrl: "./recently-played-songs.component.html",
+    styleUrls: ["./recently-played-songs.component.scss"],
+    standalone: false
 })
 export class RecentlyPlayedSongsComponent implements OnInit {
   public loadingSongs: Boolean = false;

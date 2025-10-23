@@ -12,9 +12,10 @@ export interface DialogData {
 }
 
 @Component({
-  selector: "app-repo-commit-modal",
-  templateUrl: "./repo-commit-modal.component.html",
-  styleUrls: ["./repo-commit-modal.component.scss"],
+    selector: "app-repo-commit-modal",
+    templateUrl: "./repo-commit-modal.component.html",
+    styleUrls: ["./repo-commit-modal.component.scss"],
+    standalone: false
 })
 export class RepoCommitModalComponent implements OnInit {
   public loadingCommits: boolean = false;

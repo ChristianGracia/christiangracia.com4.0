@@ -3,9 +3,10 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { openLink } from "src/app/util";
 import { FileService } from "../../services/file.service";
 @Component({
-  selector: "app-site",
-  templateUrl: "./site.component.html",
-  styleUrls: ["./site.component.scss"],
+    selector: "app-site",
+    templateUrl: "./site.component.html",
+    styleUrls: ["./site.component.scss"],
+    standalone: false
 })
 export class SiteComponent implements OnInit {
   public code: any = "";

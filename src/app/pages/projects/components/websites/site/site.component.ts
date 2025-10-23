@@ -4,9 +4,10 @@ import { Site } from "src/app/modules/lazy-shared/models/site.model";
 import { ViewSiteModalComponent } from "../../../modals/view-site-modal/view-site-modal.component";
 
 @Component({
-  selector: "app-site",
-  templateUrl: "./site.component.html",
-  styleUrls: ["./site.component.scss"],
+    selector: "app-site",
+    templateUrl: "./site.component.html",
+    styleUrls: ["./site.component.scss"],
+    standalone: false
 })
 export class SiteComponent implements OnInit {
   @Input()

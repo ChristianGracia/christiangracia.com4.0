@@ -10,9 +10,10 @@ import { formatLocationData } from "src/app/util/formatMethods";
 import { EmailMessage } from "src/app/types/email-message";
 
 @Component({
-  selector: "app-contact-form",
-  templateUrl: "./contact-form.component.html",
-  styleUrls: ["./contact-form.component.scss"],
+    selector: "app-contact-form",
+    templateUrl: "./contact-form.component.html",
+    styleUrls: ["./contact-form.component.scss"],
+    standalone: false
 })
 export class ContactFormComponent implements OnInit {
   @Output() private emailReceivedEvent = new EventEmitter<boolean>();

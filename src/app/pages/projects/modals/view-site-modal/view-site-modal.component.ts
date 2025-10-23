@@ -8,9 +8,10 @@ export interface DialogData {
 }
 
 @Component({
-  selector: "app-view-site-modal",
-  templateUrl: "./view-site-modal.component.html",
-  styleUrls: ["./view-site-modal.component.scss"],
+    selector: "app-view-site-modal",
+    templateUrl: "./view-site-modal.component.html",
+    styleUrls: ["./view-site-modal.component.scss"],
+    standalone: false
 })
 export class ViewSiteModalComponent implements OnInit {
   public iframeLoading = true;

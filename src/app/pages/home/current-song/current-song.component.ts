@@ -19,9 +19,10 @@ const MAX_SONGS = 51;
 
 const { imageUrl, previewUrl } = environment.spotify;
 @Component({
-  selector: "app-current-song",
-  templateUrl: "./current-song.component.html",
-  styleUrls: ["./current-song.component.scss"],
+    selector: "app-current-song",
+    templateUrl: "./current-song.component.html",
+    styleUrls: ["./current-song.component.scss"],
+    standalone: false
 })
 export class CurrentSongComponent implements OnDestroy, OnInit {
   public fastForwardIcon = FAST_FORWARD_ICON;

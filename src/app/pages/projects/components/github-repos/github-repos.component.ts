@@ -6,9 +6,10 @@ import { formatRepoLanguage } from "src/app/modules/lazy-shared/util/util";
 import { RepoCommitModalComponent } from "../../modals/repo-commit-modal/repo-commit-modal.component";
 
 @Component({
-  selector: "app-github-repos",
-  templateUrl: "./github-repos.component.html",
-  styleUrls: ["./github-repos.component.scss"],
+    selector: "app-github-repos",
+    templateUrl: "./github-repos.component.html",
+    styleUrls: ["./github-repos.component.scss"],
+    standalone: false
 })
 export class GithubReposComponent implements OnInit {
   public gitRepos: Repo[] = [];

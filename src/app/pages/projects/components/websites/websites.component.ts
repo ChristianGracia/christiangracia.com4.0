@@ -56,9 +56,10 @@ const BASH_SCRIPT_GEN: Site = new Site(
 );
 
 @Component({
-  selector: "app-websites",
-  templateUrl: "./websites.component.html",
-  styleUrls: ["./websites.component.scss"],
+    selector: "app-websites",
+    templateUrl: "./websites.component.html",
+    styleUrls: ["./websites.component.scss"],
+    standalone: false
 })
 export class WebsitesComponent implements OnInit {
   public sites: Site[] = [

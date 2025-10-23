@@ -78,9 +78,10 @@ const JOBS: Job[] = [
 ];
 
 @Component({
-  selector: "app-job-history",
-  templateUrl: "./job-history.component.html",
-  styleUrls: ["./job-history.component.scss"],
+    selector: "app-job-history",
+    templateUrl: "./job-history.component.html",
+    styleUrls: ["./job-history.component.scss"],
+    standalone: false
 })
 export class JobHistoryComponent implements OnInit {
   public jobs: Job[] = JOBS;
