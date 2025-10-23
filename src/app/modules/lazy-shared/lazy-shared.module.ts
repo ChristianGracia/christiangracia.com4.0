@@ -7,16 +7,18 @@ import { MatCardModule } from "@angular/material/card";
 import { SharedModule } from "../shared/shared.module";
 import { CloseButtonComponent } from "./common/close-button/close-button.component";
 
-const modules = [
-  SharedModule,
-  MatTableModule,
-  MatPaginatorModule,
-  MatDialogModule,
-  MatCardModule,
-];
+// const modules = [
+//   SharedModule,
+//   MatTableModule,
+//   MatPaginatorModule,
+//   MatDialogModule,
+//   MatCardModule,
+// ];
 @NgModule({
   declarations: [PageHeaderComponent, CloseButtonComponent],
-  imports: modules,
-  exports: [...modules, PageHeaderComponent, CloseButtonComponent],
+  // imports: modules,
+  // exports: [...modules, PageHeaderComponent, CloseButtonComponent],
+    imports: [],
+  exports: [ PageHeaderComponent, CloseButtonComponent],
 })
 export class LazySharedModule {}

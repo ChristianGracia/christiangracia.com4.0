@@ -19,7 +19,7 @@ import { SpotifyService } from "./services/spotify.service";
   imports: [
     CoreModule,
     LayoutModule,
-    BrowserModule.withServerTransition({ appId: "serverApp" }),
+    BrowserModule,
     AppRoutingModule,
   ],
 

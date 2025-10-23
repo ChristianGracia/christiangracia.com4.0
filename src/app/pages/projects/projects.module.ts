@@ -11,21 +11,21 @@ import { SafePipe } from "./services/safe.pipe";
 import { MatCarouselModule } from "@ngbmodule/material-carousel";
 import { SharedModule } from "src/app/modules/shared/shared.module";
 
-@NgModule({
-    declarations: [
-        GithubReposComponent,
-        WebsitesComponent,
-        SiteComponent,
-        ProjectsComponent,
-        RepoCommitModalComponent,
-        ViewSiteModalComponent,
-        SafePipe,
-    ],
-    imports: [
-        MatCarouselModule.forRoot(),
-        ProjectsRoutingModule,
-        LazySharedModule,
-        SharedModule,
-    ]
-})
-export class ProjectsModule {}
+// @NgModule({
+//     declarations: [
+//         GithubReposComponent,
+//         WebsitesComponent,
+//         SiteComponent,
+//         ProjectsComponent,
+//         RepoCommitModalComponent,
+//         ViewSiteModalComponent,
+//         SafePipe,
+//     ],
+//     imports: [
+//         MatCarouselModule.forRoot(),
+//         ProjectsRoutingModule,
+//         LazySharedModule,
+//         SharedModule,
+//     ]
+// })
+// export class ProjectsModule {}
