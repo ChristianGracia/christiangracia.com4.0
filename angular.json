@@ -43,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -67,7 +66,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -91,7 +89,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -115,7 +112,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -139,7 +135,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -163,7 +158,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -219,17 +213,6 @@
             ],
             "styles": ["src/styles.sass"],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
