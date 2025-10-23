@@ -21,7 +21,7 @@ const { imageUrl, previewUrl } = environment.spotify;
 @Component({
     selector: "app-current-song",
     templateUrl: "./current-song.component.html",
-    styleUrls: ["./current-song.component.scss"],
+    styleUrls: ["./current-song.component.scss"], 
     standalone: false
 })
 export class CurrentSongComponent implements OnDestroy, OnInit {

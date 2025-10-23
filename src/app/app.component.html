@@ -1,23 +1,23 @@
-<mat-sidenav-container [ngClass]="!isDarkTheme ? 'light-theme' : 'dark-theme'">
+<!-- <mat-sidenav-container [ngClass]="!isDarkTheme ? 'light-theme' : 'dark-theme'">
   <mat-sidenav #sidenav role="navigation">
     <app-side-bar
       (closeSidenavEvent)="sidenav.close()"
       [currentUrl]="currentUrl"
     ></app-side-bar>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content> -->
     <div class="main-container">
-      <app-header
+      <!-- <app-header
         class="header"
         [isDarkTheme]="isDarkTheme"
         (sidenavToggle)="sidenav.toggle()"
         (changeTheme)="changeTheme($event)"
         [currentUrl]="currentUrl"
-      ></app-header>
+      ></app-header> -->
       <main class="mat-app-background main-content">
         <router-outlet></router-outlet>
       </main>
       <app-footer class="footer"></app-footer>
     </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <!-- </mat-sidenav-content>
+</mat-sidenav-container> -->
