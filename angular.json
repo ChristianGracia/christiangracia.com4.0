@@ -176,26 +176,26 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "christiangracia-ssr:build",
+            "buildTarget": "christiangracia-ssr:build",
             "port": 4000,
             "host": "0.0.0.0"
           },
           "configurations": {
             "prod": {
-              "browserTarget": "christiangracia-ssr:build:prod"
+              "buildTarget": "christiangracia-ssr:build:prod"
             },
             "cert": {
-              "browserTarget": "christiangracia-ssr:build:cert"
+              "buildTarget": "christiangracia-ssr:build:cert"
             },
             "dev": {
-              "browserTarget": "christiangracia-ssr:build:dev"
+              "buildTarget": "christiangracia-ssr:build:dev"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "christiangracia-ssr:build"
+            "buildTarget": "christiangracia-ssr:build"
           }
         },
         "test": {
@@ -323,6 +323,5 @@
         }
       }
     }
-  },
-  "defaultProject": "christiangracia-ssr"
+  }
 }
