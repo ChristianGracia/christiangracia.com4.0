@@ -1,11 +1,12 @@
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
-import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from "@angular/material/legacy-dialog";
-import { MatLegacyPaginator as MatPaginator } from "@angular/material/legacy-paginator";
-import { MatLegacyTableDataSource as MatTableDataSource } from "@angular/material/legacy-table";
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { GITHUB_ICON } from "src/app/constants/icons";
 import { Commit } from "src/app/modules/lazy-shared/models/commit.model";
 import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
 import { openLink } from "src/app/util";
+import {  MatPaginator } from "@angular/material/paginator";
+
+import { MatTableDataSource}from '@angular/material/table'
 export interface DialogData {
   repo: string;
   url: string;

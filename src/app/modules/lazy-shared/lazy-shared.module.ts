@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { PageHeaderComponent } from "./page-header/page-header.component";
-import { MatLegacyPaginatorModule as MatPaginatorModule } from "@angular/material/legacy-paginator";
-import { MatLegacyTableModule as MatTableModule } from "@angular/material/legacy-table";
-import { MatLegacyDialogModule as MatDialogModule } from "@angular/material/legacy-dialog";
-import { MatLegacyCardModule as MatCardModule } from "@angular/material/legacy-card";
+import {  MatDialogModule } from "@angular/material/dialog";
+import {  MatCardModule } from "@angular/material/card";
 import { SharedModule } from "../shared/shared.module";
+import {  MatPaginator } from "@angular/material/paginator";
+import { MatTableDataSource}from '@angular/material/table'
 import { CloseButtonComponent } from "./common/close-button/close-button.component";
 
 // const modules = [
