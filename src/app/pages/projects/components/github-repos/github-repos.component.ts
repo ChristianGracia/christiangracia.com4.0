@@ -1,14 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { MatDialog as MatDialog, MatDialogConfig as MatDialogConfig } from "@angular/material/dialog";
 import { Repo } from "src/app/modules/lazy-shared/models/github-repo.model";
 import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
 import { formatRepoLanguage } from "src/app/modules/lazy-shared/util/util";
 import { RepoCommitModalComponent } from "../../modals/repo-commit-modal/repo-commit-modal.component";
 
 @Component({
-  selector: "app-github-repos",
-  templateUrl: "./github-repos.component.html",
-  styleUrls: ["./github-repos.component.scss"],
+    selector: "app-github-repos",
+    templateUrl: "./github-repos.component.html",
+    styleUrls: ["./github-repos.component.scss"],
+    standalone: false
 })
 export class GithubReposComponent implements OnInit {
   public gitRepos: Repo[] = [];

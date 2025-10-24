@@ -8,21 +8,22 @@ export interface DialogData {
 }
 
 @Component({
-  selector: "app-view-site-modal",
-  templateUrl: "./view-site-modal.component.html",
-  styleUrls: ["./view-site-modal.component.scss"],
+    selector: "app-view-site-modal",
+    templateUrl: "./view-site-modal.component.html",
+    styleUrls: ["./view-site-modal.component.scss"],
+    standalone: false
 })
 export class ViewSiteModalComponent implements OnInit {
   public iframeLoading = true;
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   ngOnInit() {
-    const iframe = document.getElementById("site-iframe");
-    if (iframe) {
-      iframe.addEventListener("load", this.iframeLoaded.bind(this), {
-        passive: true,
-      });
-    }
+    // const iframe = document.getElementById("site-iframe");
+    // if (iframe) {
+    //   iframe.addEventListener("load", this.iframeLoaded.bind(this), {
+    //     passive: true,
+    //   });
+    // }
   }
 
   public openSite(url: string) {

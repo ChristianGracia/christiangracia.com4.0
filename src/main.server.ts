@@ -7,4 +7,3 @@ if (environment.production) {
 }
 
 export { AppServerModule } from "@appserver";
-export { ngExpressEngine } from "@nguniversal/express-engine";

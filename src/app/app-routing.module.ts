@@ -11,21 +11,21 @@ const routes: Routes = [
     //   pageData: SpotifyResolver,
     // },
   },
-  {
-    path: "about",
-    loadChildren: () =>
-      import("./pages/about/about.module").then((m) => m.AboutModule),
-  },
-  {
-    path: "projects",
-    loadChildren: () =>
-      import("./pages/projects/projects.module").then((m) => m.ProjectsModule),
-  },
-  {
-    path: "contact",
-    loadChildren: () =>
-      import("./pages/contact/contact.module").then((m) => m.ContactModule),
-  },
+  // {
+  //   path: "about",
+  //   loadChildren: () =>
+  //     import("./pages/about/about.module").then((m) => m.AboutModule),
+  // },
+  // {
+  //   path: "projects",
+  //   loadChildren: () =>
+  //     import("./pages/projects/projects.module").then((m) => m.ProjectsModule),
+  // },
+  // {
+  //   path: "contact",
+  //   loadChildren: () =>
+  //     import("./pages/contact/contact.module").then((m) => m.ContactModule),
+  // },
 ];
 
 @NgModule({

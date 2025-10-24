@@ -20,7 +20,7 @@
             "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
@@ -43,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -67,7 +66,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -91,7 +89,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -115,7 +112,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -139,7 +135,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -163,7 +158,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
@@ -182,33 +176,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "christiangracia-ssr:build",
+            "buildTarget": "christiangracia-ssr:build",
             "port": 4000,
             "host": "0.0.0.0"
           },
           "configurations": {
             "prod": {
-              "browserTarget": "christiangracia-ssr:build:prod"
+              "buildTarget": "christiangracia-ssr:build:prod"
             },
             "cert": {
-              "browserTarget": "christiangracia-ssr:build:cert"
+              "buildTarget": "christiangracia-ssr:build:cert"
             },
             "dev": {
-              "browserTarget": "christiangracia-ssr:build:dev"
+              "buildTarget": "christiangracia-ssr:build:dev"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "christiangracia-ssr:build"
+            "buildTarget": "christiangracia-ssr:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
@@ -219,17 +213,6 @@
             ],
             "styles": ["src/styles.sass"],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -340,6 +323,5 @@
         }
       }
     }
-  },
-  "defaultProject": "christiangracia-ssr"
+  }
 }

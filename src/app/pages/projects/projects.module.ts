@@ -8,25 +8,24 @@ import { RepoCommitModalComponent } from "./modals/repo-commit-modal/repo-commit
 import { ViewSiteModalComponent } from "./modals/view-site-modal/view-site-modal.component";
 import { LazySharedModule } from "../../modules/lazy-shared/lazy-shared.module";
 import { SafePipe } from "./services/safe.pipe";
-import { MatCarouselModule } from "@ngbmodule/material-carousel";
+// import { MatCarouselModule } from "@ngbmodule/material-carousel";
 import { SharedModule } from "src/app/modules/shared/shared.module";
 
-@NgModule({
-  declarations: [
-    GithubReposComponent,
-    WebsitesComponent,
-    SiteComponent,
-    ProjectsComponent,
-    RepoCommitModalComponent,
-    ViewSiteModalComponent,
-    SafePipe,
-  ],
-  imports: [
-    MatCarouselModule.forRoot(),
-    ProjectsRoutingModule,
-    LazySharedModule,
-    SharedModule,
-  ],
-  entryComponents: [RepoCommitModalComponent, ViewSiteModalComponent],
-})
-export class ProjectsModule {}
+// @NgModule({
+//     declarations: [
+//         GithubReposComponent,
+//         WebsitesComponent,
+//         SiteComponent,
+//         ProjectsComponent,
+//         RepoCommitModalComponent,
+//         ViewSiteModalComponent,
+//         SafePipe,
+//     ],
+//     imports: [
+//         MatCarouselModule.forRoot(),
+//         ProjectsRoutingModule,
+//         LazySharedModule,
+//         SharedModule,
+//     ]
+// })
+// export class ProjectsModule {}

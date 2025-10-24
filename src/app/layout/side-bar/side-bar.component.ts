@@ -8,9 +8,10 @@ const LINKS = {
   contact: "/contact",
 };
 @Component({
-  selector: "app-side-bar",
-  templateUrl: "./side-bar.component.html",
-  styleUrls: ["./side-bar.component.scss"],
+    selector: "app-side-bar",
+    templateUrl: "./side-bar.component.html",
+    styleUrls: ["./side-bar.component.scss"],
+    standalone: false
 })
 export class SideBarComponent {
   public links = Object.keys(LINKS);

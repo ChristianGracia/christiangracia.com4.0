@@ -16,9 +16,10 @@ import {
 import { openLink } from "src/app/util";
 
 @Component({
-  selector: "app-header",
-  templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"],
+    selector: "app-header",
+    templateUrl: "./header.component.html",
+    styleUrls: ["./header.component.scss"],
+    standalone: false
 })
 export class HeaderComponent implements AfterViewInit, OnDestroy {
   @Output()

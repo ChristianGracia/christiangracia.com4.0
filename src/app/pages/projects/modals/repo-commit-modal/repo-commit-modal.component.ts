@@ -1,20 +1,22 @@
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { MatPaginator } from "@angular/material/paginator";
-import { MatTableDataSource } from "@angular/material/table";
 import { GITHUB_ICON } from "src/app/constants/icons";
 import { Commit } from "src/app/modules/lazy-shared/models/commit.model";
 import { GithubService } from "src/app/modules/lazy-shared/services/github.service";
 import { openLink } from "src/app/util";
+import {  MatPaginator } from "@angular/material/paginator";
+
+import { MatTableDataSource}from '@angular/material/table'
 export interface DialogData {
   repo: string;
   url: string;
 }
 
 @Component({
-  selector: "app-repo-commit-modal",
-  templateUrl: "./repo-commit-modal.component.html",
-  styleUrls: ["./repo-commit-modal.component.scss"],
+    selector: "app-repo-commit-modal",
+    templateUrl: "./repo-commit-modal.component.html",
+    styleUrls: ["./repo-commit-modal.component.scss"],
+    standalone: false
 })
 export class RepoCommitModalComponent implements OnInit {
   public loadingCommits: boolean = false;

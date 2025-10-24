@@ -39,9 +39,10 @@ const BASH_SCRIPT_GEN: Site = new Site(
 );
 
 @Component({
-  selector: "app-side-projects",
-  templateUrl: "./side-projects.component.html",
-  styleUrls: ["./side-projects.component.scss"],
+    selector: "app-side-projects",
+    templateUrl: "./side-projects.component.html",
+    styleUrls: ["./side-projects.component.scss"],
+    standalone: false
 })
 export class SideProjectsComponent implements OnInit {
   public sites: Site[] = [
